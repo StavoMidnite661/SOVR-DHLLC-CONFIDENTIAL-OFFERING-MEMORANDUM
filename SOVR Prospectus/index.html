@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOVR Prospectus | Data Center</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&family=JetBrains+Mono:wght@100;300;400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #000000;
+            --surface: #0a0a0a;
+            --panel: rgba(16, 16, 16, 0.6);
+            --border: rgba(255, 255, 255, 0.08);
+            --accent: #ff3e00;
+            --wire: #2a2a2a;
+            --wire-active: #00f0ff;
+            --text-main: #ffffff;
+            --text-dim: #888888;
+            --mono: 'JetBrains Mono', monospace;
+            --sans: 'Space Grotesk', sans-serif;
+            --sidebar-width: 80px;
+            --header-height: 340px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+            color: var(--text-main);
+            font-family: var(--sans);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            overflow-x: hidden;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: var(--sidebar-width);
+            height: 100vh;
+            border-right: 1px solid var(--border);
+            position: fixed;
+            left: 0;
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+        }
+
+        .nav-items {
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+            margin-top: 2rem;
+        }
+
+        .nav-item {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.2em;
+            color: var(--text-dim);
+            text-decoration: none;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover, .nav-item.active {
+            color: var(--accent-cyan);
+        }
+
+        .view-memo {
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.24em;
+            color: var(--text-dim);
+            text-decoration: none;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
+
+        /* Stationary Header */
+        .stationary-header {
+            position: fixed;
+            top: 0;
+            left: var(--sidebar-width);
+            right: 0;
+            height: var(--header-height);
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(40px);
+            border-bottom: 1px solid var(--border);
+            padding: 2rem 4rem;
+            z-index: 900;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 2rem;
+        }
+
+        /* Main Scroll Container */
+        .main-scroll-root {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            height: 100vh;
+            overflow-y: scroll;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .scroll-content {
+            padding: 2rem 4rem 8rem;
+            max-width: 1600px;
+            margin-top: var(--header-height);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--accent);
+            letter-spacing: 0.3em;
+            display: flex;
+            gap: 1rem;
+            text-transform: uppercase;
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .data-center-badge {
+            margin-left: auto;
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--accent-cyan);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        /* Header Section Logic (index_v13 inspired) */
+        .header-section {
+            border-left: 5px solid var(--accent);
+            padding-left: 2.5rem;
+            margin-top: 0;
+        }
+
+        .header-title-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .main-title {
+            font-size: clamp(3rem, 8vw, 7rem);
+            font-weight: 700;
+            letter-spacing: -3px;
+            line-height: 0.85;
+            margin: 0;
+            position: relative;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .main-title::before,
+        .main-title::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.8;
+            visibility: hidden;
+        }
+
+        .main-title:hover::before {
+            visibility: visible;
+            animation: glitch-anim-1 0.4s infinite linear alternate-reverse;
+            color: var(--accent-cyan);
+            z-index: 1;
+        }
+
+        .main-title:hover::after {
+            visibility: visible;
+            animation: glitch-anim-2 0.3s infinite linear alternate-reverse;
+            color: var(--accent-red);
+            z-index: 1;
+        }
+
+        .main-title:hover {
+            animation: main-glitch 0.2s infinite, color-glitch 0.1s infinite;
+        }
+
+        @keyframes glitch-anim-1 {
+            0% { clip-path: inset(20% 0 50% 0); transform: translate(-5px, -2px); color: var(--wire-active); }
+            20% { clip-path: inset(10% 0 80% 0); transform: translate(5px, 2px); color: var(--accent); }
+            40% { clip-path: inset(40% 0 30% 0); transform: translate(-3px, 4px); color: #fff; }
+            60% { clip-path: inset(70% 0 10% 0); transform: translate(3px, -4px); color: var(--wire-active); }
+            80% { clip-path: inset(30% 0 60% 0); transform: translate(-5px, 2px); color: var(--accent); }
+            100% { clip-path: inset(50% 0 20% 0); transform: translate(5px, -2px); color: #fff; }
+        }
+
+        @keyframes glitch-anim-2 {
+            0% { clip-path: inset(10% 0 80% 0); transform: translate(5px, 2px); color: var(--accent); }
+            25% { clip-path: inset(50% 0 20% 0); transform: translate(-5px, -2px); color: var(--wire-active); }
+            50% { clip-path: inset(30% 0 60% 0); transform: translate(3px, 4px); color: #fff; }
+            75% { clip-path: inset(70% 0 10% 0); transform: translate(-3px, -4px); color: var(--accent); }
+            100% { clip-path: inset(20% 0 50% 0); transform: translate(5px, 2px); color: var(--wire-active); }
+        }
+
+        @keyframes main-glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 1px); }
+            40% { transform: translate(-2px, -1px); }
+            60% { transform: translate(2px, 1px); }
+            80% { transform: translate(2px, -1px); }
+            100% { transform: translate(0); }
+        }
+
+        @keyframes color-glitch {
+            0% { color: #fff; text-shadow: 2px 0 var(--accent), -2px 0 var(--wire-active); }
+            25% { color: var(--accent); text-shadow: none; }
+            50% { color: #fff; text-shadow: -2px 0 var(--accent), 2px 0 var(--wire-active); }
+            75% { color: var(--wire-active); text-shadow: none; }
+            100% { color: #fff; text-shadow: 2px 0 var(--accent), -2px 0 var(--wire-active); }
+        }
+
+        .dba-title {
+            font-size: 1.5rem;
+            font-weight: 400;
+            color: var(--accent-amber);
+            letter-spacing: 0.05em;
+        }
+
+        .transaction-meta {
+            display: flex;
+            gap: 40px;
+            margin-top: 32px;
+            font-family: var(--mono);
+            font-size: 14px;
+            color: var(--text-dim);
+            padding: 0;
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .meta-item {
+            display: flex;
+            gap: 10px;
+        }
+
+        .meta-item span {
+            color: var(--accent);
+            opacity: 0.7;
+        }
+
+        .collateral-line {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            letter-spacing: 0.3em;
+            color: #444; /* Dimmed as meta-info */
+            text-transform: uppercase;
+            margin-top: 2rem;
+            display: block;
+        }
+
+        /* Info Grid Area */
+        .info-grid-container {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            padding: 2rem;
+            margin-bottom: 5rem;
+            display: grid;
+            grid-template-columns: 1.5fr 1fr 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 2rem 3rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .info-cell {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .info-cell label {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--accent-cyan);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .info-cell span {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            color: #ccc;
+            font-weight: 500;
+        }
+
+        /* Document Sections */
+        .section-wrapper {
+            margin-bottom: 6rem;
+        }
+
+        .section-title-line {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .section-h {
+            font-family: var(--mono);
+            font-size: 1.25rem;
+            color: var(--accent-cyan);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .section-desc {
+            font-size: 0.9rem;
+            color: #666;
+            margin-left: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Card Grid */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--border);
+            border: 1px solid var(--border);
+        }
+
+        .grid-card {
+            background: #0d0d0d;
+            padding: 2rem;
+            min-height: 220px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: background 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .grid-card:hover {
+            background: #151515;
+        }
+
+        .grid-card.empty {
+            background: #080808;
+            opacity: 0.5;
+        }
+
+        .card-top label {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            color: var(--accent-amber);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-top h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #eee;
+        }
+
+        .card-top p {
+            font-size: 0.75rem;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .card-bottom {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            margin-top: 1.5rem;
+        }
+
+        .status-indicator {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+        }
+
+        .status-added .status-indicator { background: var(--accent-amber); box-shadow: 0 0 8px var(--accent-amber); }
+        .status-official .status-indicator { background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); }
+        .status-draft .status-indicator { background: var(--accent-red); box-shadow: 0 0 8px var(--accent-red); }
+        .status-pending .status-indicator { background: var(--accent-amber); box-shadow: 0 0 8px var(--accent-amber); }
+        .status-executed .status-indicator { background: var(--accent-green); box-shadow: 0 0 8px var(--accent-green); }
+
+        .status-added { color: var(--accent-amber); }
+        .status-official { color: var(--accent-cyan); }
+        .status-draft { color: var(--accent-red); }
+        .status-pending { color: var(--accent-amber); }
+        .status-executed { color: var(--accent-green); }
+
+        /* Representative Card */
+        .rep-card {
+            background: var(--panel);
+            border: 1px solid var(--accent-amber);
+            border-radius: 4px;
+            padding: 3rem;
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+            margin-top: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .avatar-circle {
+            width: 100px;
+            height: 100px;
+            background: var(--accent-amber);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: 700;
+            color: black;
+            font-family: var(--sans);
+            flex-shrink: 0;
+        }
+
+        .rep-info {
+            flex: 1;
+        }
+
+        .rep-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
+        }
+
+        .rep-role {
+            font-size: 0.8rem;
+            color: var(--accent-amber);
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .rep-details {
+            display: flex;
+            gap: 4rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+
+        .detail-item label {
+            display: block;
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-item span {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: #eee;
+        }
+
+        .detail-item a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+        }
+
+        /* Principle Box */
+        .principle-box {
+            border: 1px solid var(--accent-green);
+            padding: 2.5rem;
+            margin: 6rem 0;
+            position: relative;
+            background: rgba(0, 245, 212, 0.02);
+        }
+
+        .principle-label {
+            position: absolute;
+            top: -10px;
+            left: 2rem;
+            background: var(--bg);
+            padding: 0 1rem;
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--accent-green);
+            letter-spacing: 0.2em;
+        }
+
+        .principle-dot {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--accent-green);
+        }
+
+        .principle-quote {
+            font-size: 1.1rem;
+            font-weight: 400;
+            font-style: italic;
+            color: #eee;
+            opacity: 0.9;
+        }
+
+        /* Bottom Footer Area */
+        .closing-section {
+            text-align: center;
+            margin: 12rem 0 6rem;
+            position: relative;
+        }
+
+        .closing-section::before {
+            content: '';
+            position: absolute;
+            top: -4rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 4px;
+            background: white;
+        }
+
+        .clearing-text {
+            font-size: 1.8rem;
+            color: #fff;
+            margin: 4rem auto;
+            max-width: 900px;
+            line-height: 1.3;
+            font-weight: 300;
+            letter-spacing: -0.01em;
+        }
+
+        .clearing-text b {
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .clearing-text i {
+            color: var(--text-main);
+            font-style: normal;
+            font-weight: 500;
+        }
+
+        .button-wrapper {
+            margin: 6rem 0 4rem;
+            display: flex;
+            justify-content: center;
+        }
+
+        .clearing-btn {
+            display: inline-block;
+            border: 4px solid white;
+            padding: 1.2rem 4rem;
+            font-family: var(--mono);
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 0.4em;
+            color: white;
+            text-decoration: none;
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: transparent;
+            transform: rotate(-3deg);
+            text-transform: uppercase;
+        }
+
+        .clearing-btn:hover {
+            background: white;
+            color: black;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+            transform: rotate(0deg) scale(1.05);
+        }
+
+        .signature-area {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 4rem;
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: #444;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .signature-field span {
+            color: #222;
+            letter-spacing: -1px;
+        }
+
+        .final-footer {
+            border-top: 1px solid var(--border);
+            padding-top: 3rem;
+            text-align: center;
+        }
+
+        .confidential-label {
+            color: var(--accent-red);
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            margin-bottom: 0.5rem;
+        }
+
+        .access-restricted {
+            font-size: 0.75rem;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+
+        .footer-entity {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: #444;
+            letter-spacing: 0.05em;
+        }
+
+        .last-updated {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: #333;
+            margin-top: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+            .info-grid-container { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .main-container { padding: 2rem; margin-left: 0; }
+            .sidebar { display: none; }
+            .main-title { font-size: 3rem; }
+            .card-grid { grid-template-columns: 1fr; }
+            .transaction-meta { flex-direction: column; gap: 0.75rem; }
+            .header-title-wrapper { margin-top: 2rem; }
+            .rep-card { flex-direction: column; text-align: center; padding: 2rem; }
+            .rep-details { flex-direction: column; gap: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="nav-items">
+            <a href="#primary" class="nav-item">09 // PRIMARY</a>
+            <a href="#legal" class="nav-item">10 // LEGAL</a>
+            <a href="#financial" class="nav-item">11 // FINANCIAL</a>
+            <a href="#diligence" class="nav-item current">12 // DILIGENCE</a>
+            <a href="#contact" class="nav-item">13 // CONTACT</a>
+        </div>
+        <a href="./CONFIDENTIAL OFFERING MEMORANDUM - SOVR Developmen.html" class="view-memo">VIEW MEMO</a>
+    </nav>
+
+    <header class="stationary-header">
+        <div class="top-bar">
+            DATA ROOM ACCESS // VERSION 2.0 // 2026-03-30
+            <span class="data-center-badge">DATA CENTER</span>
+        </div>
+
+        <section class="header-section">
+            <div class="header-title-wrapper">
+                <h1 class="main-title" data-text="SOVR">SOVR</h1>
+                <h2 class="dba-title">dba SOVR EMPIRE</h2>
+            </div>
+
+            <div class="transaction-meta">
+                <div class="meta-item"><span>TYPE:</span> SENIOR SECURED FINANCING</div>
+                <div class="meta-item"><span>ENTITY:</span> SOVR DEVELOPMENT HOLDINGS LLC</div>
+                <div class="meta-item"><span>JURISDICTION:</span> WYOMING</div>
+            </div>
+
+            <div class="collateral-line">
+                COLLATERAL PROTECTION: 400,000 COMMON SHARES
+            </div>
+        </section>
+    </header>
+
+    <main class="main-scroll-root">
+        <div class="scroll-content">
+            <section class="info-grid-container">
+            <div class="info-cell">
+                <label>Legal Entity</label>
+                <span>SOVR DEVELOPMENT HOLDINGS LLC</span>
+            </div>
+            <div class="info-cell">
+                <label>EIN</label>
+                <span>39-2332625</span>
+            </div>
+            <div class="info-cell">
+                <label>D-U-N-S</label>
+                <span>13-682-4504</span>
+            </div>
+            <div class="info-cell">
+                <label>UID</label>
+                <span>K752ULAXJV36</span>
+            </div>
+            <div class="info-cell">
+                <label>Operations</label>
+                <span>3704 Loudon St, Bakersfield, CA 93313</span>
+            </div>
+            <div class="info-cell">
+                <label>Registered Agent</label>
+                <span>2120 Carey Ave, Cheyenne, WY 82001</span>
+            </div>
+        </section>
+
+        <!-- Section 09 // PRIMARY -->
+        <div class="section-wrapper" id="primary">
+            <div class="section-title-line">
+                <div class="section-dot"></div>
+                <h2 class="section-h">09 // PRIMARY DOCUMENTS</h2>
+            </div>
+            <p class="section-desc">Core offering materials for investor evaluation and due diligence</p>
+            
+            <div class="card-grid">
+                <a href="./CONFIDENTIAL OFFERING MEMORANDUM - SOVR Developmen.html" class="grid-card">
+                    <div class="card-top">
+                        <label>OFFERING MEMORANDUM</label>
+                        <h3>Confidential Offering Memorandum</h3>
+                        <p>Complete transaction documentation including terms, structure, security package, covenants, and detailed company overview.</p>
+                    </div>
+                    <div class="card-bottom status-official">
+                        <div class="status-indicator"></div> Interactive HTML
+                    </div>
+                </a>
+                <div class="grid-card">
+                    <div class="card-top">
+                        <label>SUMMARY</label>
+                        <h3>Executive Summary</h3>
+                        <p>Two-page overview of the transaction structure, key terms, and investment highlights.</p>
+                    </div>
+                    <div class="card-bottom status-added">
+                        <div class="status-indicator"></div> To Be Added
+                    </div>
+                </div>
+                <div class="grid-card">
+                    <div class="card-top">
+                        <label>MODEL</label>
+                        <h3>Financial Projections</h3>
+                        <p>3-year financial model with income statement, balance sheet, cash flow projections, and sensitivity analysis.</p>
+                    </div>
+                    <div class="card-bottom status-added">
+                        <div class="status-indicator"></div> To Be Added
+                    </div>
+                </div>
+                <div class="grid-card empty"></div>
+            </div>
+        </div>
+
+        <!-- Section 10 // LEGAL -->
+        <div class="section-wrapper" id="legal">
+            <div class="section-title-line">
+                <div class="section-dot"></div>
+                <h2 class="section-h">10 // LEGAL & CORPORATE DOCUMENTS</h2>
+            </div>
+            <p class="section-desc">Organizational documents and governing instruments</p>
+            <div class="card-grid">
+                <div class="grid-card">
+                    <div class="card-top">
+                        <label>FORMATION</label>
+                        <h3>Certificate of Formation</h3>
+                        <p>Wyoming LLC formation document and certificate of good standing.</p>
+                    </div>
+                    <div class="card-bottom status-official">
+                        <div class="status-indicator"></div> Official
+                    </div>
+                </div>
+                <div class="grid-card">
+                    <div class="card-top">
+                        <label>GOVERNANCE</label>
+                        <h3>Operating Agreement</h3>
+                        <p>LLC operating agreement with member rights and management structure provisions.</p>
+                    </div>
+                    <div class="card-bottom status-executed">
+                        <div class="status-indicator"></div> Executed
+                    </div>
+                </div>
+                <div class="grid-card">
+                    <div class="card-top">
+                        <label>AUTHORIZATION</label>
+                        <h3>Board Resolutions</h3>
+                        <p>Resolutions authorizing the financing transaction and pledge of shares.</p>
+                    </div>
+                    <div class="card-bottom status-draft">
+                        <div class="status-indicator"></div> Draft
+                    </div>
+                </div>
+                <div class="grid-card">
+                    <div class="card-top">
+                        <label>SECURITY</label>
+                        <h3>Pledge Agreement</h3>
+                        <p>Stock pledge agreement establishing security interest in collateral shares.</p>
+                    </div>
+                    <div class="card-bottom status-draft">
+                        <div class="status-indicator"></div> Draft
+                    </div>
+                </div>
+                <div class="grid-card">
+                    <div class="card-top">
+                        <label>SECURITY</label>
+                        <h3>Security Agreement</h3>
+                        <p>Comprehensive security agreement covering all collateral and perfection mechanisms.</p>
+                    </div>
+                    <div class="card-bottom status-draft">
+                        <div class="status-indicator"></div> Draft
+                    </div>
+                </div>
+                <div class="grid-card">
+                    <div class="card-top">
+                        <label>OPINIONS</label>
+                        <h3>Legal Opinions</h3>
+                        <p>Corporate counsel opinions on valid existence, authority, and enforceability.</p>
+                    </div>
+                    <div class="card-bottom status-pending">
+                        <div class="status-indicator"></div> Pending
+                    </div>
+                </div>
+                <div class="grid-card empty"></div>
+                <div class="grid-card empty"></div>
+            </div>
+        </div>
+
+        <!-- Section 11 // FINANCIAL -->
+        <div class="section-wrapper" id="financial">
+            <div class="section-title-line">
+                <div class="section-dot"></div>
+                <h2 class="section-h">11 // FINANCIAL DOCUMENTS</h2>
+            </div>
+            <p class="section-desc">Financial statements, capital structure, and identification</p>
+            <div class="card-grid">
+                <div class="grid-card">
+                    <div class="card-top">
+                        <label>CAPITALIZATION</label>
+                        <h3>Cap Table</h3>
+                        <p>Current capitalization table showing equity ownership and structure.</p>
+                    </div>
+                    <div class="card-bottom status-added">
+                        <div class="status-indicator"></div> To Be Added
+                    </div>
+                </div>
+                <div class="grid-card">
+                    <div class="card-top">
+                        <label>IDENTIFICATION</label>
+                        <h3>EIN Letter</h3>
+                        <p>IRS confirmation of Employer Identification Number 39-2332625.</p>
+                    </div>
+                    <div class="card-bottom status-official">
+                        <div class="status-indicator"></div> Official
+                    </div>
+                </div>
+                <div class="grid-card">
+                    <div class="card-top">
+                        <label>PROCEEDS</label>
+                        <h3>Use of Proceeds</h3>
+                        <p>Detailed allocation plan for financing proceeds by category and timeline.</p>
+                    </div>
+                    <div class="card-bottom status-draft">
+                        <div class="status-indicator"></div> Draft
+                    </div>
+                </div>
+                <div class="grid-card empty"></div>
+            </div>
+        </div>
+
+        <!-- Section 12 // DILIGENCE -->
+        <div class="section-wrapper" id="diligence">
+            <div class="section-title-line">
+                <div class="section-dot"></div>
+                <h2 class="section-h">12 // DUE DILIGENCE MATERIALS</h2>
+            </div>
+            <p class="section-desc">Supporting documentation for comprehensive review</p>
+            <div class="card-grid">
+                <div class="grid-card">
+                    <div class="card-top">
+                        <label>CONTRACTS</label>
+                        <h3>Material Contracts</h3>
+                        <p>Key customer agreements, vendor contracts, and partnership arrangements.</p>
+                    </div>
+                    <div class="card-bottom status-added">
+                        <div class="status-indicator"></div> To Be Added
+                    </div>
+                </div>
+                <div class="grid-card">
+                    <div class="card-top">
+                        <label>INSURANCE</label>
+                        <h3>Insurance Policies</h3>
+                        <p>Current insurance coverage documentation and certificates.</p>
+                    </div>
+                    <div class="card-bottom status-added">
+                        <div class="status-indicator"></div> To Be Added
+                    </div>
+                </div>
+                <div class="grid-card">
+                    <div class="card-top">
+                        <label>ASSETS</label>
+                        <h3>Asset Schedule</h3>
+                        <p>Detailed schedule of company assets and valuations.</p>
+                    </div>
+                    <div class="card-bottom status-added">
+                        <div class="status-indicator"></div> To Be Added
+                    </div>
+                </div>
+                <div class="grid-card">
+                    <div class="card-top">
+                        <label>IP</label>
+                        <h3>Intellectual Property</h3>
+                        <p>IP registrations, assignments, and protection mechanisms.</p>
+                    </div>
+                    <div class="card-bottom status-added">
+                        <div class="status-indicator"></div> To Be Added
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 13 // CONTACT -->
+        <div class="section-wrapper" id="contact">
+            <div class="section-title-line">
+                <div class="section-dot"></div>
+                <h2 class="section-h">13 // REPRESENTATIVE</h2>
+            </div>
+            <p class="section-desc">Primary contact for this transaction</p>
+            
+            <div class="rep-card">
+                <div class="avatar-circle">GM</div>
+                <div class="rep-info">
+                    <div class="rep-name">GUSTAVO O MALDONADO TTEE</div>
+                    <div class="rep-role">
+                        Founder of SOVR Empire | Web3 Vault Architect | Trust Law Strategist | 
+                        Real-Time Payment Systems | Builder of Tokenized Credit Ecosystems
+                    </div>
+                    <div class="rep-details">
+                        <div class="detail-item">
+                            <label>BUSINESS EMAIL</label>
+                            <span><a href="mailto:admin@sovr.credit">admin@sovr.credit</a></span><br>
+                            <span><a href="mailto:SOVR.Empire@sovr.credit">SOVR.Empire@sovr.credit</a></span>
+                        </div>
+                        <div class="detail-item">
+                            <label>OPERATIONS</label>
+                            <span>3704 Loudon St Bakersfield, CA 93313</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="principle-box">
+            <div class="principle-label">MECHANICAL TRUTH PRINCIPLE</div>
+            <div class="principle-dot"></div>
+            <div class="principle-quote">
+                "If it did not clear in TigerBeetle, it did not happen. Truth is mechanical, not narrative."
+            </div>
+        </section>
+
+        <section class="closing-section">
+            <div class="clearing-text">
+                SOVR is not fintech. It is a <b>ledger-cleared obligation network</b> where <i>Truth is Mechanical</i>. Fiat is optional. Banks are adapters.
+            </div>
+            <div class="button-wrapper">
+                <a href="./CONFIDENTIAL OFFERING MEMORANDUM - SOVR Developmen.html" class="clearing-btn">CLEARING REALITY ITSELF</a>
+            </div>
+            
+            <div class="signature-area">
+                <div class="signature-field">APPROVED: <span>______________________________</span></div>
+                <div class="signature-field">DATE: <span>202X.0X.XX</span></div>
+            </div>
+        </section>
+
+        <footer class="final-footer">
+            <div class="confidential-label">CONFIDENTIAL DATA ROOM</div>
+            <p class="access-restricted">Access limited to qualified institutional investors under appropriate confidentiality agreements</p>
+            <div class="footer-entity">SOVR DEVELOPMENT HOLDINGS LLC dba SOVR EMPIRE | EIN: 39-2332625</div>
+            <div class="last-updated">Last Updated: 2026-03-30 | All files current as of this date</div>
+        </footer>
+
+        </div>
+    </main>
+
+</body>
+</html>

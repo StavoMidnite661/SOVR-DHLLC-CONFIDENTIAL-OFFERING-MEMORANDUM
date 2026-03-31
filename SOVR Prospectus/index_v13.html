@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOVR | CANONICAL SPEC V2</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;700&family=JetBrains+Mono:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #030303;
+            --wire: #2a2a2a;
+            --wire-active: #00f0ff;
+            --accent: #ff3e00;
+            --text-main: #e0e0e0;
+            --text-dim: #777;
+            --truth-green: #00ff41;
+            --mechanical-gray: #151515;
+            --font-sans: 'Space Grotesk', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+            --tension-ease: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            line-height: 1.4;
+        }
+
+        /* Background Kinetic Grid */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(circle at 2px 2px, var(--wire) 1px, transparent 0);
+            background-size: 40px 40px;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        /* Header / Logo Section */
+        header {
+            border-left: 4px solid var(--accent);
+            padding-left: 24px;
+            margin-bottom: 120px;
+            position: relative;
+        }
+
+        .spec-label {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--accent);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 700;
+            line-height: 0.9;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .header-meta {
+            display: flex;
+            gap: 40px;
+            margin-top: 24px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--text-dim);
+        }
+
+        /* Tensioned Wire Logic Layout */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 20px;
+            position: relative;
+        }
+
+        /* The Authority Hierarchy Visualization */
+        .hierarchy-viz {
+            grid-column: 1 / 6;
+            position: sticky;
+            top: 40px;
+            height: fit-content;
+        }
+
+        .hierarchy-step {
+            padding: 24px;
+            border: 1px solid var(--wire);
+            margin-bottom: -1px;
+            background: var(--bg);
+            transition: all 0.4s var(--tension-ease);
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .hierarchy-step::after {
+            content: "";
+            position: absolute;
+            left: 0; top: 0; height: 100%; width: 2px;
+            background: var(--wire-active);
+            transform: scaleY(0);
+            transition: transform 0.4s var(--tension-ease);
+        }
+
+        .hierarchy-step:hover {
+            border-color: var(--wire-active);
+            transform: translateX(10px);
+            z-index: 10;
+            box-shadow: -20px 0 50px rgba(0, 240, 255, 0.05);
+        }
+
+        .hierarchy-step:hover::after {
+            transform: scaleY(1);
+        }
+
+        .step-num {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .step-title {
+            font-size: 24px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .step-tag {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            background: #111;
+            padding: 4px 8px;
+            margin-top: 12px;
+            display: inline-block;
+            border: 1px solid #222;
+        }
+
+        /* Detail Content */
+        .content-sections {
+            grid-column: 7 / 13;
+        }
+
+        section {
+            margin-bottom: 160px;
+            animation: reveal 1s var(--tension-ease) both;
+        }
+
+        @keyframes reveal {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 48px;
+            margin-bottom: 40px;
+            border-bottom: 1px solid var(--wire);
+            padding-bottom: 20px;
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+        }
+
+        h2::after {
+            content: "SEC-ID: " attr(data-id);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-dim);
+        }
+
+        .mechanical-truth {
+            background: var(--mechanical-gray);
+            padding: 40px;
+            border-radius: 4px;
+            border: 1px solid var(--truth-green);
+            position: relative;
+        }
+
+        .truth-indicator {
+            position: absolute;
+            top: 20px; right: 20px;
+            width: 8px; height: 8px;
+            background: var(--truth-green);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--truth-green);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+
+        .property-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 32px;
+        }
+
+        .prop-item label {
+            display: block;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-dim);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .prop-item p {
+            font-size: 18px;
+            color: var(--text-main);
+        }
+
+        /* Forbidden Operations Table */
+        .forbidden-zone {
+            border: 2px solid var(--accent);
+            padding: 40px;
+            background: repeating-linear-gradient(
+                45deg,
+                #1a0805,
+                #1a0805 10px,
+                #030303 10px,
+                #030303 20px
+            );
+        }
+
+        .forbidden-list {
+            list-style: none;
+        }
+
+        .forbidden-list li {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 62, 0, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .forbidden-list li strong {
+            font-size: 20px;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+
+        .forbidden-list li span {
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--text-main);
+        }
+
+        /* Risk Posture Cards */
+        .risk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1px;
+            background: var(--wire);
+            border: 1px solid var(--wire);
+        }
+
+        .risk-card {
+            background: var(--bg);
+            padding: 30px;
+            transition: background 0.3s;
+        }
+
+        .risk-card:hover {
+            background: #0a0a0a;
+        }
+
+        .risk-card h4 {
+            font-family: var(--font-mono);
+            margin-bottom: 16px;
+            color: var(--wire-active);
+        }
+
+        /* Lifecycle Diagram Flow */
+        .lifecycle-flow {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .phase {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .phase-num {
+            width: 40px; height: 40px;
+            border: 1px solid var(--wire-active);
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-mono);
+            flex-shrink: 0;
+            background: var(--bg);
+            z-index: 2;
+        }
+
+        .phase::before {
+            content: "";
+            position: absolute;
+            left: 20px; top: 40px; bottom: -60px;
+            width: 1px; background: var(--wire);
+        }
+
+        .phase:last-child::before { display: none; }
+
+        .phase-content h3 {
+            font-size: 20px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        /* Bottom Verdict Section */
+        .verdict {
+            margin-top: 200px;
+            border-top: 8px solid var(--text-main);
+            padding-top: 60px;
+            text-align: center;
+        }
+
+        .verdict p {
+            font-size: 32px;
+            font-weight: 300;
+            max-width: 900px;
+            margin: 0 auto 40px;
+        }
+
+        .approval-stamp {
+            display: inline-block;
+            border: 2px solid var(--text-main);
+            padding: 20px 40px;
+            font-family: var(--font-mono);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            transform: rotate(-2deg);
+        }
+
+        /* Responsiveness */
+        @media (max-width: 1024px) {
+            .grid-layout { display: block; }
+            .hierarchy-viz { position: static; margin-bottom: 80px; }
+            .content-sections { margin-top: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <span class="spec-label">Internal Document // Mechanical Reality // V2.0</span>
+        <h1>SOVR Canonical Specification</h1>
+        <div class="header-meta">
+            <span>TYPE: LEDGER-CLEARED OBLIGATION NETWORK</span>
+            <span>STATUS: FINALIZED</span>
+            <span>ENGINE: TIGERBEETLE</span>
+        </div>
+    </header>
+
+    <div class="grid-layout">
+        <!-- Sticky Sidebar Hierarchy -->
+        <aside class="hierarchy-viz">
+            <div class="hierarchy-step">
+                <span class="step-num">01</span>
+                <div class="step-title">TigerBeetle</div>
+                <span class="step-tag">Sole Clearing Authority</span>
+            </div>
+            <div class="hierarchy-step">
+                <span class="step-num">02</span>
+                <div class="step-title">Attestors</div>
+                <span class="step-tag">Legitimacy Gatekeepers</span>
+            </div>
+            <div class="hierarchy-step">
+                <span class="step-num">03</span>
+                <div class="step-title">Observers</div>
+                <span class="step-tag">Narrative Mirrors</span>
+            </div>
+            <div class="hierarchy-step">
+                <span class="step-num">04</span>
+                <div class="step-title">Honoring Agents</div>
+                <span class="step-tag">External Executors</span>
+            </div>
+            <div style="margin-top: 60px; padding: 20px; border: 1px dashed var(--wire);">
+                <p style="font-family: var(--font-mono); font-size: 12px; color: var(--text-dim);">
+                    "If it did not clear in TigerBeetle, it did not happen. Truth is mechanical, not narrative."
+                </p>
+            </div>
+        </aside>
+
+        <!-- Main Content Stream -->
+        <main class="content-sections">
+            
+            <!-- Section 1: The Engine -->
+            <section id="tigerbeetle">
+                <h2 data-id="01.TB">The Clearing Engine</h2>
+                <div class="mechanical-truth">
+                    <div class="truth-indicator"></div>
+                    <p style="font-family: var(--font-mono); font-size: 13px; color: var(--truth-green); margin-bottom: 20px;">SYSTEM_STATE: AUTHORITATIVE</p>
+                    <div class="property-grid">
+                        <div class="prop-item">
+                            <label>Role</label>
+                            <p>Mechanical Truth Engine</p>
+                        </div>
+                        <div class="prop-item">
+                            <label>Finality</label>
+                            <p>Irreversible Clearing</p>
+                        </div>
+                        <div class="prop-item">
+                            <label>Cluster Size</label>
+                            <p>5 Distributed Nodes</p>
+                        </div>
+                        <div class="prop-item">
+                            <label>Invariants</label>
+                            <p>No Balance Mutation</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 2: Gatekeepers -->
+            <section id="attestation">
+                <h2 data-id="02.AT">Attestation Layer</h2>
+                <p style="color: var(--text-dim); margin-bottom: 30px;">
+                    The Attestor functions as a Legitimacy Gate. It enforces policy BEFORE clearing, ensuring only valid intent reaches the engine.
+                </p>
+                <div class="risk-grid">
+                    <div class="risk-card">
+                        <h4>Validation</h4>
+                        <p>Claims verified against network policy.</p>
+                    </div>
+                    <div class="risk-card">
+                        <h4>Double-Spend</h4>
+                        <p>Prevention of concurrent execution.</p>
+                    </div>
+                    <div class="risk-card">
+                        <h4>Policy</h4>
+                        <p>Account and transfer restriction logic.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 3: Forbidden -->
+            <section id="forbidden">
+                <h2 data-id="03.FX">Forbidden Operations</h2>
+                <div class="forbidden-zone">
+                    <ul class="forbidden-list">
+                        <li>
+                            <strong>Balance Mutation</strong>
+                            <span>NO MANUAL ADJUSTMENTS</span>
+                        </li>
+                        <li>
+                            <strong>Transfer Reversal</strong>
+                            <span>NO ROLLBACKS / NO REFUNDS</span>
+                        </li>
+                        <li>
+                            <strong>Custodial Ambiguity</strong>
+                            <span>NO "USER FUNDS" POOLS</span>
+                        </li>
+                        <li>
+                            <strong>Narrative Authority</strong>
+                            <span>POSTGRES IS NOT TRUTH</span>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Section 4: Lifecycle -->
+            <section id="lifecycle">
+                <h2 data-id="04.LC">Transaction Lifecycle</h2>
+                <div class="lifecycle-flow">
+                    <div class="phase">
+                        <div class="phase-num">01</div>
+                        <div class="phase-content">
+                            <h3>Intent Submission</h3>
+                            <p>User submits claim via Credit Terminal. Translation from intent to transfer occurs.</p>
+                        </div>
+                    </div>
+                    <div class="phase">
+                        <div class="phase-num">02</div>
+                        <div class="phase-content">
+                            <h3>Attestation</h3>
+                            <p>Legitimacy check performed. Token issued. Claim validated for engine entry.</p>
+                        </div>
+                    </div>
+                    <div class="phase">
+                        <div class="phase-num">03</div>
+                        <div class="phase-content">
+                            <h3 style="color: var(--wire-active);">Clearing (Finality)</h3>
+                            <p>TigerBeetle clears obligation. Deterministic mechanical truth achieved. Irreversible.</p>
+                        </div>
+                    </div>
+                    <div class="phase">
+                        <div class="phase-num">04</div>
+                        <div class="phase-content">
+                            <h3>Propagation</h3>
+                            <p>Event Bus broadcasts to Observers and Honoring Agents. Narrative mirrors update.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section 5: Survival Posture -->
+            <section id="survival">
+                <h2 data-id="05.RP">Risk Posture</h2>
+                <div class="risk-grid">
+                    <div class="risk-card">
+                        <h4>No Central Control</h4>
+                        <p>No entity can freeze funds structuraly.</p>
+                    </div>
+                    <div class="risk-card">
+                        <h4>No Fiat Dependency</h4>
+                        <p>Banks are adapters, not core infrastructure.</p>
+                    </div>
+                    <div class="risk-card">
+                        <h4>Mechanical Truth</h4>
+                        <p>System survives narrative reclassification.</p>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Final Verdict -->
+    <div class="verdict">
+        <p>
+            SOVR is not fintech. It is a ledger-cleared obligation network where <strong>Truth is Mechanical</strong>. Fiat is optional. Banks are adapters.
+        </p>
+        <div class="approval-stamp">
+            CLEARING REALITY ITSELF
+        </div>
+        <div style="margin-top: 40px; font-family: var(--font-mono); color: var(--text-dim); font-size: 11px;">
+            APPROVED: _________________________ &nbsp;&nbsp; DATE: 202X.0X.XX
+        </div>
+    </div>
+</div>
+
+<script>
+    // Kinetic Tension Effect: Slight movement on hover for hierarchy steps
+    document.querySelectorAll('.hierarchy-step').forEach(step => {
+        step.addEventListener('mousemove', (e) => {
+            const rect = step.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            step.style.setProperty('--x', `${x}px`);
+            step.style.setProperty('--y', `${y}px`);
+        });
+    });
+
+    // Reveal elements on scroll
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = "1";
+                entry.target.style.transform = "translateY(0)";
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = "0";
+        section.style.transform = "translateY(40px)";
+        section.style.transition = "all 0.8s var(--tension-ease)";
+        observer.observe(section);
+    });
+</script>
+
+</body>
+</html>

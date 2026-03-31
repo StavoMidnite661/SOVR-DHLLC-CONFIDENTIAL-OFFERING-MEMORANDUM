@@ -1,0 +1,2233 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONFIDENTIAL OFFERING MEMORANDUM - SOVR Development Holdings, LLC</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --navy: #0a1628;
+            --charcoal: #1a2332;
+            --gold: #d4af37;
+            --white: #ffffff;
+            --light-gray: #e5e7eb;
+            --medium-gray: #9ca3af;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);
+            color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .watermark {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 120px;
+            font-weight: 700;
+            color: rgba(212, 175, 55, 0.05);
+            z-index: 0;
+            pointer-events: none;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--gold) 0%, #ffd700 100%);
+            z-index: 9999;
+            transition: width 0.1s ease;
+        }
+
+        .nav-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            z-index: 1000;
+            border-bottom: 2px solid var(--gold);
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-bar.visible {
+            transform: translateY(0);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--gold);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cover-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 80px 40px;
+        }
+
+        .cover-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(30deg, transparent 48%, rgba(212, 175, 55, 0.03) 49%, rgba(212, 175, 55, 0.03) 51%, transparent 52%),
+                linear-gradient(60deg, transparent 48%, rgba(212, 175, 55, 0.03) 49%, rgba(212, 175, 55, 0.03) 51%, transparent 52%);
+            background-size: 60px 60px;
+            opacity: 0.5;
+        }
+
+        .cover-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .confidential-banner {
+            display: inline-block;
+            background: linear-gradient(135deg, #c41e3a 0%, #8b0000 100%);
+            color: var(--white);
+            padding: 12px 40px;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 4px;
+            margin-bottom: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 4px 20px rgba(196, 30, 58, 0.4);
+        }
+
+        .cover-title {
+            font-size: 56px;
+            margin-bottom: 30px;
+            color: var(--gold);
+            text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+        }
+
+        .cover-subtitle {
+            font-size: 32px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .cover-entity {
+            font-size: 20px;
+            color: var(--medium-gray);
+            margin-bottom: 60px;
+        }
+
+        .cover-divider {
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent 0%, var(--gold) 50%, transparent 100%);
+            margin: 40px auto;
+        }
+
+        .cover-classification {
+            font-size: 14px;
+            color: var(--medium-gray);
+            margin-top: 40px;
+            font-style: italic;
+        }
+
+        .section {
+            padding: 100px 0;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            gap: 20px;
+        }
+
+        .section-number {
+            font-size: 48px;
+            color: var(--gold);
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            min-width: 80px;
+        }
+
+        .section-title {
+            font-size: 42px;
+            color: var(--gold);
+            flex: 1;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 15px;
+        }
+
+        .section-content {
+            padding-left: 100px;
+        }
+
+        .notice-box {
+            background: rgba(196, 30, 58, 0.1);
+            border: 2px solid #c41e3a;
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 4px 20px rgba(196, 30, 58, 0.2);
+        }
+
+        .notice-box h3 {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .highlight-box {
+            background: rgba(212, 175, 55, 0.1);
+            border-left: 4px solid var(--gold);
+            padding: 25px;
+            margin: 25px 0;
+            border-radius: 4px;
+        }
+
+        .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .info-card h4 {
+            color: var(--gold);
+            margin-bottom: 15px;
+            font-size: 22px;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 30px 0;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .data-table th {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold);
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .data-table tr:hover {
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+        .timeline {
+            position: relative;
+            padding: 40px 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--gold) 0%, transparent 100%);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 100px;
+            margin-bottom: 40px;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: 41px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            background: var(--gold);
+            border-radius: 50%;
+            border: 3px solid var(--navy);
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 3px solid var(--gold);
+        }
+
+        .toc {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            padding: 40px;
+            margin: 40px 0;
+        }
+
+        .toc-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .toc-item:hover {
+            padding-left: 20px;
+            color: var(--gold);
+        }
+
+        .toc-item:last-child {
+            border-bottom: none;
+        }
+
+        .toc-number {
+            color: var(--gold);
+            font-weight: 600;
+            margin-right: 15px;
+        }
+
+        .toc-title {
+            flex: 1;
+        }
+
+        .toc-page {
+            color: var(--medium-gray);
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            width: 50px;
+            height: 50px;
+            background: var(--gold);
+            color: var(--navy);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            font-size: 24px;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .back-to-top:hover {
+            background: #ffd700;
+            transform: translateY(-5px);
+        }
+
+        .list-styled {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .list-styled li {
+            padding: 12px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .list-styled li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        .expandable {
+            margin: 20px 0;
+        }
+
+        .expandable-header {
+            background: rgba(212, 175, 55, 0.1);
+            padding: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+
+        .expandable-header:hover {
+            background: rgba(212, 175, 55, 0.2);
+        }
+
+        .expandable-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .expandable.active .expandable-icon {
+            transform: rotate(180deg);
+        }
+
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            padding: 0 20px;
+        }
+
+        .expandable.active .expandable-content {
+            max-height: 2000px;
+            padding: 20px;
+        }
+
+        .signature-block {
+            background: rgba(255, 255, 255, 0.03);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+
+        .signature-line {
+            border-bottom: 2px solid var(--gold);
+            margin: 20px 0;
+            padding-bottom: 5px;
+        }
+
+        .kuse-branding {
+            text-align: center;
+            padding: 40px 0;
+            color: var(--medium-gray);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .kuse-branding:hover {
+            color: var(--gold);
+        }
+
+        .kuse-branding svg {
+            height: 1.2em;
+            width: auto;
+        }
+
+        @media (max-width: 768px) {
+            .cover-title {
+                font-size: 36px;
+            }
+
+            .cover-subtitle {
+                font-size: 24px;
+            }
+
+            .section-title {
+                font-size: 32px;
+            }
+
+            .section-number {
+                font-size: 32px;
+            }
+
+            .section-content {
+                padding-left: 0;
+            }
+
+            .two-column {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .container {
+                padding: 0 20px;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                padding-left: 60px;
+            }
+
+            .timeline-marker {
+                left: 11px;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .stat-value {
+            font-size: 36px;
+            color: var(--gold);
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: var(--medium-gray);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+    <div class="watermark">CONFIDENTIAL</div>
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <nav class="nav-bar" id="navBar">
+        <div class="nav-content">
+            <div class="nav-title">SOVR Development Holdings</div>
+            <ul class="nav-links">
+                <li><a href="#executive-summary">Executive Summary</a></li>
+                <li><a href="#offering-overview">Offering</a></li>
+                <li><a href="#capital-structure">Capital Structure</a></li>
+                <li><a href="#security-package">Security</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="cover-section fade-in">
+        <div class="cover-pattern"></div>
+        <div class="cover-content">
+            <div class="confidential-banner">CONFIDENTIAL</div>
+            <h1 class="cover-title">OFFERING MEMORANDUM</h1>
+            <h2 class="cover-subtitle">Senior Secured Loan-Stock Pledge Financing</h2>
+            <p class="cover-entity">SOVR Development Holdings, LLC<br><span style="font-size: 18px; color: var(--medium-gray);">dba SOVR Empire</span></p>
+            <div class="cover-divider"></div>
+            <p class="cover-entity">Wyoming Limited Liability Company</p>
+            <p class="cover-classification">Private Credit Transaction — Not for Public Distribution</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <section class="section" id="important-notices">
+            <div class="section-header">
+                <div class="section-number">01</div>
+                <h2 class="section-title">Important Notices</h2>
+            </div>
+            <div class="section-content">
+                <div class="notice-box">
+                    <h3>CONFIDENTIALITY NOTICE</h3>
+                    <p>This Confidential Offering Memorandum (the "Memorandum") has been prepared solely for the exclusive use of selected qualified institutional and professional lenders (each, a "Recipient") for the purpose of evaluating a proposed senior secured financing to SOVR Development Holdings, LLC dba SOVR Empire (the "Company").</p>
+                    <p style="margin-top: 15px;">By accepting delivery of this Memorandum, each Recipient agrees to: (i) maintain the strict confidentiality of all information contained herein; (ii) not copy, reproduce, disclose, or distribute this Memorandum or any portion thereof to any third party without the prior written consent of the Company; and (iii) return or destroy all copies of this Memorandum upon request or if the Recipient declines to pursue the financing opportunity.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Not a Public Offering</h4>
+                    <p>This Memorandum does not constitute an offer to sell, or a solicitation of an offer to buy, any securities to the public. The proposed financing is structured as a private credit transaction and is not registered under the Securities Act of 1933, as amended, or any state securities laws.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Forward-Looking Statements</h4>
+                    <p>This Memorandum contains forward-looking statements regarding the Company's business, financial condition, results of operations, and prospects. Such statements are subject to risks and uncertainties that could cause actual results to differ materially from those projected. Recipients should not place undue reliance on forward-looking statements, which speak only as of the date hereof.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Professional Advice</h4>
+                    <p>Recipients are advised to consult with their own legal, tax, accounting, and financial advisors before making any lending decision. The Company makes no representations regarding the tax consequences or accounting treatment of the proposed financing to any Recipient.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>No Duty to Update</h4>
+                    <p>The Company undertakes no obligation to update or revise any forward-looking statements or other information contained in this Memorandum, whether as a result of new information, future events, or otherwise.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="table-of-contents">
+            <div class="section-header">
+                <div class="section-number">02</div>
+                <h2 class="section-title">Table of Contents</h2>
+            </div>
+            <div class="section-content">
+                <div class="toc">
+                    <div class="toc-item" onclick="scrollToSection('executive-summary')">
+                        <span><span class="toc-number">01</span><span class="toc-title">Executive Summary</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('offering-overview')">
+                        <span><span class="toc-number">02</span><span class="toc-title">Offering Overview</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('investment-highlights')">
+                        <span><span class="toc-number">03</span><span class="toc-title">Investment Highlights</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('use-of-proceeds')">
+                        <span><span class="toc-number">04</span><span class="toc-title">Use of Proceeds</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('company-overview')">
+                        <span><span class="toc-number">05</span><span class="toc-title">Company Overview</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('capital-structure')">
+                        <span><span class="toc-number">06</span><span class="toc-title">Capital Structure</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('security-package')">
+                        <span><span class="toc-number">07</span><span class="toc-title">Security Package</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('key-loan-terms')">
+                        <span><span class="toc-number">08</span><span class="toc-title">Key Loan Terms</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('collateral-valuation')">
+                        <span><span class="toc-number">09</span><span class="toc-title">Collateral Valuation</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('oracle-ledger')">
+                        <span><span class="toc-number">10</span><span class="toc-title">Oracle Ledger / Reporting Infrastructure</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('accounting-treatment')">
+                        <span><span class="toc-number">11</span><span class="toc-title">Accounting Treatment</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('legal-regulatory')">
+                        <span><span class="toc-number">12</span><span class="toc-title">Legal / Regulatory Framework</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('covenant-package')">
+                        <span><span class="toc-number">13</span><span class="toc-title">Covenant Package</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('financial-covenants')">
+                        <span><span class="toc-number">14</span><span class="toc-title">Financial Covenants</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('events-of-default')">
+                        <span><span class="toc-number">15</span><span class="toc-title">Events of Default</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('remedies')">
+                        <span><span class="toc-number">16</span><span class="toc-title">Remedies</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('miscellaneous-legal')">
+                        <span><span class="toc-number">17</span><span class="toc-title">Miscellaneous Legal Terms</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('exhibits-schedules')">
+                        <span><span class="toc-number">18</span><span class="toc-title">Exhibits / Schedules</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('execution-roadmap')">
+                        <span><span class="toc-number">19</span><span class="toc-title">Execution Roadmap</span></span>
+                    </div>
+                    <div class="toc-item" onclick="scrollToSection('contact')">
+                        <span><span class="toc-number">20</span><span class="toc-title">Contact Information</span></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="executive-summary">
+            <div class="section-header">
+                <div class="section-number">03</div>
+                <h2 class="section-title">Executive Summary</h2>
+            </div>
+            <div class="section-content">
+                <p style="font-size: 18px; margin-bottom: 30px;">SOVR Development Holdings, LLC dba SOVR Empire (the "Company"), a Wyoming limited liability company founded by Gustavo O Maldonado TTEE, is seeking senior secured financing through a loan-stock pledge structure. The financing is designed as a non-dilutive capital solution, providing the Company with growth capital while offering lenders robust security and downside protection.</p>
+
+                <div class="grid-3">
+                    <div class="stat-card">
+                        <div class="stat-value">400,000</div>
+                        <div class="stat-label">Common Shares Pledged</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">Senior</div>
+                        <div class="stat-label">Security Priority</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">SOFR +</div>
+                        <div class="stat-label">Floating Rate Structure</div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h4>Transaction Structure</h4>
+                    <p>The proposed financing features a senior secured loan structure with 400,000 Common Shares pledged as collateral. The Company will execute comprehensive loan documentation, security agreements, and pledge arrangements to provide lenders with first-priority security interests in the pledged shares.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Key Benefits to Lenders</h4>
+                    <ul class="list-styled">
+                        <li>First-priority security interest in 400,000 Common Shares</li>
+                        <li>Comprehensive covenant package with quarterly testing</li>
+                        <li>Equity cure rights with appropriate limitations</li>
+                        <li>Professional-grade reporting infrastructure</li>
+                        <li>Clear remedies and enforcement mechanisms</li>
+                        <li>Institutional-quality documentation</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Use of Proceeds</h4>
+                    <p>Proceeds from the financing will be deployed strategically to support the Company's growth initiatives, working capital requirements, and operational expansion. Detailed use of proceeds is outlined in Section 04 of this Memorandum.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="offering-overview">
+            <div class="section-header">
+                <div class="section-number">04</div>
+                <h2 class="section-title">Offering Overview</h2>
+            </div>
+            <div class="section-content">
+                <table class="data-table">
+                    <tbody><tr>
+                        <th>Term</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><strong>Borrower</strong></td>
+                        <td>SOVR Development Holdings, LLC (Wyoming LLC)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Transaction Type</strong></td>
+                        <td>Senior Secured Loan with Stock Pledge</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Collateral</strong></td>
+                        <td>400,000 Common Shares of the Company</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Security Priority</strong></td>
+                        <td>First-priority security interest, senior to all other claims except permitted liens</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Interest Rate</strong></td>
+                        <td>SOFR + applicable margin (subject to negotiation)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Rate Structure</strong></td>
+                        <td>Floating rate based on Secured Overnight Financing Rate</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Covenant Testing</strong></td>
+                        <td>Quarterly as of each quarter-end</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reporting</strong></td>
+                        <td>Compliance certificates within 45 days of quarter-end; annual independent audit</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Documentation</strong></td>
+                        <td>Institutional-grade loan agreements, security agreements, pledge agreements, and ancillary documents</td>
+                    </tr>
+                </tbody></table>
+
+                <div class="highlight-box">
+                    <h4>Non-Dilutive Structure</h4>
+                    <p>This financing is structured to provide capital without diluting existing equity holders. The pledged shares serve as collateral security and do not transfer ownership unless an event of default occurs and remedies are exercised.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Professional Documentation</h4>
+                    <p>All transaction documentation will be prepared by experienced banking counsel and will conform to institutional lending standards. The documentation package will include comprehensive representations, warranties, covenants, and remedies provisions.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="investment-highlights">
+            <div class="section-header">
+                <div class="section-number">05</div>
+                <h2 class="section-title">Investment Highlights</h2>
+            </div>
+            <div class="section-content">
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>Strong Security Package</h4>
+                        <p>Lenders benefit from a first-priority security interest in 400,000 Common Shares, providing substantial downside protection and clear enforcement rights in the event of default.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Comprehensive Covenants</h4>
+                        <p>Illustrative financial covenant framework includes leverage ratios, coverage ratios, and operational restrictions designed to protect lender interests while allowing operational flexibility.</p>
+                    </div>
+                </div>
+
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>Transparent Reporting</h4>
+                        <p>Quarterly compliance certificates with detailed covenant calculations, annual independent audits, and ongoing financial reporting provide lenders with full visibility into the Company's performance.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Equity Cure Rights</h4>
+                        <p>Structured equity cure provisions allow the Company to remedy covenant breaches through capital injections, subject to appropriate limitations (max 2 per year, max 3 over loan term).</p>
+                    </div>
+                </div>
+
+                <div class="two-column">
+                    <div class="info-card">
+                        <h4>Clear Remedies</h4>
+                        <p>Well-defined events of default and remedy provisions provide lenders with multiple enforcement options, including acceleration, foreclosure on collateral, and appointment of receivers.</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>Institutional Standards</h4>
+                        <p>Transaction documentation and structure conform to institutional lending standards, facilitating potential syndication, participation, or secondary market transfers.</p>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Risk Mitigation Features</h4>
+                    <ul class="list-styled">
+                        <li>First-priority perfected security interest in pledged shares</li>
+                        <li>UCC-1 financing statements and control arrangements</li>
+                        <li>Certificated share delivery with stock powers</li>
+                        <li>Quarterly covenant testing with 45-day reporting window</li>
+                        <li>Limited equity cure rights to prevent abuse</li>
+                        <li>Comprehensive events of default provisions</li>
+                        <li>Multiple remedy options upon default</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="use-of-proceeds">
+            <div class="section-header">
+                <div class="section-number">06</div>
+                <h2 class="section-title">Use of Proceeds</h2>
+            </div>
+            <div class="section-content">
+                <p style="margin-bottom: 30px;">The proceeds from the proposed senior secured financing will be deployed strategically to support the Company's growth objectives and operational requirements. The Company has identified the following intended uses for the capital raised:</p>
+
+                <div class="info-card">
+                    <h4>Growth Initiatives</h4>
+                    <p>Capital will be allocated to strategic growth initiatives, including market expansion, product development, and business line extensions. These investments are designed to enhance the Company's competitive position and long-term value creation.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Working Capital</h4>
+                    <p>A portion of proceeds will strengthen the Company's working capital position, providing operational flexibility and supporting day-to-day business activities. Enhanced working capital will improve the Company's ability to execute on strategic opportunities.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Capital Expenditures</h4>
+                    <p>Proceeds may be used for capital expenditures necessary to support business operations and growth. All capital expenditures will be subject to the financial covenants outlined in Section 14 of this Memorandum.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>General Corporate Purposes</h4>
+                    <p>The Company may deploy proceeds for other general corporate purposes as determined by management and approved by the Board of Directors, subject to restrictions and covenants contained in the loan documentation.</p>
+                </div>
+
+                <div class="notice-box">
+                    <h3>Covenant Restrictions</h3>
+                    <p>The use of proceeds will be subject to the covenant package outlined in this Memorandum. Certain uses may require lender consent or may be restricted by negative covenants. Lenders will receive detailed reporting on the deployment of capital through quarterly compliance certificates.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="company-overview">
+            <div class="section-header">
+                <div class="section-number">07</div>
+                <h2 class="section-title">Company Overview</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-card">
+                    <h4>Legal Structure</h4>
+                    <table class="data-table">
+                        <tbody><tr>
+                            <td><strong>Legal Name</strong></td>
+                            <td>SOVR Development Holdings, LLC<br><span style="color: var(--medium-gray); font-size: 14px;">dba SOVR Empire</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Entity Type</strong></td>
+                            <td>Limited Liability Company</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Jurisdiction</strong></td>
+                            <td>Wyoming</td>
+                        </tr>
+                        <tr>
+                            <td><strong>EIN</strong></td>
+                            <td>39-2332625</td>
+                        </tr>
+                        <tr>
+                            <td><strong>D-U-N-S Number</strong></td>
+                            <td>13-682-4504</td>
+                        </tr>
+                        <tr>
+                            <td><strong>UID</strong></td>
+                            <td>K752ULAXJV36</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Registered Agent</strong></td>
+                            <td>2120 Carey Ave, Cheyenne, WY 82001</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Operations Address</strong></td>
+                            <td>3704 Loudon St, Bakersfield, CA 93313</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Governance</strong></td>
+                            <td>Board of Directors and Members</td>
+                        </tr>
+                    </tbody></table>
+                </div>
+
+                <div class="info-card">
+                    <h4>Business Description</h4>
+                    <p>SOVR Development Holdings, LLC (dba SOVR Empire) is a Wyoming-based limited liability company founded by Gustavo O Maldonado TTEE, who serves as Founder and Trustee. Mr. Maldonado is a Web3 Vault Architect, Trust Law Strategist, Real-Time Payment Systems expert, and Builder of Tokenized Credit Ecosystems. The Company operates with a focus on sustainable growth, operational excellence, and value creation for stakeholders through innovative blockchain and credit ecosystem solutions.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Corporate Governance</h4>
+                    <p>The Company maintains institutional-grade corporate governance practices, including:</p>
+                    <ul class="list-styled">
+                        <li>Active Board of Directors oversight</li>
+                        <li>Regular member meetings and approvals</li>
+                        <li>Professional management team</li>
+                        <li>Independent financial and legal advisors</li>
+                        <li>Comprehensive compliance and reporting systems</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Authorization for Financing</h4>
+                    <p>The proposed financing transaction has been authorized by the Company's Board of Directors and, where required, by the Members. All necessary corporate approvals and authorizations will be documented and delivered to lenders as conditions precedent to funding.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="capital-structure">
+            <div class="section-header">
+                <div class="section-number">08</div>
+                <h2 class="section-title">Capital Structure</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-card">
+                    <h4>Equity Capitalization</h4>
+                    <p>The Company's equity structure consists of Common Shares issued to Members. The proposed financing involves the pledge of 400,000 Common Shares as collateral security for the senior secured loan.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Pledged Collateral</h4>
+                    <table class="data-table">
+                        <tbody><tr>
+                            <th>Collateral Type</th>
+                            <th>Quantity</th>
+                            <th>Security Priority</th>
+                        </tr>
+                        <tr>
+                            <td>Common Shares</td>
+                            <td>400,000 shares</td>
+                            <td>First-priority security interest</td>
+                        </tr>
+                    </tbody></table>
+                </div>
+
+                <div class="info-card">
+                    <h4>Debt Structure</h4>
+                    <p>Upon closing of the proposed financing, the Company's debt structure will consist of:</p>
+                    <ul class="list-styled">
+                        <li>Senior Secured Loan (this transaction) - First priority</li>
+                        <li>Existing debt obligations (if any) - Subject to subordination or permitted lien status</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Capitalization Table</h4>
+                    <p>A detailed capitalization table showing all equity ownership, outstanding debt, and security interests will be provided to lenders during due diligence. The table will clearly identify all existing liens and encumbrances on Company assets.</p>
+                </div>
+
+                <div class="notice-box">
+                    <h3>Permitted Liens</h3>
+                    <p>The loan documentation will specify permitted liens that may rank pari passu with or senior to the lenders' security interest. Typical permitted liens include tax liens, statutory liens, and other customary exceptions. All permitted liens will be clearly defined in the security agreement.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="security-package">
+            <div class="section-header">
+                <div class="section-number">09</div>
+                <h2 class="section-title">Security Package</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-card">
+                    <h4>Collateral Description</h4>
+                    <p>The lenders will receive a first-priority perfected security interest in 400,000 Common Shares of SOVR Development Holdings, LLC. The security interest will be perfected through multiple mechanisms to ensure maximum protection.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Perfection Methods</h4>
+                    <ul class="list-styled">
+                        <li><strong>UCC-1 Financing Statements:</strong> Filed in Wyoming and other applicable jurisdictions</li>
+                        <li><strong>Control Arrangements:</strong> Lender control over certificated shares</li>
+                        <li><strong>Certificated Share Delivery:</strong> Physical delivery of share certificates to lender or custodian</li>
+                        <li><strong>Stock Powers:</strong> Executed stock powers delivered to lender</li>
+                        <li><strong>Custodial Acknowledgements:</strong> Third-party custodian acknowledgements where applicable</li>
+                        <li><strong>Additional Perfection Steps:</strong> Any additional steps required by lender counsel</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Priority Objective</h4>
+                    <p>The security package is designed to achieve first-priority status, meaning the lenders' security interest will be senior to all other claims against the pledged shares, except for expressly permitted liens. Lien searches and priority confirmations will be conducted as part of closing conditions.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Valid Security Interest Requirements</h4>
+                    <p>To establish a valid and enforceable security interest, the following elements must be satisfied:</p>
+                    <ul class="list-styled">
+                        <li><strong>Value:</strong> Lender provides value (loan proceeds) to the Company</li>
+                        <li><strong>Rights in Collateral:</strong> Company has rights in the pledged shares</li>
+                        <li><strong>Authenticated Security Agreement:</strong> Executed security agreement describing the collateral</li>
+                        <li><strong>Perfection:</strong> Security interest perfected through appropriate methods</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Security Agreement Terms</h4>
+                    <p>The security agreement will contain comprehensive provisions addressing:</p>
+                    <ul class="list-styled">
+                        <li>Detailed description of pledged shares</li>
+                        <li>Representations and warranties regarding the collateral</li>
+                        <li>Covenants related to maintenance and protection of collateral</li>
+                        <li>Rights and remedies upon default</li>
+                        <li>Procedures for foreclosure and sale of collateral</li>
+                        <li>Application of proceeds from collateral liquidation</li>
+                    </ul>
+                </div>
+
+                <div class="notice-box">
+                    <h3>Collateral Maintenance Covenants</h3>
+                    <p>The Company will covenant to maintain the value and priority of the pledged collateral, including obligations to:</p>
+                    <ul class="list-styled">
+                        <li>Maintain corporate good standing and share validity</li>
+                        <li>Refrain from creating additional liens on pledged shares</li>
+                        <li>Provide notice of any claims or encumbrances</li>
+                        <li>Execute additional documents as reasonably requested by lender</li>
+                        <li>Cooperate with lender's periodic collateral audits</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="key-loan-terms">
+            <div class="section-header">
+                <div class="section-number">10</div>
+                <h2 class="section-title">Key Loan Terms</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-card">
+                    <h4>Interest Rate Structure</h4>
+                    <p>The loan will bear interest at a floating rate based on the Secured Overnight Financing Rate (SOFR) plus an applicable margin to be negotiated between the parties. All LIBOR references have been eliminated in favor of SOFR-based pricing.</p>
+                    <table class="data-table" style="margin-top: 20px;">
+                        <tbody><tr>
+                            <th>Component</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td>Base Rate</td>
+                            <td>SOFR (Secured Overnight Financing Rate)</td>
+                        </tr>
+                        <tr>
+                            <td>Margin</td>
+                            <td>To be negotiated based on credit profile and market conditions</td>
+                        </tr>
+                        <tr>
+                            <td>Rate Reset</td>
+                            <td>Periodic reset based on SOFR conventions</td>
+                        </tr>
+                        <tr>
+                            <td>Floor</td>
+                            <td>SOFR floor (if applicable) to be negotiated</td>
+                        </tr>
+                    </tbody></table>
+                </div>
+
+                <div class="info-card">
+                    <h4>Repayment Terms</h4>
+                    <p>Repayment terms, including principal amortization schedule, maturity date, and prepayment provisions, will be subject to negotiation between the Company and lenders. The loan documentation will specify:</p>
+                    <ul class="list-styled">
+                        <li>Principal repayment schedule (if amortizing)</li>
+                        <li>Interest payment frequency (typically quarterly)</li>
+                        <li>Final maturity date</li>
+                        <li>Mandatory prepayment events</li>
+                        <li>Voluntary prepayment rights and premiums (if any)</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Fees and Expenses</h4>
+                    <p>The loan structure may include various fees, including:</p>
+                    <ul class="list-styled">
+                        <li>Origination or arrangement fee</li>
+                        <li>Commitment fee (if applicable)</li>
+                        <li>Agency fees (if syndicated)</li>
+                        <li>Legal and documentation expenses</li>
+                        <li>Ongoing administrative fees</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Illustrative Loan Terms Summary</h4>
+                    <p><em>The following terms are illustrative and subject to final negotiation:</em></p>
+                    <table class="data-table" style="margin-top: 15px;">
+                        <tbody><tr>
+                            <td><strong>Loan Amount</strong></td>
+                            <td>To be determined based on collateral value and credit analysis</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Interest Rate</strong></td>
+                            <td>SOFR + applicable margin</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Maturity</strong></td>
+                            <td>To be negotiated (typically 3-5 years)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Amortization</strong></td>
+                            <td>Subject to negotiation (bullet, amortizing, or hybrid)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Prepayment</strong></td>
+                            <td>Subject to negotiation (may include premiums)</td>
+                        </tr>
+                    </tbody></table>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="collateral-valuation">
+            <div class="section-header">
+                <div class="section-number">11</div>
+                <h2 class="section-title">Collateral Valuation</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-card">
+                    <h4>Valuation Methodology</h4>
+                    <p>The valuation of the pledged 400,000 Common Shares will be established through a rigorous analysis conducted by the lenders and their advisors. The valuation process will consider multiple methodologies and factors to determine appropriate loan-to-value ratios.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Valuation Approaches</h4>
+                    <p>Lenders may employ one or more of the following valuation methodologies:</p>
+                    <ul class="list-styled">
+                        <li><strong>Comparable Company Analysis:</strong> Valuation based on public company comparables</li>
+                        <li><strong>Precedent Transaction Analysis:</strong> Valuation based on recent M&amp;A transactions</li>
+                        <li><strong>Discounted Cash Flow:</strong> Present value of projected future cash flows</li>
+                        <li><strong>Asset-Based Valuation:</strong> Net asset value approach</li>
+                        <li><strong>Independent Appraisal:</strong> Third-party valuation expert assessment</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Loan-to-Value Considerations</h4>
+                    <p>The loan amount will be sized based on a conservative loan-to-value (LTV) ratio to provide lenders with adequate collateral coverage. Typical LTV ratios for stock pledge transactions range from 50% to 70%, depending on:</p>
+                    <ul class="list-styled">
+                        <li>Liquidity and marketability of shares</li>
+                        <li>Volatility and risk profile</li>
+                        <li>Company financial strength</li>
+                        <li>Market conditions</li>
+                        <li>Covenant package strength</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Ongoing Valuation Monitoring</h4>
+                    <p>The loan documentation may require periodic revaluation of the pledged shares to ensure adequate collateral coverage throughout the loan term. If collateral value declines below specified thresholds, the Company may be required to:</p>
+                    <ul class="list-styled">
+                        <li>Pledge additional shares or collateral</li>
+                        <li>Make principal prepayments to restore LTV ratios</li>
+                        <li>Provide alternative credit support</li>
+                    </ul>
+                </div>
+
+                <div class="notice-box">
+                    <h3>Valuation Disclosure</h3>
+                    <p>Detailed valuation analysis, including methodologies, assumptions, and conclusions, will be provided to prospective lenders during the due diligence process. The Company will cooperate fully with lenders' valuation advisors and provide all requested financial and operational information.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="oracle-ledger">
+            <div class="section-header">
+                <div class="section-number">12</div>
+                <h2 class="section-title">Oracle Ledger / Reporting Infrastructure</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-card">
+                    <h4>Reporting Framework</h4>
+                    <p>The Company will maintain a comprehensive reporting infrastructure to provide lenders with timely, accurate, and detailed information regarding financial performance, covenant compliance, and collateral status.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Quarterly Reporting Requirements</h4>
+                    <p>Within 45 days of each quarter-end, the Company will deliver to lenders:</p>
+                    <ul class="list-styled">
+                        <li><strong>Compliance Certificate:</strong> Officer certification of covenant compliance with detailed calculations</li>
+                        <li><strong>Financial Statements:</strong> Quarterly financial statements (balance sheet, income statement, cash flow statement)</li>
+                        <li><strong>Covenant Calculations:</strong> Detailed schedules showing all financial covenant calculations</li>
+                        <li><strong>Collateral Status Report:</strong> Confirmation of pledged share status and any changes</li>
+                        <li><strong>Management Discussion:</strong> Narrative discussion of quarterly results and outlook</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Annual Reporting Requirements</h4>
+                    <p>Within 90 days of each fiscal year-end, the Company will deliver:</p>
+                    <ul class="list-styled">
+                        <li><strong>Audited Financial Statements:</strong> Annual financial statements audited by independent CPA firm</li>
+                        <li><strong>Auditor's Report:</strong> Unqualified opinion from independent auditor</li>
+                        <li><strong>Annual Compliance Certificate:</strong> Year-end covenant compliance certification</li>
+                        <li><strong>Management Letter:</strong> Any management letters or recommendations from auditors</li>
+                        <li><strong>Annual Budget:</strong> Budget and projections for upcoming fiscal year</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Event-Driven Reporting</h4>
+                    <p>The Company will promptly notify lenders of certain material events, including:</p>
+                    <ul class="list-styled">
+                        <li>Events of default or potential defaults</li>
+                        <li>Material litigation or regulatory actions</li>
+                        <li>Changes in management or control</li>
+                        <li>Proposed material transactions</li>
+                        <li>Material adverse changes in business or financial condition</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Lender Access Rights</h4>
+                    <p>Lenders will have reasonable access to:</p>
+                    <ul class="list-styled">
+                        <li>Company's books and records</li>
+                        <li>Management for discussions and updates</li>
+                        <li>Facilities and operations (with reasonable notice)</li>
+                        <li>Independent auditors and other advisors</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="accounting-treatment">
+            <div class="section-header">
+                <div class="section-number">13</div>
+                <h2 class="section-title">Accounting Treatment</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-card">
+                    <h4>Loan Accounting</h4>
+                    <p>The senior secured loan will be recorded as a liability on the Company's balance sheet at the principal amount outstanding. Interest expense will be recognized on an accrual basis in accordance with Generally Accepted Accounting Principles (GAAP).</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Collateral Accounting</h4>
+                    <p>The pledge of 400,000 Common Shares as collateral does not result in derecognition of the equity. The shares remain on the Company's books as equity, subject to disclosure of the pledge and security interest in the financial statement footnotes.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Equity Cure Accounting</h4>
+                    <p>When the Company exercises equity cure rights by injecting additional capital:</p>
+                    <ul class="list-styled">
+                        <li>The capital contribution is recorded as additional equity</li>
+                        <li>For covenant calculation purposes, the equity contribution is treated as EBITDA in the period of cure</li>
+                        <li>Detailed disclosure of equity cure usage will be provided in compliance certificates</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Financial Statement Disclosure</h4>
+                    <p>The Company's financial statements will include appropriate disclosures regarding:</p>
+                    <ul class="list-styled">
+                        <li>Terms and conditions of the senior secured loan</li>
+                        <li>Pledged shares and security interests</li>
+                        <li>Covenant requirements and compliance status</li>
+                        <li>Contingencies and commitments</li>
+                        <li>Related party transactions (if applicable)</li>
+                    </ul>
+                </div>
+
+                <div class="notice-box">
+                    <h3>Tax Treatment</h3>
+                    <p>Recipients should consult with their own tax advisors regarding the tax treatment of the loan transaction. The Company makes no representations regarding tax consequences to lenders. Tax treatment may vary based on lender type, jurisdiction, and other factors.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="legal-regulatory">
+            <div class="section-header">
+                <div class="section-number">14</div>
+                <h2 class="section-title">Legal / Regulatory Framework</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-card">
+                    <h4>Governing Law</h4>
+                    <p>The loan documentation will be governed by the laws of a mutually agreed jurisdiction (typically New York or Delaware for institutional credit transactions). Choice of law provisions will be clearly stated in all transaction documents.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Regulatory Compliance</h4>
+                    <p>The transaction is structured as a private credit facility and is not subject to public securities registration requirements. The Company will represent and warrant compliance with all applicable laws, including:</p>
+                    <ul class="list-styled">
+                        <li>Securities laws (private placement exemptions)</li>
+                        <li>Banking and lending regulations</li>
+                        <li>Anti-money laundering (AML) and Know Your Customer (KYC) requirements</li>
+                        <li>OFAC and sanctions compliance</li>
+                        <li>Environmental laws</li>
+                        <li>Employment and labor laws</li>
+                        <li>Tax laws and regulations</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Corporate Authorization</h4>
+                    <p>The Company will provide evidence of proper corporate authorization for the financing, including:</p>
+                    <ul class="list-styled">
+                        <li><strong>Board Approval:</strong> Board of Directors resolutions approving the transaction</li>
+                        <li><strong>Member Approval:</strong> Member consents where required by operating agreement</li>
+                        <li><strong>Officer Authorization:</strong> Officer certificates confirming authority to execute documents</li>
+                        <li><strong>Document Execution:</strong> Proper execution of all loan and security documents</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Legal Opinions</h4>
+                    <p>As a condition to closing, the Company will deliver legal opinions from qualified counsel addressing:</p>
+                    <ul class="list-styled">
+                        <li>Valid existence and good standing of the Company</li>
+                        <li>Corporate power and authority to enter into transaction</li>
+                        <li>Due authorization, execution, and delivery of documents</li>
+                        <li>Enforceability of loan and security documents</li>
+                        <li>No conflicts with organizational documents or material agreements</li>
+                        <li>Perfection and priority of security interests</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Representations and Warranties</h4>
+                    <p>The loan documentation will include comprehensive representations and warranties covering:</p>
+                    <ul class="list-styled">
+                        <li>Organization, existence, and qualification</li>
+                        <li>Financial statements and financial condition</li>
+                        <li>Litigation and compliance with laws</li>
+                        <li>Ownership and validity of pledged shares</li>
+                        <li>No undisclosed liabilities or material adverse changes</li>
+                        <li>Tax compliance and returns</li>
+                        <li>Environmental compliance</li>
+                        <li>ERISA compliance (if applicable)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="covenant-package">
+            <div class="section-header">
+                <div class="section-number">15</div>
+                <h2 class="section-title">Covenant Package</h2>
+            </div>
+            <div class="section-content">
+                <div class="notice-box">
+                    <h3>Illustrative Covenant Framework</h3>
+                    <p>The following covenant package is illustrative and subject to lender diligence and final negotiation. The actual covenant package will be tailored based on the Company's business model, financial profile, and lender requirements.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Affirmative Covenants</h4>
+                    <p>The Company will covenant to:</p>
+                    <ul class="list-styled">
+                        <li><strong>Financial Reporting:</strong> Deliver quarterly and annual financial statements and compliance certificates</li>
+                        <li><strong>Maintain Existence:</strong> Preserve corporate existence and good standing</li>
+                        <li><strong>Maintain Insurance:</strong> Maintain adequate insurance coverage</li>
+                        <li><strong>Pay Obligations:</strong> Pay taxes and other obligations when due</li>
+                        <li><strong>Comply with Laws:</strong> Comply with all applicable laws and regulations</li>
+                        <li><strong>Maintain Properties:</strong> Maintain properties and assets in good condition</li>
+                        <li><strong>Maintain Books and Records:</strong> Keep proper books and records</li>
+                        <li><strong>Provide Access:</strong> Provide lenders with reasonable access to facilities and information</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Negative Covenants</h4>
+                    <p>The Company will covenant not to (without lender consent):</p>
+                    <ul class="list-styled">
+                        <li><strong>Indebtedness:</strong> Incur additional indebtedness beyond specified limits</li>
+                        <li><strong>Liens:</strong> Create liens on assets except permitted liens</li>
+                        <li><strong>Restricted Payments:</strong> Make dividends or distributions beyond specified limits</li>
+                        <li><strong>Investments:</strong> Make investments or acquisitions beyond specified limits</li>
+                        <li><strong>Asset Sales:</strong> Sell or dispose of material assets</li>
+                        <li><strong>Fundamental Changes:</strong> Merge, consolidate, or undergo change of control</li>
+                        <li><strong>Transactions with Affiliates:</strong> Engage in non-arm's length affiliate transactions</li>
+                        <li><strong>Change in Business:</strong> Materially change nature of business</li>
+                        <li><strong>Amendments:</strong> Amend organizational documents in manner adverse to lenders</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Permitted Exceptions</h4>
+                    <p>The negative covenants will include customary exceptions and baskets for:</p>
+                    <ul class="list-styled">
+                        <li>Existing indebtedness and liens disclosed in schedules</li>
+                        <li>Ordinary course trade payables</li>
+                        <li>Permitted capital expenditures within specified limits</li>
+                        <li>Ordinary course operating expenses and working capital needs</li>
+                        <li>Permitted investments in subsidiaries and joint ventures</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="financial-covenants">
+            <div class="section-header">
+                <div class="section-number">16</div>
+                <h2 class="section-title">Financial Covenants</h2>
+            </div>
+            <div class="section-content">
+                <div class="notice-box">
+                    <h3>Illustrative Financial Covenant Framework</h3>
+                    <p>The financial covenants outlined below are illustrative examples subject to lender diligence and final negotiation. Actual covenant levels will be established based on the Company's historical performance, projections, and industry benchmarks.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Covenant Testing Framework</h4>
+                    <table class="data-table">
+                        <tbody><tr>
+                            <th>Element</th>
+                            <th>Description</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Testing Frequency</strong></td>
+                            <td>Quarterly as of each quarter-end</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Compliance Certificate</strong></td>
+                            <td>Detailed calculations within 45 days of quarter-end</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Annual Verification</strong></td>
+                            <td>Independent auditor verification of year-end covenant compliance</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Cure Rights</strong></td>
+                            <td>Equity cure rights available (subject to limitations)</td>
+                        </tr>
+                    </tbody></table>
+                </div>
+
+                <div class="info-card">
+                    <h4>Illustrative Leverage Covenant</h4>
+                    <p><strong>Maximum Total Debt / EBITDA Ratio</strong></p>
+                    <p>The Company shall maintain a ratio of Total Debt to EBITDA (calculated on a trailing twelve-month basis) not to exceed [X.XX]:1.00, tested quarterly.</p>
+                    <p style="margin-top: 15px;"><em>Definitions:</em></p>
+                    <ul class="list-styled">
+                        <li><strong>Total Debt:</strong> All outstanding indebtedness for borrowed money, including the senior secured loan</li>
+                        <li><strong>EBITDA:</strong> Earnings before interest, taxes, depreciation, and amortization, with customary adjustments</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Illustrative Coverage Covenant</h4>
+                    <p><strong>Minimum Debt Service Coverage Ratio</strong></p>
+                    <p>The Company shall maintain a ratio of EBITDA to Debt Service (calculated on a trailing twelve-month basis) of at least [X.XX]:1.00, tested quarterly.</p>
+                    <p style="margin-top: 15px;"><em>Definitions:</em></p>
+                    <ul class="list-styled">
+                        <li><strong>Debt Service:</strong> Principal and interest payments on all indebtedness during the measurement period</li>
+                        <li><strong>EBITDA:</strong> As defined above</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Illustrative Capital Expenditure Covenant</h4>
+                    <p><strong>Maximum Annual Capital Expenditures</strong></p>
+                    <p>The Company shall not make capital expenditures in any fiscal year exceeding the lesser of:</p>
+                    <ul class="list-styled">
+                        <li>$[X,XXX,XXX] per fiscal year, or</li>
+                        <li>[XX]% of revenue for such fiscal year</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Example:</strong></p>
+                    <p>If the covenant limit is the lesser of $2,000,000 or 15% of revenue, and actual capital expenditures are $1,800,000, the Company is in compliance.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Equity Cure Rights</h4>
+                    <p>If the Company fails to comply with financial covenants, it may cure the breach by injecting additional equity capital, subject to the following limitations:</p>
+                    <table class="data-table" style="margin-top: 15px;">
+                        <tbody><tr>
+                            <th>Parameter</th>
+                            <th>Limitation</th>
+                        </tr>
+                        <tr>
+                            <td><strong>Cure Timeline</strong></td>
+                            <td>15 days from quarter-end to inject additional capital</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Accounting Treatment</strong></td>
+                            <td>Equity contribution treated as EBITDA for covenant calculation purposes</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Annual Limit</strong></td>
+                            <td>Maximum of 2 equity cures per year</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Loan Term Limit</strong></td>
+                            <td>Maximum of 3 equity cures over loan term</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Amount Requirement</strong></td>
+                            <td>Sufficient to achieve compliance with all failed covenants</td>
+                        </tr>
+                    </tbody></table>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Covenant Calculation Methodology</h4>
+                    <p>All financial covenant calculations will be performed in accordance with GAAP, consistently applied, with adjustments as specifically defined in the loan agreement. The compliance certificate will include detailed schedules showing all calculations, adjustments, and supporting data.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="events-of-default">
+            <div class="section-header">
+                <div class="section-number">17</div>
+                <h2 class="section-title">Events of Default</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-card">
+                    <h4>Payment Defaults</h4>
+                    <ul class="list-styled">
+                        <li>Failure to pay principal when due</li>
+                        <li>Failure to pay interest within [X] days of due date</li>
+                        <li>Failure to pay fees or other amounts within [X] days of due date</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Covenant Defaults</h4>
+                    <ul class="list-styled">
+                        <li>Breach of financial covenants (subject to equity cure rights)</li>
+                        <li>Breach of affirmative covenants, uncured for [X] days after notice</li>
+                        <li>Breach of negative covenants</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Representation and Warranty Defaults</h4>
+                    <ul class="list-styled">
+                        <li>Material misrepresentation or warranty proves to be incorrect</li>
+                        <li>Failure to correct or cure within specified period</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Cross-Default Provisions</h4>
+                    <ul class="list-styled">
+                        <li>Default under other material indebtedness</li>
+                        <li>Acceleration of other material indebtedness</li>
+                        <li>Failure to pay other material indebtedness when due</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Bankruptcy and Insolvency Events</h4>
+                    <ul class="list-styled">
+                        <li>Voluntary bankruptcy or insolvency petition</li>
+                        <li>Involuntary bankruptcy petition not dismissed within [X] days</li>
+                        <li>Appointment of receiver or trustee</li>
+                        <li>General assignment for benefit of creditors</li>
+                        <li>Admission of inability to pay debts</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Material Adverse Change</h4>
+                    <ul class="list-styled">
+                        <li>Material adverse change in business, financial condition, or operations</li>
+                        <li>Material adverse effect on ability to perform obligations</li>
+                        <li>Material adverse effect on validity or enforceability of loan documents</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Change of Control</h4>
+                    <ul class="list-styled">
+                        <li>Change in ownership or control without lender consent</li>
+                        <li>Sale of all or substantially all assets</li>
+                        <li>Merger or consolidation without lender consent</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Judgment and Litigation Defaults</h4>
+                    <ul class="list-styled">
+                        <li>Entry of final judgment exceeding specified threshold, unstayed and unsatisfied for [X] days</li>
+                        <li>Material litigation or regulatory action threatening business viability</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Cure Periods and Notice Requirements</h4>
+                    <p>Certain events of default will be subject to cure periods and notice requirements, allowing the Company to remedy breaches before acceleration. Payment defaults and bankruptcy events typically have no cure period, while covenant breaches may have [X] to [X] day cure periods.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="remedies">
+            <div class="section-header">
+                <div class="section-number">18</div>
+                <h2 class="section-title">Remedies</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-card">
+                    <h4>Acceleration</h4>
+                    <p>Upon the occurrence and continuation of an Event of Default, lenders may declare all outstanding principal, accrued interest, and other amounts immediately due and payable. Acceleration may be automatic for certain events (bankruptcy) or require lender action for others.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Foreclosure on Collateral</h4>
+                    <p>Lenders may foreclose on the pledged 400,000 Common Shares through:</p>
+                    <ul class="list-styled">
+                        <li><strong>Public Sale:</strong> Sale at public auction in accordance with UCC provisions</li>
+                        <li><strong>Private Sale:</strong> Private sale to qualified purchasers</li>
+                        <li><strong>Retention:</strong> Retention of collateral in satisfaction of debt (strict foreclosure)</li>
+                        <li><strong>Other Methods:</strong> Any other method permitted by law</li>
+                    </ul>
+                    <p style="margin-top: 15px;">All foreclosure sales will be conducted in a commercially reasonable manner with appropriate notice to the Company.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Application of Proceeds</h4>
+                    <p>Proceeds from collateral liquidation will be applied in the following order:</p>
+                    <ol class="list-styled">
+                        <li>Costs and expenses of foreclosure and sale</li>
+                        <li>Accrued and unpaid interest</li>
+                        <li>Outstanding principal</li>
+                        <li>Other amounts owed to lenders</li>
+                        <li>Surplus (if any) returned to Company</li>
+                    </ol>
+                </div>
+
+                <div class="info-card">
+                    <h4>Appointment of Receiver</h4>
+                    <p>Lenders may seek appointment of a receiver to take possession of collateral and/or Company assets, collect revenues, and manage operations pending resolution of the default.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Enforcement of Security Interest</h4>
+                    <p>Lenders may exercise all rights and remedies available under the UCC and applicable law, including:</p>
+                    <ul class="list-styled">
+                        <li>Taking possession of pledged shares</li>
+                        <li>Exercising voting rights associated with shares</li>
+                        <li>Collecting dividends and distributions</li>
+                        <li>Transferring shares to lender or third party purchaser</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Litigation and Legal Action</h4>
+                    <p>Lenders may pursue legal action to:</p>
+                    <ul class="list-styled">
+                        <li>Obtain judgment for amounts owed</li>
+                        <li>Enforce loan and security documents</li>
+                        <li>Obtain injunctive relief</li>
+                        <li>Pursue other legal and equitable remedies</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Set-Off Rights</h4>
+                    <p>Lenders may set off any amounts owed by lender to Company against amounts owed by Company to lender, to the extent permitted by law.</p>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Cumulative Remedies</h4>
+                    <p>All remedies are cumulative and non-exclusive. Exercise of one remedy does not preclude exercise of other remedies. Lenders may pursue multiple remedies simultaneously or sequentially as deemed appropriate.</p>
+                </div>
+
+                <div class="notice-box">
+                    <h3>Commercial Reasonableness</h3>
+                    <p>All remedies will be exercised in a commercially reasonable manner in accordance with applicable law. The Company will receive appropriate notice of foreclosure sales and other remedy actions as required by the UCC and other applicable laws.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="miscellaneous-legal">
+            <div class="section-header">
+                <div class="section-number">19</div>
+                <h2 class="section-title">Miscellaneous Legal Terms</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-card">
+                    <h4>Governing Law and Jurisdiction</h4>
+                    <p>The loan documents will be governed by the laws of [Jurisdiction], without regard to conflicts of law principles. The parties will submit to the exclusive jurisdiction of courts in [Jurisdiction] for resolution of disputes.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Waiver of Jury Trial</h4>
+                    <p>The parties will waive their right to jury trial in any litigation arising out of or relating to the loan documents, to the extent permitted by law.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Amendments and Waivers</h4>
+                    <p>Amendments to loan documents require written agreement of the Company and lenders (or requisite majority of lenders if syndicated). Waivers of defaults or covenant breaches must be in writing and are effective only for the specific instance waived.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Notices</h4>
+                    <p>All notices under the loan documents must be in writing and delivered by:</p>
+                    <ul class="list-styled">
+                        <li>Personal delivery</li>
+                        <li>Overnight courier</li>
+                        <li>Certified mail, return receipt requested</li>
+                        <li>Email (with confirmation of receipt)</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Assignments and Participations</h4>
+                    <p>Lenders may assign their interests or grant participations to other qualified institutional lenders, subject to:</p>
+                    <ul class="list-styled">
+                        <li>Minimum assignment amounts</li>
+                        <li>Company consent (not to be unreasonably withheld)</li>
+                        <li>Compliance with applicable laws and regulations</li>
+                        <li>Payment of assignment fees</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Indemnification</h4>
+                    <p>The Company will indemnify lenders and their affiliates, officers, directors, employees, and agents against losses arising from:</p>
+                    <ul class="list-styled">
+                        <li>Breach of representations, warranties, or covenants</li>
+                        <li>Environmental liabilities</li>
+                        <li>Violations of law</li>
+                        <li>Third party claims related to the financing</li>
+                        <li>Enforcement of loan documents</li>
+                    </ul>
+                    <p style="margin-top: 15px;">Indemnification will not apply to losses resulting from lender's gross negligence or willful misconduct.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Expenses</h4>
+                    <p>The Company will pay all costs and expenses of the transaction, including:</p>
+                    <ul class="list-styled">
+                        <li>Legal fees and expenses of lenders' counsel</li>
+                        <li>Due diligence costs</li>
+                        <li>Documentation and closing costs</li>
+                        <li>UCC filing and search fees</li>
+                        <li>Appraisal and valuation costs</li>
+                        <li>Ongoing administration costs</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Confidentiality</h4>
+                    <p>Lenders will maintain confidentiality of non-public Company information, except for disclosures:</p>
+                    <ul class="list-styled">
+                        <li>Required by law or regulation</li>
+                        <li>To lenders' advisors and service providers (under confidentiality obligations)</li>
+                        <li>To potential assignees or participants (under confidentiality obligations)</li>
+                        <li>In connection with litigation or enforcement</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Severability</h4>
+                    <p>If any provision of the loan documents is held to be invalid or unenforceable, the remaining provisions will remain in full force and effect.</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Entire Agreement</h4>
+                    <p>The loan documents constitute the entire agreement between the parties and supersede all prior negotiations, agreements, and understandings, whether written or oral.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="exhibits-schedules">
+            <div class="section-header">
+                <div class="section-number">20</div>
+                <h2 class="section-title">Exhibits / Schedules</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-card">
+                    <h4>Required Exhibits</h4>
+                    <p>The following exhibits will be attached to the loan documentation:</p>
+                    <ul class="list-styled">
+                        <li><strong>Exhibit A:</strong> Form of Compliance Certificate</li>
+                        <li><strong>Exhibit B:</strong> Form of Officer's Certificate</li>
+                        <li><strong>Exhibit C:</strong> Form of Legal Opinion</li>
+                        <li><strong>Exhibit D:</strong> Form of Assignment and Assumption Agreement</li>
+                        <li><strong>Exhibit E:</strong> Financial Covenant Definitions and Calculations</li>
+                        <li><strong>Exhibit F:</strong> Permitted Liens Schedule</li>
+                        <li><strong>Exhibit G:</strong> Permitted Indebtedness Schedule</li>
+                    </ul>
+                </div>
+
+                <div class="info-card">
+                    <h4>Required Schedules</h4>
+                    <p>The following schedules will provide detailed disclosure:</p>
+                    <ul class="list-styled">
+                        <li><strong>Schedule 1:</strong> Capitalization Table and Ownership Structure</li>
+                        <li><strong>Schedule 2:</strong> Existing Indebtedness</li>
+                        <li><strong>Schedule 3:</strong> Existing Liens and Encumbrances</li>
+                        <li><strong>Schedule 4:</strong> Material Contracts</li>
+                        <li><strong>Schedule 5:</strong> Litigation and Disputes</li>
+                        <li><strong>Schedule 6:</strong> Environmental Matters</li>
+                        <li><strong>Schedule 7:</strong> Intellectual Property</li>
+                        <li><strong>Schedule 8:</strong> Real Property and Leases</li>
+                        <li><strong>Schedule 9:</strong> Subsidiaries and Affiliates</li>
+                        <li><strong>Schedule 10:</strong> Insurance Policies</li>
+                    </ul>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Disclosure Standards</h4>
+                    <p>All schedules must provide complete and accurate disclosure of material information. The Company represents that schedules are true, complete, and correct as of the closing date. Updates to schedules may be required if material changes occur during the loan term.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="execution-roadmap">
+            <div class="section-header">
+                <div class="section-number">21</div>
+                <h2 class="section-title">Execution Roadmap</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-card">
+                    <h4>Transaction Timeline</h4>
+                    <p>The following roadmap outlines the key phases and milestones for executing the proposed financing transaction. Actual timing may vary based on due diligence findings, documentation negotiations, and market conditions.</p>
+                </div>
+
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Phase 1: Preparation and Documentation (Weeks 1-4)</h4>
+                            <p><strong>Week 1 Activities:</strong></p>
+                            <ul class="list-styled">
+                                <li>Engage legal counsel (banking and corporate)</li>
+                                <li>Engage financial advisors</li>
+                                <li>Prepare preliminary term sheet</li>
+                            </ul>
+                            <p style="margin-top: 15px;"><strong>Responsible Parties:</strong> Legal counsel, financial advisors, Company management</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Phase 2: Lender Identification and Outreach (Weeks 2-5)</h4>
+                            <ul class="list-styled">
+                                <li>Identify target lender universe</li>
+                                <li>Prepare confidential offering memorandum</li>
+                                <li>Conduct initial lender meetings</li>
+                                <li>Distribute offering materials to qualified lenders</li>
+                            </ul>
+                            <p style="margin-top: 15px;"><strong>Responsible Parties:</strong> Financial advisors, Company management</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Phase 3: Due Diligence (Weeks 4-8)</h4>
+                            <ul class="list-styled">
+                                <li>Establish virtual data room</li>
+                                <li>Respond to lender due diligence requests</li>
+                                <li>Conduct management presentations</li>
+                                <li>Facilitate site visits (if requested)</li>
+                                <li>Coordinate with advisors on technical diligence</li>
+                            </ul>
+                            <p style="margin-top: 15px;"><strong>Responsible Parties:</strong> Company management, advisors, lenders</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Phase 4: Term Sheet Negotiation (Weeks 6-9)</h4>
+                            <ul class="list-styled">
+                                <li>Receive and evaluate term sheet proposals</li>
+                                <li>Negotiate key terms and conditions</li>
+                                <li>Select lead lender or lending group</li>
+                                <li>Execute term sheet or commitment letter</li>
+                            </ul>
+                            <p style="margin-top: 15px;"><strong>Responsible Parties:</strong> Company management, legal counsel, financial advisors</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Phase 5: Documentation (Weeks 8-12)</h4>
+                            <ul class="list-styled">
+                                <li>Draft loan agreement and security documents</li>
+                                <li>Negotiate documentation with lender counsel</li>
+                                <li>Prepare closing deliverables and schedules</li>
+                                <li>Obtain corporate approvals and authorizations</li>
+                                <li>Prepare legal opinions</li>
+                            </ul>
+                            <p style="margin-top: 15px;"><strong>Responsible Parties:</strong> Legal counsel (Company and lender), Company management</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Phase 6: Closing (Week 12-13)</h4>
+                            <ul class="list-styled">
+                                <li>Satisfy conditions precedent to closing</li>
+                                <li>Execute final documentation</li>
+                                <li>Deliver closing certificates and opinions</li>
+                                <li>File UCC-1 financing statements</li>
+                                <li>Deliver pledged share certificates</li>
+                                <li>Fund loan proceeds</li>
+                            </ul>
+                            <p style="margin-top: 15px;"><strong>Responsible Parties:</strong> All parties, legal counsel, administrative agent</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h4>Phase 7: Post-Closing (Ongoing)</h4>
+                            <ul class="list-styled">
+                                <li>Establish reporting and compliance systems</li>
+                                <li>Deliver initial compliance certificate</li>
+                                <li>Implement ongoing covenant monitoring</li>
+                                <li>Maintain lender relationships and communications</li>
+                            </ul>
+                            <p style="margin-top: 15px;"><strong>Responsible Parties:</strong> Company management, finance team, legal counsel</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="highlight-box">
+                    <h4>Critical Success Factors</h4>
+                    <ul class="list-styled">
+                        <li>Early engagement of experienced legal and financial advisors</li>
+                        <li>Comprehensive due diligence preparation and data room organization</li>
+                        <li>Clear communication of business model and growth strategy</li>
+                        <li>Realistic covenant negotiation balancing flexibility and lender protection</li>
+                        <li>Efficient documentation process with experienced counsel</li>
+                        <li>Proactive management of closing conditions and deliverables</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contact">
+            <div class="section-header">
+                <div class="section-number">22</div>
+                <h2 class="section-title">Contact Information</h2>
+            </div>
+            <div class="section-content">
+                <div class="info-card">
+                    <h4>Company Contact</h4>
+                    <table class="data-table">
+                        <tbody><tr>
+                            <td><strong>Company Name</strong></td>
+                            <td>SOVR Development Holdings, LLC<br><span style="color: var(--medium-gray); font-size: 14px;">dba SOVR Empire</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Operations Address</strong></td>
+                            <td>3704 Loudon St, Bakersfield, CA 93313</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Registered Agent</strong></td>
+                            <td>2120 Carey Ave, Cheyenne, WY 82001</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Email</strong></td>
+                            <td>admin@sovr.credit<br>SOVR.Empire@sovr.credit</td>
+                        </tr>
+                        <tr>
+                            <td><strong>EIN</strong></td>
+                            <td>39-2332625</td>
+                        </tr>
+                        <tr>
+                            <td><strong>D-U-N-S</strong></td>
+                            <td>13-682-4504</td>
+                        </tr>
+                        <tr>
+                            <td><strong>UID</strong></td>
+                            <td>K752ULAXJV36</td>
+                        </tr>
+                    </tbody></table>
+                </div>
+
+                <div class="info-card">
+                    <h4>Management Contacts</h4>
+                    <p><strong>Founder & Trustee</strong></p>
+                    <p>Gustavo O Maldonado TTEE<br>
+                    SOVR.Empire@sovr.credit<br>
+                    Founder of SOVR Empire | Web3 Vault Architect | Trust Law Strategist | Real-Time Payment Systems | Builder of Tokenized Credit Ecosystems</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Legal Counsel</h4>
+                    <p><strong>Company Counsel</strong></p>
+                    <p>[Law Firm Name]<br>[Attorney Name]<br>[Address]<br>[Email]<br>[Phone]</p>
+                </div>
+
+                <div class="info-card">
+                    <h4>Financial Advisors</h4>
+                    <p><strong>Investment Bank / Financial Advisor</strong></p>
+                    <p>[Firm Name]<br>[Advisor Name]<br>[Address]<br>[Email]<br>[Phone]</p>
+                </div>
+
+                <div class="notice-box">
+                    <h3>Inquiries and Due Diligence Requests</h3>
+                    <p>Qualified institutional lenders interested in this financing opportunity should direct inquiries to the contacts listed above. Due diligence requests and data room access will be facilitated through the Company's financial advisors upon execution of appropriate confidentiality agreements.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="signature-block">
+                <h3 style="color: var(--gold); margin-bottom: 30px;">Member Approval and Authorization</h3>
+                <p style="margin-bottom: 30px;">The undersigned Members of SOVR Development Holdings, LLC dba SOVR Empire hereby approve all actions taken or to be taken by the Board of Directors and officers of the Company in connection with the financing transactions contemplated by this Offering Memorandum.</p>
+                
+                <div style="margin-top: 40px;">
+                    <p><strong>Member Signature:</strong></p>
+                    <div class="signature-line" style="position: relative; height: 100px; margin-top: 10px;"></div>
+                    <p style="color: var(--medium-gray); margin-top: 10px;">Signature</p>
+                    
+                    <div style="margin-top: 30px;">
+                        <p><strong>Print Name:</strong></p>
+                        <div style="position: relative; height: 40px;">
+                            <p style="font-family: 'Playfair Display', serif; font-size: 24px; color: var(--gold); position: absolute; bottom: 5px;">Gustavo Orona Maldonado</p>
+                            <div class="signature-line" style="position: absolute; bottom: 0; left: 0; right: 0; margin: 0;"></div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 30px;">
+                        <p><strong>Title:</strong></p>
+                        <div style="position: relative; height: 40px;">
+                            <p style="color: var(--white); position: absolute; bottom: 5px;">Founder & Trustee</p>
+                            <div class="signature-line" style="position: absolute; bottom: 0; left: 0; right: 0; margin: 0;"></div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 30px;">
+                        <p><strong>Date:</strong></p>
+                        <div style="position: relative; height: 40px;">
+                            <p style="color: var(--white); position: absolute; bottom: 5px;">March 30, 2026</p>
+                            <div class="signature-line" style="position: absolute; bottom: 0; left: 0; right: 0; margin: 0;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="kuse-branding" onclick="window.location.href='https://kuse.ai'">
+            <span>made with</span>
+            <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg"><path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"></path><path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"></path></svg>
+        </div>
+    </div>
+
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <script>
+        const progressBar = document.getElementById(`progressBar`);
+        const navBar = document.getElementById(`navBar`);
+        const backToTop = document.getElementById(`backToTop`);
+        const sections = document.querySelectorAll(`.section`);
+
+        window.addEventListener(`scroll`, () => {
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrollPercentage = (scrollTop / scrollHeight) * 100;
+            
+            progressBar.style.width = scrollPercentage + `%`;
+
+            if (scrollTop > 300) {
+                navBar.classList.add(`visible`);
+                backToTop.classList.add(`visible`);
+            } else {
+                navBar.classList.remove(`visible`);
+                backToTop.classList.remove(`visible`);
+            }
+
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const sectionBottom = section.getBoundingClientRect().bottom;
+                
+                if (sectionTop < window.innerHeight * 0.75 && sectionBottom > 0) {
+                    section.classList.add(`visible`);
+                }
+            });
+        });
+
+        backToTop.addEventListener(`click`, () => {
+            window.scrollTo({
+                top: 0,
+                behavior: `smooth`
+            });
+        });
+
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                const offsetTop = section.offsetTop - 100;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: `smooth`
+                });
+            }
+        }
+
+        document.addEventListener(`DOMContentLoaded`, () => {
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    if (sectionTop < window.innerHeight * 0.75) {
+                        section.classList.add(`visible`);
+                    }
+                }, index * 100);
+            });
+        });
+
+        const expandables = document.querySelectorAll(`.expandable-header`);
+        expandables.forEach(header => {
+            header.addEventListener(`click`, () => {
+                const expandable = header.parentElement;
+                expandable.classList.toggle(`active`);
+            });
+        });
+    </script>
+    <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+
+</body></html>
