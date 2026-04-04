@@ -1,0 +1,2809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOVR Development Holdings, LLC - Operating Agreement & Formation Package</title>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Crimson Text', Georgia, serif;
+            font-size: 11pt;
+            line-height: 1.6;
+            color: #1a202c;
+            background: #ffffff;
+            max-width: 216mm;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .page {
+            width: 100%;
+            max-width: 216mm;
+            min-height: 279mm;
+            margin: 0 auto;
+            padding: 25mm 20mm;
+            background: white;
+            position: relative;
+            overflow: visible;
+            page-break-after: always;
+        }
+
+        .page:last-child {
+            page-break-after: auto;
+        }
+
+        /* Cover Page Styles */
+        .cover-page {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            border: 3px double #1a365d;
+            padding: 40mm 20mm;
+            min-height: 240mm;
+        }
+
+        .cover-ornament {
+            width: 100px;
+            height: 2px;
+            background: linear-gradient(to right, transparent, #1a365d, transparent);
+            margin: 20px auto;
+        }
+
+        .cover-title {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 32pt;
+            font-weight: 700;
+            color: #1a365d;
+            letter-spacing: 2px;
+            margin: 20px 0;
+            line-height: 1.3;
+        }
+
+        .cover-subtitle {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 18pt;
+            font-weight: 500;
+            color: #2d3748;
+            margin: 15px 0;
+            letter-spacing: 1px;
+        }
+
+        .cover-designation {
+            font-size: 14pt;
+            color: #4a5568;
+            margin: 10px 0;
+            font-style: italic;
+        }
+
+        .cover-date {
+            font-size: 12pt;
+            color: #2d3748;
+            margin-top: 40px;
+            padding: 10px 30px;
+            border: 1px solid #1a365d;
+            display: inline-block;
+        }
+
+        /* Header & Footer */
+        .page-header {
+            position: absolute;
+            top: 15mm;
+            left: 20mm;
+            right: 20mm;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 9pt;
+            color: #4a5568;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .page-footer {
+            position: absolute;
+            bottom: 15mm;
+            left: 20mm;
+            right: 20mm;
+            font-size: 9pt;
+            color: #4a5568;
+            text-align: center;
+            padding-top: 5px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        /* Typography */
+        h1 {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 20pt;
+            font-weight: 700;
+            color: #1a365d;
+            margin: 25px 0 15px 0;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            page-break-after: avoid;
+        }
+
+        h2 {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 16pt;
+            font-weight: 600;
+            color: #2d3748;
+            margin: 20px 0 12px 0;
+            page-break-after: avoid;
+        }
+
+        h3 {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 13pt;
+            font-weight: 600;
+            color: #2d3748;
+            margin: 15px 0 10px 0;
+            page-break-after: avoid;
+        }
+
+        h4 {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 11pt;
+            font-weight: 600;
+            color: #4a5568;
+            margin: 12px 0 8px 0;
+            page-break-after: avoid;
+        }
+
+        p {
+            margin-bottom: 10px;
+            text-align: justify;
+            orphans: 3;
+            widows: 3;
+        }
+
+        /* Table of Contents */
+        .toc {
+            margin: 20px 0;
+        }
+
+        .toc-title {
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 18pt;
+            font-weight: 700;
+            color: #1a365d;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .toc-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0;
+            border-bottom: 1px dotted #cbd5e0;
+            page-break-inside: avoid;
+        }
+
+        .toc-item a {
+            color: #2d3748;
+            text-decoration: none;
+            flex: 1;
+        }
+
+        .toc-item a:hover {
+            color: #1a365d;
+            text-decoration: underline;
+        }
+
+        .toc-page {
+            color: #4a5568;
+            margin-left: 10px;
+        }
+
+        .toc-level-1 {
+            font-weight: 600;
+            font-size: 11pt;
+        }
+
+        .toc-level-2 {
+            padding-left: 20px;
+            font-size: 10pt;
+        }
+
+        /* Tables */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            page-break-inside: avoid;
+            background: #ffffff;
+        }
+
+        th {
+            background: #f7fafc;
+            color: #1a365d;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-weight: 600;
+            padding: 10px;
+            border: 1px solid #cbd5e0;
+            text-align: left;
+            font-size: 10pt;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #cbd5e0;
+            font-size: 10pt;
+            vertical-align: top;
+        }
+
+        tr:nth-child(even) {
+            background: #f7fafc;
+        }
+
+        /* Lists */
+        ul, ol {
+            margin: 10px 0 10px 30px;
+        }
+
+        li {
+            margin-bottom: 6px;
+            page-break-inside: avoid;
+        }
+
+        /* Section Dividers */
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(to right, transparent, #cbd5e0, transparent);
+            margin: 25px 0;
+        }
+
+        /* Signature Blocks */
+        .signature-block {
+            margin: 30px 0;
+            page-break-inside: avoid;
+        }
+
+        .signature-line {
+            border-bottom: 1px solid #000;
+            width: 250px;
+            margin: 30px 0 5px 0;
+        }
+
+        .signature-label {
+            font-size: 10pt;
+            color: #4a5568;
+        }
+
+        /* Recitals */
+        .recital {
+            margin: 15px 0;
+            padding-left: 30px;
+            text-indent: -30px;
+        }
+
+        .recital-label {
+            font-weight: 600;
+            color: #1a365d;
+        }
+
+        /* Exhibits */
+        .exhibit-header {
+            text-align: center;
+            font-family: 'Montserrat', Arial, sans-serif;
+            font-size: 18pt;
+            font-weight: 700;
+            color: #1a365d;
+            margin: 30px 0 20px 0;
+            padding: 15px;
+            border-top: 2px solid #1a365d;
+            border-bottom: 2px solid #1a365d;
+        }
+
+        /* Placeholder Styling */
+        .placeholder {
+            color: #2563eb;
+            font-weight: 600;
+            background: #eff6ff;
+            padding: 0 4px;
+        }
+
+        /* Print Styles */
+        @media print {
+            @page {
+                size: auto;
+                margin: 20mm 25mm;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                font-size: 10pt;
+                line-height: 1.5;
+                max-width: 216mm;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .page {
+                width: 100%;
+                max-width: 160mm !important;
+                min-height: 279mm !important;
+                margin: 0 auto !important;
+                padding: 0 !important;
+                box-sizing: border-box !important;
+                page-break-after: always !important;
+                overflow: visible !important;
+                position: relative;
+                background: white;
+            }
+
+            .page:last-child {
+                page-break-after: auto !important;
+            }
+
+            .page-header, .page-footer {
+                position: absolute;
+            }
+
+            h1, h2, h3, h4 {
+                page-break-after: avoid !important;
+            }
+
+            table, .signature-block, .recital, .toc-item {
+                page-break-inside: avoid !important;
+            }
+
+            .no-print {
+                display: none !important;
+            }
+        }
+
+        /* Utility Classes */
+        .text-center { text-align: center; }
+        .text-right { text-align: right; }
+        .font-bold { font-weight: 600; }
+        .mt-20 { margin-top: 20px; }
+        .mb-20 { margin-bottom: 20px; }
+        .indent { padding-left: 30px; }
+    </style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="page cover-page">
+    <div class="cover-ornament"></div>
+    
+    <h1 class="cover-title">SOVR DEVELOPMENT<br>HOLDINGS, LLC</h1>
+    
+    <div class="cover-ornament"></div>
+    
+    <p class="cover-subtitle">OPERATING AGREEMENT<br>&<br>FORMATION PACKAGE</p>
+    
+    <div class="cover-ornament"></div>
+    
+    <p class="cover-designation">Manager-Managed Limited Liability Company</p>
+    <p class="cover-designation">Organized Under the Laws of Wyoming</p>
+    
+    <div style="margin-top: 40px;">
+        <div class="cover-date">
+            Date: <span class="placeholder">March 31, 2026</span>
+        </div>
+    </div>
+    
+    <div style="margin-top: 60px; font-size: 10pt; color: #4a5568;">
+        <p>This Operating Agreement governs the rights, duties, and obligations</p>
+        <p>of the Members and Manager of SOVR Development Holdings, LLC</p>
+    </div>
+</div>
+
+<!-- TABLE OF CONTENTS -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <div class="toc">
+        <h1 class="toc-title">TABLE OF CONTENTS</h1>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article1">ARTICLE I: RECITALS & DEFINITIONS</a>
+            <span class="toc-page">5</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article2">ARTICLE II: FORMATION & PRINCIPAL OFFICE</a>
+            <span class="toc-page">7</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article3">ARTICLE III: MEMBERS & CAPITAL CONTRIBUTIONS</a>
+            <span class="toc-page">8</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article4">ARTICLE IV: VOTING, MEETINGS & CONSENT</a>
+            <span class="toc-page">10</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article5">ARTICLE V: MANAGEMENT (MANAGER-MANAGED)</a>
+            <span class="toc-page">11</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article6">ARTICLE VI: POWERS & LIMITATIONS OF THE MANAGER</a>
+            <span class="toc-page">13</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article7">ARTICLE VII: TRANSFER OF MEMBERSHIP INTERESTS</a>
+            <span class="toc-page">15</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article8">ARTICLE VIII: RIGHT OF FIRST REFUSAL, DRAG-ALONG & TAG-ALONG</a>
+            <span class="toc-page">16</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article9">ARTICLE IX: BUY-SELL / DEAD-LOCK RESOLUTION</a>
+            <span class="toc-page">18</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article10">ARTICLE X: TAX MATTERS & ALLOCATIONS</a>
+            <span class="toc-page">19</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article11">ARTICLE XI: BOOKS, RECORDS & INFORMATION</a>
+            <span class="toc-page">20</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article12">ARTICLE XII: CONFIDENTIALITY & NON-COMPETE</a>
+            <span class="toc-page">21</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article13">ARTICLE XIII: INDEMNIFICATION & INSURANCE</a>
+            <span class="toc-page">22</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article14">ARTICLE XIV: OFFICERS & BANKING RESOLUTIONS</a>
+            <span class="toc-page">23</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article15">ARTICLE XV: DISSOLUTION & LIQUIDATION</a>
+            <span class="toc-page">24</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article16">ARTICLE XVI: AMENDMENTS</a>
+            <span class="toc-page">25</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#article17">ARTICLE XVII: MISCELLANEOUS</a>
+            <span class="toc-page">26</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#signatures">SIGNATURE PAGE</a>
+            <span class="toc-page">27</span>
+        </div>
+        
+        <div class="section-divider" style="margin: 25px 0;"></div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#exhibita">EXHIBIT A: MEMBERSHIP-INTEREST ASSIGNMENT</a>
+            <span class="toc-page">28</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#exhibitb">EXHIBIT B: FINANCING RESOLUTION</a>
+            <span class="toc-page">29</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#exhibitc">EXHIBIT C: TRUSTEE CERTIFICATION</a>
+            <span class="toc-page">31</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#exhibitd">EXHIBIT D: BANKING & OFFICER RESOLUTION</a>
+            <span class="toc-page">32</span>
+        </div>
+        
+        <div class="section-divider" style="margin: 25px 0;"></div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#checklist">COMPLIANCE & CLOSING CHECKLIST</a>
+            <span class="toc-page">34</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#coverletter">SAMPLE COVER LETTER TO LENDER</a>
+            <span class="toc-page">35</span>
+        </div>
+        
+        <div class="toc-item toc-level-1">
+            <a href="#guide">QUICK COPY-PASTE GUIDE</a>
+            <span class="toc-page">36</span>
+        </div>
+    </div>
+    
+    <div class="page-footer">Page 2</div>
+</div>
+
+<!-- ARTICLE I: RECITALS & DEFINITIONS -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article1">ARTICLE I<br>RECITALS & DEFINITIONS</h1>
+    
+    <h2>1.1 Recitals</h2>
+    
+    <div class="recital">
+        <span class="recital-label">WHEREAS,</span> the Members desire to form a limited liability company under the Wyoming Limited Liability Company Act (the "Act") for the purposes set forth in this Operating Agreement;
+    </div>
+    
+    <div class="recital">
+        <span class="recital-label">WHEREAS,</span> the Company is organized as a manager-managed limited liability company, and the Members have appointed Gustavo Orona Maldonado as the initial Manager;
+    </div>
+    
+    <div class="recital">
+        <span class="recital-label">WHEREAS,</span> the Members have agreed to make initial capital contributions as set forth in Article III of this Agreement;
+    </div>
+    
+    <div class="recital">
+        <span class="recital-label">WHEREAS,</span> the Company intends to obtain senior secured financing in the aggregate principal amount of Twelve Million Dollars ($12,000,000.00), consisting of a term loan facility of Ten Million Dollars ($10,000,000.00) and a revolving credit facility of Two Million Dollars ($2,000,000.00) (collectively, the "Financing");
+    </div>
+    
+    <div class="recital">
+        <span class="recital-label">WHEREAS,</span> in connection with the Financing, the Company will pledge and grant a security interest in Four Hundred Thousand (400,000) Membership Interests, representing approximately forty percent (40%) of the total issued membership units of the Company, as collateral to secure the obligations under the Financing;
+    </div>
+    
+    <div class="recital">
+        <span class="recital-label">WHEREAS,</span> the Members desire to set forth their respective rights, duties, and obligations with respect to the Company and the conduct of its business.
+    </div>
+    
+    <div class="recital">
+        <span class="recital-label">NOW, THEREFORE,</span> in consideration of the mutual covenants and agreements contained herein, and for other good and valuable consideration, the receipt and sufficiency of which are hereby acknowledged, the Members agree as follows:
+    </div>
+    
+    <h2>1.2 Definitions</h2>
+    
+    <p>As used in this Operating Agreement, the following terms shall have the meanings set forth below:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 30%;">Term</th>
+                <th>Definition</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="font-bold">Act</td>
+                <td>The Wyoming Limited Liability Company Act, as amended from time to time.</td>
+            </tr>
+            <tr>
+                <td class="font-bold">Agreement</td>
+                <td>This Operating Agreement, as amended from time to time.</td>
+            </tr>
+            <tr>
+                <td class="font-bold">Capital Account</td>
+                <td>The capital account maintained for each Member in accordance with Treasury Regulations Section 1.704-1(b)(2)(iv).</td>
+            </tr>
+            <tr>
+                <td class="font-bold">Capital Contribution</td>
+                <td>The total amount of cash and the fair market value of property contributed by a Member to the Company.</td>
+            </tr>
+            <tr>
+                <td class="font-bold">Certificate</td>
+                <td>The Articles of Organization filed with the Wyoming Secretary of State.</td>
+            </tr>
+            <tr>
+                <td class="font-bold">Company</td>
+                <td>SOVR Development Holdings, LLC, a Wyoming limited liability company.</td>
+            </tr>
+            <tr>
+                <td class="font-bold">Financing</td>
+                <td>The senior secured financing in the aggregate principal amount of $12,000,000.00, consisting of a $10,000,000.00 term loan and a $2,000,000.00 revolving credit facility.</td>
+            </tr>
+            <tr>
+                <td class="font-bold">Fiscal Year</td>
+                <td>The Company's fiscal year, which shall be the calendar year ending December 31.</td>
+            </tr>
+            <tr>
+                <td class="font-bold">Manager</td>
+                <td>The person or persons appointed to manage the Company pursuant to Article V, initially Gustavo Orona Maldonado.</td>
+            </tr>
+            <tr>
+                <td class="font-bold">Member</td>
+                <td>Each person or entity that has executed this Agreement as a Member or has been admitted as a Member in accordance with this Agreement.</td>
+            </tr>
+            <tr>
+                <td class="font-bold">Membership Interest</td>
+                <td>A Member's entire interest in the Company, including the Member's economic interest, right to vote, right to participate in management, and right to information.</td>
+            </tr>
+            <tr>
+                <td class="font-bold">Percentage Interest</td>
+                <td>The percentage of the total Membership Interests owned by a Member, as set forth in Article III.</td>
+            </tr>
+            <tr>
+                <td class="font-bold">Person</td>
+                <td>Any individual, corporation, partnership, limited liability company, trust, estate, or other entity.</td>
+            </tr>
+            <tr>
+                <td class="font-bold">Pledged Interests</td>
+                <td>The 400,000 Membership Interests pledged as collateral to secure the Financing obligations.</td>
+            </tr>
+            <tr>
+                <td class="font-bold">Transfer</td>
+                <td>Any sale, assignment, gift, pledge, hypothecation, or other disposition of a Membership Interest or any portion thereof.</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="page-footer">Page 3</div>
+</div>
+
+<!-- ARTICLE II: FORMATION & PRINCIPAL OFFICE -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article2">ARTICLE II<br>FORMATION & PRINCIPAL OFFICE</h1>
+    
+    <h2>2.1 Formation</h2>
+    
+    <p>The Company was formed as a Wyoming limited liability company by filing Articles of Organization with the Wyoming Secretary of State on <span class="placeholder">[[FORMATION DATE]]</span>. The rights and liabilities of the Members shall be as provided in the Act, except as otherwise expressly provided in this Agreement.</p>
+    
+    <h2>2.2 Name</h2>
+    
+    <p>The name of the Company is <strong>SOVR Development Holdings, LLC</strong>. The Company may do business under that name and under any other name or names upon which the Manager may determine. If the Company does business under a name other than that set forth in its Certificate, the Company shall file a fictitious name certificate as required by applicable law.</p>
+    
+    <h2>2.3 Principal Office</h2>
+    
+    <p>The principal office of the Company shall be located at:</p>
+    
+    <div class="indent">
+        <p><strong>2120 Carey Avenue<br>
+        Cheyenne, Wyoming 82001</strong></p>
+    </div>
+    
+    <p>The Manager may change the location of the Company's principal office at any time upon notice to the Members. The Company may maintain such additional offices at such other places as the Manager may determine.</p>
+    
+    <h2>2.4 Registered Agent and Registered Office</h2>
+    
+    <p>The registered agent and registered office of the Company in the State of Wyoming shall be:</p>
+    
+    <div class="indent">
+        <p><strong>Frontier Registered Agency Services LLC<br>
+        565 South F Street, Suite 300<br>
+        Cheyenne, Wyoming 82001</strong></p>
+    </div>
+    
+    <p>The Manager may change the registered agent or registered office of the Company at any time by filing the appropriate documents with the Wyoming Secretary of State.</p>
+    
+    <h2>2.5 Term</h2>
+    
+    <p>The Company shall continue in existence until dissolved in accordance with the provisions of this Agreement or the Act.</p>
+    
+    <h2>2.6 Purpose and Powers</h2>
+    
+    <p>The purpose of the Company is to engage in any lawful business or activity for which a limited liability company may be formed under the Act. The Company shall have all powers necessary or convenient to effect any purpose for which it is formed, including all powers granted by the Act.</p>
+    
+    <h2>2.7 Qualification in Other Jurisdictions</h2>
+    
+    <p>The Manager shall cause the Company to be qualified, formed, or registered under assumed or fictitious name statutes or similar laws in any jurisdiction in which the Company transacts business if such qualification, formation, or registration is required. The Manager shall execute, file, and publish all certificates, notices, statements, or other instruments necessary for the Company to comply with the requirements of the laws of such jurisdiction.</p>
+    
+    <div class="page-footer">Page 4</div>
+</div>
+
+<!-- ARTICLE III: MEMBERS & CAPITAL CONTRIBUTIONS -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article3">ARTICLE III<br>MEMBERS & CAPITAL CONTRIBUTIONS</h1>
+    
+    <h2>3.1 Members and Initial Capital Contributions</h2>
+    
+    <p>The Members of the Company, their initial capital contributions, and their respective Percentage Interests are as follows:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 5%;">#</th>
+                <th style="width: 35%;">Member Name</th>
+                <th style="width: 25%;">Initial Capital Contribution</th>
+                <th style="width: 20%;">Units</th>
+                <th style="width: 15%;">Percentage Interest</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td><strong>GM Family Trust</strong><br><span style="font-size: 9pt; color: #4a5568;">Irrevocable Common Law Trust<br>EIN: 33-647-2099</span></td>
+                <td class="placeholder">$1,000,000</td>
+                <td class="placeholder">1,000,000</td>
+                <td class="placeholder">100%</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><strong>Frontier Registered Agency Services LLC</strong></td>
+                <td class="placeholder">$0</td>
+                <td class="placeholder">0</td>
+                <td class="placeholder">0%</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><strong>—</strong></td>
+                <td class="placeholder">—</td>
+                <td class="placeholder">—</td>
+                <td class="placeholder">—</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td><strong>—</strong></td>
+                <td class="placeholder">—</td>
+                <td class="placeholder">—</td>
+                <td class="placeholder">—</td>
+            </tr>
+            <tr style="background: #e6f2ff; font-weight: 600;">
+                <td colspan="2" class="text-right">TOTAL:</td>
+                <td class="placeholder">[[TOTAL AMOUNT]]</td>
+                <td class="placeholder">[[TOTAL UNITS]]</td>
+                <td>100%</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>3.2 Additional Capital Contributions</h2>
+    
+    <p>No Member shall be required to make any additional capital contribution to the Company without the unanimous written consent of all Members. If additional capital is required and the Members agree to make additional capital contributions, such contributions shall be made by the Members in proportion to their respective Percentage Interests unless otherwise agreed in writing by all Members.</p>
+    
+    <h2>3.3 Capital Accounts</h2>
+    
+    <p>The Company shall establish and maintain a separate Capital Account for each Member in accordance with the provisions of Treasury Regulations Section 1.704-1(b)(2)(iv). Each Member's Capital Account shall be:</p>
+    
+    <ul>
+        <li>Increased by: (a) the amount of money contributed by the Member to the Company; (b) the fair market value of property contributed by the Member to the Company (net of liabilities secured by such contributed property that the Company is considered to assume or take subject to); and (c) allocations to the Member of Company income and gain;</li>
+        <li>Decreased by: (a) the amount of money distributed to the Member by the Company; (b) the fair market value of property distributed to the Member by the Company (net of liabilities secured by such distributed property that the Member is considered to assume or take subject to); and (c) allocations to the Member of Company losses and deductions.</li>
+    </ul>
+    
+    <h2>3.4 No Interest on Capital Contributions</h2>
+    
+    <p>No Member shall be entitled to interest on any capital contribution to the Company.</p>
+    
+    <h2>3.5 Return of Capital Contributions</h2>
+    
+    <p>No Member shall have the right to demand or receive a return of such Member's capital contribution except as specifically provided in this Agreement or upon dissolution and winding up of the Company.</p>
+    
+    <h2>3.6 Allocation of Profits and Losses</h2>
+    
+    <p><strong>3.6.1 General Rule.</strong> Except as otherwise provided in this Agreement, all items of Company income, gain, loss, deduction, and credit shall be allocated among the Members in proportion to their respective Percentage Interests.</p>
+    
+    <p><strong>3.6.2 Special Allocations.</strong> Notwithstanding Section 3.6.1, the following special allocations shall be made:</p>
+    
+    <div class="indent">
+        <p><strong>(a) Minimum Gain Chargeback.</strong> If there is a net decrease in Company Minimum Gain during any fiscal year, each Member shall be allocated items of Company income and gain for such year (and, if necessary, subsequent years) in the manner and amounts provided in Treasury Regulations Sections 1.704-2(f)(6), 1.704-2(g)(2), and 1.704-2(j)(2)(i).</p>
+        
+        <p><strong>(b) Qualified Income Offset.</strong> If any Member unexpectedly receives any adjustments, allocations, or distributions described in Treasury Regulations Section 1.704-1(b)(2)(ii)(d)(4), (5), or (6), items of Company income and gain shall be specially allocated to such Member in an amount and manner sufficient to eliminate the deficit balance in such Member's Capital Account created by such adjustments, allocations, or distributions as quickly as possible.</p>
+        
+        <p><strong>(c) Gross Income Allocation.</strong> If any Member has a deficit Capital Account at the end of any fiscal year which is in excess of the sum of (i) the amount such Member is obligated to restore and (ii) the amount such Member is deemed to be obligated to restore pursuant to the penultimate sentences of Treasury Regulations Sections 1.704-2(g)(1) and 1.704-2(i)(5), such Member shall be specially allocated items of Company income and gain in the amount of such excess as quickly as possible.</p>
+    </div>
+    
+    <h2>3.7 Distributions</h2>
+    
+    <p><strong>3.7.1 Timing and Amount.</strong> The Manager shall determine the timing and amount of all distributions to Members. Distributions shall be made to the Members in proportion to their respective Percentage Interests unless otherwise determined by the Manager with the consent of Members holding at least seventy-five percent (75%) of the Percentage Interests.</p>
+    
+    <p><strong>3.7.2 Limitations.</strong> No distribution shall be made if, after giving effect to the distribution, (a) the Company would not be able to pay its debts as they become due in the usual course of business, or (b) the Company's total assets would be less than the sum of its total liabilities plus the amount that would be needed to satisfy the preferential rights upon dissolution of Members whose preferential rights are superior to those receiving the distribution.</p>
+    
+    <p><strong>3.7.3 Tax Distributions.</strong> The Manager shall use reasonable efforts to cause the Company to distribute to each Member, at least quarterly, an amount sufficient to enable such Member to pay federal and state income taxes on such Member's allocable share of Company income, calculated at the highest combined federal and state marginal tax rate applicable to individuals or corporations, as applicable.</p>
+    
+    <div class="page-footer">Page 5</div>
+</div>
+
+<!-- ARTICLE IV: VOTING, MEETINGS & CONSENT -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article4">ARTICLE IV<br>VOTING, MEETINGS & CONSENT</h1>
+    
+    <h2>4.1 Voting Rights</h2>
+    
+    <p>Each Member shall have voting rights in proportion to such Member's Percentage Interest. Except as otherwise expressly provided in this Agreement or required by the Act, all decisions requiring Member approval shall require the affirmative vote or written consent of Members holding at least a majority (more than 50%) of the Percentage Interests.</p>
+    
+    <h2>4.2 Meetings of Members</h2>
+    
+    <p><strong>4.2.1 Annual Meetings.</strong> An annual meeting of Members shall be held at such time and place as determined by the Manager for the purpose of reviewing the Company's operations and financial condition and transacting such other business as may properly come before the meeting.</p>
+    
+    <p><strong>4.2.2 Special Meetings.</strong> Special meetings of Members may be called at any time by the Manager or by Members holding at least twenty-five percent (25%) of the Percentage Interests.</p>
+    
+    <p><strong>4.2.3 Notice of Meetings.</strong> Written notice of any meeting shall be given to each Member entitled to vote at such meeting not less than ten (10) days nor more than sixty (60) days before the date of the meeting. The notice shall state the place, date, hour, and purpose of the meeting.</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 30%;">Meeting Type</th>
+                <th style="width: 25%;">Who Can Call</th>
+                <th style="width: 20%;">Notice Period</th>
+                <th style="width: 25%;">Quorum</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Annual Meeting</td>
+                <td>Manager</td>
+                <td>10-60 days</td>
+                <td>Majority of Percentage Interests</td>
+            </tr>
+            <tr>
+                <td>Special Meeting</td>
+                <td>Manager or 25%+ Members</td>
+                <td>10-60 days</td>
+                <td>Majority of Percentage Interests</td>
+            </tr>
+            <tr>
+                <td>Emergency Meeting</td>
+                <td>Manager</td>
+                <td>48 hours</td>
+                <td>Majority of Percentage Interests</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>4.3 Quorum and Voting</h2>
+    
+    <p>The presence in person or by proxy of Members holding a majority of the Percentage Interests shall constitute a quorum for the transaction of business at any meeting. If a quorum is present, the affirmative vote of Members holding a majority of the Percentage Interests represented at the meeting shall be the act of the Members, unless a greater vote is required by this Agreement or the Act.</p>
+    
+    <h2>4.4 Action Without Meeting</h2>
+    
+    <p>Any action required or permitted to be taken at a meeting of Members may be taken without a meeting if written consent to the action is given by Members holding the percentage of Percentage Interests that would be required to approve the action at a meeting at which all Members were present and voting.</p>
+    
+    <h2>4.5 Electronic Participation</h2>
+    
+    <p>Members may participate in meetings by means of conference telephone, video conference, or similar communications equipment by which all persons participating in the meeting can hear each other. Participation in a meeting pursuant to this Section shall constitute presence in person at such meeting.</p>
+    
+    <h2>4.6 Proxies</h2>
+    
+    <p>A Member may vote either in person or by written proxy signed by the Member or by the Member's duly authorized attorney-in-fact. No proxy shall be valid after eleven (11) months from the date of its execution unless otherwise provided in the proxy.</p>
+    
+    <h2>4.7 Matters Requiring Supermajority or Unanimous Consent</h2>
+    
+    <p>Notwithstanding anything to the contrary in this Agreement, the following actions shall require the vote or written consent of the specified percentage of Members:</p>
+    
+    <ul>
+        <li><strong>Unanimous Consent (100%):</strong> Amendment of this Agreement (except as provided in Article XVI); dissolution of the Company; merger or consolidation of the Company; sale of all or substantially all of the Company's assets; admission of new Members; removal of the Manager without cause.</li>
+        <li><strong>Supermajority Consent (75%):</strong> Incurrence of debt in excess of <span class="placeholder">[[AMOUNT]]</span>; acquisition of real property; entry into material contracts; related-party transactions; changes to the capital structure.</li>
+    </ul>
+    
+    <div class="page-footer">Page 6</div>
+</div>
+
+<!-- ARTICLE V: MANAGEMENT -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article5">ARTICLE V<br>MANAGEMENT (MANAGER-MANAGED)</h1>
+    
+    <h2>5.1 Manager-Managed Company</h2>
+    
+    <p>The Company shall be managed by a Manager. The Members shall not participate in the management or control of the Company's business, except as expressly provided in this Agreement or as required by the Act.</p>
+    
+    <h2>5.2 Appointment of Manager</h2>
+    
+    <p>The initial Manager of the Company shall be:</p>
+    
+    <div class="indent" style="background: #f7fafc; padding: 15px; border-left: 4px solid #1a365d; margin: 15px 0;">
+        <p><strong>Gustavo Orona Maldonado</strong></p>
+        <p style="font-size: 10pt; color: #4a5568;">Address: <span class="placeholder">[[MANAGER ADDRESS]]</span></p>
+        <p style="font-size: 10pt; color: #4a5568;">Email: <span class="placeholder">[[MANAGER EMAIL]]</span></p>
+        <p style="font-size: 10pt; color: #4a5568;">Phone: <span class="placeholder">[[MANAGER PHONE]]</span></p>
+    </div>
+    
+    <h2>5.3 Term of Manager</h2>
+    
+    <p>The Manager shall serve until the earlier of: (a) the Manager's resignation; (b) the Manager's removal in accordance with this Agreement; (c) the Manager's death or incapacity; or (d) the dissolution of the Company.</p>
+    
+    <h2>5.4 Powers of the Manager</h2>
+    
+    <p>Subject to the limitations set forth in this Agreement, the Manager shall have full and complete authority, power, and discretion to manage and control the business and affairs of the Company, to make all decisions regarding those matters, and to perform any and all other acts or activities customary or incident to the management of the Company's business. Without limiting the generality of the foregoing, the Manager shall have the power and authority to:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 5%;">#</th>
+                <th>Manager Powers</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Open and maintain bank accounts and other financial accounts in the Company's name</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Execute contracts, agreements, and other documents on behalf of the Company</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Hire, supervise, and terminate employees, consultants, and independent contractors</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Purchase, lease, or otherwise acquire property and assets for the Company</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Sell, lease, transfer, or otherwise dispose of Company property and assets in the ordinary course of business</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Borrow money and incur indebtedness on behalf of the Company, subject to limitations in Article VI</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Execute promissory notes, security agreements, and other financing documents</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Grant security interests in Company assets, subject to limitations in Article VI</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Maintain adequate insurance coverage for the Company's business and assets</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Prepare and file all necessary tax returns and reports</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Negotiate, execute, and deliver all documents related to the Financing, including loan agreements, security agreements, pledge agreements, and UCC-1 financing statements</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Pledge the Pledged Interests as collateral to secure the Financing obligations</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Institute, prosecute, defend, settle, or compromise litigation on behalf of the Company</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Make all decisions regarding the day-to-day operations of the Company</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Perform all other acts necessary or appropriate to carry out the Company's business</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>5.5 Compensation of Manager</h2>
+    
+    <p>The Manager shall be entitled to reasonable compensation for services rendered to the Company as determined by Members holding at least seventy-five percent (75%) of the Percentage Interests. The Manager shall also be entitled to reimbursement for all reasonable out-of-pocket expenses incurred on behalf of the Company.</p>
+    
+    <h2>5.6 Standard of Care and Liability</h2>
+    
+    <p><strong>5.6.1 Standard of Care.</strong> The Manager shall discharge the duties of the position in good faith, with the care an ordinarily prudent person in a like position would exercise under similar circumstances, and in a manner the Manager reasonably believes to be in the best interests of the Company.</p>
+    
+    <p><strong>5.6.2 Limitation of Liability.</strong> The Manager shall not be liable to the Company or any Member for any loss or damage sustained by the Company or any Member, unless the loss or damage shall have been the result of fraud, gross negligence, willful misconduct, or breach of this Agreement by the Manager.</p>
+    
+    <h2>5.7 Resignation of Manager</h2>
+    
+    <p>The Manager may resign at any time by giving sixty (60) days' prior written notice to all Members. The resignation of the Manager shall not affect the Manager's rights as a Member, if applicable.</p>
+    
+    <h2>5.8 Removal of Manager</h2>
+    
+    <p>The Manager may be removed with or without cause by the unanimous written consent of all Members. Upon removal, the Manager shall immediately deliver to the Company all property and documents of the Company in the Manager's possession.</p>
+    
+    <h2>5.9 Successor Manager</h2>
+    
+    <p>Upon the resignation, removal, death, or incapacity of the Manager, a successor Manager shall be appointed by the affirmative vote or written consent of Members holding at least seventy-five percent (75%) of the Percentage Interests. Until a successor Manager is appointed, the Members may collectively manage the Company or appoint an interim Manager.</p>
+    
+    <div class="page-footer">Page 7</div>
+</div>
+
+<!-- ARTICLE VI: POWERS & LIMITATIONS -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article6">ARTICLE VI<br>POWERS & LIMITATIONS OF THE MANAGER</h1>
+    
+    <h2>6.1 General Powers</h2>
+    
+    <p>Except as expressly limited by this Article VI or elsewhere in this Agreement, the Manager shall have full power and authority to manage the business and affairs of the Company and to bind the Company.</p>
+    
+    <h2>6.2 Limitations on Manager Authority</h2>
+    
+    <p>Notwithstanding the broad powers granted to the Manager in Article V, the Manager shall not take any of the following actions without obtaining the prior written consent of Members holding the specified percentage of Percentage Interests:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 5%;">#</th>
+                <th style="width: 50%;">Action Requiring Consent</th>
+                <th style="width: 20%;">Required Vote</th>
+                <th style="width: 25%;">Threshold Amount (if applicable)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Purchase, lease, or otherwise acquire real property</td>
+                <td>75%</td>
+                <td>Any amount</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Sell, transfer, or otherwise dispose of real property or substantially all Company assets</td>
+                <td>100%</td>
+                <td>Any amount</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Incur debt or other financial obligations (excluding the approved Financing)</td>
+                <td>75%</td>
+                <td>Exceeding $500,000</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Guarantee or pledge Company assets as security for obligations of third parties</td>
+                <td>75%</td>
+                <td>Any amount</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Make loans to any Person (other than advances to employees for business expenses)</td>
+                <td>75%</td>
+                <td>Exceeding $100,000</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Enter into contracts with a term exceeding one (1) year or involving payments exceeding $250,000</td>
+                <td>75%</td>
+                <td>As specified</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Enter into any transaction with a Related Party (as defined below)</td>
+                <td>75%</td>
+                <td>Exceeding $50,000</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Merge or consolidate the Company with another entity</td>
+                <td>100%</td>
+                <td>Any amount</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Admit additional Members or issue additional Membership Interests</td>
+                <td>100%</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Amend the Certificate or this Agreement (except as provided in Article XVI)</td>
+                <td>100%</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Voluntarily dissolve or liquidate the Company</td>
+                <td>100%</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Make a general assignment for the benefit of creditors</td>
+                <td>100%</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Institute bankruptcy or insolvency proceedings</td>
+                <td>100%</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Change the Company's tax classification</td>
+                <td>100%</td>
+                <td>N/A</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Settle or compromise any litigation involving the Company</td>
+                <td>75%</td>
+                <td>Exceeding $100,000</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>6.3 Related Party Transactions</h2>
+    
+    <p>For purposes of this Agreement, a "Related Party" means: (a) any Member or Manager; (b) any affiliate of a Member or Manager; (c) any family member of a Member or Manager; (d) any entity in which a Member or Manager has a material financial interest; or (e) any entity controlled by, controlling, or under common control with a Member or Manager.</p>
+    
+    <p>All Related Party transactions must be conducted on terms that are fair and reasonable to the Company and no less favorable to the Company than could be obtained from an unrelated third party in an arm's-length transaction.</p>
+    
+    <h2>6.4 Financing Authorization</h2>
+    
+    <p>Notwithstanding the limitations set forth in Section 6.2, the Manager is hereby specifically authorized and empowered, without further Member consent, to:</p>
+    
+    <ul>
+        <li>Negotiate, execute, and deliver all documents, agreements, and instruments related to the Financing, including but not limited to term loan agreements, revolving credit agreements, promissory notes, security agreements, pledge agreements, guarantees, and all ancillary documents;</li>
+        <li>Pledge and grant a security interest in the Pledged Interests (400,000 Membership Interests) as collateral to secure the Company's obligations under the Financing;</li>
+        <li>Execute and file UCC-1 financing statements and any amendments, continuations, or terminations thereof;</li>
+        <li>Take any and all actions necessary or appropriate to consummate the Financing and fulfill the Company's obligations thereunder;</li>
+        <li>Amend, modify, or refinance the terms of the Financing, provided that any material adverse changes require the consent of Members holding at least seventy-five percent (75%) of the Percentage Interests.</li>
+    </ul>
+    
+    <div class="page-footer">Page 8</div>
+</div>
+
+<!-- ARTICLE VII: TRANSFER OF MEMBERSHIP INTERESTS -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article7">ARTICLE VII<br>TRANSFER OF MEMBERSHIP INTERESTS</h1>
+    
+    <h2>7.1 General Restriction on Transfer</h2>
+    
+    <p>No Member shall Transfer all or any portion of such Member's Membership Interest without the prior written consent of Members holding at least seventy-five percent (75%) of the Percentage Interests (excluding the Percentage Interest of the transferring Member), except as expressly permitted by this Article VII.</p>
+    
+    <h2>7.2 Permitted Transfers</h2>
+    
+    <p>Notwithstanding Section 7.1, a Member may Transfer all or any portion of such Member's Membership Interest without Member consent in the following circumstances:</p>
+    
+    <p><strong>7.2.1 Transfers to Family Members.</strong> A Member who is an individual may Transfer Membership Interests to such Member's spouse, children, grandchildren, parents, siblings, or trusts for the benefit of such persons.</p>
+    
+    <p><strong>7.2.2 Transfers to Affiliates.</strong> A Member that is an entity may Transfer Membership Interests to any entity that controls, is controlled by, or is under common control with such Member.</p>
+    
+    <p><strong>7.2.3 Transfers by Operation of Law.</strong> Transfers by will, intestate succession, or operation of law upon the death or incapacity of a Member.</p>
+    
+    <p><strong>7.2.4 Conditions.</strong> Any Transfer pursuant to this Section 7.2 shall be subject to the following conditions: (a) the transferee must execute a joinder to this Agreement agreeing to be bound by all of its terms; (b) the transferring Member must provide written notice to the Company at least thirty (30) days prior to the Transfer; and (c) the transferring Member shall remain liable for any obligations to the Company that arose prior to the Transfer.</p>
+    
+    <h2>7.3 Procedure for Valid Transfer</h2>
+    
+    <p>For any Transfer to be valid and effective:</p>
+    
+    <ul>
+        <li><strong>(a)</strong> The transferring Member must provide written notice to the Company and all other Members at least sixty (60) days prior to the proposed Transfer, including the identity of the proposed transferee, the number of Membership Interests to be transferred, and the terms and conditions of the Transfer;</li>
+        <li><strong>(b)</strong> The transferee must execute a joinder to this Agreement agreeing to be bound by all of its terms and conditions;</li>
+        <li><strong>(c)</strong> The Transfer must comply with all applicable federal and state securities laws;</li>
+        <li><strong>(d)</strong> The transferring Member must pay all costs and expenses associated with the Transfer, including reasonable attorneys' fees incurred by the Company;</li>
+        <li><strong>(e)</strong> The Transfer must not violate any provision of this Agreement or cause the Company to be dissolved or terminated;</li>
+        <li><strong>(f)</strong> If required by this Agreement, the Transfer must be approved by the requisite percentage of Members.</li>
+    </ul>
+    
+    <h2>7.4 Rights of Transferee</h2>
+    
+    <p><strong>7.4.1 Economic Rights Only.</strong> Unless otherwise agreed by Members holding at least seventy-five percent (75%) of the Percentage Interests, a transferee of a Membership Interest (other than a Permitted Transfer under Section 7.2) shall be entitled only to the economic rights associated with the transferred Membership Interest, including the right to receive distributions and allocations of income, gain, loss, and deduction. The transferee shall not be entitled to vote, participate in management, receive information, or exercise any other rights of a Member without Member approval.</p>
+    
+    <p><strong>7.4.2 Admission as Member.</strong> A transferee may be admitted as a substitute Member only upon the written consent of Members holding at least seventy-five percent (75%) of the Percentage Interests and the execution of a joinder to this Agreement.</p>
+    
+    <h2>7.5 Consequences of Invalid Transfer</h2>
+    
+    <p>Any attempted Transfer in violation of this Article VII shall be null and void and of no force or effect. The Company shall not recognize any such Transfer and shall not reflect the Transfer in the Company's books and records.</p>
+    
+    <h2>7.6 Certificates of Ownership</h2>
+    
+    <p>The Company may, but shall not be required to, issue certificates evidencing Membership Interests. Any such certificates shall be in such form as determined by the Manager and shall contain a legend restricting transfer in accordance with this Agreement.</p>
+    
+    <div class="page-footer">Page 9</div>
+</div>
+
+<!-- ARTICLE VIII: ROFR, DRAG-ALONG & TAG-ALONG -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article8">ARTICLE VIII<br>RIGHT OF FIRST REFUSAL, DRAG-ALONG & TAG-ALONG</h1>
+    
+    <h2>8.1 Right of First Refusal</h2>
+    
+    <p><strong>8.1.1 Applicability.</strong> If any Member (the "Offering Member") receives a bona fide written offer from a third party (the "Offeror") to purchase all or any portion of such Member's Membership Interest, and the Offering Member desires to accept such offer, the Offering Member must first offer to sell such Membership Interest to the other Members (the "Non-Offering Members") in accordance with this Section 8.1.</p>
+    
+    <p><strong>8.1.2 Offer Notice.</strong> The Offering Member shall provide written notice (the "Offer Notice") to the Company and all Non-Offering Members. The Offer Notice shall include: (a) the identity of the Offeror; (b) the number of Membership Interests proposed to be sold; (c) the purchase price and other material terms and conditions of the offer; and (d) a copy of the written offer from the Offeror.</p>
+    
+    <p><strong>8.1.3 Exercise Period.</strong> Each Non-Offering Member shall have thirty (30) days from receipt of the Offer Notice to elect to purchase all or a portion of the offered Membership Interests at the same price and on the same terms and conditions as set forth in the Offer Notice. If more than one Non-Offering Member elects to purchase, the offered Membership Interests shall be allocated among them in proportion to their respective Percentage Interests.</p>
+    
+    <p><strong>8.1.4 Closing.</strong> If the Non-Offering Members elect to purchase all of the offered Membership Interests, the closing shall occur within sixty (60) days after the expiration of the exercise period. If the Non-Offering Members do not elect to purchase all of the offered Membership Interests, the Offering Member may sell the offered Membership Interests to the Offeror within ninety (90) days after the expiration of the exercise period, at a price and on terms no more favorable to the Offeror than those set forth in the Offer Notice.</p>
+    
+    <h2>8.2 Drag-Along Right</h2>
+    
+    <p><strong>8.2.1 Exercise of Drag-Along Right.</strong> If Members holding at least seventy-five percent (75%) of the Percentage Interests (the "Drag-Along Members") receive a bona fide offer from a third party to purchase all of the outstanding Membership Interests of the Company, and the Drag-Along Members desire to accept such offer, the Drag-Along Members may require all other Members (the "Dragged Members") to sell their Membership Interests to the third party on the same terms and conditions.</p>
+    
+    <p><strong>8.2.2 Drag-Along Notice.</strong> The Drag-Along Members shall provide written notice (the "Drag-Along Notice") to all Dragged Members at least thirty (30) days prior to the proposed closing. The Drag-Along Notice shall include: (a) the identity of the purchaser; (b) the purchase price and other material terms and conditions of the sale; and (c) the proposed closing date.</p>
+    
+    <p><strong>8.2.3 Obligations of Dragged Members.</strong> Upon receipt of a Drag-Along Notice, each Dragged Member shall be obligated to: (a) sell all of such Member's Membership Interests to the purchaser at the same price per unit and on the same terms and conditions as the Drag-Along Members; (b) execute all documents and instruments reasonably necessary to consummate the sale; (c) make customary representations and warranties; and (d) take all actions reasonably necessary to facilitate the closing.</p>
+    
+    <p><strong>8.2.4 Pro Rata Allocation.</strong> The purchase price shall be allocated among all Members (including both Drag-Along Members and Dragged Members) in proportion to their respective Percentage Interests, unless otherwise agreed by all Members.</p>
+    
+    <h2>8.3 Tag-Along Right</h2>
+    
+    <p><strong>8.3.1 Exercise of Tag-Along Right.</strong> If any Member (the "Selling Member") proposes to Transfer Membership Interests to a third party (other than a Permitted Transfer under Section 7.2), each other Member (the "Tag-Along Member") shall have the right to participate in such Transfer on the same terms and conditions.</p>
+    
+    <p><strong>8.3.2 Tag-Along Notice.</strong> The Selling Member shall provide written notice (the "Tag-Along Notice") to all Tag-Along Members at least thirty (30) days prior to the proposed Transfer. The Tag-Along Notice shall include: (a) the identity of the purchaser; (b) the number of Membership Interests proposed to be sold; (c) the purchase price per unit and other material terms and conditions; and (d) the proposed closing date.</p>
+    
+    <p><strong>8.3.3 Exercise Period.</strong> Each Tag-Along Member shall have twenty (20) days from receipt of the Tag-Along Notice to elect to participate in the Transfer by providing written notice to the Selling Member.</p>
+    
+    <p><strong>8.3.4 Allocation.</strong> If one or more Tag-Along Members elect to participate in the Transfer, the total number of Membership Interests to be sold to the purchaser shall be allocated among the Selling Member and the participating Tag-Along Members in proportion to their respective Percentage Interests. The Selling Member shall reduce the number of Membership Interests it sells to accommodate the Tag-Along Members.</p>
+    
+    <p><strong>8.3.5 Closing.</strong> The closing of the Transfer shall occur within sixty (60) days after the expiration of the exercise period. All participating Members shall execute all documents and instruments reasonably necessary to consummate the Transfer and shall make customary representations and warranties.</p>
+    
+    <div class="page-footer">Page 10</div>
+</div>
+
+<!-- ARTICLE IX: BUY-SELL -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article9">ARTICLE IX<br>BUY-SELL / DEAD-LOCK RESOLUTION</h1>
+    
+    <h2>9.1 Trigger Events</h2>
+    
+    <p>The buy-sell provisions of this Article IX may be invoked upon the occurrence of any of the following events:</p>
+    
+    <ul>
+        <li><strong>(a) Voluntary Withdrawal.</strong> A Member provides notice of intent to withdraw from the Company;</li>
+        <li><strong>(b) Bankruptcy or Insolvency.</strong> A Member becomes subject to bankruptcy, insolvency, or similar proceedings;</li>
+        <li><strong>(c) Death or Incapacity.</strong> The death or incapacity of a Member who is an individual;</li>
+        <li><strong>(d) Dissolution of Entity Member.</strong> The dissolution or termination of a Member that is an entity;</li>
+        <li><strong>(e) Material Breach.</strong> A Member materially breaches this Agreement and fails to cure such breach within thirty (30) days after written notice;</li>
+        <li><strong>(f) Deadlock.</strong> The Members are unable to agree on a material decision requiring Member approval for a period of ninety (90) days or more.</li>
+    </ul>
+    
+    <h2>9.2 Buy-Sell Procedure</h2>
+    
+    <p><strong>9.2.1 Offer to Sell.</strong> Upon the occurrence of a trigger event, any Member (the "Initiating Member") may deliver written notice (the "Buy-Sell Notice") to all other Members offering to sell all (but not less than all) of the Initiating Member's Membership Interests at a specified price per unit.</p>
+    
+    <p><strong>9.2.2 Response Period.</strong> Within thirty (30) days after receipt of the Buy-Sell Notice, each other Member (the "Responding Member") must elect to either: (a) purchase all of the Initiating Member's Membership Interests at the specified price; or (b) sell all of such Responding Member's Membership Interests to the Initiating Member at the same price per unit.</p>
+    
+    <p><strong>9.2.3 Multiple Responding Members.</strong> If more than one Responding Member elects to purchase the Initiating Member's Membership Interests, they shall purchase such interests in proportion to their respective Percentage Interests. If any Responding Member elects to sell, the Initiating Member must purchase the Membership Interests of all Members who elected to sell.</p>
+    
+    <p><strong>9.2.4 Closing.</strong> The closing of any purchase and sale pursuant to this Section 9.2 shall occur within sixty (60) days after the expiration of the response period. The purchase price shall be paid in cash at closing unless otherwise agreed by the parties.</p>
+    
+    <h2>9.3 Valuation</h2>
+    
+    <p>If the Members cannot agree on the value of the Membership Interests for purposes of a buy-sell transaction, the value shall be determined by an independent business appraiser mutually acceptable to the parties. If the parties cannot agree on an appraiser within fifteen (15) days, each party shall select an appraiser, and the two appraisers shall select a third appraiser. The determination of the third appraiser shall be final and binding on all parties.</p>
+    
+    <h2>9.4 Dead-Lock Remedy (Shotgun Clause)</h2>
+    
+    <p><strong>9.4.1 Initiation.</strong> If a deadlock situation exists as described in Section 9.1(f), any Member may initiate the shotgun clause by delivering a written notice (the "Shotgun Notice") to all other Members stating a price per unit at which such Member is willing to either buy all of the other Members' Membership Interests or sell all of such Member's Membership Interests.</p>
+    
+    <p><strong>9.4.2 Response.</strong> Within forty-five (45) days after receipt of the Shotgun Notice, each other Member must elect to either: (a) purchase all of the initiating Member's Membership Interests at the stated price; or (b) sell all of such Member's Membership Interests to the initiating Member at the stated price.</p>
+    
+    <p><strong>9.4.3 Default.</strong> If a Member fails to respond within the forty-five (45) day period, such Member shall be deemed to have elected to sell all of such Member's Membership Interests to the initiating Member at the stated price.</p>
+    
+    <p><strong>9.4.4 Closing.</strong> The closing shall occur within ninety (90) days after the expiration of the response period. The purchase price shall be paid in cash at closing, or if agreed by the parties, in installments over a period not to exceed three (3) years with interest at the applicable federal rate.</p>
+    
+    <h2>9.5 Effect of Buy-Sell</h2>
+    
+    <p>Upon completion of a buy-sell transaction under this Article IX, the selling Member(s) shall cease to be Members of the Company, and the purchasing Member(s) shall succeed to all rights and obligations associated with the purchased Membership Interests.</p>
+    
+    <div class="page-footer">Page 11</div>
+</div>
+
+<!-- ARTICLE X: TAX MATTERS -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article10">ARTICLE X<br>TAX MATTERS & ALLOCATIONS</h1>
+    
+    <h2>10.1 Tax Classification</h2>
+    
+    <p>The Company shall be classified as a partnership for federal and state income tax purposes. The Company shall not elect to be classified as a corporation for tax purposes without the unanimous written consent of all Members.</p>
+    
+    <h2>10.2 Tax Matters Partner</h2>
+    
+    <p>The Manager is hereby designated as the "Tax Matters Partner" (or "Partnership Representative" under the Bipartisan Budget Act of 2015, as amended) for purposes of the Internal Revenue Code. The Tax Matters Partner shall have the authority and responsibility to:</p>
+    
+    <ul>
+        <li>Prepare and file all federal, state, and local tax returns on behalf of the Company;</li>
+        <li>Represent the Company in any tax audit, examination, or proceeding;</li>
+        <li>Execute any tax elections or agreements on behalf of the Company;</li>
+        <li>Extend the statute of limitations for tax assessments;</li>
+        <li>Settle or compromise any tax controversy;</li>
+        <li>Take any other action required or permitted to be taken by the Tax Matters Partner or Partnership Representative under applicable tax law.</li>
+    </ul>
+    
+    <h2>10.3 Tax Year</h2>
+    
+    <p>The Company's tax year shall be the calendar year ending December 31, unless a different tax year is required by the Internal Revenue Code.</p>
+    
+    <h2>10.4 Tax Elections</h2>
+    
+    <p>The Tax Matters Partner shall make the following tax elections on behalf of the Company:</p>
+    
+    <ul>
+        <li><strong>(a)</strong> An election under Internal Revenue Code Section 754 to adjust the basis of Company property upon the transfer of a Membership Interest or distribution of Company property;</li>
+        <li><strong>(b)</strong> An election to amortize organizational expenses under Internal Revenue Code Section 709;</li>
+        <li><strong>(c)</strong> Any other elections deemed appropriate by the Tax Matters Partner in consultation with the Company's tax advisors.</li>
+    </ul>
+    
+    <h2>10.5 Tax Returns and Information</h2>
+    
+    <p><strong>10.5.1 Preparation and Filing.</strong> The Tax Matters Partner shall cause the Company's federal, state, and local tax returns to be prepared and timely filed. The Tax Matters Partner shall provide each Member with a copy of the Company's tax returns and Schedule K-1 (or equivalent) within ninety (90) days after the end of each fiscal year, or such earlier time as may be necessary for the Members to timely file their individual tax returns.</p>
+    
+    <p><strong>10.5.2 Consistency.</strong> Each Member agrees to report all items of Company income, gain, loss, deduction, and credit on such Member's federal, state, and local tax returns in a manner consistent with the treatment of such items on the Company's tax returns.</p>
+    
+    <h2>10.6 Tax Audits and Controversies</h2>
+    
+    <p>The Tax Matters Partner shall promptly notify all Members of any tax audit, examination, or proceeding involving the Company. The Tax Matters Partner shall keep the Members reasonably informed of the status of any such matter and shall consult with the Members before making any material decisions. The Company shall bear all costs and expenses associated with any tax audit, examination, or proceeding.</p>
+    
+    <h2>10.7 Indemnification for Taxes</h2>
+    
+    <p>Each Member shall indemnify and hold harmless the Company and all other Members from and against any taxes, interest, or penalties imposed on the Company or such other Members as a result of: (a) such Member's failure to timely pay taxes on such Member's allocable share of Company income; or (b) such Member's misrepresentation or breach of any provision of this Article X.</p>
+    
+    <h2>10.8 Tax Distributions</h2>
+    
+    <p>As provided in Section 3.7.3, the Manager shall use reasonable efforts to cause the Company to make quarterly tax distributions to the Members in an amount sufficient to enable each Member to pay federal and state income taxes on such Member's allocable share of Company income.</p>
+    
+    <div class="page-footer">Page 12</div>
+</div>
+
+<!-- ARTICLE XI: BOOKS, RECORDS & INFORMATION -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article11">ARTICLE XI<br>BOOKS, RECORDS & INFORMATION</h1>
+    
+    <h2>11.1 Books and Records</h2>
+    
+    <p>The Company shall maintain complete and accurate books and records of the Company's business and affairs, including:</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 40%;">Type of Record</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Certificate & Agreement</strong></td>
+                <td>A current copy of the Certificate and this Operating Agreement, including all amendments</td>
+            </tr>
+            <tr>
+                <td><strong>Member Records</strong></td>
+                <td>A list of the names and addresses of all current and former Members, their Capital Contributions, and Percentage Interests</td>
+            </tr>
+            <tr>
+                <td><strong>Financial Statements</strong></td>
+                <td>Financial statements for the current and past three (3) fiscal years, including balance sheets, income statements, and cash flow statements</td>
+            </tr>
+            <tr>
+                <td><strong>Tax Returns</strong></td>
+                <td>Federal, state, and local tax returns for the current and past six (6) fiscal years</td>
+            </tr>
+            <tr>
+                <td><strong>Bank Records</strong></td>
+                <td>Bank statements, canceled checks, and deposit records for the current and past three (3) fiscal years</td>
+            </tr>
+            <tr>
+                <td><strong>Minutes & Resolutions</strong></td>
+                <td>Minutes of all Member meetings and written consents of Members</td>
+            </tr>
+            <tr>
+                <td><strong>Material Contracts</strong></td>
+                <td>Copies of all material contracts, leases, and agreements to which the Company is a party</td>
+            </tr>
+            <tr>
+                <td><strong>Financing Documents</strong></td>
+                <td>All documents related to the Financing, including loan agreements, security agreements, and pledge agreements</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>11.2 Accounting Method</h2>
+    
+    <p>The Company's books and records shall be maintained on the accrual method of accounting in accordance with generally accepted accounting principles (GAAP), consistently applied.</p>
+    
+    <h2>11.3 Location of Records</h2>
+    
+    <p>The Company's books and records shall be maintained at the Company's principal office or at such other location as the Manager may determine. The Manager shall notify all Members of any change in the location of the books and records.</p>
+    
+    <h2>11.4 Member Access to Information</h2>
+    
+    <p><strong>11.4.1 Inspection Rights.</strong> Each Member shall have the right, at such Member's own expense, to inspect and copy the Company's books and records during normal business hours upon reasonable advance notice to the Manager. The Member may be accompanied by the Member's attorney, accountant, or other advisor.</p>
+    
+    <p><strong>11.4.2 Limitations.</strong> The Manager may deny a Member access to specific information if the Manager reasonably determines that: (a) the information is privileged or confidential; (b) the Member's purpose is not reasonably related to such Member's interest as a Member; or (c) disclosure would violate applicable law or a contractual obligation of confidentiality.</p>
+    
+    <h2>11.5 Financial Reports to Members</h2>
+    
+    <p>The Manager shall provide the following reports to each Member:</p>
+    
+    <ul>
+        <li><strong>Quarterly Reports.</strong> Within forty-five (45) days after the end of each fiscal quarter, unaudited financial statements including a balance sheet, income statement, and cash flow statement for such quarter;</li>
+        <li><strong>Annual Reports.</strong> Within ninety (90) days after the end of each fiscal year, audited or reviewed financial statements (as determined by the Manager) for such fiscal year, together with a report on the Company's operations and financial condition;</li>
+        <li><strong>Tax Information.</strong> Within ninety (90) days after the end of each fiscal year, a Schedule K-1 (or equivalent) and such other information as may be necessary for the Member to prepare such Member's tax returns;</li>
+        <li><strong>Special Reports.</strong> Upon the request of Members holding at least twenty-five percent (25%) of the Percentage Interests, such other reports and information as may be reasonably requested, provided that the requesting Members shall bear the cost of preparing such special reports.</li>
+    </ul>
+    
+    <h2>11.6 Electronic Access</h2>
+    
+    <p>The Manager may establish a secure electronic portal or data room through which Members may access Company information and documents. If such a portal is established, the Manager's obligation to provide physical copies of reports and documents may be satisfied by making such materials available through the portal, provided that Members are given reasonable notice and access credentials.</p>
+    
+    <h2>11.7 Confidentiality of Information</h2>
+    
+    <p>Each Member agrees to maintain the confidentiality of all non-public information obtained from the Company and not to disclose such information to any third party without the prior written consent of the Manager, except: (a) as required by law or legal process; (b) to the Member's attorneys, accountants, and financial advisors who agree to maintain confidentiality; or (c) information that is or becomes publicly available through no breach by the Member.</p>
+    
+    <div class="page-footer">Page 13</div>
+</div>
+
+<!-- ARTICLE XII: CONFIDENTIALITY & NON-COMPETE -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article12">ARTICLE XII<br>CONFIDENTIALITY & NON-COMPETE</h1>
+    
+    <h2>12.1 Confidential Information</h2>
+    
+    <p><strong>12.1.1 Definition.</strong> "Confidential Information" means all non-public information relating to the Company, its business, operations, financial condition, Members, customers, suppliers, strategies, plans, or other proprietary information, whether disclosed orally, in writing, or by any other means.</p>
+    
+    <p><strong>12.1.2 Obligation of Confidentiality.</strong> Each Member and Manager agrees to:</p>
+    
+    <ul>
+        <li>Hold all Confidential Information in strict confidence;</li>
+        <li>Not disclose Confidential Information to any third party without the prior written consent of the Manager;</li>
+        <li>Use Confidential Information only for purposes related to such person's interest in the Company;</li>
+        <li>Take reasonable precautions to prevent unauthorized disclosure of Confidential Information;</li>
+        <li>Promptly notify the Manager upon learning of any unauthorized disclosure of Confidential Information.</li>
+    </ul>
+    
+    <p><strong>12.1.3 Exceptions.</strong> The confidentiality obligations set forth in this Section 12.1 shall not apply to information that:</p>
+    
+    <ul>
+        <li>Is or becomes publicly available through no breach by the receiving party;</li>
+        <li>Is rightfully received by the receiving party from a third party without breach of any confidentiality obligation;</li>
+        <li>Is independently developed by the receiving party without use of or reference to the Confidential Information;</li>
+        <li>Is required to be disclosed by law, regulation, court order, or other legal process, provided that the receiving party gives the Company prompt notice of such requirement and cooperates with the Company in seeking a protective order or other appropriate remedy.</li>
+    </ul>
+    
+    <p><strong>12.1.4 Permitted Disclosures.</strong> Notwithstanding the foregoing, a Member may disclose Confidential Information to:</p>
+    
+    <ul>
+        <li>The Member's attorneys, accountants, financial advisors, and other professional advisors who agree to maintain confidentiality;</li>
+        <li>The Member's lenders or potential lenders in connection with financing transactions, provided that such persons agree to maintain confidentiality;</li>
+        <li>Potential transferees of the Member's Membership Interest, provided that such persons execute a confidentiality agreement acceptable to the Manager prior to receiving any Confidential Information.</li>
+    </ul>
+    
+    <h2>12.2 Non-Compete Covenant</h2>
+    
+    <p><strong>12.2.1 Restriction.</strong> During the term of this Agreement and for a period of 3 years following a Member's withdrawal, expulsion, or other cessation of membership in the Company, such Member agrees not to, directly or indirectly:</p>
+    
+    <ul>
+        <li>Engage in any business that competes with the Company's business within the United States of America;</li>
+        <li>Solicit, induce, or attempt to induce any customer, supplier, employee, or contractor of the Company to terminate or reduce their relationship with the Company;</li>
+        <li>Interfere with or disrupt the Company's relationships with its customers, suppliers, employees, or contractors;</li>
+        <li>Use any Confidential Information to compete with the Company or to assist any competitor of the Company.</li>
+    </ul>
+    
+    <p><strong>12.2.2 Reasonableness.</strong> The Members acknowledge and agree that the restrictions set forth in this Section 12.2 are reasonable and necessary to protect the legitimate business interests of the Company, including its Confidential Information, customer relationships, and goodwill.</p>
+    
+    <p><strong>12.2.3 Exceptions.</strong> The non-compete covenant shall not apply to:</p>
+    
+    <ul>
+        <li>Passive ownership of less than five percent (5%) of the outstanding stock of a publicly traded company;</li>
+        <li>Activities conducted on behalf of the Company with the Manager's prior written consent;</li>
+        <li>Activities that do not directly or indirectly compete with the Company's business as conducted at the time of the Member's cessation of membership.</li>
+    </ul>
+    
+    <h2>12.3 Remedies</h2>
+    
+    <p>The Members acknowledge that a breach of the confidentiality or non-compete provisions of this Article XII would cause irreparable harm to the Company for which monetary damages would be an inadequate remedy. Accordingly, in addition to any other remedies available at law or in equity, the Company shall be entitled to seek injunctive relief to enforce the provisions of this Article XII without the necessity of posting a bond.</p>
+    
+    <h2>12.4 Survival</h2>
+    
+    <p>The obligations set forth in this Article XII shall survive the termination of this Agreement and a Member's withdrawal or expulsion from the Company for the periods specified herein.</p>
+    
+    <div class="page-footer">Page 14</div>
+</div>
+
+<!-- ARTICLE XIII: INDEMNIFICATION & INSURANCE -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article13">ARTICLE XIII<br>INDEMNIFICATION & INSURANCE</h1>
+    
+    <h2>13.1 Indemnification of Manager and Members</h2>
+    
+    <p><strong>13.1.1 Right to Indemnification.</strong> The Company shall indemnify and hold harmless, to the fullest extent permitted by applicable law, any person who is or was a Manager or Member (each, an "Indemnitee") from and against any and all losses, claims, damages, liabilities, expenses (including reasonable attorneys' fees), judgments, fines, settlements, and other amounts arising from any threatened, pending, or completed action, suit, or proceeding, whether civil, criminal, administrative, or investigative, by reason of the fact that such person is or was a Manager or Member, or is or was serving at the request of the Company as a director, officer, manager, member, partner, employee, or agent of another entity.</p>
+    
+    <p><strong>13.1.2 Limitations on Indemnification.</strong> Notwithstanding the foregoing, the Company shall not indemnify an Indemnitee for any losses, claims, damages, or liabilities arising from:</p>
+    
+    <ul>
+        <li>Acts or omissions that involve intentional misconduct or a knowing violation of law;</li>
+        <li>Conduct constituting fraud, gross negligence, or willful misconduct;</li>
+        <li>Any transaction from which the Indemnitee derived an improper personal benefit;</li>
+        <li>Breach of the duty of loyalty owed to the Company or its Members;</li>
+        <li>Acts or omissions not in good faith or that involve a reckless disregard for the Indemnitee's duties to the Company.</li>
+    </ul>
+    
+    <p><strong>13.1.3 Successful Defense.</strong> To the extent that an Indemnitee has been successful on the merits or otherwise in defense of any action, suit, or proceeding, or in defense of any claim, issue, or matter therein, the Company shall indemnify such Indemnitee against all expenses (including reasonable attorneys' fees) actually and reasonably incurred by such Indemnitee in connection therewith.</p>
+    
+    <h2>13.2 Advancement of Expenses</h2>
+    
+    <p><strong>13.2.1 Right to Advancement.</strong> The Company shall pay or reimburse the reasonable expenses (including attorneys' fees) incurred by an Indemnitee in defending any action, suit, or proceeding in advance of the final disposition thereof, upon receipt of an undertaking by or on behalf of the Indemnitee to repay such amount if it shall ultimately be determined that such Indemnitee is not entitled to be indemnified by the Company.</p>
+    
+    <p><strong>13.2.2 Procedure.</strong> An Indemnitee seeking advancement of expenses shall submit a written request to the Manager, together with such documentation and information as is reasonably available to the Indemnitee and reasonably necessary to determine whether and to what extent the Indemnitee is entitled to advancement of expenses. The Manager shall make a determination regarding advancement within thirty (30) days after receipt of the request.</p>
+    
+    <h2>13.3 Indemnification of Employees and Agents</h2>
+    
+    <p>The Company may, in the Manager's discretion, indemnify and advance expenses to any employee or agent of the Company to the same extent as provided for Managers and Members in this Article XIII.</p>
+    
+    <h2>13.4 Insurance</h2>
+    
+    <p><strong>13.4.1 Authority to Purchase.</strong> The Company shall have the power to purchase and maintain insurance on behalf of any person who is or was a Manager, Member, employee, or agent of the Company, or who is or was serving at the request of the Company as a director, officer, manager, member, partner, employee, or agent of another entity, against any liability asserted against such person and incurred by such person in any such capacity, whether or not the Company would have the power to indemnify such person against such liability under the provisions of this Article XIII.</p>
+    
+    <p><strong>13.4.2 Types of Insurance.</strong> The Manager shall cause the Company to maintain the following types of insurance coverage:</p>
+    
+    <ul>
+        <li>General liability insurance in amounts reasonably sufficient to cover the Company's operations;</li>
+        <li>Property insurance covering the Company's assets;</li>
+        <li>Directors and officers liability insurance (D&O insurance) in amounts reasonably sufficient to protect Managers and Members;</li>
+        <li>Workers' compensation insurance as required by applicable law;</li>
+        <li>Such other insurance as the Manager deems appropriate or as may be required by the Company's lenders or other contractual obligations.</li>
+    </ul>
+    
+    <h2>13.5 Non-Exclusivity</h2>
+    
+    <p>The indemnification and advancement of expenses provided by this Article XIII shall not be deemed exclusive of any other rights to which an Indemnitee may be entitled under any agreement, vote of Members, or otherwise, both as to action in such person's official capacity and as to action in another capacity while holding such office.</p>
+    
+    <h2>13.6 Survival</h2>
+    
+    <p>The indemnification and advancement of expenses provided by this Article XIII shall continue as to a person who has ceased to be a Manager, Member, employee, or agent, and shall inure to the benefit of the heirs, executors, and administrators of such person.</p>
+    
+    <div class="page-footer">Page 15</div>
+</div>
+
+<!-- ARTICLE XIV: OFFICERS & BANKING -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article14">ARTICLE XIV<br>OFFICERS & BANKING RESOLUTIONS</h1>
+    
+    <h2>14.1 Officers</h2>
+    
+    <p><strong>14.1.1 Appointment.</strong> The Manager may appoint one or more officers of the Company, including a President, Vice President, Secretary, Treasurer, and such other officers as the Manager may determine. Officers shall serve at the pleasure of the Manager and may be removed by the Manager at any time with or without cause.</p>
+    
+    <p><strong>14.1.2 Authority.</strong> Officers shall have such authority and perform such duties as may be delegated to them by the Manager. The delegation of authority to an officer shall not relieve the Manager of responsibility for the management of the Company.</p>
+    
+    <h2>14.2 Banking Authority</h2>
+    
+    <p><strong>14.2.1 Bank Accounts.</strong> The Manager shall establish and maintain one or more bank accounts in the Company's name at such financial institutions as the Manager may determine. All funds of the Company shall be deposited in such accounts.</p>
+    
+    <p><strong>14.2.2 Authorized Signatories.</strong> The Manager shall designate the persons authorized to sign checks, drafts, and other instruments on behalf of the Company. The Manager may require that certain transactions require multiple signatures or exceed specified dollar thresholds.</p>
+    
+    <p><strong>14.2.3 Banking Resolutions.</strong> The Manager is hereby authorized to execute and deliver to any financial institution such banking resolutions, signature cards, and other documents as may be required to establish and maintain bank accounts and to conduct banking transactions on behalf of the Company.</p>
+    
+    <h2>14.3 Security for Lender</h2>
+    
+    <p><strong>14.3.1 Pledge of Membership Interests.</strong> As security for the Company's obligations under the Financing, the Company hereby pledges and grants a security interest in Four Hundred Thousand (400,000) Membership Interests (the "Pledged Interests") to the lender(s) providing the Financing.</p>
+    
+    <p><strong>14.3.2 Authority to Execute Security Documents.</strong> The Manager is hereby authorized and directed to execute and deliver all documents necessary to perfect the security interest in the Pledged Interests, including but not limited to:</p>
+    
+    <ul>
+        <li>Pledge Agreement;</li>
+        <li>Security Agreement;</li>
+        <li>UCC-1 Financing Statements;</li>
+        <li>Control Agreements;</li>
+        <li>Such other documents as the lender may reasonably require.</li>
+    </ul>
+    
+    <p><strong>14.3.3 Cooperation.</strong> The Members holding the Pledged Interests agree to cooperate with the Manager and the lender in perfecting the security interest, including executing any additional documents that may be required.</p>
+    
+    <h2>14.4 Amendments to Banking Resolutions</h2>
+    
+    <p>The Manager may amend, modify, or supplement the banking resolutions and authorized signatories at any time by providing written notice to the affected financial institutions. The Manager shall promptly notify all Members of any material changes to the banking arrangements.</p>
+    
+    <h2>14.5 Record of Resolutions</h2>
+    
+    <p>The Manager shall maintain a record of all resolutions adopted pursuant to this Article XIV, including banking resolutions, financing resolutions, and officer appointments. Such record shall be available for inspection by Members in accordance with Article XI.</p>
+    
+    <div class="page-footer">Page 16</div>
+</div>
+
+<!-- ARTICLE XV: DISSOLUTION & LIQUIDATION -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article15">ARTICLE XV<br>DISSOLUTION & LIQUIDATION</h1>
+    
+    <h2>15.1 Events of Dissolution</h2>
+    
+    <p>The Company shall be dissolved and its affairs wound up upon the occurrence of any of the following events:</p>
+    
+    <ul>
+        <li><strong>(a)</strong> The unanimous written consent of all Members to dissolve the Company;</li>
+        <li><strong>(b)</strong> The sale or other disposition of all or substantially all of the Company's assets;</li>
+        <li><strong>(c)</strong> The occurrence of any event that makes it unlawful for the Company to continue its business;</li>
+        <li><strong>(d)</strong> The entry of a decree of judicial dissolution under the Act;</li>
+        <li><strong>(e)</strong> The withdrawal, expulsion, bankruptcy, or dissolution of the last remaining Member, unless the business of the Company is continued by the consent of all remaining Members within ninety (90) days after such event.</li>
+    </ul>
+    
+    <h2>15.2 Winding Up and Liquidation</h2>
+    
+    <p><strong>15.2.1 Liquidator.</strong> Upon dissolution, the Manager (or, if there is no Manager, a liquidator appointed by Members holding a majority of the Percentage Interests) shall wind up the Company's affairs and liquidate its assets.</p>
+    
+    <p><strong>15.2.2 Powers of Liquidator.</strong> The liquidator shall have full power and authority to:</p>
+    
+    <ul>
+        <li>Sell, transfer, or otherwise dispose of Company assets;</li>
+        <li>Discharge or make provision for discharging Company liabilities;</li>
+        <li>Distribute remaining assets to Members as provided in Section 15.3;</li>
+        <li>Take any other action necessary or appropriate to wind up the Company's affairs;</li>
+        <li>File a certificate of dissolution or other appropriate documents with the Wyoming Secretary of State.</li>
+    </ul>
+    
+    <p><strong>15.2.3 Reasonable Time.</strong> The liquidator shall proceed with reasonable promptness to wind up the Company's affairs and distribute its assets, but the liquidator shall not be required to sell assets at distressed prices or under unfavorable terms. The liquidator may take such time as reasonably necessary to maximize the value received for Company assets.</p>
+    
+    <h2>15.3 Distribution of Assets</h2>
+    
+    <p>After paying or making provision for payment of all Company liabilities and obligations (including any amounts owed to Members in their capacity as creditors), the remaining assets of the Company shall be distributed to the Members as follows:</p>
+    
+    <ul>
+        <li><strong>First:</strong> To the Members in the amounts necessary to restore any negative balances in their Capital Accounts (in the order of priority set forth in the Treasury Regulations);</li>
+        <li><strong>Second:</strong> To the Members in proportion to their positive Capital Account balances;</li>
+        <li><strong>Third:</strong> Any remaining assets shall be distributed to the Members in proportion to their Percentage Interests.</li>
+    </ul>
+    
+    <h2>15.4 Certificate of Dissolution</h2>
+    
+    <p>Upon completion of the winding up and liquidation, the liquidator shall file a certificate of dissolution (or articles of dissolution) with the Wyoming Secretary of State in accordance with the Act.</p>
+    
+    <h2>15.5 Claims of Creditors</h2>
+    
+    <p>The liquidator shall comply with all applicable requirements of the Act regarding notice to creditors and the payment or provision for payment of claims. No distribution shall be made to Members until all creditor claims have been paid or adequately provided for.</p>
+    
+    <h2>15.6 Termination</h2>
+    
+    <p>The Company shall terminate when all Company assets have been distributed as provided in this Article XV and a certificate of dissolution has been filed with the Wyoming Secretary of State.</p>
+    
+    <h2>15.7 Return of Contribution Non-Recourse</h2>
+    
+    <p>Except as expressly provided in this Agreement or required by applicable law, upon dissolution no Member shall have any right to receive any distribution or return of such Member's capital contribution. No Member shall have any personal liability for a deficit balance in such Member's Capital Account upon dissolution and liquidation of the Company.</p>
+    
+    <div class="page-footer">Page 17</div>
+</div>
+
+<!-- ARTICLE XVI: AMENDMENTS -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article16">ARTICLE XVI<br>AMENDMENTS</h1>
+    
+    <h2>16.1 General Rule</h2>
+    
+    <p>Except as otherwise provided in this Article XVI, this Agreement may be amended only by the unanimous written consent of all Members.</p>
+    
+    <h2>16.2 Technical Amendments</h2>
+    
+    <p>Notwithstanding Section 16.1, the Manager may amend this Agreement without Member consent to:</p>
+    
+    <ul>
+        <li><strong>(a)</strong> Correct typographical errors, grammatical errors, or other obvious mistakes;</li>
+        <li><strong>(b)</strong> Update addresses, contact information, or other administrative details;</li>
+        <li><strong>(c)</strong> Reflect changes in applicable law or regulations that do not materially affect the Members' rights or obligations;</li>
+        <li><strong>(d)</strong> Make changes required by the Company's lenders or other third parties as a condition to providing financing or entering into material contracts, provided that such changes do not materially adversely affect the Members' economic rights;</li>
+        <li><strong>(e)</strong> Admit new Members or reflect the transfer of Membership Interests in accordance with the provisions of this Agreement.</li>
+    </ul>
+    
+    <h2>16.3 Tax-Related Amendments</h2>
+    
+    <p>The Manager may amend this Agreement without Member consent to make changes necessary or appropriate to:</p>
+    
+    <ul>
+        <li>Comply with requirements of the Internal Revenue Code or Treasury Regulations;</li>
+        <li>Preserve the Company's classification as a partnership for tax purposes;</li>
+        <li>Satisfy the "substantial economic effect" requirements of Treasury Regulations Section 1.704-1(b);</li>
+        <li>Implement tax elections or comply with tax reporting requirements;</li>
+        <li>Address changes in tax law that affect the Company or its Members.</li>
+    </ul>
+    
+    <h2>16.4 Amendment Procedure</h2>
+    
+    <p><strong>16.4.1 Proposal.</strong> Any Member or the Manager may propose an amendment to this Agreement by providing written notice to all Members describing the proposed amendment and the reasons therefor.</p>
+    
+    <p><strong>16.4.2 Consideration.</strong> The Members shall have thirty (30) days from receipt of the proposal to consider the amendment and provide their written consent or objection.</p>
+    
+    <p><strong>16.4.3 Execution.</strong> If the requisite consent is obtained, the amendment shall be executed by all Members (or by the Manager if Member consent is not required) and attached to this Agreement as an amendment.</p>
+    
+    <p><strong>16.4.4 Effective Date.</strong> Unless otherwise specified in the amendment, amendments shall become effective upon execution by all required parties.</p>
+    
+    <h2>16.5 Notice of Amendments</h2>
+    
+    <p>The Manager shall provide written notice to all Members of any amendment to this Agreement within ten (10) days after the amendment becomes effective. The notice shall include a copy of the amendment and a brief description of its effect.</p>
+    
+    <h2>16.6 Amendments to Certificate</h2>
+    
+    <p>If any amendment to this Agreement requires a corresponding amendment to the Certificate, the Manager shall promptly file the appropriate amendment documents with the Wyoming Secretary of State.</p>
+    
+    <h2>16.7 Restatement</h2>
+    
+    <p>The Manager may, with the consent of Members holding at least seventy-five percent (75%) of the Percentage Interests, prepare and execute an amended and restated operating agreement that incorporates all amendments and supersedes all prior versions of this Agreement. A restated agreement shall not be deemed to be an amendment for purposes of Section 16.1.</p>
+    
+    <div class="page-footer">Page 18</div>
+</div>
+
+<!-- ARTICLE XVII: MISCELLANEOUS -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="article17">ARTICLE XVII<br>MISCELLANEOUS</h1>
+    
+    <h2>17.1 Governing Law</h2>
+    
+    <p>This Agreement and the rights and obligations of the parties hereunder shall be governed by and construed in accordance with the laws of the State of Wyoming, without regard to its conflict of laws principles.</p>
+    
+    <h2>17.2 Jurisdiction and Venue</h2>
+    
+    <p>Any action or proceeding arising out of or relating to this Agreement shall be brought exclusively in the state or federal courts located in Laramie County, Wyoming, and each party hereby irrevocably submits to the exclusive jurisdiction of such courts and waives any objection to venue or inconvenient forum.</p>
+    
+    <h2>17.3 Waiver of Jury Trial</h2>
+    
+    <p>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, EACH PARTY HEREBY IRREVOCABLY WAIVES ANY AND ALL RIGHT TO TRIAL BY JURY IN ANY LEGAL PROCEEDING ARISING OUT OF OR RELATING TO THIS AGREEMENT OR THE TRANSACTIONS CONTEMPLATED HEREBY.</p>
+    
+    <h2>17.4 Counterparts</h2>
+    
+    <p>This Agreement may be executed in any number of counterparts, each of which shall be deemed an original and all of which together shall constitute one and the same instrument. Execution and delivery of this Agreement by facsimile, email (PDF), or other electronic means shall be deemed to have the same force and effect as delivery of an original executed copy.</p>
+    
+    <h2>17.5 Severability</h2>
+    
+    <p>If any provision of this Agreement is held to be invalid, illegal, or unenforceable, the validity, legality, and enforceability of the remaining provisions shall not be affected or impaired. If any provision is held invalid, illegal, or unenforceable, the parties shall negotiate in good faith to modify such provision to preserve the intent of the parties to the greatest extent possible.</p>
+    
+    <h2>17.6 Entire Agreement</h2>
+    
+    <p>This Agreement, together with the Certificate and any exhibits or schedules attached hereto, constitutes the entire agreement among the parties with respect to the subject matter hereof and supersedes all prior agreements, understandings, negotiations, and discussions, whether oral or written, among the parties.</p>
+    
+    <h2>17.7 Notices</h2>
+    
+    <p><strong>17.7.1 Method of Notice.</strong> All notices, demands, requests, consents, and other communications required or permitted under this Agreement shall be in writing and shall be deemed to have been duly given:</p>
+    
+    <ul>
+        <li>When delivered personally;</li>
+        <li>When sent by email (with confirmation of receipt);</li>
+        <li>One (1) business day after being sent by overnight courier service;</li>
+        <li>Three (3) business days after being sent by registered or certified mail, return receipt requested, postage prepaid.</li>
+    </ul>
+    
+    <p><strong>17.7.2 Notice Addresses.</strong> Notices shall be sent to the parties at the addresses set forth in the records of the Company, or to such other address as a party may designate by written notice to all other parties.</p>
+    
+    <h2>17.8 Binding Effect</h2>
+    
+    <p>This Agreement shall be binding upon and inure to the benefit of the parties hereto and their respective heirs, executors, administrators, successors, and permitted assigns.</p>
+    
+    <h2>17.9 Further Assurances</h2>
+    
+    <p>Each party agrees to execute and deliver such additional documents and instruments and to take such further actions as may be necessary or appropriate to carry out the purposes and intent of this Agreement.</p>
+    
+    <h2>17.10 Headings</h2>
+    
+    <p>The headings in this Agreement are for convenience of reference only and shall not affect the interpretation or construction of this Agreement.</p>
+    
+    <h2>17.11 Construction</h2>
+    
+    <p>The language in all parts of this Agreement shall be construed simply according to its fair meaning and not strictly for or against any party. Any rule of construction to the effect that ambiguities are to be resolved against the drafting party shall not apply in interpreting this Agreement.</p>
+    
+    <h2>17.12 Time of Essence</h2>
+    
+    <p>Time is of the essence with respect to all obligations under this Agreement.</p>
+    
+    <div class="page-footer">Page 19</div>
+</div>
+
+<!-- SIGNATURE PAGE -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h1 id="signatures">SIGNATURE PAGE</h1>
+    
+    <p style="text-align: center; margin: 20px 0;">IN WITNESS WHEREOF, the undersigned have executed this Operating Agreement as of the date first written above.</p>
+    
+    <div class="section-divider"></div>
+    
+    <h2>MANAGER:</h2>
+    
+    <div class="signature-block">
+        <div class="signature-line"></div>
+        <div class="signature-label">
+            <strong>Gustavo Orona Maldonado</strong>, Manager<br>
+            Date: <span class="placeholder">March 31, 2026</span>
+        </div>
+    </div>
+    
+    <div class="section-divider"></div>
+    
+    <h2>MEMBERS:</h2>
+    
+    <div class="signature-block">
+        <p><strong>MEMBER 1: GM FAMILY TRUST</strong></p>
+        <div class="signature-line"></div>
+        <div class="signature-label">
+            By: <span class="placeholder">Gustavo Orona Maldonado</span>, Trustee<br>
+            Date: <span class="placeholder">March 31, 2026</span>
+        </div>
+    </div>
+    
+    <div class="signature-block">
+        <p><strong>MEMBER 2: FRONTIER REGISTERED AGENCY SERVICES LLC</strong></p>
+        <div class="signature-line"></div>
+        <div class="signature-label">
+            By: Tammy Bourne<br>
+            Title: VP of Frontier Registered Agency Services LLC<br>
+            Date: March 31, 2026
+        </div>
+    </div>
+    
+    <div class="signature-block">
+        <p><strong>MEMBER 3: <span class="placeholder">[[MEMBER 3 NAME]]</span></strong></p>
+        <div class="signature-line"></div>
+        <div class="signature-label">
+            <span class="placeholder">[[SIGNATURE LINE]]</span><br>
+            Date: <span class="placeholder">March 31, 2026</span>
+        </div>
+    </div>
+    
+    <div class="signature-block">
+        <p><strong>MEMBER 4: <span class="placeholder">[[MEMBER 4 NAME]]</span></strong></p>
+        <div class="signature-line"></div>
+        <div class="signature-label">
+            <span class="placeholder">[[SIGNATURE LINE]]</span><br>
+            Date: <span class="placeholder">March 31, 2026</span>
+        </div>
+    </div>
+    
+    <div class="page-footer">Page 20</div>
+</div>
+
+<!-- EXHIBIT A: MEMBERSHIP-INTEREST ASSIGNMENT -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <div class="exhibit-header">EXHIBIT A<br>MEMBERSHIP-INTEREST ASSIGNMENT</div>
+    
+    <p style="text-align: center; margin: 20px 0;">FOR VALUE RECEIVED, the undersigned (the "Assignor") hereby assigns, transfers, and conveys to <span class="placeholder">[[ASSIGNEE NAME]]</span> (the "Assignee") all of the Assignor's right, title, and interest in and to <span class="placeholder">[[NUMBER]]</span> Membership Interests in SOVR Development Holdings, LLC, a Wyoming limited liability company (the "Company").</p>
+    
+    <h2>1. Assignment</h2>
+    
+    <p>The Assignor hereby assigns to the Assignee all of the Assignor's rights to receive distributions and allocations of income, gain, loss, deduction, and credit with respect to the assigned Membership Interests.</p>
+    
+    <h2>2. Representations and Warranties of Assignor</h2>
+    
+    <p>The Assignor represents and warrants to the Assignee that:</p>
+    
+    <ul>
+        <li><strong>(a)</strong> The Assignor is the lawful owner of the assigned Membership Interests and has full right, power, and authority to transfer such interests;</li>
+        <li><strong>(b)</strong> The assigned Membership Interests are free and clear of all liens, claims, encumbrances, and restrictions on transfer (other than those contained in the Company's Operating Agreement);</li>
+        <li><strong>(c)</strong> This assignment has been duly authorized, executed, and delivered by the Assignor and constitutes a valid and binding obligation of the Assignor;</li>
+        <li><strong>(d)</strong> No consent, approval, or authorization of any third party is required for this assignment (or all required consents have been obtained);</li>
+        <li><strong>(e)</strong> This assignment complies with all applicable federal and state securities laws.</li>
+    </ul>
+    
+    <h2>3. Acknowledgment of Operating Agreement</h2>
+    
+    <p>The Assignee acknowledges that the assigned Membership Interests are subject to the terms and conditions of the Company's Operating Agreement dated <span class="placeholder">March 31, 2026</span>, as amended from time to time. The Assignee agrees to be bound by all terms and conditions of the Operating Agreement.</p>
+    
+    <h2>4. Admission as Member</h2>
+    
+    <p>The Assignee understands that this assignment transfers only the economic rights associated with the assigned Membership Interests and does not entitle the Assignee to be admitted as a substitute Member of the Company unless and until the Assignee is admitted as a Member in accordance with the Operating Agreement.</p>
+    
+    <h2>5. Joinder to Operating Agreement</h2>
+    
+    <p>By executing this Assignment, the Assignee hereby executes a joinder to the Operating Agreement and agrees to be bound by all of its terms and conditions as if the Assignee were an original signatory thereto.</p>
+    
+    <h2>6. Further Assurances</h2>
+    
+    <p>Each party agrees to execute and deliver such additional documents and instruments and to take such further actions as may be necessary or appropriate to effectuate this Assignment.</p>
+    
+    <h2>7. Governing Law</h2>
+    
+    <p>This Assignment shall be governed by and construed in accordance with the laws of the State of Wyoming.</p>
+    
+    <div class="section-divider"></div>
+    
+    <p style="text-align: center; margin: 20px 0;"><strong>EXECUTED as of <span class="placeholder">March 31, 2026</span></strong></p>
+    
+    <div class="signature-block">
+        <p><strong>ASSIGNOR:</strong></p>
+        <div class="signature-line"></div>
+        <div class="signature-label">
+            <span class="placeholder">[[ASSIGNOR NAME]]</span><br>
+            Date: <span class="placeholder">March 31, 2026</span>
+        </div>
+    </div>
+    
+    <div class="signature-block">
+        <p><strong>ASSIGNEE:</strong></p>
+        <div class="signature-line"></div>
+        <div class="signature-label">
+            <span class="placeholder">[[ASSIGNEE NAME]]</span><br>
+            Date: <span class="placeholder">March 31, 2026</span>
+        </div>
+    </div>
+    
+    <div class="page-footer">Page 21</div>
+</div>
+
+<!-- EXHIBIT B: FINANCING RESOLUTION -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <div class="exhibit-header">EXHIBIT B<br>FINANCING RESOLUTION</div>
+    
+    <h2 style="text-align: center; margin: 20px 0;">UNANIMOUS WRITTEN CONSENT OF MEMBERS<br>OF<br>SOVR DEVELOPMENT HOLDINGS, LLC</h2>
+    
+    <p>The undersigned, being all of the Members of SOVR Development Holdings, LLC, a Wyoming limited liability company (the "Company"), pursuant to the provisions of the Wyoming Limited Liability Company Act and the Company's Operating Agreement, hereby consent to and adopt the following resolutions without a meeting:</p>
+    
+    <div class="section-divider"></div>
+    
+    <h2>RECITALS</h2>
+    
+    <div class="recital">
+        <span class="recital-label">WHEREAS,</span> the Company desires to obtain senior secured financing in the aggregate principal amount of Twelve Million Dollars ($12,000,000.00) (the "Financing");
+    </div>
+    
+    <div class="recital">
+        <span class="recital-label">WHEREAS,</span> the Financing will consist of: (a) a term loan facility in the principal amount of Ten Million Dollars ($10,000,000.00) (the "Term Loan"); and (b) a revolving credit facility in the principal amount of Two Million Dollars ($2,000,000.00) (the "Revolving Credit Facility");
+    </div>
+    
+    <div class="recital">
+        <span class="recital-label">WHEREAS,</span> in connection with the Financing, the Company will pledge and grant a security interest in Four Hundred Thousand (400,000) Membership Interests (the "Pledged Interests"), representing approximately forty percent (40%) of the total issued membership units of the Company, as collateral to secure the Company's obligations under the Financing;
+    </div>
+    
+    <div class="recital">
+        <span class="recital-label">WHEREAS,</span> the Members have determined that obtaining the Financing and pledging the Pledged Interests as collateral is in the best interests of the Company and its Members;
+    </div>
+    
+    <div class="recital">
+        <span class="recital-label">NOW, THEREFORE, BE IT RESOLVED,</span> that the following actions are hereby approved and authorized:
+    </div>
+    
+    <div class="section-divider"></div>
+    
+    <h2>RESOLUTION 1: APPROVAL OF FINANCING</h2>
+    
+    <p><strong>RESOLVED,</strong> that the Financing is hereby approved in all respects, including without limitation:</p>
+    
+    <ul>
+        <li><strong>(a)</strong> The Term Loan in the principal amount of $10,000,000.00;</li>
+        <li><strong>(b)</strong> The Revolving Credit Facility in the principal amount of $2,000,000.00;</li>
+        <li><strong>(c)</strong> The pledge and grant of a security interest in the Pledged Interests as collateral to secure the Company's obligations under the Financing;</li>
+        <li><strong>(d)</strong> The execution and delivery of all loan documents, including but not limited to:
+            <ul style="margin-top: 5px;">
+                <li>Term Loan Agreement</li>
+                <li>Revolving Credit Agreement</li>
+                <li>Promissory Notes</li>
+                <li>Pledge Agreement</li>
+                <li>Security Agreement</li>
+                <li>Guarantees (if required)</li>
+                <li>UCC-1 Financing Statements</li>
+                <li>All ancillary documents, certificates, and instruments</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <h2>RESOLUTION 2: PLEDGE AUTHORITY</h2>
+    
+    <p><strong>RESOLVED,</strong> that the Manager is hereby authorized and directed to:</p>
+    
+    <ul>
+        <li><strong>(a)</strong> Negotiate the terms and conditions of the Financing with the lender(s);</li>
+        <li><strong>(b)</strong> Execute and deliver all documents, agreements, and instruments related to the Financing on behalf of the Company;</li>
+        <li><strong>(c)</strong> Pledge and grant a security interest in the Pledged Interests to the lender(s) as collateral for the Financing;</li>
+        <li><strong>(d)</strong> Execute and file UCC-1 financing statements and any amendments, continuations, or terminations thereof;</li>
+        <li><strong>(e)</strong> Take any and all actions necessary or appropriate to consummate the Financing and perfect the security interest in the Pledged Interests;</li>
+        <li><strong>(f)</strong> Amend, modify, or refinance the terms of the Financing, provided that any material adverse changes require the consent of Members holding at least seventy-five percent (75%) of the Percentage Interests.</li>
+    </ul>
+    
+    <h2>RESOLUTION 3: SIGNING AUTHORITY</h2>
+    
+    <p><strong>RESOLVED,</strong> that the following individuals are hereby authorized to execute and deliver all documents related to the Financing on behalf of the Company:</p>
+    
+    <table style="margin: 15px 0;">
+        <thead>
+            <tr>
+                <th style="width: 40%;">Name</th>
+                <th style="width: 30%;">Title</th>
+                <th style="width: 30%;">Authority</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Gustavo Orona Maldonado</strong></td>
+                <td>Manager</td>
+                <td>Full Authority</td>
+            </tr>
+            <tr>
+                <td><span class="placeholder">[[ADDITIONAL SIGNATORY 1]]</span></td>
+                <td><span class="placeholder">[[TITLE]]</span></td>
+                <td><span class="placeholder">[[AUTHORITY LEVEL]]</span></td>
+            </tr>
+            <tr>
+                <td><span class="placeholder">[[ADDITIONAL SIGNATORY 2]]</span></td>
+                <td><span class="placeholder">[[TITLE]]</span></td>
+                <td><span class="placeholder">[[AUTHORITY LEVEL]]</span></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <p><strong>RESOLVED FURTHER,</strong> that any one of the authorized signatories may execute documents on behalf of the Company, and the lender(s) may rely upon the signature of any authorized signatory without requiring additional signatures or consents.</p>
+    
+    <div class="page-footer">Page 22</div>
+</div>
+
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h2>RESOLUTION 4: BANKING AUTHORIZATION</h2>
+    
+    <p><strong>RESOLVED,</strong> that the Manager is hereby authorized to:</p>
+    
+    <ul>
+        <li><strong>(a)</strong> Establish and maintain bank accounts and other financial accounts in the Company's name at such financial institutions as the Manager may determine;</li>
+        <li><strong>(b)</strong> Designate authorized signatories for such accounts;</li>
+        <li><strong>(c)</strong> Execute and deliver banking resolutions, signature cards, and other documents required by financial institutions;</li>
+        <li><strong>(d)</strong> Deposit the proceeds of the Financing into the Company's bank accounts;</li>
+        <li><strong>(e)</strong> Authorize wire transfers, ACH transactions, and other electronic fund transfers in connection with the Financing and the Company's business operations.</li>
+    </ul>
+    
+    <h2>RESOLUTION 5: RATIFICATION</h2>
+    
+    <p><strong>RESOLVED,</strong> that all actions previously taken by the Manager in connection with the Financing are hereby ratified, confirmed, and approved in all respects.</p>
+    
+    <h2>RESOLUTION 6: FURTHER ACTIONS</h2>
+    
+    <p><strong>RESOLVED,</strong> that the Manager and any officer of the Company are hereby authorized and directed to take any and all further actions, and to execute and deliver any and all further documents, as may be necessary or appropriate to carry out the purposes and intent of the foregoing resolutions.</p>
+    
+    <h2>RESOLUTION 7: EFFECTIVE DATE</h2>
+    
+    <p><strong>RESOLVED,</strong> that these resolutions shall be effective as of the date of execution by all Members.</p>
+    
+    <div class="section-divider"></div>
+    
+    <h2 style="text-align: center; margin: 30px 0;">MEMBER SIGNATURES</h2>
+    
+    <p style="text-align: center;">IN WITNESS WHEREOF, the undersigned Members have executed this Unanimous Written Consent as of the dates set forth below.</p>
+    
+    <div class="signature-block">
+        <p><strong>MEMBER 1: GM FAMILY TRUST</strong></p>
+        <div class="signature-line"></div>
+        <div class="signature-label">
+            By: <span class="placeholder">Gustavo Orona Maldonado</span>, Trustee<br>
+            Date: <span class="placeholder">March 31, 2026</span>
+        </div>
+    </div>
+    
+    <div class="signature-block">
+        <p><strong>MEMBER 2: FRONTIER REGISTERED AGENCY SERVICES LLC</strong></p>
+        <div class="signature-line"></div>
+        <div class="signature-label">
+            By: <span class="placeholder">[[AUTHORIZED SIGNATORY]]</span><br>
+            Title: <span class="placeholder">[[TITLE]]</span><br>
+            Date: <span class="placeholder">March 31, 2026</span>
+        </div>
+    </div>
+    
+    <div class="signature-block">
+        <p><strong>MEMBER 3: <span class="placeholder">[[MEMBER 3 NAME]]</span></strong></p>
+        <div class="signature-line"></div>
+        <div class="signature-label">
+            Date: <span class="placeholder">March 31, 2026</span>
+        </div>
+    </div>
+    
+    <div class="signature-block">
+        <p><strong>MEMBER 4: <span class="placeholder">[[MEMBER 4 NAME]]</span></strong></p>
+        <div class="signature-line"></div>
+        <div class="signature-label">
+            Date: <span class="placeholder">March 31, 2026</span>
+        </div>
+    </div>
+    
+    <div class="page-footer">Page 23</div>
+</div>
+
+<!-- EXHIBIT C: TRUSTEE CERTIFICATION -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <div class="exhibit-header">EXHIBIT C<br>TRUSTEE CERTIFICATION</div>
+    
+    <h2 style="text-align: center; margin: 20px 0;">CERTIFICATION OF TRUSTEE<br>GM FAMILY TRUST</h2>
+    
+    <p>I, <span class="placeholder">Gustavo Orona Maldonado</span>, hereby certify that:</p>
+    
+    <h3>1. Trustee Authority</h3>
+    
+    <p>I am the duly appointed and acting Trustee of the GM Family Trust, a revocable living trust established under the laws of <span class="placeholder">[[STATE]]</span> (the "Trust").</p>
+    
+    <h3>2. Trust Information</h3>
+    
+    <ul>
+        <li><strong>Trust Name:</strong> GM Family Trust</li>
+        <li><strong>Trust Type:</strong> Revocable Living Trust</li>
+        <li><strong>Trust EIN:</strong> 33-647-2099</li>
+        <li><strong>Date of Trust:</strong> <span class="placeholder">March 31, 2026</span></li>
+        <li><strong>Grantor/Settlor:</strong> <span class="placeholder">[[GRANTOR NAME]]</span></li>
+        <li><strong>Current Trustee:</strong> <span class="placeholder">Gustavo Orona Maldonado</span></li>
+    </ul>
+    
+    <h3>3. Authority to Execute Documents</h3>
+    
+    <p>As Trustee, I have full power and authority under the terms of the Trust Agreement to:</p>
+    
+    <ul>
+        <li><strong>(a)</strong> Hold, manage, invest, and dispose of trust assets;</li>
+        <li><strong>(b)</strong> Execute contracts, agreements, and other documents on behalf of the Trust;</li>
+        <li><strong>(c)</strong> Make capital contributions to business entities;</li>
+        <li><strong>(d)</strong> Acquire, hold, and dispose of membership interests in limited liability companies;</li>
+        <li><strong>(e)</strong> Execute operating agreements, amendments, and related documents;</li>
+        <li><strong>(f)</strong> Pledge trust assets as collateral for loans and financing transactions;</li>
+        <li><strong>(g)</strong> Take any and all actions necessary or appropriate to carry out the purposes of the Trust.</li>
+    </ul>
+    
+    <h3>4. Trust in Good Standing</h3>
+    
+    <p>The Trust is in full force and effect and has not been revoked, modified, or amended in any manner that would affect my authority as Trustee to execute the Operating Agreement of SOVR Development Holdings, LLC and related documents.</p>
+    
+    <h3>5. No Conflicts</h3>
+    
+    <p>To the best of my knowledge, the Trust's investment in SOVR Development Holdings, LLC and the execution of the Operating Agreement and related documents do not violate any provision of the Trust Agreement or any applicable law.</p>
+    
+    <h3>6. Beneficial Owners</h3>
+    
+    <p>The beneficial owners of the Trust are as follows:</p>
+    
+    <table style="margin: 15px 0;">
+        <thead>
+            <tr>
+                <th style="width: 40%;">Name</th>
+                <th style="width: 30%;">Relationship</th>
+                <th style="width: 30%;">Percentage Interest</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="placeholder">[[BENEFICIARY 1 NAME]]</span></td>
+                <td><span class="placeholder">[[RELATIONSHIP]]</span></td>
+                <td><span class="placeholder">[[%]]</span></td>
+            </tr>
+            <tr>
+                <td><span class="placeholder">[[BENEFICIARY 2 NAME]]</span></td>
+                <td><span class="placeholder">[[RELATIONSHIP]]</span></td>
+                <td><span class="placeholder">[[%]]</span></td>
+            </tr>
+            <tr>
+                <td><span class="placeholder">[[BENEFICIARY 3 NAME]]</span></td>
+                <td><span class="placeholder">[[RELATIONSHIP]]</span></td>
+                <td><span class="placeholder">[[%]]</span></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>7. Certification</h3>
+    
+    <p>I certify under penalty of perjury that the foregoing statements are true and correct to the best of my knowledge and belief.</p>
+    
+    <div class="section-divider"></div>
+    
+    <p style="text-align: center; margin: 20px 0;"><strong>EXECUTED as of <span class="placeholder">March 31, 2026</span></strong></p>
+    
+    <div class="signature-block">
+        <p><strong>GM FAMILY TRUST</strong></p>
+        <div class="signature-line"></div>
+        <div class="signature-label">
+            By: <span class="placeholder">Gustavo Orona Maldonado</span>, Trustee<br>
+            Date: <span class="placeholder">March 31, 2026</span>
+        </div>
+    </div>
+    
+    <div style="margin-top: 40px; padding: 15px; background: #f7fafc; border-left: 4px solid #1a365d;">
+        <p style="font-size: 9pt; margin: 0;"><strong>Note:</strong> This certification should be accompanied by a copy of the Trust Agreement (or relevant excerpts) showing the Trustee's authority. Some lenders may require additional documentation such as a Certificate of Trust or Affidavit of Trust.</p>
+    </div>
+    
+    <div class="page-footer">Page 24</div>
+</div>
+
+<!-- EXHIBIT D: BANKING & OFFICER RESOLUTION -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <div class="exhibit-header">EXHIBIT D<br>BANKING & OFFICER RESOLUTION</div>
+    
+    <h2 style="text-align: center; margin: 20px 0;">BANKING RESOLUTION<br>OF<br>SOVR DEVELOPMENT HOLDINGS, LLC</h2>
+    
+    <p>The undersigned, being the Manager of SOVR Development Holdings, LLC, a Wyoming limited liability company (the "Company"), hereby certifies that the following resolutions were duly adopted and are in full force and effect:</p>
+    
+    <div class="section-divider"></div>
+    
+    <h2>RESOLUTION 1: DESIGNATION OF FINANCIAL INSTITUTIONS</h2>
+    
+    <p><strong>RESOLVED,</strong> that the Company is hereby authorized to establish and maintain bank accounts, investment accounts, and other financial accounts at the following financial institutions (or such other institutions as the Manager may determine):</p>
+    
+    <table style="margin: 15px 0;">
+        <thead>
+            <tr>
+                <th style="width: 50%;">Financial Institution</th>
+                <th style="width: 50%;">Account Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="placeholder">[[BANK NAME 1]]</span></td>
+                <td><span class="placeholder">[[ACCOUNT TYPE]]</span></td>
+            </tr>
+            <tr>
+                <td><span class="placeholder">[[BANK NAME 2]]</span></td>
+                <td><span class="placeholder">[[ACCOUNT TYPE]]</span></td>
+            </tr>
+            <tr>
+                <td><span class="placeholder">[[BANK NAME 3]]</span></td>
+                <td><span class="placeholder">[[ACCOUNT TYPE]]</span></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>RESOLUTION 2: AUTHORIZED SIGNATORIES</h2>
+    
+    <p><strong>RESOLVED,</strong> that the following individuals are hereby designated as authorized signatories for the Company's bank accounts and are authorized to:</p>
+    
+    <ul>
+        <li>Sign checks, drafts, and other instruments;</li>
+        <li>Make deposits and withdrawals;</li>
+        <li>Authorize wire transfers and ACH transactions;</li>
+        <li>Execute banking documents and agreements;</li>
+        <li>Access online banking and account information;</li>
+        <li>Take any other actions related to the Company's banking activities.</li>
+    </ul>
+    
+    <table style="margin: 15px 0;">
+        <thead>
+            <tr>
+                <th style="width: 30%;">Name</th>
+                <th style="width: 25%;">Title</th>
+                <th style="width: 25%;">Authority Level</th>
+                <th style="width: 20%;">Signature Required</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>Gustavo Orona Maldonado</strong></td>
+                <td>Manager</td>
+                <td>Unlimited</td>
+                <td>Single</td>
+            </tr>
+            <tr>
+                <td><span class="placeholder">[[SIGNATORY 2]]</span></td>
+                <td><span class="placeholder">[[TITLE]]</span></td>
+                <td><span class="placeholder">[[LIMIT]]</span></td>
+                <td><span class="placeholder">[[REQUIREMENT]]</span></td>
+            </tr>
+            <tr>
+                <td><span class="placeholder">[[SIGNATORY 3]]</span></td>
+                <td><span class="placeholder">[[TITLE]]</span></td>
+                <td><span class="placeholder">[[LIMIT]]</span></td>
+                <td><span class="placeholder">[[REQUIREMENT]]</span></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>RESOLUTION 3: SIGNATURE REQUIREMENTS</h2>
+    
+    <p><strong>RESOLVED,</strong> that the following signature requirements shall apply to Company transactions:</p>
+    
+    <table style="margin: 15px 0;">
+        <thead>
+            <tr>
+                <th style="width: 50%;">Transaction Type</th>
+                <th style="width: 50%;">Signature Requirement</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Checks and withdrawals under <span class="placeholder">[[AMOUNT]]</span></td>
+                <td>Single authorized signature</td>
+            </tr>
+            <tr>
+                <td>Checks and withdrawals over <span class="placeholder">[[AMOUNT]]</span></td>
+                <td>Two authorized signatures</td>
+            </tr>
+            <tr>
+                <td>Wire transfers under <span class="placeholder">[[AMOUNT]]</span></td>
+                <td>Single authorized signature</td>
+            </tr>
+            <tr>
+                <td>Wire transfers over <span class="placeholder">[[AMOUNT]]</span></td>
+                <td>Two authorized signatures</td>
+            </tr>
+            <tr>
+                <td>Account opening/closing</td>
+                <td>Manager signature required</td>
+            </tr>
+            <tr>
+                <td>Loan applications</td>
+                <td>Manager signature required</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>RESOLUTION 4: ELECTRONIC BANKING</h2>
+    
+    <p><strong>RESOLVED,</strong> that the authorized signatories are hereby authorized to:</p>
+    
+    <ul>
+        <li><strong>(a)</strong> Establish and use online banking services, including bill payment, ACH transfers, and wire transfers;</li>
+        <li><strong>(b)</strong> Designate users and set access levels for online banking;</li>
+        <li><strong>(c)</strong> Execute agreements with financial institutions for electronic banking services;</li>
+        <li><strong>(d)</strong> Authorize electronic signatures and digital authentication methods;</li>
+        <li><strong>(e)</strong> Access account information and statements electronically.</li>
+    </ul>
+    
+    <h2>RESOLUTION 5: BORROWING AUTHORITY</h2>
+    
+    <p><strong>RESOLVED,</strong> that the Manager is hereby authorized to:</p>
+    
+    <ul>
+        <li><strong>(a)</strong> Borrow money on behalf of the Company from financial institutions;</li>
+        <li><strong>(b)</strong> Execute promissory notes, loan agreements, and security agreements;</li>
+        <li><strong>(c)</strong> Pledge Company assets as collateral for loans;</li>
+        <li><strong>(d)</strong> Guarantee obligations of subsidiaries or affiliates (subject to limitations in the Operating Agreement);</li>
+        <li><strong>(e)</strong> Refinance, renew, or extend existing loans;</li>
+        <li><strong>(f)</strong> Take any other actions necessary or appropriate in connection with borrowing transactions.</li>
+    </ul>
+    
+    <div class="page-footer">Page 25</div>
+</div>
+
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <h2>RESOLUTION 6: INVESTMENT AUTHORITY</h2>
+    
+    <p><strong>RESOLVED,</strong> that the Manager is hereby authorized to:</p>
+    
+    <ul>
+        <li><strong>(a)</strong> Open and maintain investment accounts with brokerage firms, investment advisors, and other financial institutions;</li>
+        <li><strong>(b)</strong> Purchase, sell, and trade securities, including stocks, bonds, mutual funds, and other investments;</li>
+        <li><strong>(c)</strong> Execute investment management agreements and brokerage agreements;</li>
+        <li><strong>(d)</strong> Designate investment managers and grant them discretionary authority;</li>
+        <li><strong>(e)</strong> Take any other actions necessary or appropriate in connection with the Company's investments.</li>
+    </ul>
+    
+    <h2>RESOLUTION 7: SAFE DEPOSIT BOX</h2>
+    
+    <p><strong>RESOLVED,</strong> that the authorized signatories are hereby authorized to:</p>
+    
+    <ul>
+        <li><strong>(a)</strong> Rent and maintain safe deposit boxes in the Company's name;</li>
+        <li><strong>(b)</strong> Access safe deposit boxes and deposit or remove items;</li>
+        <li><strong>(c)</strong> Designate additional persons to have access to safe deposit boxes;</li>
+        <li><strong>(d)</strong> Execute agreements and documents required by financial institutions for safe deposit boxes.</li>
+    </ul>
+    
+    <h2>RESOLUTION 8: CERTIFICATION TO FINANCIAL INSTITUTIONS</h2>
+    
+    <p><strong>RESOLVED,</strong> that any financial institution may rely on these resolutions until it receives written notice of their revocation or modification. The Manager is hereby authorized to certify to any financial institution that these resolutions are in full force and effect and have not been revoked or modified.</p>
+    
+    <h2>RESOLUTION 9: INDEMNIFICATION OF FINANCIAL INSTITUTIONS</h2>
+    
+    <p><strong>RESOLVED,</strong> that the Company hereby agrees to indemnify and hold harmless any financial institution that acts in reliance on these resolutions and the signatures of the authorized signatories. The financial institution shall not be liable for any actions taken in good faith reliance on these resolutions.</p>
+    
+    <h2>RESOLUTION 10: RATIFICATION OF PRIOR ACTS</h2>
+    
+    <p><strong>RESOLVED,</strong> that all banking transactions and other financial activities conducted on behalf of the Company prior to the date of these resolutions are hereby ratified, confirmed, and approved in all respects.</p>
+    
+    <div class="section-divider"></div>
+    
+    <h2 style="text-align: center; margin: 30px 0;">CERTIFICATION</h2>
+    
+    <p>I hereby certify that I am the duly appointed and acting Manager of SOVR Development Holdings, LLC, and that the foregoing resolutions were duly adopted and are in full force and effect as of the date set forth below.</p>
+    
+    <div class="signature-block">
+        <div class="signature-line"></div>
+        <div class="signature-label">
+            <strong>Gustavo Orona Maldonado</strong>, Manager<br>
+            Date: <span class="placeholder">March 31, 2026</span>
+        </div>
+    </div>
+    
+    <div style="margin-top: 40px; padding: 15px; background: #f7fafc; border-left: 4px solid #1a365d;">
+        <p style="font-size: 9pt; margin: 0;"><strong>Note to Financial Institutions:</strong> This resolution may be relied upon by any financial institution until written notice of its revocation or modification is received. Financial institutions may require additional documentation such as the Company's Certificate of Organization, Operating Agreement, and proof of authority for the Manager.</p>
+    </div>
+    
+    <div class="page-footer">Page 26</div>
+</div>
+
+<!-- COMPLIANCE CHECKLIST -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <div class="exhibit-header">COMPLIANCE & CLOSING CHECKLIST</div>
+    
+    <h2>30-Day Formation & Financing Closing Checklist</h2>
+    
+    <p>This checklist outlines the key tasks and deadlines for completing the formation of SOVR Development Holdings, LLC and closing the $12,000,000 Financing. All items should be completed within 30 days of formation.</p>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 8%;">Item</th>
+                <th style="width: 42%;">Task Description</th>
+                <th style="width: 20%;">Responsible Party</th>
+                <th style="width: 15%;">Deadline</th>
+                <th style="width: 15%;">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>A1</strong></td>
+                <td>File Articles of Organization with Wyoming Secretary of State</td>
+                <td>Manager / Attorney</td>
+                <td>Day 1</td>
+                <td class="placeholder">[[   ]]</td>
+            </tr>
+            <tr>
+                <td><strong>A2</strong></td>
+                <td>Obtain EIN from IRS (Form SS-4)</td>
+                <td>Manager / Accountant</td>
+                <td>Day 3</td>
+                <td class="placeholder">[[   ]]</td>
+            </tr>
+            <tr>
+                <td><strong>A3</strong></td>
+                <td>Execute Operating Agreement (all Members and Manager)</td>
+                <td>All Parties</td>
+                <td>Day 5</td>
+                <td class="placeholder">[[   ]]</td>
+            </tr>
+            <tr>
+                <td><strong>A4</strong></td>
+                <td>Execute Financing Resolution (unanimous written consent)</td>
+                <td>All Members</td>
+                <td>Day 5</td>
+                <td class="placeholder">[[   ]]</td>
+            </tr>
+            <tr>
+                <td><strong>A5</strong></td>
+                <td>Open company bank account</td>
+                <td>Manager</td>
+                <td>Day 7</td>
+                <td class="placeholder">[[   ]]</td>
+            </tr>
+            <tr>
+                <td><strong>A6</strong></td>
+                <td>Execute Banking Resolution and provide to financial institution</td>
+                <td>Manager</td>
+                <td>Day 7</td>
+                <td class="placeholder">[[   ]]</td>
+            </tr>
+            <tr>
+                <td><strong>A7</strong></td>
+                <td>Obtain Trustee Certification from GM Family Trust</td>
+                <td>Trustee</td>
+                <td>Day 7</td>
+                <td class="placeholder">[[   ]]</td>
+            </tr>
+            <tr>
+                <td><strong>A8</strong></td>
+                <td>Prepare and submit loan application package to lender</td>
+                <td>Manager</td>
+                <td>Day 10</td>
+                <td class="placeholder">[[   ]]</td>
+            </tr>
+            <tr>
+                <td><strong>A9</strong></td>
+                <td>Obtain business insurance (general liability, D&O, property)</td>
+                <td>Manager</td>
+                <td>Day 14</td>
+                <td class="placeholder">[[   ]]</td>
+            </tr>
+            <tr>
+                <td><strong>A10</strong></td>
+                <td>Execute Term Loan Agreement ($10M)</td>
+                <td>Manager</td>
+                <td>Day 20</td>
+                <td class="placeholder">[[   ]]</td>
+            </tr>
+            <tr>
+                <td><strong>A11</strong></td>
+                <td>Execute Revolving Credit Agreement ($2M)</td>
+                <td>Manager</td>
+                <td>Day 20</td>
+                <td class="placeholder">[[   ]]</td>
+            </tr>
+            <tr>
+                <td><strong>A12</strong></td>
+                <td>Execute Pledge Agreement for 400,000 Membership Interests</td>
+                <td>Manager & Members</td>
+                <td>Day 20</td>
+                <td class="placeholder">[[   ]]</td>
+            </tr>
+            <tr>
+                <td><strong>A13</strong></td>
+                <td>File UCC-1 Financing Statements with Wyoming Secretary of State</td>
+                <td>Lender / Attorney</td>
+                <td>Day 21</td>
+                <td class="placeholder">[[   ]]</td>
+            </tr>
+            <tr>
+                <td><strong>A14</strong></td>
+                <td>Close Financing and receive funds</td>
+                <td>Manager & Lender</td>
+                <td>Day 25</td>
+                <td class="placeholder">[[   ]]</td>
+            </tr>
+            <tr>
+                <td><strong>A15</strong></td>
+                <td>Distribute closing documents to all Members</td>
+                <td>Manager</td>
+                <td>Day 30</td>
+                <td class="placeholder">[[   ]]</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h2>Additional Considerations</h2>
+    
+    <ul>
+        <li><strong>Legal Review:</strong> Have all documents reviewed by qualified legal counsel before execution</li>
+        <li><strong>Tax Planning:</strong> Consult with a tax advisor regarding tax elections and structuring</li>
+        <li><strong>Compliance:</strong> Ensure compliance with all federal and state securities laws</li>
+        <li><strong>Insurance:</strong> Maintain adequate insurance coverage throughout the life of the Company</li>
+        <li><strong>Record Keeping:</strong> Maintain organized records of all formation and financing documents</li>
+        <li><strong>Annual Compliance:</strong> File annual reports and maintain good standing with Wyoming Secretary of State</li>
+    </ul>
+    
+    <div class="page-footer">Page 27</div>
+</div>
+
+<!-- SAMPLE COVER LETTER -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <div class="exhibit-header">SAMPLE COVER LETTER TO LENDER</div>
+    
+    <div style="margin: 30px 0;">
+        <p><span class="placeholder">March 31, 2026</span></p>
+        
+        <p style="margin-top: 30px;">
+        <span class="placeholder">[[LENDER NAME]]</span><br>
+        <span class="placeholder">[[LENDER ADDRESS LINE 1]]</span><br>
+        <span class="placeholder">[[LENDER ADDRESS LINE 2]]</span>
+        </p>
+        
+        <p style="margin-top: 30px;">
+        <strong>Re: Loan Application – SOVR Development Holdings, LLC</strong><br>
+        <strong>Financing Amount: $12,000,000</strong>
+        </p>
+        
+        <p style="margin-top: 20px;">Dear <span class="placeholder">[[LENDER CONTACT]]</span>:</p>
+        
+        <p>On behalf of SOVR Development Holdings, LLC (the "Company"), I am pleased to submit this loan application package for your review and consideration. The Company is seeking senior secured financing in the aggregate principal amount of Twelve Million Dollars ($12,000,000.00), consisting of:</p>
+        
+        <ul>
+            <li><strong>Term Loan:</strong> $10,000,000.00</li>
+            <li><strong>Revolving Credit Facility:</strong> $2,000,000.00</li>
+        </ul>
+        
+        <h3>Company Overview</h3>
+        
+        <p>SOVR Development Holdings, LLC is a Wyoming manager-managed limited liability company formed on <span class="placeholder">[[FORMATION DATE]]</span>. The Company has four members and is managed by Gustavo Orona Maldonado. The Company's principal office is located at 2120 Carey Avenue, Cheyenne, Wyoming 82001.</p>
+        
+        <h3>Purpose of Financing</h3>
+        
+        <p><span class="placeholder">[[DESCRIBE PURPOSE OF FINANCING – e.g., "The financing will be used for real estate acquisition, development projects, working capital, and general corporate purposes."]]</span></p>
+        
+        <h3>Collateral</h3>
+        
+        <p>As security for the financing, the Company will pledge Four Hundred Thousand (400,000) Membership Interests, representing approximately forty percent (40%) of the total issued membership units of the Company. The Company is also prepared to provide additional collateral as may be required by the lender.</p>
+        
+        <h3>Enclosed Documents</h3>
+        
+        <p>Enclosed with this letter, please find the following documents:</p>
+        
+        <ol>
+            <li>Articles of Organization (Certificate of Formation)</li>
+            <li>Operating Agreement (fully executed)</li>
+            <li>Financing Resolution (unanimous written consent of Members)</li>
+            <li>Banking Resolution</li>
+            <li>Trustee Certification (GM Family Trust)</li>
+            <li>Financial projections and business plan</li>
+            <li>Personal financial statements of key members</li>
+            <li>Company organizational chart</li>
+            <li>Proof of insurance (or commitment to obtain)</li>
+            <li><span class="placeholder">[[OTHER DOCUMENTS AS REQUIRED]]</span></li>
+        </ol>
+        
+        <h3>Next Steps</h3>
+        
+        <p>We are prepared to move forward expeditiously with this financing and are available to provide any additional information or documentation you may require. Please feel free to contact me at <span class="placeholder">[[PHONE]]</span> or <span class="placeholder">[[EMAIL]]</span> to discuss this application or to schedule a meeting.</p>
+        
+        <p>We look forward to the opportunity to establish a long-term banking relationship with <span class="placeholder">[[LENDER NAME]]</span> and appreciate your consideration of this application.</p>
+        
+        <p style="margin-top: 30px;">Sincerely,</p>
+        
+        <div class="signature-block">
+            <div class="signature-line"></div>
+            <div class="signature-label">
+                <strong>Gustavo Orona Maldonado</strong><br>
+                Manager<br>
+                SOVR Development Holdings, LLC
+            </div>
+        </div>
+        
+        <p style="margin-top: 20px;">
+        <strong>Enclosures:</strong> As listed above
+        </p>
+    </div>
+    
+    <div class="page-footer">Page 28</div>
+</div>
+
+<!-- QUICK COPY-PASTE GUIDE -->
+<div class="page">
+    <div class="page-header">SOVR Development Holdings, LLC - Operating Agreement</div>
+    
+    <div class="exhibit-header">QUICK COPY-PASTE GUIDE</div>
+    
+    <h2>Instructions for Customizing This Document</h2>
+    
+    <p>This Operating Agreement package uses placeholder text in <span class="placeholder">[[DOUBLE BRACKETS]]</span> to indicate fields that need to be customized. Follow these instructions to complete the document:</p>
+    
+    <h3>Step 1: Find and Replace Placeholders</h3>
+    
+    <p>Use your text editor's "Find and Replace" function to locate all placeholders marked with <span class="placeholder">[[DOUBLE BRACKETS]]</span> and replace them with the appropriate information.</p>
+    
+    <h3>Step 2: Key Information to Insert</h3>
+    
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 40%;">Placeholder</th>
+                <th>Information to Insert</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="placeholder">March 31, 2026</td>
+                <td>Current date or effective date of agreement</td>
+            </tr>
+            <tr>
+                <td class="placeholder">[[FORMATION DATE]]</td>
+                <td>Date Articles of Organization were filed</td>
+            </tr>
+            <tr>
+                <td class="placeholder">[[MEMBER 3 NAME]]</td>
+                <td>Full legal name of third member</td>
+            </tr>
+            <tr>
+                <td class="placeholder">[[MEMBER 4 NAME]]</td>
+                <td>Full legal name of fourth member</td>
+            </tr>
+            <tr>
+                <td class="placeholder">[[AMOUNT]]</td>
+                <td>Dollar amounts for capital contributions, thresholds, etc.</td>
+            </tr>
+            <tr>
+                <td class="placeholder">[[UNITS]]</td>
+                <td>Number of membership units for each member</td>
+            </tr>
+            <tr>
+                <td class="placeholder">[[%]]</td>
+                <td>Percentage interests for each member</td>
+            </tr>
+            <tr>
+                <td class="placeholder">[[MANAGER ADDRESS]]</td>
+                <td>Manager's contact information</td>
+            </tr>
+            <tr>
+                <td class="placeholder">Gustavo Orona Maldonado</td>
+                <td>Name of GM Family Trust trustee</td>
+            </tr>
+            <tr>
+                <td class="placeholder">[[STATE]]</td>
+                <td>State where trust was established</td>
+            </tr>
+            <tr>
+                <td class="placeholder">[[BANK NAME]]</td>
+                <td>Name of financial institution(s)</td>
+            </tr>
+            <tr>
+                <td class="placeholder">[[TITLE]]</td>
+                <td>Job titles for officers and authorized signatories</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>Step 3: Review and Customize Provisions</h3>
+    
+    <p>After replacing placeholders, review the following sections and customize as needed:</p>
+    
+    <ul>
+        <li><strong>Capital Contributions (Article III):</strong> Confirm amounts and percentage interests</li>
+        <li><strong>Voting Thresholds (Article IV):</strong> Adjust voting percentages if needed</li>
+        <li><strong>Manager Powers (Article V):</strong> Add or remove specific powers as appropriate</li>
+        <li><strong>Limitations (Article VI):</strong> Set dollar thresholds for various transactions</li>
+        <li><strong>Non-Compete (Article XII):</strong> Define geographic area and time period</li>
+        <li><strong>Banking Resolution (Exhibit D):</strong> Add authorized signatories and signature requirements</li>
+    </ul>
+    
+    <h3>Step 4: Legal Review</h3>
+    
+    <p><strong>IMPORTANT:</strong> Before executing this document, have it reviewed by qualified legal counsel to ensure it meets your specific needs and complies with applicable laws.</p>
+    
+    <h3>Step 5: Execution</h3>
+    
+    <p>Once customized and reviewed:</p>
+    
+    <ol>
+        <li>Print sufficient copies for all parties</li>
+        <li>Have all Members and Manager sign the signature page</li>
+        <li>Have all Members sign the Financing Resolution (Exhibit B)</li>
+        <li>Obtain Trustee Certification for GM Family Trust (Exhibit C)</li>
+        <li>Execute Banking Resolution (Exhibit D)</li>
+        <li>Distribute executed copies to all Members</li>
+        <li>Maintain original in Company records</li>
+    </ol>
+    
+    <h3>Step 6: Filing and Compliance</h3>
+    
+    <ul>
+        <li>File Articles of Organization with Wyoming Secretary of State</li>
+        <li>Obtain EIN from IRS</li>
+        <li>Open company bank account</li>
+        <li>File UCC-1 financing statements for collateral</li>
+        <li>Obtain required insurance</li>
+        <li>Complete all items on the Compliance Checklist</li>
+    </ul>
+    
+    <div style="margin-top: 30px; padding: 20px; background: #fff3cd; border: 2px solid #ffc107;">
+        <h3 style="color: #856404; margin-top: 0;">⚠️ Legal Disclaimer</h3>
+        <p style="color: #856404; margin: 0;">This document is provided as a template only and does not constitute legal advice. The use of this template does not create an attorney-client relationship. You should consult with qualified legal and tax professionals before using this document or making any decisions based on its contents. Laws vary by jurisdiction and change over time. This template may not be suitable for your specific situation or comply with all applicable laws in your jurisdiction.</p>
+    </div>
+    
+    <div class="page-footer">Page 29</div>
+</div>
+
+<!-- FINAL PAGE WITH BRANDING -->
+<div class="page" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+    <div style="margin-bottom: 40px;">
+        <h2 style="color: #1a365d; font-size: 24pt; margin-bottom: 15px;">Document Complete</h2>
+        <p style="font-size: 12pt; color: #4a5568;">This concludes the Operating Agreement & Formation Package for SOVR Development Holdings, LLC</p>
+    </div>
+    
+    <div class="section-divider" style="width: 200px;"></div>
+    
+    <div style="margin-top: 40px;">
+        <p style="font-size: 11pt; color: #4a5568; margin-bottom: 10px;">For questions or assistance, please contact:</p>
+        <p style="font-size: 12pt; font-weight: 600; color: #1a365d;">
+            Gustavo Orona Maldonado, Manager<br>
+            SOVR Development Holdings, LLC<br>
+            2120 Carey Avenue<br>
+            Cheyenne, Wyoming 82001
+        </p>
+    </div>
+    
+    <div style="margin-top: 60px; display: flex; align-items: center; gap: 10px; font-size: 10pt; color: #4a5568;">
+        <span>made with</span>
+        <a href="https://kuse.ai" target="_blank" style="display: inline-flex; align-items: center; text-decoration: none; color: #1a365d; transition: color 0.3s ease;" onmouseover="this.style.color='#2563eb'" onmouseout="this.style.color='#1a365d'">
+            <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg" style="height: 1.2em; width: auto;"><path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"/><path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"/></svg>
+        </a>
+    </div>
+    
+    <div class="page-footer">Page 30</div>
+</div>
+
+<script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+</body>
+</html>
