@@ -37,13 +37,12 @@
             font-family: var(--sans);
             line-height: 1.6;
             min-height: 100vh;
-            display: flex;
             overflow-x: hidden;
             -webkit-text-size-adjust: 100%; /* Prevent font scaling on mobile */
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* Sidebar Navigation */
+        /* Sidebar Navigation - Fixed, outside scroll flow */
         .sidebar {
             width: var(--sidebar-width);
             height: 100vh;
@@ -59,6 +58,128 @@
             background: rgba(0, 0, 0, 0.8);
             backdrop-filter: blur(20px);
             z-index: 1000;
+        }
+
+        /* ZONE 1: INTRO / SPLASH - scrolls away */
+        .intro-zone {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, var(--accent) 0%, #ff6a00 50%, var(--accent) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .intro-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            padding: 2rem;
+        }
+
+        .intro-title {
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            margin-bottom: 1rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+
+        .intro-subtitle {
+            font-family: var(--mono);
+            font-size: 1rem;
+            letter-spacing: 0.3em;
+            opacity: 0.9;
+            text-transform: uppercase;
+        }
+
+        /* Fade gradient at bottom of intro */
+        .intro-zone::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 150px;
+            background: linear-gradient(to bottom, transparent, var(--bg));
+            pointer-events: none;
+        }
+
+        /* ZONE 2: HERO - becomes sticky */
+        .hero-zone {
+            position: relative;
+            background: var(--bg);
+        }
+
+        .hero-sticky {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 240, 255, 0.2);
+            padding: 1rem 4rem;
+            margin-left: var(--sidebar-width);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .hero-sticky {
+                margin-left: 0;
+                padding: 1rem 1.5rem;
+            }
+        }
+
+        .hero-sticky-title {
+            font-family: var(--mono);
+            font-size: 1.25rem;
+            color: var(--accent-cyan);
+            letter-spacing: 0.15em;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .hero-sticky.sub {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: #666;
+            letter-spacing: 0.1em;
+            margin-top: 0.25rem;
+        }
+
+        /* HERO CONTENT - scrolls under sticky */
+        .hero-content {
+            padding: 4rem;
+            padding-top: 2rem;
+            margin-left: var(--sidebar-width);
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content {
+                margin-left: 0;
+                padding: 2rem 1.5rem;
+                min-height: 60vh;
+            }
+        }
+
+        /* ZONE 3: MAIN CONTENT */
+        .main-content {
+            padding: 2rem 4rem;
+            padding-top: 0;
+            margin-left: var(--sidebar-width);
+            background: var(--bg);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                margin-left: 0;
+                padding: 2rem 1.5rem;
+            }
         }
 
         .nav-items {
@@ -97,24 +218,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Stationary Header */
-        .stationary-header {
-            position: fixed;
-            top: 0;
-            left: var(--sidebar-width);
-            right: 0;
-            height: var(--header-height);
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(40px);
-            border-bottom: 1px solid var(--border);
-            padding: 2rem 4rem;
-            z-index: 900;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            gap: 2rem;
-        }
-
         /* Hero Layout — text left, seal right */
         .hero-layout {
             display: flex;
@@ -138,7 +241,6 @@
             position: relative;
             padding: 18px;
             margin-top: -42px;
-            margin-right: 180px;
         }
 
         .hero-seal::before {
@@ -187,49 +289,6 @@
 
         .hero-seal:hover::before {
             box-shadow: 0 0 30px rgba(0, 240, 255, 0.6), 0 0 60px rgba(0, 240, 255, 0.25), inset 0 0 16px rgba(0, 240, 255, 0.1);
-        }
-
-        /* Main Scroll Container */
-        .main-scroll-root {
-            margin-left: var(--sidebar-width);
-            flex: 1;
-            height: 100vh;
-            overflow-y: scroll;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .scroll-content {
-            padding: 2rem 4rem 8rem;
-            max-width: 1600px;
-            margin-top: var(--header-height);
-            box-sizing: border-box;
-            width: 100%;
-        }
-
-        /* Top Bar */
-        .top-bar {
-            font-family: var(--mono);
-            font-size: 0.75rem;
-            color: var(--accent);
-            letter-spacing: 0.3em;
-            display: flex;
-            gap: 1rem;
-            text-transform: uppercase;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
-            word-break: break-word;
-        }
-
-        .data-center-badge {
-            margin-left: auto;
-            font-family: var(--mono);
-            font-size: 0.65rem;
-            color: var(--accent-cyan);
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
         }
 
         /* Header Section Logic (index_v13 inspired) */
@@ -341,6 +400,7 @@
             letter-spacing: 2px;
         }
 
+        /* Mobile: Horizontal scrollable card layout for transaction meta */
         .meta-item {
             display: flex;
             gap: 10px;
@@ -349,16 +409,6 @@
         .meta-item span {
             color: var(--accent);
             opacity: 0.7;
-        }
-
-        .collateral-line {
-            font-family: var(--mono);
-            font-size: 0.85rem;
-            letter-spacing: 0.3em;
-            color: #444; /* Dimmed as meta-info */
-            text-transform: uppercase;
-            margin-top: 2rem;
-            display: block;
         }
 
         /* Info Grid Area */
@@ -431,7 +481,240 @@
             margin-bottom: 2rem;
         }
 
-        /* Card Grid */
+        /* 🔒 COMMAND BAR - Sticky Data Room Header */
+        .command-bar {
+            position: sticky;
+            top: 0;
+            z-index: 200;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--accent-cyan);
+            padding: 12px 4rem;
+            margin-left: var(--sidebar-width);
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .command-bar {
+                margin-left: 0;
+                padding: 10px 1.5rem;
+            }
+        }
+
+        /* Hide command-bar - replaced by hero-sticky */
+        .command-bar {
+            display: none;
+        }
+
+        .command-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .command-title {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            letter-spacing: 0.25em;
+            font-weight: 500;
+        }
+
+        .command-sub {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: #666;
+            letter-spacing: 0.1em;
+        }
+
+        /* 🧱 DATA ROOM - Document Clusters */
+        .data-room {
+            padding: 2rem 0;
+        }
+
+        /* CATEGORY CLUSTERS */
+        .doc-category {
+            margin-bottom: 3rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .category-label {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--text-dim);
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            background: var(--panel);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+        }
+
+        .category-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 8px var(--accent-cyan);
+        }
+
+        /* DOCUMENT CARD - Authority Styling */
+        .data-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 1px solid var(--border);
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(16, 16, 16, 0.6) 100%);
+            backdrop-filter: blur(10px);
+            padding: 1.25rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .data-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .data-card:hover {
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 240, 255, 0.12);
+        }
+
+        .data-card:hover::before {
+            opacity: 1;
+        }
+
+        .data-card-content {
+            flex: 1;
+        }
+
+        .data-title {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .data-meta {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .data-badge {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 0.15em;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        .data-badge.verified {
+            color: var(--accent-green, #00ff99);
+            background: rgba(0, 255, 153, 0.15);
+            border: 1px solid rgba(0, 255, 153, 0.3);
+        }
+
+        .data-badge.live {
+            color: var(--accent-cyan);
+            background: rgba(0, 240, 255, 0.15);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+        }
+
+        .data-badge.locked {
+            color: var(--accent-amber);
+            background: rgba(255, 170, 0, 0.15);
+            border: 1px solid rgba(255, 170, 0, 0.3);
+        }
+
+        .data-badge.indexed {
+            color: #888;
+            background: rgba(136, 136, 136, 0.15);
+            border: 1px solid rgba(136, 136, 136, 0.3);
+        }
+
+        .data-badge.draft {
+            color: var(--accent-red);
+            background: rgba(255, 62, 0, 0.15);
+            border: 1px solid rgba(255, 62, 0, 0.3);
+        }
+
+        .data-badge.executed {
+            color: var(--accent-cyan);
+            background: rgba(0, 240, 255, 0.15);
+            border: 1px solid rgba(0, 240, 255, 0.3);
+        }
+
+        .data-badge.pending {
+            color: #ff9900;
+            background: rgba(255, 153, 0, 0.15);
+            border: 1px solid rgba(255, 153, 0, 0.3);
+        }
+
+        .data-badge.official {
+            color: var(--accent-green, #00ff99);
+            background: rgba(0, 255, 153, 0.15);
+            border: 1px solid rgba(0, 255, 153, 0.3);
+        }
+
+        .data-action {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--accent-cyan);
+            letter-spacing: 0.15em;
+            opacity: 0;
+            transform: translateX(10px);
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .data-card:hover .data-action {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Mobile: Always show action */
+        @media (max-width: 768px) {
+            .data-action {
+                opacity: 1;
+                transform: none;
+                margin-top: 0.5rem;
+            }
+
+            .data-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.75rem;
+            }
+        }
+
+        /* Card Grid Compatibility - Keep for other areas but override in data-room */
+        .data-room .card-grid {
+            display: block; /* Override grid for data-room categories */
+        }
+
+        /* Card Grid Styles (preserve for other sections) */
         .card-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -571,8 +854,90 @@
             width: 100%;
             overflow-x: auto;
             -webkit-overflow-scrolling: touch;
+            overscroll-behavior-x: contain;
             scrollbar-width: thin;
             scrollbar-color: var(--wire-active) var(--panel);
+        }
+
+        /* Scroll indicator gradient overlays for mobile */
+        .blueprint-image-container::before,
+        .blueprint-image-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 40px;
+            z-index: 10;
+            pointer-events: none;
+            opacity: 1;
+            transition: opacity 0.3s ease;
+        }
+
+        .blueprint-image-container::before {
+            left: 0;
+            background: linear-gradient(to right, var(--bg) 0%, transparent 100%);
+        }
+
+        .blueprint-image-container::after {
+            right: 0;
+            background: linear-gradient(to left, var(--bg) 0%, transparent 100%);
+        }
+
+        /* Only show scroll indicators on mobile/tablet */
+        @media (min-width: 1200px) {
+            .blueprint-image-container::before,
+            .blueprint-image-container::after,
+            .blueprint-image-container .scroll-hint {
+                display: none !important;
+                opacity: 0 !important;
+            }
+        }
+
+        /* Hide indicators when fully scrolled to edges */
+        .blueprint-image-container.at-left::before,
+        .blueprint-image-container.at-right::after {
+            opacity: 0;
+        }
+
+        /* Scroll hint arrows */
+        .blueprint-image-container .scroll-hint {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 36px;
+            height: 36px;
+            background: rgba(0, 240, 255, 0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #000;
+            font-size: 1.2rem;
+            z-index: 15;
+            pointer-events: none;
+            opacity: 0.8;
+            animation: scroll-pulse 1.5s ease-in-out infinite;
+            transition: opacity 0.3s ease;
+        }
+
+        .blueprint-image-container .scroll-hint-left {
+            left: 10px;
+            right: auto;
+        }
+
+        .blueprint-image-container .scroll-hint-right {
+            right: 10px;
+        }
+
+        .blueprint-image-container.at-left .scroll-hint-left,
+        .blueprint-image-container.at-right .scroll-hint-right,
+        .blueprint-image-container.no-hint .scroll-hint {
+            opacity: 0;
+        }
+
+        @keyframes scroll-pulse {
+            0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.6; }
+            50% { transform: translateY(-50%) scale(1.1); opacity: 1; }
         }
 
         .blueprint-image-container::-webkit-scrollbar {
@@ -594,10 +959,38 @@
             display: block;
             width: 100%;
             height: auto;
-            min-width: 1200px; /* Ensures horizontal scroll on mobile */
+            min-width: 1200px; /* Desktop: ensures readability with horizontal scroll */
             border-radius: 4px;
             cursor: zoom-in;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Responsive image container - for images that should scale to fit */
+        .responsive-image-container {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 4px;
+            margin: 2rem 0;
+            border: 1px solid var(--border);
+            background: var(--panel);
+        }
+
+        .responsive-image-container img,
+        .responsive-image-container .responsive-img {
+            width: 100% !important;
+            height: auto !important;
+            min-width: unset !important;
+            max-width: 100% !important;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Mobile enhancement for responsive images */
+        @media (max-width: 768px) {
+            .responsive-image-container {
+                margin: 1.5rem 0;
+                border-radius: 8px;
+            }
         }
 
         .blueprint-image:hover {
@@ -915,16 +1308,53 @@
         }
 
         /* Responsive - Mobile First */
+        @media (max-width: 1400px) {
+            .hero-seal {
+                margin-right: 40px;
+                margin-top: -20px;
+            }
+            .hero-seal img {
+                width: 280px;
+            }
+            .main-title {
+                font-size: clamp(2.5rem, 6vw, 5rem);
+            }
+        }
+
         @media (max-width: 1200px) {
             .card-grid { grid-template-columns: repeat(2, 1fr); }
             .info-grid-container { grid-template-columns: repeat(2, 1fr); }
             .header-section { padding-left: 1.5rem; }
-            .scroll-content { padding: 2rem 2rem 6rem; }
+
+            .hero-layout {
+                gap: 1.5rem;
+            }
+            .hero-seal {
+                margin-right: 0;
+                margin-top: 0;
+            }
+            .hero-seal img {
+                width: 240px;
+            }
+            .transaction-meta {
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            .transaction-meta .meta-item {
+                font-size: 11px;
+            }
         }
 
         @media (max-width: 768px) {
             /* Viewport fix for mobile */
             html { font-size: 16px; }
+
+            body {
+                flex-direction: column !important;
+                height: auto !important;
+                min-height: 100vh;
+                overflow-y: auto !important;
+            }
 
             /* Sidebar becomes bottom nav */
             .sidebar {
@@ -972,24 +1402,21 @@
                 display: none;
             }
 
-            /* Main content adjusts */
-            .main-scroll-root {
+            .hero-sticky {
+                position: sticky;
+                top: 0;
                 margin-left: 0;
-                margin-bottom: 70px; /* Make room for bottom nav */
-                height: calc(100vh - 70px);
-                -webkit-overflow-scrolling: touch;
+                padding: 1rem 1.5rem;
+                border-bottom: 1px solid rgba(0, 240, 255, 0.3);
             }
 
-            .scroll-content {
-                padding: 1.5rem;
-                margin-top: calc(var(--header-height) + 1rem);
+            .hero-sticky-title {
+                font-size: 1rem;
             }
 
-            .stationary-header {
-                height: auto;
-                min-height: 250px;
+            .hero-content {
+                min-height: 60vh;
                 padding: 1.5rem;
-                left: 0;
             }
 
             .header-section {
@@ -999,18 +1426,40 @@
             }
 
             .main-title {
-                font-size: clamp(2.5rem, 10vw, 4rem);
+                font-size: clamp(2rem, 12vw, 3.5rem);
                 letter-spacing: -1px;
             }
 
             .dba-title {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+                margin-top: 0.5rem;
             }
 
             .transaction-meta {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+                margin: 1.5rem 0;
+                text-align: left;
+            }
+
+            .transaction-meta .meta-item {
+                background: var(--panel);
+                border: 1px solid var(--border);
+                border-radius: 4px;
+                padding: 1rem;
+                display: flex;
                 flex-direction: column;
-                gap: 0.5rem;
-                justify-content: center;
+                gap: 4px;
+                font-size: 0.65rem;
+                min-width: 0;
+            }
+
+            .transaction-meta .meta-item span {
+                font-size: 0.6rem;
+                color: var(--accent-cyan);
+                letter-spacing: 0.05em;
+                margin-bottom: 2px;
             }
 
             .info-grid-container {
@@ -1033,14 +1482,42 @@
                 margin-top: 0.5rem;
             }
 
-            /* Cards */
+            /* Cards - Horizontal scroll on mobile */
             .card-grid {
-                grid-template-columns: 1fr;
+                display: flex;
+                overflow-x: auto;
+                gap: 1rem;
+                grid-template-columns: unset;
+                padding: 1rem 0 2rem 0;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: thin;
+                scrollbar-color: var(--wire-active) var(--panel);
             }
 
             .grid-card {
+                flex: 0 0 auto;
+                scroll-snap-align: start;
+                width: 85vw; /* Take up most of screen width */
+                max-width: 400px;
                 padding: 1.5rem;
                 min-height: auto;
+            }
+
+            /* Hide scrollbar visually but keep functionality */
+            .card-grid::-webkit-scrollbar {
+                height: 8px;
+            }
+
+            .card-grid::-webkit-scrollbar-track {
+                background: var(--panel);
+                border-radius: 4px;
+            }
+
+            .card-grid::-webkit-scrollbar-thumb {
+                background: var(--wire-active);
+                border-radius: 4px;
+                opacity: 0.8;
             }
 
             /* Representative card */
@@ -1100,7 +1577,7 @@
 
             /* Mobile hero layout adjustments */
             :root {
-                --header-height: 750px; /* Extend hero for more visible content on mobile */
+                --header-height: 600px; /* Reduced for better mobile content visibility */
             }
 
             .hero-layout {
@@ -1110,22 +1587,46 @@
             }
 
             .hero-seal {
-                margin-top: 0;
+                margin-top: 1rem;
                 margin-right: 0;
-                margin-bottom: 1rem;
+                margin-bottom: 1.5rem;
                 width: 100%;
                 display: flex;
                 justify-content: center;
             }
 
             .hero-seal img {
-                width: 200px; /* Smaller seal on mobile */
+                width: 280px; /* Refined seal width for phone view */
+                max-width: 90% !important;
                 height: auto;
+                padding: 4px;
             }
 
-            .hero-text-block {
-                text-align: center;
-                width: 100%;
+            .hero-seal::before {
+                box-shadow: 0 0 15px rgba(0, 240, 255, 0.4);
+            }
+
+            .scroll-down-hint {
+                display: none; /* No hint needed for relative scroll flow */
+            }
+
+            .scroll-down-hint::before {
+                content: '';
+                width: 4px;
+                height: 8px;
+                background: var(--accent-cyan);
+                border-radius: 2px;
+                animation: scroll-dot 1.5s ease-in-out infinite;
+            }
+
+            @keyframes bounce-scroll {
+                0%, 100% { transform: translateX(-50%) translateY(0); }
+                50% { transform: translateX(-50%) translateY(5px); }
+            }
+
+            @keyframes scroll-dot {
+                0%, 100% { opacity: 1; transform: translateY(0); }
+                50% { opacity: 0.3; transform: translateY(5px); }
             }
 
             /* Blueprint responsive tweaks */
@@ -1141,22 +1642,18 @@
             }
 
             .blueprint-image {
-                min-width: 600px; /* Much more manageable for mobile horizontal scroll */
+                min-width: 100%; /* Scale to fit mobile screen */
             }
         }
 
         /* Extra small devices */
         @media (max-width: 480px) {
+            :root {
+                --header-height: 480px; /* Even more compact on small phones */
+            }
+
             .main-title {
                 font-size: 2rem;
-            }
-
-            .scroll-content {
-                padding: 1rem;
-            }
-
-            .stationary-header {
-                padding: 1rem;
             }
 
             .section-h {
@@ -1213,22 +1710,56 @@
             }
 
             .blueprint-image {
-                min-width: 500px; /* Very manageable for small phones */
+                min-width: 100%; /* Scale to fit small phone screens */
+            }
+
+            /* Enhanced mobile scrollbar - more visible */
+            .blueprint-image-container::-webkit-scrollbar {
+                height: 12px; /* Thicker for easier touch scrolling */
+            }
+
+            .blueprint-image-container::-webkit-scrollbar-track {
+                background: var(--panel);
+                border-radius: 6px;
+            }
+
+            .blueprint-image-container::-webkit-scrollbar-thumb {
+                background: var(--wire-active);
+                border-radius: 6px;
+                opacity: 1; /* Fully visible on mobile */
+                border: 2px solid var(--bg);
+            }
+
+            /* Blueprint scroll indicators */
+            .blueprint-image-container .scroll-hint {
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.4rem;
+            }
+
+            /* Reduce scroll hint size on very small phones */
+            @media (max-width: 360px) {
+                .blueprint-image-container .scroll-hint {
+                    width: 32px;
+                    height: 32px;
+                    font-size: 1.1rem;
+                    right: 8px;
+                }
             }
         }
 
-        /* Landscape mode fix */
-        @media (max-height: 600px) and (orientation: landscape) {
-            .main-scroll-root {
-                height: calc(100vh - 60px);
-            }
-            .sidebar {
-                height: 60px;
-            }
-        }
     </style>
 </head>
 <body>
+
+    <!-- ZONE 1: INTRO SPLASH -->
+    <section class="intro-zone">
+        <div class="intro-content">
+            <div class="intro-title">SOVR</div>
+            <div class="intro-subtitle">Secure Data Access Terminal</div>
+        </div>
+    </section>
 
     <nav class="sidebar">
         <div class="nav-items">
@@ -1241,38 +1772,49 @@
         <a href="./CONFIDENTIAL OFFERING MEMORANDUM - SOVR Developmen.html" class="view-memo">VIEW MEMO</a>
     </nav>
 
-    <header class="stationary-header">
-        <div class="top-bar">
-            DATA ROOM ACCESS // VERSION 2.0 // 2026-03-30
-            <span class="data-center-badge">DATA CENTER</span>
+    <!-- ZONE 2: STICKY HERO -->
+    <section class="hero-zone">
+        <div class="hero-sticky">
+            <div class="hero-sticky-title">SOVR dba SOVR EMPIRE</div>
+            <div class="hero-sticky sub">AUTHORIZED ENTITY: SOVR DEVELOPMENT HOLDINGS LLC</div>
         </div>
 
-        <div class="hero-layout">
-            <section class="header-section hero-text-block">
-                <div class="header-title-wrapper">
-                    <h1 class="main-title" data-text="SOVR">SOVR</h1>
-                    <h2 class="dba-title">dba SOVR EMPIRE</h2>
-                </div>
+        <div class="hero-content">
+            <div class="hero-layout">
+                <section class="header-section hero-text-block">
+                    <div class="header-title-wrapper">
+                        <h1 class="main-title" data-text="SOVR">SOVR</h1>
+                        <h2 class="dba-title">dba SOVR EMPIRE</h2>
+                    </div>
 
-                <div class="transaction-meta">
-                    <div class="meta-item"><span>TYPE:</span> SENIOR SECURED FINANCING</div>
-                    <div class="meta-item"><span>ENTITY:</span> SOVR DEVELOPMENT HOLDINGS LLC</div>
-                    <div class="meta-item"><span>JURISDICTION:</span> WYOMING</div>
-                </div>
+                    <div class="transaction-meta">
+                        <div class="meta-item"><span>TYPE:</span>SENIOR SECURED FINANCING</div>
+                        <div class="meta-item"><span>ENTITY:</span>SOVR DEVELOPMENT HOLDINGS LLC</div>
+                        <div class="meta-item"><span>JURISDICTION:</span>WYOMING</div>
+                        <div class="meta-item"><span>COLLATERAL:</span>400,000 COMMON SHARES</div>
+                        <div class="meta-item"><span>OWNER:</span>GM Family Trust (100%)</div>
+                    </div>
+                </section>
 
-                <div class="collateral-line">
-                    COLLATERAL PROTECTION: 400,000 COMMON SHARES
+                <div class="hero-seal">
+                    <img src="./assets/gm_family_trust_seal.png" alt="GM Family Trust — Private Irrevocable Trust — SOVR Development Holdings LLC" />
                 </div>
-            </section>
-
-            <div class="hero-seal">
-                <img src="./assets/gm_family_trust_seal.png" alt="GM Family Trust — Private Irrevocable Trust — SOVR Development Holdings LLC" />
             </div>
         </div>
-    </header>
+    </section>
 
-    <main class="main-scroll-root">
-        <div class="scroll-content">
+    <!-- ZONE 3: MAIN DATA ROOM -->
+    <section class="main-content">
+
+        <!-- 🔒 COMMAND BAR -->
+        <div class="command-bar">
+            <div class="command-inner">
+                <div class="command-title">SOVR // DATA ROOM ACCESS</div>
+                <div class="command-sub">AUTHORIZED ENTITY: SOVR DEVELOPMENT HOLDINGS LLC</div>
+            </div>
+        </div>
+
+            <!-- ENTITY IDENTIFICATION -->
             <section class="info-grid-container">
             <div class="info-cell">
                 <label>Legal Entity</label>
@@ -1307,39 +1849,45 @@
                 <h2 class="section-h">09 // PRIMARY DOCUMENTS</h2>
             </div>
             <p class="section-desc">Core offering materials for investor evaluation and due diligence</p>
-            
-            <div class="card-grid">
-                <a href="./CONFIDENTIAL OFFERING MEMORANDUM - SOVR Developmen.html" class="grid-card">
-                    <div class="card-top">
-                        <label>OFFERING MEMORANDUM</label>
-                        <h3>Confidential Offering Memorandum</h3>
-                        <p>Complete transaction documentation including terms, structure, security package, covenants, and detailed company overview.</p>
+
+            <!-- Data Room Format -->
+            <div class="data-room">
+                <div class="doc-category">
+                    <div class="category-header">
+                        <div class="category-dot"></div>
+                        <div class="category-label">PRIMARY</div>
                     </div>
-                    <div class="card-bottom status-official">
-                        <div class="status-indicator"></div> Interactive HTML
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Confidential Offering Memorandum</div>
+                            <div class="data-meta">
+                                <span class="data-badge official">OFFICIAL • INTERACTIVE HTML</span>
+                            </div>
+                        </div>
+                        <a href="./CONFIDENTIAL OFFERING MEMORANDUM - SOVR Developmen.html" class="data-action">ACCESS →</a>
                     </div>
-                </a>
-                <div class="grid-card">
-                    <div class="card-top">
-                        <label>SUMMARY</label>
-                        <h3>Executive Summary</h3>
-                        <p>Two-page overview of the transaction structure, key terms, and investment highlights.</p>
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Executive Summary</div>
+                            <div class="data-meta">
+                                <span class="data-badge added">PENDING</span>
+                            </div>
+                        </div>
+                        <div class="data-action" style="opacity: 0.5; cursor: not-allowed;">LOCKED</div>
                     </div>
-                    <div class="card-bottom status-added">
-                        <div class="status-indicator"></div> To Be Added
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Financial Projections</div>
+                            <div class="data-meta">
+                                <span class="data-badge added">PENDING</span>
+                            </div>
+                        </div>
+                        <div class="data-action" style="opacity: 0.5; cursor: not-allowed;">LOCKED</div>
                     </div>
                 </div>
-                <div class="grid-card">
-                    <div class="card-top">
-                        <label>MODEL</label>
-                        <h3>Financial Projections</h3>
-                        <p>3-year financial model with income statement, balance sheet, cash flow projections, and sensitivity analysis.</p>
-                    </div>
-                    <div class="card-bottom status-added">
-                        <div class="status-indicator"></div> To Be Added
-                    </div>
-                </div>
-                <div class="grid-card empty"></div>
             </div>
         </div>
 
@@ -1350,87 +1898,95 @@
                 <h2 class="section-h">10 // LEGAL & CORPORATE DOCUMENTS</h2>
             </div>
             <p class="section-desc">Organizational documents and governing instruments</p>
-            <div class="card-grid">
-                <a href="./docs/4030f381-105a-43a3-b118-34fdd5aaaa65.pdf" class="grid-card">
-                    <div class="card-top">
-                        <label>FORMATION</label>
-                        <h3>Certificate of Formation</h3>
-                        <p>Wyoming LLC formation document and certificate of good standing.</p>
+
+            <!-- Data Room Format -->
+            <div class="data-room">
+                <div class="doc-category">
+                    <div class="category-header">
+                        <div class="category-dot"></div>
+                        <div class="category-label">LEGAL</div>
                     </div>
-                    <div class="card-bottom status-official">
-                        <div class="status-indicator"></div> Official
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Certificate of Formation</div>
+                            <div class="data-meta">
+                                <span class="data-badge official">OFFICIAL</span>
+                            </div>
+                        </div>
+                        <a href="./docs/4030f381-105a-43a3-b118-34fdd5aaaa65.pdf" class="data-action">ACCESS →</a>
                     </div>
-                </a>
-                <a href="./SOVR Development Holdings, LLC - Operating Agreement - FILLED.html" class="grid-card">
-                    <div class="card-top">
-                        <label>GOVERNANCE</label>
-                        <h3>Operating Agreement</h3>
-                        <p>LLC operating agreement with member rights and management structure provisions.</p>
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Operating Agreement</div>
+                            <div class="data-meta">
+                                <span class="data-badge executed">EXECUTED</span>
+                            </div>
+                        </div>
+                        <a href="./SOVR Development Holdings, LLC - Operating Agreement - FILLED.html" class="data-action">ACCESS →</a>
                     </div>
-                    <div class="card-bottom status-executed">
-                        <div class="status-indicator"></div> Executed
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Board Resolutions</div>
+                            <div class="data-meta">
+                                <span class="data-badge draft">DRAFT</span>
+                            </div>
+                        </div>
+                        <div class="data-action" style="opacity: 0.5; cursor: not-allowed;">LOCKED</div>
                     </div>
-                </a>
-                <div class="grid-card">
-                    <div class="card-top">
-                        <label>AUTHORIZATION</label>
-                        <h3>Board Resolutions</h3>
-                        <p>Resolutions authorizing the financing transaction and pledge of shares.</p>
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Pledge Agreement</div>
+                            <div class="data-meta">
+                                <span class="data-badge draft">DRAFT</span>
+                            </div>
+                        </div>
+                        <div class="data-action" style="opacity: 0.5; cursor: not-allowed;">LOCKED</div>
                     </div>
-                    <div class="card-bottom status-draft">
-                        <div class="status-indicator"></div> Draft
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Security Agreement</div>
+                            <div class="data-meta">
+                                <span class="data-badge draft">DRAFT</span>
+                            </div>
+                        </div>
+                        <div class="data-action" style="opacity: 0.5; cursor: not-allowed;">LOCKED</div>
+                    </div>
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Legal Opinions</div>
+                            <div class="data-meta">
+                                <span class="data-badge pending">PENDING</span>
+                            </div>
+                        </div>
+                        <div class="data-action" style="opacity: 0.5; cursor: not-allowed;">LOCKED</div>
+                    </div>
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Trust Declaration</div>
+                            <div class="data-meta">
+                                <span class="data-badge official">OFFICIAL</span>
+                            </div>
+                        </div>
+                        <a href="./legal/Trust Declaration.pdf" class="data-action">ACCESS →</a>
+                    </div>
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">SOVR Development Holdings, LLC</div>
+                            <div class="data-meta">
+                                <span class="data-badge official">OFFICIAL</span>
+                            </div>
+                        </div>
+                        <a href="./docs/SOVR Development Holdings, LLC.pdf" class="data-action">ACCESS →</a>
                     </div>
                 </div>
-                <div class="grid-card">
-                    <div class="card-top">
-                        <label>SECURITY</label>
-                        <h3>Pledge Agreement</h3>
-                        <p>Stock pledge agreement establishing security interest in collateral shares.</p>
-                    </div>
-                    <div class="card-bottom status-draft">
-                        <div class="status-indicator"></div> Draft
-                    </div>
-                </div>
-                <div class="grid-card">
-                    <div class="card-top">
-                        <label>SECURITY</label>
-                        <h3>Security Agreement</h3>
-                        <p>Comprehensive security agreement covering all collateral and perfection mechanisms.</p>
-                    </div>
-                    <div class="card-bottom status-draft">
-                        <div class="status-indicator"></div> Draft
-                    </div>
-                </div>
-                <div class="grid-card">
-                    <div class="card-top">
-                        <label>OPINIONS</label>
-                        <h3>Legal Opinions</h3>
-                        <p>Corporate counsel opinions on valid existence, authority, and enforceability.</p>
-                    </div>
-                    <div class="card-bottom status-pending">
-                        <div class="status-indicator"></div> Pending
-                    </div>
-                </div>
-                <a href="./legal/Trust Declaration.pdf" class="grid-card">
-                    <div class="card-top">
-                        <label>TRUSTS</label>
-                        <h3>Trust Declaration</h3>
-                        <p>Trust declaration and governing instrument for SOVR entity structure.</p>
-                    </div>
-                    <div class="card-bottom status-official">
-                        <div class="status-indicator"></div> Official
-                    </div>
-                </a>
-                <a href="./docs/SOVR Development Holdings, LLC.pdf" class="grid-card">
-                    <div class="card-top">
-                        <label>ENTITY</label>
-                        <h3>SOVR Development Holdings, LLC</h3>
-                        <p>Entity documentation and certification of LLC formation.</p>
-                    </div>
-                    <div class="card-bottom status-official">
-                        <div class="status-indicator"></div> Official
-                    </div>
-                </a>
             </div>
         </div>
 
@@ -1446,11 +2002,13 @@
                 The diagram details trust flow, membership interests, and authorization pathways.
             </p>
             <div class="blueprint-frame">
-                <div class="blueprint-image-container">
+                <div class="blueprint-image-container" data-scroll-hint="true">
                     <img src="./assets/Gemini_Generated_Image_qqfdgpqqfdgpqqfd.png"
                          alt="SOVR Development Holdings LLC - Operating Structure Blueprint"
                          class="blueprint-image"
                          onclick="toggleBlueprintFullscreen(this)">
+                    <div class="scroll-hint scroll-hint-left">←</div>
+                    <div class="scroll-hint scroll-hint-right">→</div>
                 </div>
             </div>
         </div>
@@ -1462,47 +2020,55 @@
                 <h2 class="section-h">11 // FINANCIAL DOCUMENTS</h2>
             </div>
             <p class="section-desc">Financial statements, capital structure, and identification</p>
-            <div class="card-grid">
-                <div class="grid-card">
-                    <div class="card-top">
-                        <label>CAPITALIZATION</label>
-                        <h3>Cap Table</h3>
-                        <p>Current capitalization table showing equity ownership and structure.</p>
+
+            <!-- Data Room Format -->
+            <div class="data-room">
+                <div class="doc-category">
+                    <div class="category-header">
+                        <div class="category-dot"></div>
+                        <div class="category-label">FINANCIAL</div>
                     </div>
-                    <div class="card-bottom status-added">
-                        <div class="status-indicator"></div> To Be Added
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Cap Table</div>
+                            <div class="data-meta">
+                                <span class="data-badge added">PENDING</span>
+                            </div>
+                        </div>
+                        <div class="data-action" style="opacity: 0.5; cursor: not-allowed;">LOCKED</div>
+                    </div>
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">EIN Letter</div>
+                            <div class="data-meta">
+                                <span class="data-badge official">OFFICIAL</span>
+                            </div>
+                        </div>
+                        <a href="./legal/CP575Notice_1748283279868 Copy.pdf" class="data-action">ACCESS →</a>
+                    </div>
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Use of Proceeds</div>
+                            <div class="data-meta">
+                                <span class="data-badge draft">DRAFT</span>
+                            </div>
+                        </div>
+                        <div class="data-action" style="opacity: 0.5; cursor: not-allowed;">LOCKED</div>
+                    </div>
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Accounting Statements</div>
+                            <div class="data-meta">
+                                <span class="data-badge official">OFFICIAL</span>
+                            </div>
+                        </div>
+                        <a href="./financial/Accounting.pdf" class="data-action">ACCESS →</a>
                     </div>
                 </div>
-                <a href="./legal/CP575Notice_1748283279868 Copy.pdf" class="grid-card">
-                    <div class="card-top">
-                        <label>IDENTIFICATION</label>
-                        <h3>EIN Letter</h3>
-                        <p>IRS confirmation of Employer Identification Number 39-2332625.</p>
-                    </div>
-                    <div class="card-bottom status-official">
-                        <div class="status-indicator"></div> Official
-                    </div>
-                </a>
-                <div class="grid-card">
-                    <div class="card-top">
-                        <label>PROCEEDS</label>
-                        <h3>Use of Proceeds</h3>
-                        <p>Detailed allocation plan for financing proceeds by category and timeline.</p>
-                    </div>
-                    <div class="card-bottom status-draft">
-                        <div class="status-indicator"></div> Draft
-                    </div>
-                </div>
-                <a href="./financial/Accounting.pdf" class="grid-card">
-                    <div class="card-top">
-                        <label>FINANCIAL REPORTING</label>
-                        <h3>Accounting Statements</h3>
-                        <p>Financial accounting records and transaction documentation.</p>
-                    </div>
-                    <div class="card-bottom status-official">
-                        <div class="status-indicator"></div> Official
-                    </div>
-                </a>
             </div>
         </div>
 
@@ -1513,77 +2079,85 @@
                 <h2 class="section-h">12 // DUE DILIGENCE MATERIALS</h2>
             </div>
             <p class="section-desc">Supporting documentation for comprehensive review</p>
-            <div class="card-grid">
-                <div class="grid-card">
-                    <div class="card-top">
-                        <label>CONTRACTS</label>
-                        <h3>Material Contracts</h3>
-                        <p>Key customer agreements, vendor contracts, and partnership arrangements.</p>
+
+            <!-- Data Room Format -->
+            <div class="data-room">
+                <div class="doc-category">
+                    <div class="category-header">
+                        <div class="category-dot"></div>
+                        <div class="category-label">DILIGENCE</div>
                     </div>
-                    <div class="card-bottom status-added">
-                        <div class="status-indicator"></div> To Be Added
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Material Contracts</div>
+                            <div class="data-meta">
+                                <span class="data-badge added">PENDING</span>
+                            </div>
+                        </div>
+                        <div class="data-action" style="opacity: 0.5; cursor: not-allowed;">LOCKED</div>
+                    </div>
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Insurance Policies</div>
+                            <div class="data-meta">
+                                <span class="data-badge added">PENDING</span>
+                            </div>
+                        </div>
+                        <div class="data-action" style="opacity: 0.5; cursor: not-allowed;">LOCKED</div>
+                    </div>
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Asset Schedule</div>
+                            <div class="data-meta">
+                                <span class="data-badge added">PENDING</span>
+                            </div>
+                        </div>
+                        <div class="data-action" style="opacity: 0.5; cursor: not-allowed;">LOCKED</div>
+                    </div>
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Intellectual Property</div>
+                            <div class="data-meta">
+                                <span class="data-badge added">PENDING</span>
+                            </div>
+                        </div>
+                        <div class="data-action" style="opacity: 0.5; cursor: not-allowed;">LOCKED</div>
+                    </div>
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">Hybrid Engine V2 PRD</div>
+                            <div class="data-meta">
+                                <span class="data-badge official">OFFICIAL</span>
+                            </div>
+                        </div>
+                        <a href="./products/SOVR-Hybrid-Engine-V2-Product-Requirements-Document.pdf" class="data-action">ACCESS →</a>
+                    </div>
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">SOVR Protocol Documentation</div>
+                            <div class="data-meta">
+                                <span class="data-badge official">OFFICIAL</span>
+                            </div>
+                        </div>
+                        <a href="./products/SOVR Protocol.pdf" class="data-action">ACCESS →</a>
+                    </div>
+
+                    <div class="data-card">
+                        <div class="data-card-content">
+                            <div class="data-title">SOVRCreditBridgePOS Analysis</div>
+                            <div class="data-meta">
+                                <span class="data-badge official">OFFICIAL</span>
+                            </div>
+                        </div>
+                        <a href="./products/Analysis of the SOVRCreditBridgePOS.pdf" class="data-action">ACCESS →</a>
                     </div>
                 </div>
-                <div class="grid-card">
-                    <div class="card-top">
-                        <label>INSURANCE</label>
-                        <h3>Insurance Policies</h3>
-                        <p>Current insurance coverage documentation and certificates.</p>
-                    </div>
-                    <div class="card-bottom status-added">
-                        <div class="status-indicator"></div> To Be Added
-                    </div>
-                </div>
-                <div class="grid-card">
-                    <div class="card-top">
-                        <label>ASSETS</label>
-                        <h3>Asset Schedule</h3>
-                        <p>Detailed schedule of company assets and valuations.</p>
-                    </div>
-                    <div class="card-bottom status-added">
-                        <div class="status-indicator"></div> To Be Added
-                    </div>
-                </div>
-                <div class="grid-card">
-                    <div class="card-top">
-                        <label>IP</label>
-                        <h3>Intellectual Property</h3>
-                        <p>IP registrations, assignments, and protection mechanisms.</p>
-                    </div>
-                    <div class="card-bottom status-added">
-                        <div class="status-indicator"></div> To Be Added
-                    </div>
-                </div>
-                <a href="./products/SOVR-Hybrid-Engine-V2-Product-Requirements-Document.pdf" class="grid-card">
-                    <div class="card-top">
-                        <label>ENGINEERING</label>
-                        <h3>Hybrid Engine V2 PRD</h3>
-                        <p>Product requirements for the SOVR Hybrid Engine v2 specification.</p>
-                    </div>
-                    <div class="card-bottom status-official">
-                        <div class="status-indicator"></div> Official
-                    </div>
-                </a>
-                <a href="./products/SOVR Protocol.pdf" class="grid-card">
-                    <div class="card-top">
-                        <label>PROTOCOL</label>
-                        <h3>SOVR Protocol Documentation</h3>
-                        <p>Technical specification of the SOVR protocol and network operations.</p>
-                    </div>
-                    <div class="card-bottom status-official">
-                        <div class="status-indicator"></div> Official
-                    </div>
-                </a>
-                <a href="./products/Analysis of the SOVRCreditBridgePOS.pdf" class="grid-card">
-                    <div class="card-top">
-                        <label>ANALYSIS</label>
-                        <h3>SOVRCreditBridgePOS Analysis</h3>
-                        <p>Analysis report of the SOVRCreditBridgePOS system capabilities.</p>
-                    </div>
-                    <div class="card-bottom status-official">
-                        <div class="status-indicator"></div> Official
-                    </div>
-                </a>
             </div>
         </div>
 
@@ -1653,8 +2227,7 @@
             <div class="last-updated">Last Updated: 2026-04-05 | All files current as of this date</div>
         </footer>
 
-        </div>
-    </main>
+        </section> <!-- Close main-content -->
 
     <!-- Blueprint Fullscreen Lightbox -->
     <div class="blueprint-lightbox" id="blueprintLightbox" onclick="closeBlueprintFullscreen()">
@@ -1676,6 +2249,88 @@
             const lightbox = document.getElementById('blueprintLightbox');
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
+        }
+
+        // Update scroll indicator positions for blueprint containers
+        function updateBlueprintScrollIndicators(container) {
+            const scrollLeft = container.scrollLeft;
+            const maxScroll = container.scrollWidth - container.clientWidth;
+            const tolerance = 5; // pixels tolerance for edge detection
+
+            // Remove previous edge and no-hint classes
+            container.classList.remove('at-left', 'at-right', 'no-hint');
+
+            // If content doesn't overflow, add no-hint to hide indicators
+            if (container.scrollWidth <= container.clientWidth) {
+                container.classList.add('no-hint');
+                return;
+            }
+
+            // Add appropriate edge class or none if in middle
+            if (scrollLeft <= tolerance) {
+                container.classList.add('at-left');
+            } else if (scrollLeft >= maxScroll - tolerance) {
+                container.classList.add('at-right');
+            }
+        }
+
+        // Initialize blueprint scroll indicators
+        function initBlueprintScrollIndicators() {
+            const containers = document.querySelectorAll('.blueprint-image-container[data-scroll-hint="true"]');
+
+            containers.forEach(container => {
+                // Check initial scroll position
+                updateBlueprintScrollIndicators(container);
+
+                // Update on scroll
+                container.addEventListener('scroll', () => {
+                    updateBlueprintScrollIndicators(container);
+                });
+
+                // Also update on load and resize (in case content changes)
+                window.addEventListener('load', () => updateBlueprintScrollIndicators(container));
+                window.addEventListener('resize', () => updateBlueprintScrollIndicators(container));
+            });
+        }
+
+        // Run initialization when DOM is loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initBlueprintScrollIndicators);
+        } else {
+            initBlueprintScrollIndicators();
+        }
+
+        // Scroll-down hint auto-hide on mobile
+        function initScrollDownHint() {
+            const scrollDownHint = document.getElementById('scrollDownHint');
+            if (!scrollDownHint) return;
+
+            let lastScrollY = window.scrollY;
+            let ticking = false;
+
+            window.addEventListener('scroll', function() {
+                if (!ticking) {
+                    window.requestAnimationFrame(function() {
+                        // Hide hint after scrolling down more than 100px
+                        if (window.scrollY > 100) {
+                            scrollDownHint.style.opacity = '0';
+                            scrollDownHint.style.pointerEvents = 'none';
+                        } else {
+                            scrollDownHint.style.opacity = '0.7';
+                            scrollDownHint.style.pointerEvents = 'auto';
+                        }
+                        ticking = false;
+                    });
+                    ticking = true;
+                }
+            });
+        }
+
+        // Initialize scroll-down hint
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initScrollDownHint);
+        } else {
+            initScrollDownHint();
         }
 
         // Close on Escape key
