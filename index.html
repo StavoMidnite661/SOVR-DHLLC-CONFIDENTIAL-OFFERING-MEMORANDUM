@@ -928,6 +928,36 @@
             .footer-entity {
                 font-size: 0.6rem;
             }
+
+            /* Mobile hero layout adjustments */
+            :root {
+                --header-height: 600px; /* Increase header height to accommodate stacked hero */
+            }
+
+            .hero-layout {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+
+            .hero-seal {
+                margin-top: 0;
+                margin-right: 0;
+                margin-bottom: 1rem;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .hero-seal img {
+                width: 240px;
+                height: auto;
+            }
+
+            .hero-text-block {
+                text-align: center;
+                width: 100%;
+            }
         }
 
         /* Extra small devices */
@@ -950,6 +980,28 @@
 
             .doc-card {
                 padding: 1rem;
+            }
+
+            /* Even smaller seal on phones */
+            .hero-seal img {
+                width: 200px;
+            }
+
+            .info-grid-container {
+                padding: 1rem;
+                gap: 0.75rem;
+            }
+
+            .info-cell {
+                gap: 0.25rem;
+            }
+
+            .info-cell label {
+                font-size: 0.6rem;
+            }
+
+            .info-cell span {
+                font-size: 0.75rem;
             }
         }
 
@@ -1313,22 +1365,22 @@
             <div class="rep-card">
                 <div class="avatar-circle">GM</div>
                 <div class="rep-info">
-                    <div class="rep-name">Gustavo Orona Maldonado</div>
+                    <div class="rep-name">Gustavo O. Maldonado</div>
                     <div class="rep-role">
-                        Initial Manager (Single-Member LLC)
+                        Trustee, GM Family Trust (100% Owner) | Operating Manager
                     </div>
                     <div class="rep-details">
                         <div class="detail-item">
                             <label>ADDRESS</label>
-                            <span>[[MANAGER ADDRESS]]</span>
+                            <span>3704 Loudon St, Bakersfield, CA 93313</span>
                         </div>
                         <div class="detail-item">
                             <label>EMAIL</label>
-                            <span>[[MANAGER EMAIL]]</span>
+                            <span>Admin@SOVR.Credit</span>
                         </div>
                         <div class="detail-item">
                             <label>PHONE</label>
-                            <span>[[MANAGER PHONE]]</span>
+                            <span>(661) 249-0812</span>
                         </div>
                         <div class="detail-item">
                             <label>PRINCIPAL PLACE</label>
@@ -1365,7 +1417,7 @@
             <div class="confidential-label">CONFIDENTIAL DATA ROOM</div>
             <p class="access-restricted">Access limited to qualified institutional investors under appropriate confidentiality agreements</p>
             <div class="footer-entity">SOVR DEVELOPMENT HOLDINGS LLC dba SOVR EMPIRE | EIN: 39-2332625</div>
-            <div class="last-updated">Last Updated: 2026-03-30 | All files current as of this date</div>
+            <div class="last-updated">Last Updated: 2026-04-05 | All files current as of this date</div>
         </footer>
 
         </div>
