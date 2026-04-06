@@ -493,6 +493,175 @@
             margin-top: 1.5rem;
         }
 
+        /* Blueprint Spotlight Section */
+        .blueprint-spotlight {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+
+        .blueprint-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .blueprint-header .section-number {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--accent-cyan);
+            letter-spacing: 0.2em;
+            background: rgba(0, 240, 255, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 4px;
+        }
+
+        .blueprint-header h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .blueprint-description {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            margin: -1rem 0 2rem 0;
+            line-height: 1.6;
+        }
+
+        .blueprint-frame {
+            position: relative;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid var(--wire-active);
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow:
+                0 0 20px rgba(0, 240, 255, 0.3),
+                0 0 40px rgba(0, 240, 255, 0.1),
+                inset 0 0 20px rgba(0, 240, 255, 0.05);
+            overflow: hidden;
+        }
+
+        .blueprint-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+            animation: grid-pulse 4s ease-in-out infinite alternate;
+        }
+
+        @keyframes grid-pulse {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+        .blueprint-image-container {
+            position: relative;
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+            scrollbar-color: var(--wire-active) var(--panel);
+        }
+
+        .blueprint-image-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .blueprint-image-container::-webkit-scrollbar-track {
+            background: var(--panel);
+            border-radius: 4px;
+        }
+
+        .blueprint-image-container::-webkit-scrollbar-thumb {
+            background: var(--wire-active);
+            border-radius: 4px;
+            opacity: 0.7;
+        }
+
+        .blueprint-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            min-width: 1200px; /* Ensures horizontal scroll on mobile */
+            border-radius: 4px;
+            cursor: zoom-in;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blueprint-image:hover {
+            transform: scale(1.01);
+            box-shadow: 0 8px 32px rgba(0, 240, 255, 0.2);
+        }
+
+        /* Fullscreen lightbox */
+        .blueprint-lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 9999;
+            padding: 2rem;
+            overflow: auto;
+            backdrop-filter: blur(20px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .blueprint-lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .blueprint-lightbox img {
+            max-width: 100%;
+            max-height: 90vh;
+            object-fit: contain;
+            border: 2px solid var(--wire-active);
+            border-radius: 8px;
+            box-shadow: 0 0 60px rgba(0, 240, 255, 0.4);
+        }
+
+        .blueprint-lightbox-close {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            background: var(--accent);
+            color: white;
+            border: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .blueprint-lightbox-close:hover {
+            background: var(--accent-cyan);
+            transform: scale(1.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         .status-indicator {
             width: 5px;
             height: 5px;
@@ -958,6 +1127,22 @@
                 text-align: center;
                 width: 100%;
             }
+
+            /* Blueprint responsive tweaks */
+            .blueprint-spotlight {
+                margin: 2rem 0;
+                padding: 1.5rem;
+            }
+
+            .blueprint-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 0.5rem;
+            }
+
+            .blueprint-image {
+                min-width: 1000px; /* Still scrollable but slightly smaller */
+            }
         }
 
         /* Extra small devices */
@@ -1002,6 +1187,33 @@
 
             .info-cell span {
                 font-size: 0.75rem;
+            }
+
+            /* Blueprint mobile tweaks */
+            .blueprint-spotlight {
+                margin: 1.5rem 0;
+                padding: 1rem;
+            }
+
+            .blueprint-header .section-number {
+                font-size: 0.55rem;
+            }
+
+            .blueprint-header h3 {
+                font-size: 0.9rem;
+            }
+
+            .blueprint-description {
+                font-size: 0.7rem;
+                line-height: 1.5;
+            }
+
+            .blueprint-frame {
+                padding: 0.5rem;
+            }
+
+            .blueprint-image {
+                min-width: 800px; /* Narrower for small phones */
             }
         }
 
@@ -1222,6 +1434,27 @@
             </div>
         </div>
 
+        <!-- Blueprint Spotlight Section -->
+        <div class="blueprint-spotlight">
+            <div class="blueprint-header">
+                <span class="section-number">10.1 // OPERATING STRUCTURE // VISUAL BLUEPRINT</span>
+                <h3>System Architecture & Trust Flow</h3>
+            </div>
+            <p class="blueprint-description">
+                This visual blueprint illustrates the complete operating structure of SOVR Development Holdings, LLC,
+                showing the relationship between the GM Family Trust, the Manager, and the corporate governance framework.
+                The diagram details trust flow, membership interests, and authorization pathways.
+            </p>
+            <div class="blueprint-frame">
+                <div class="blueprint-image-container">
+                    <img src="./assets/Gemini_Generated_Image_qqfdgpqqfdgpqqfd.png"
+                         alt="SOVR Development Holdings LLC - Operating Structure Blueprint"
+                         class="blueprint-image"
+                         onclick="toggleBlueprintFullscreen(this)">
+                </div>
+            </div>
+        </div>
+
         <!-- Section 11 // FINANCIAL -->
         <div class="section-wrapper" id="financial">
             <div class="section-title-line">
@@ -1422,6 +1655,36 @@
 
         </div>
     </main>
+
+    <!-- Blueprint Fullscreen Lightbox -->
+    <div class="blueprint-lightbox" id="blueprintLightbox" onclick="closeBlueprintFullscreen()">
+        <button class="blueprint-lightbox-close" aria-label="Close fullscreen">&times;</button>
+        <img src="" alt="Fullscreen Blueprint" id="blueprintLightboxImg">
+    </div>
+
+    <script>
+        function toggleBlueprintFullscreen(img) {
+            const lightbox = document.getElementById('blueprintLightbox');
+            const lightboxImg = document.getElementById('blueprintLightboxImg');
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt + ' - Fullscreen';
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBlueprintFullscreen() {
+            const lightbox = document.getElementById('blueprintLightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeBlueprintFullscreen();
+            }
+        });
+    </script>
 
 </body>
 </html>
