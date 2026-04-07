@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Schedule K-1 (Partner's Share of Income, Deductions, Credits)</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: `#0A192F`,
+                        gold: `#B69530`,
+                        charcoal: `#333333`,
+                    },
+                    fontFamily: {
+                        serif: [`EB Garamond`, `serif`],
+                        sans: [`Montserrat`, `sans-serif`],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { padding: 2rem; max-width: 8.5in; margin: 0 auto; }
+        .irs-form { border: 2px solid #000; padding: 1rem; margin: 1rem 0; }
+        .box { border: 1px solid #000; padding: 0.5rem; min-height: 2.5rem; }
+        .box-sm { border: 1px solid #000; padding: 0.5rem; min-height: 1.5rem; }
+        .label { font-size: 0.7rem; text-transform: uppercase; color: #0A192F; }
+        .header-title { font-size: 1.25rem; font-weight: 700; text-align: center; border-bottom: 2px solid #000; padding-bottom: 0.5rem; margin-bottom: 1rem; }
+        table { width: 100%; border-collapse: collapse; font-size: 9pt; }
+        th, td { border: 1px solid #000; padding: 0.25rem; text-align: center; }
+        th { background: #f0f0f0; font-weight: 600; }
+        .text-left { text-align: left !important; }
+        .totals { background: #e0e0e0; font-weight: 700; }
+        .dollar { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-white text-black">
+    <header class="mb-8">
+        <div class="text-center border-b-2 border-navy pb-4">
+            <h1 class="text-2xl font-bold text-navy">Sample Schedule K-1</h1>
+            <p class="text-lg text-gray-600 mt-1">Partner's Share of Income, Deductions, Credits, etc.</p>
+            <p class="text-sm text-gray-500 mt-1">(For Illustrative Purposes Only – 2024 Tax Year)</p>
+        </div>
+    </header>
+
+    <main>
+        <div class="mb-6">
+            <div class="grid grid-cols-2 gap-8 mb-4">
+                <div class="irs-form">
+                    <p class="label">Part I</p>
+                    <h3 class="header-title">Income, Deductions, Credits, etc.</h3>
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <div>
+                            <p class="label">Partner's identifying number</p>
+                            <div class="box">[SSN or EIN]</div>
+                        </div>
+                        <div>
+                            <p class="label">Partner's name, address, and ZIP code</p>
+                            <div class="box" style="min-height: 3rem;">GM Family Trust<br>3704 Loudon Road<br>[City], [State] [ZIP]</div>
+                        </div>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 60%;">Item</th>
+                                <th style="width: 20%;">Current year</th>
+                                <th style="width: 20%;">Prior year(s)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-left">1 Ordinary business income (loss) (see instructions)</td>
+                                <td class="dollar">125,000</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">2 Net rental real estate income (loss) (attach Form 8825)</td>
+                                <td class="dollar">0</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">3 Other gross rental income (loss)</td>
+                                <td class="dollar">0</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">4 Guaranteed payments to partner</td>
+                                <td class="dollar">0</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">5 Interest income</td>
+                                <td class="dollar">1,200</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">6 Dividends</td>
+                                <td class="dollar">0</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">7 Royalties</td>
+                                <td class="dollar">0</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">8 Net short-term capital gain (loss)</td>
+                                <td class="dollar">0</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">9 Net long-term capital gain (loss)</td>
+                                <td class="dollar">0</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">10 Net section 1231 gain (loss)</td>
+                                <td class="dollar">0</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">11 Other income (loss)</td>
+                                <td class="dollar">0</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr class="totals">
+                                <td class="text-left">12 Total income (loss) (add lines 1 through 11)</td>
+                                <td class="dollar">126,200</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">13 Distributions</td>
+                                <td class="dollar">0</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">14 Credits</td>
+                                <td class="dollar">0</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">15 Recourse liabilities</td>
+                                <td class="dollar">0</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">16 Nonrecourse liabilities</td>
+                                <td class="dollar">12,000,000</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">17 Capital account at beginning of year</td>
+                                <td class="dollar">10,500,000</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">18 Capital contributed during year</td>
+                                <td class="dollar">0</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">19 Current year increase (decrease)</td>
+                                <td class="dollar">126,200</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                            <tr class="totals">
+                                <td class="text-left">20 Capital account at end of year (add lines 17, 18, and 19)</td>
+                                <td class="dollar">10,626,200</td>
+                                <td class="dollar">-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="mt-4 text-sm">
+                        <p><strong>To Partner:</strong> The amounts reported on this Schedule K-1 are your share of the LLC's tax items for the 2024 tax year. These amounts should be reported on your individual income tax return (Form 1040) as appropriate. Please consult your tax advisor for guidance on reporting.</p>
+                    </div>
+                </div>
+
+                <div class="irs-form">
+                    <p class="label">Part II</p>
+                    <h3 class="header-title">Other Information</h3>
+                    <div class="grid grid-cols-2 gap-2 mb-4">
+                        <div>
+                            <p class="label">Type of entity</p>
+                            <div class="box"><strong>LLC</strong> – Partnership for tax</div>
+                        </div>
+                        <div>
+                            <p class="label">EIN</p>
+                            <div class="box">[EIN]</div>
+                        </div>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th style="width: 40%;">Item</th>
+                                <th style="width: 60%;">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-left">a</td>
+                                <td class="text-left">Does the partner have an interest in the partnership’s capital and profits that is subject to substantial economic risk (SER)?</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">b</td>
+                                <td class="text-left">Check this box if the partner is a partner in an electing investment partnership</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">c</td>
+                                <td class="text-left">What type of entity is this partner? <strong>Trust</strong> – Grantor Trust</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">d</td>
+                                <td class="text-left">Check if partner is a disregarded entity: [ ]</td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">e</td>
+                                <td class="text-left">Check if partner is a section 721(c) partnership: [ ]</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 class="text-lg font-bold mt-6 mb-2">Partner's Share of Capital, Profit, Loss, and Deductions</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Percentage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-left">Profit sharing percentage</td>
+                                <td class="dollar-text"><strong>71.43%</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">Loss sharing percentage</td>
+                                <td class="dollar-text"><strong>71.43%</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">Capital account percentage</td>
+                                <td class="dollar-text"><strong>71.43%</strong></td>
+                            </tr>
+                            <tr>
+                                <td class="text-left">Number of units owned</td>
+                                <td class="dollar-text"><strong>1,000,000</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 class="text-lg font-bold mt-6 mb-2">At-Risk and Passive Activity Limitations</h3>
+                    <div class="text-sm">
+                        <p><strong>Amount at risk:</strong> $10,626,200 (capital account)</p>
+                        <p><strong>Passive activity status:</strong> Material participation – NOT a passive activity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 p-4 bg-yellow-50 border border-yellow-200 rounded">
+            <h4 class="font-bold text-yellow-800 mb-2">IMPORTANT NOTES:</h4>
+            <ul class="text-sm text-yellow-700 space-y-1 list-disc pl-5">
+                <li>This is a <strong>SAMPLE</strong> K-1 for illustrative purposes only.</li>
+                <li>The figures shown are based on a <strong>pro-forma 2024 tax projection</strong> and have not been audited.</li>
+                <li>Actual K-1 will reflect the partnership's final tax year results and will be prepared by the Company's tax counsel.</li>
+                <li>The capital account shown reflects the Trust's capital contribution plus allocated 2024 income.</li>
+                <li>The "Nonrecourse liabilities" line reflects the $12M senior secured credit facility that will be filed via UCC-1 and passed through to partners under Section 752 rules.</li>
+                <li>Final K-1 will be issued by <strong>March 15, 2025</strong> (for calendar year 2024).</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-sm text-gray-600">
+        <p>SOVR Development Holdings, LLC | 3704 Loudon Road, [City], [State] [ZIP]</p>
+        <p>admin@sovr.credit | (661) 249-0812</p>
+        <p class="mt-2 text-xs">SAMPLE – NOT FOR DISTRIBUTION – FOR DUE DILIGENCE PURPOSES ONLY</p>
+    </footer>
+</body>
+</html>

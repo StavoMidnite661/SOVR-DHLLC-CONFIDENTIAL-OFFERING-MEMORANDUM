@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3-Year Financial Model – SOVR Development Holdings, LLC</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: `#0A192F`,
+                        gold: `#B69530`,
+                        charcoal: `#333333`,
+                    },
+                    fontFamily: {
+                        serif: [`EB Garamond`, `serif`],
+                        sans: [`Montserrat`, `sans-serif`],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { padding: 2rem; max-width: 8.5in; margin: 0 auto; }
+        .model-desc { background: #f0f9ff; padding: 1rem; border-radius: 8px; margin: 1rem 0; }
+        table { width: 100%; border-collapse: collapse; margin: 0.5rem 0; font-size: 10pt; }
+        th, td { border: 1px solid #d1d5db; padding: 0.5rem; text-align: center; }
+        th { background: #f9fafb; font-weight: 600; color: #0A192F; }
+        .text-left { text-align: left !important; }
+        .dollar { font-family: 'JetBrains Mono', monospace; }
+        .row-head { background: #e0f2fe; font-weight: 600; text-align: left !important; }
+        .section-total { background: #dbeafe; font-weight: 700; }
+        .net-income { background: #dcfce7; font-weight: 700; }
+        .covenant-highlight { background: #fef3c7; padding: 1rem; border-radius: 6px; margin-top: 1rem; }
+    </style>
+</head>
+<body class="bg-white text-black">
+    <header class="border-b-2 border-navy pb-4 mb-8">
+        <div class="flex justify-between items-start">
+            <div>
+                <h1 class="text-3xl font-bold text-navy">Three-Year Financial Projections</h1>
+                <p class="text-lg text-gray-600 mt-2">SOVR Development Holdings, LLC</p>
+                <p class="text-sm text-gray-500">Template – Years Ending December 31, 2025–2027</p>
+            </div>
+            <div class="text-right text-sm text-gray-500">
+                <p>Document Ref: FM-001</p>
+                <p>Status: <span class="text-yellow-600 font-bold">WORK IN PROGRESS</span></p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="mb-6">
+            <div class="model-desc">
+                <h3 class="font-bold text-navy mb-2">MODEL OVERVIEW</h3>
+                <p class="text-sm mb-2">
+                    This financial model provides a three-year projection of SOVR Development Holdings' income statement, balance sheet, and cash flow statement. The projections are based on management's best estimates of product development timelines, market adoption, and revenue ramp, incorporating the $12M credit facility.
+                </p>
+                <div class="grid grid-cols-3 gap-4 mt-4 text-sm">
+                    <div>
+                        <strong>Base Year:</strong> 2025 (partial year)
+                    </div>
+                    <div>
+                        <strong>Currency:</strong> USD
+                    </div>
+                    <div>
+                        <strong>Debt Facility:</strong> $12,000,000 @ Prime+2.5%
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-6">
+                <p class="text-sm text-red-800">
+                    <strong>WARNING:</strong> This is a preliminary template with placeholder figures. Actual projections must be prepared by the finance team with detailed assumptions and should be subject to stress testing before submission to any lender. The final model needs to demonstrate:
+                </p>
+                <ul class="text-sm text-red-700 mt-2 space-y-1">
+                    <li>• Ability to service debt with DSCR ≥ 1.25x under all scenarios</li>
+                    <li>• Realistic revenue ramp based on pipeline and market size</li>
+                    <li>• Detail on engineering & compliance spend per Use-of-Proceeds</li>
+                    <li>• Cash runway beyond the 3-year projection period</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- INCOME STATEMENT -->
+        <h2 class="text-2xl font-bold text-navy mb-4 border-b border-gray-200 pb-2">I. PROJECTED INCOME STATEMENT</h2>
+        <table class="mb-6">
+            <thead>
+                <tr>
+                    <th class="text-left" style="width: 50%;">Line Item</th>
+                    <th style="width: 17%;">2025</th>
+                    <th style="width: 17%;">2026</th>
+                    <th style="width: 17%;">2027</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="row-head">
+                    <td>REVENUE</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Platform Subscription Revenue</td>
+                    <td class="dollar">[125,000]</td>
+                    <td class="dollar">[750,000]</td>
+                    <td class="dollar">[2,500,000]</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">POS Transaction Fees</td>
+                    <td class="dollar">[25,000]</td>
+                    <td class="dollar">[200,000]</td>
+                    <td class="dollar">[1,000,000]</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Professional Services</td>
+                    <td class="dollar">[50,000]</td>
+                    <td class="dollar">[150,000]</td>
+                    <td class="dollar">[300,000]</td>
+                </tr>
+                <tr class="section-total">
+                    <td class="text-left pl-4"><strong>Total Revenue</strong></td>
+                    <td class="dollar"><strong>[200,000]</strong></td>
+                    <td class="dollar"><strong>[1,100,000]</strong></td>
+                    <td class="dollar"><strong>[3,800,000]</strong></td>
+                </tr>
+
+                <tr class="row-head">
+                    <td>COST OF GOODS SOLD (COGS)</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Cloud Infrastructure (AWS)</td>
+                    <td class="dollar">[35,000]</td>
+                    <td class="dollar">[120,000]</td>
+                    <td class="dollar">[450,000]</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Third-party API Costs</td>
+                    <td class="dollar">[2,000]</td>
+                    <td class="dollar">[15,000]</td>
+                    <td class="dollar">[50,000]</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Support Staff</td>
+                    <td class="dollar">[15,000]</td>
+                    <td class="dollar">[50,000]</td>
+                    <td class="dollar">[120,000]</td>
+                </tr>
+                <tr class="section-total">
+                    <td class="text-left pl-4"><strong>Total COGS</strong></td>
+                    <td class="dollar"><strong>[52,000]</strong></td>
+                    <td class="dollar"><strong>[185,000]</strong></td>
+                    <td class="dollar"><strong>[620,000]</strong></td>
+                </tr>
+
+                <tr class="row-head">
+                    <td>OPERATING EXPENSES</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Engineering Salaries & Wages</td>
+                    <td class="dollar">[400,000]</td>
+                    <td class="dollar">[900,000]</td>
+                    <td class="dollar">[1,200,000]</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Compliance & Legal</td>
+                    <td class="dollar">[150,000]</td>
+                    <td class="dollar">[200,000]</td>
+                    <td class="dollar">[250,000]</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Sales & Marketing</td>
+                    <td class="dollar">[80,000]</td>
+                    <td class="dollar">[300,000]</td>
+                    <td class="dollar">[600,000]</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">General & Administrative</td>
+                    <td class="dollar">[120,000]</td>
+                    <td class="dollar">[180,000]</td>
+                    <td class="dollar">[220,000]</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Insurance</td>
+                    <td class="dollar">[30,000]</td>
+                    <td class="dollar">[40,000]</td>
+                    <td class="dollar">[50,000]</td>
+                </tr>
+                <tr class="section-total">
+                    <td class="text-left pl-4"><strong>Total Operating Expenses</strong></td>
+                    <td class="dollar"><strong>[780,000]</strong></td>
+                    <td class="dollar"><strong>[1,620,000]</strong></td>
+                    <td class="dollar"><strong>[2,320,000]</strong></td>
+                </tr>
+
+                <tr class="net-income">
+                    <td class="text-left pl-4"><strong>NET INCOME (LOSS) BEFORE INTEREST & TAXES</strong></td>
+                    <td class="dollar"><strong>[-632,000]</strong></td>
+                    <td class="dollar"><strong>[295,000]</strong></td>
+                    <td class="dollar"><strong>[860,000]</strong></td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Interest Expense (12M @ 6.5% avg)</td>
+                    <td class="dollar">[260,000]</td>
+                    <td class="dollar">[220,000]</td>
+                    <td class="dollar">[160,000]</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Depreciation & Amortization</td>
+                    <td class="dollar">[20,000]</td>
+                    <td class="dollar">[35,000]</td>
+                    <td class="dollar">[45,000]</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Taxes (Wyoming – no state income tax)</td>
+                    <td class="dollar">[0]</td>
+                    <td class="dollar">[0]</td>
+                    <td class="dollar">[0]</td>
+                </tr>
+                <tr class="net-income">
+                    <td class="text-left pl-4"><strong>NET INCOME (LOSS)</strong></td>
+                    <td class="dollar"><strong>[-912,000]</strong></td>
+                    <td class="dollar"><strong>[40,000]</strong></td>
+                    <td class="dollar"><strong>[655,000]</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- BALANCE SHEET -->
+        <h2 class="text-2xl font-bold text-navy mb-4 border-b border-gray-200 pb-2 mt-8">II. PROJECTED BALANCE SHEET</h2>
+        <table class="mb-6">
+            <thead>
+                <tr>
+                    <th class="text-left" style="width: 50%;">ASSETS</th>
+                    <th style="width: 17%;">2025</th>
+                    <th style="width: 17%;">2026</th>
+                    <th style="width: 17%;">2027</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="row-head">
+                    <td>CURRENT ASSETS</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Cash & Cash Equivalents</td>
+                    <td class="dollar">[8,000,000]</td>
+                    <td class="dollar">[7,720,000]</td>
+                    <td class="dollar">[8,275,000]</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Accounts Receivable</td>
+                    <td class="dollar">[15,000]</td>
+                    <td class="dollar">[60,000]</td>
+                    <td class="dollar">[150,000]</td>
+                </tr>
+                <tr class="section-total">
+                    <td class="text-left pl-4"><strong>Total Current Assets</strong></td>
+                    <td class="dollar"><strong>[8,015,000]</strong></td>
+                    <td class="dollar"><strong>[7,780,000]</strong></td>
+                    <td class="dollar"><strong>[8,425,000]</strong></td>
+                </tr>
+                <tr class="row-head">
+                    <td>FIXED ASSETS</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">IT Equipment (net)</td>
+                    <td class="dollar">[45,000]</td>
+                    <td class="dollar">[38,000]</td>
+                    <td class="dollar">[30,000]</td>
+                </tr>
+                <tr class="section-total">
+                    <td class="text-left pl-4"><strong>Total Fixed Assets</strong></td>
+                    <td class="dollar"><strong>[45,000]</strong></td>
+                    <td class="dollar"><strong>[38,000]</strong></td>
+                    <td class="dollar"><strong>[30,000]</strong></td>
+                </tr>
+                <tr class="row-head">
+                    <td>INTANGIBLE ASSETS</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Developed Software (net)</td>
+                    <td class="dollar">[12,300,000]</td>
+                    <td class="dollar">[12,300,000]</td>
+                    <td class="dollar">[12,300,000]</td>
+                </tr>
+                <tr class="section-total">
+                    <td class="text-left pl-4"><strong>Total Assets</strong></td>
+                    <td class="dollar"><strong>[20,360,000]</strong></td>
+                    <td class="dollar"><strong>[20,118,000]</strong></td>
+                    <td class="dollar"><strong>[20,755,000]</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="mb-6">
+            <thead>
+                <tr>
+                    <th class="text-left" style="width: 50%;">LIABILITIES & EQUITY</th>
+                    <th style="width: 17%;">2025</th>
+                    <th style="width: 17%;">2026</th>
+                    <th style="width: 17%;">2027</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="row-head">
+                    <td>CURRENT LIABILITIES</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Current Portion of Term Loan</td>
+                    <td class="dollar">[2,500,000]</td>
+                    <td class="dollar">[3,000,000]</td>
+                    <td class="dollar">[3,500,000]</td>
+                </tr>
+                <tr class="section-total">
+                    <td class="text-left pl-4"><strong>Total Current Liabilities</strong></td>
+                    <td class="dollar"><strong>[2,500,000]</strong></td>
+                    <td class="dollar"><strong>[3,000,000]</strong></td>
+                    <td class="dollar"><strong>[3,500,000]</strong></td>
+                </tr>
+                <tr class="row-head">
+                    <td>LONG-TERM LIABILITIES</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Term Loan, net of current</td>
+                    <td class="dollar">[9,500,000]</td>
+                    <td class="dollar">[7,000,000]</td>
+                    <td class="dollar">[4,000,000]</td>
+                </tr>
+                <tr class="section-total">
+                    <td class="text-left pl-4"><strong>Total Liabilities</strong></td>
+                    <td class="dollar"><strong>[12,000,000]</strong></td>
+                    <td class="dollar"><strong>[10,000,000]</strong></td>
+                    <td class="dollar"><strong>[7,500,000]</strong></td>
+                </tr>
+                <tr class="row-head">
+                    <td>MEMBERS' EQUITY</td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Capital Contributions</td>
+                    <td class="dollar">[10,500,000]</td>
+                    <td class="dollar">[10,500,000]</td>
+                    <td class="dollar">[10,500,000]</td>
+                </tr>
+                <tr>
+                    <td class="text-left pl-4">Retained Earnings</td>
+                    <td class="dollar">[-2,140,000]</td>
+                    <td class="dollar">[-382,000]</td>
+                    <td class="dollar">[2,750,000]</td>
+                </tr>
+                <tr class="section-total">
+                    <td class="text-left pl-4"><strong>Total Members' Equity</strong></td>
+                    <td class="dollar"><strong>[8,360,000]</strong></td>
+                    <td class="dollar"><strong>[10,118,000]</strong></td>
+                    <td class="dollar"><strong>[13,255,000]</strong></td>
+                </tr>
+                <tr class="net-income">
+                    <td class="text-left pl-4"><strong>TOTAL LIABILITIES & EQUITY</strong></td>
+                    <td class="dollar"><strong>[20,360,000]</strong></td>
+                    <td class="dollar"><strong>[20,118,000]</strong></td>
+                    <td class="dollar"><strong>[20,755,000]</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- COVENANT CALCULATIONS -->
+        <h2 class="text-2xl font-bold text-navy mb-4 border-b border-gray-200 pb-2 mt-8">III. COVENANT COMPLIANCE</h2>
+        <div class="covenant-highlight">
+            <h4 class="font-bold text-charcoal mb-3">Debt Service Coverage Ratio (DSCR) – Quarterly Test</h4>
+            <table class="mb-4 text-sm">
+                <thead>
+                    <tr>
+                        <th class="text-left">Component</th>
+                        <th>2025</th>
+                        <th>2026</th>
+                        <th>2027</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-left">Net Income (loss) before interest</td>
+                        <td class="dollar">[-632,000]</td>
+                        <td class="dollar">295,000</td>
+                        <td class="dollar">860,000</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">+ Depreciation & Amortization</td>
+                        <td class="dollar">20,000</td>
+                        <td class="dollar">35,000</td>
+                        <td class="dollar">45,000</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">- Capital Expenditures</td>
+                        <td class="dollar">[-50,000]</td>
+                        <td class="dollar">[-30,000]</td>
+                        <td class="dollar">[-20,000]</td>
+                    </tr>
+                    <tr class="section-total">
+                        <td class="text-left"><strong>Cash Available for Debt Service</strong></td>
+                        <td class="dollar"><strong>[-662,000]</strong></td>
+                        <td class="dollar"><strong>[300,000]</strong></td>
+                        <td class="dollar"><strong>[885,000]</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">Debt Service (Principal + Interest)</td>
+                        <td class="dollar">[300,000]</td>
+                        <td class="dollar">[280,000]</td>
+                        <td class="dollar">[240,000]</td>
+                    </tr>
+                    <tr class="totals">
+                        <td class="text-left"><strong>DSCR</strong></td>
+                        <td class="dollar"><strong>-2.21x</strong></td>
+                        <td class="dollar"><strong>1.07x</strong></td>
+                        <td class="dollar"><strong>3.69x</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-sm text-gray-600 mt-2"><strong>Covenant Requirement:</strong> DSCR ≥ 1.25x. <span class="text-red-600 font-bold">2025 shows breach – covenant not expected until 2026.</span></p>
+        </div>
+
+        <div class="covenant-highlight mt-4">
+            <h4 class="font-bold text-charcoal mb-3">Leverage Ratio (Debt to EBITDA) – Annual Test</h4>
+            <table class="mb-4 text-sm">
+                <thead>
+                    <tr>
+                        <th class="text-left">Year</th>
+                        <th>EBITDA</th>
+                        <th>Total Debt</th>
+                        <th>Leverage Ratio</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="text-left">2025</td>
+                        <td class="dollar">[-510,000]</td>
+                        <td class="dollar">12,000,000</td>
+                        <td class="dollar">N/A (negative)</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">2026</td>
+                        <td class="dollar">335,000</td>
+                        <td class="dollar">10,000,000</td>
+                        <td class="dollar">29.85x</td>
+                    </tr>
+                    <tr>
+                        <td class="text-left">2027</td>
+                        <td class="dollar">950,000</td>
+                        <td class="dollar">7,500,000</td>
+                        <td class="dollar">7.89x</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-sm text-gray-600 mt-2"><strong>Covenant Requirement:</strong> Leverage Ratio ≤ 3.0x. <span class="text-red-600">Model shows breach – assumptions need adjustment or covenant relief requested.</span></p>
+        </div>
+
+        <div class="mt-8 p-4 bg-blue-50 border border-blue-200 rounded">
+            <h4 class="font-bold text-blue-800 mb-2">REQUIRED MODEL IMPROVEMENTS (Before Submission)</h4>
+            <ol class="text-sm text-blue-700 space-y-1 list-decimal pl-5">
+                <li><strong>Revenue assumptions must be validated:</strong> Show actual pipeline data, customer LOIs, or market sizing to back up the $3.8M 2027 revenue target.</li>
+                <li><strong>Covenant compliance is currently failing:</strong> Need to adjust use-of-proceeds spending, accelerate revenue generation, or negotiate covenant holidays/step-up structure.</li>
+                <li><strong>Build sensitivity tables:</strong> Show cash flow under ±25% revenue scenarios and demonstrate lender gets paid even in downside case.</li>
+                <li><strong>Detail quarterly cash flows:</strong> Lenders require quarterly, not just annual, to monitor covenant compliance.</li>
+                <li><strong>Include balance sheet details:</strong> Show capital account evolution, working capital drivers, and DSO assumptions.</li>
+                <li><strong>Verify all calculations and cross-check against Use-of-Proceeds schedule amounts.</strong></li>
+            </ol>
+        </div>
+
+        <div class="mt-6 text-sm">
+            <p><strong>Prepared by:</strong> ____________________________</p>
+            <p class="mt-2"><strong>Date:</strong> ________________</p>
+            <p class="text-gray-600"><em>Note: This is a template model only. The actual financial model must be built with detailed monthly/quarterly projections and validated by the finance team before being uploaded to the data room.</em></p>
+        </div>
+    </main>
+
+    <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-sm text-gray-600">
+        <p>SOVR Development Holdings, LLC | 3704 Loudon Road, [City], [State] [ZIP]</p>
+        <p>admin@sovr.credit | (661) 249-0812</p>
+        <p class="mt-2 text-xs">TEMPLATE – NOT FINAL – FOR INTERNAL PLANNING PURPOSES ONLY</p>
+    </footer>
+</body>
+</html>

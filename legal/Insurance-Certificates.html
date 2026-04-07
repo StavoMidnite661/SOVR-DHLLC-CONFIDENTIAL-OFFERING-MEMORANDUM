@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Policies & Certificates</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: `#0A192F`,
+                        gold: `#B69530`,
+                        charcoal: `#333333`,
+                        green: `#16a34a`,
+                        blue: `#2563eb`,
+                    },
+                    fontFamily: {
+                        serif: [`EB Garamond`, `serif`],
+                        sans: [`Montserrat`, `sans-serif`],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { padding: 2rem; max-width: 8.5in; margin: 0 auto; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { padding: 0.75rem; text-align: left; border: 1px solid #d1d5db; }
+        th { background: #f0f9ff; color: #0A192F; font-weight: 600; }
+        .status-active { background: #dcfce7; color: #166534; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: 600; display: inline-block; }
+        .status-pending { background: #fef3c7; color: #92400e; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: 600; display: inline-block; }
+        .amount { font-family: 'JetBrains Mono', monospace; }
+    </style>
+</head>
+<body class="bg-white text-black">
+    <header class="border-b-2 border-navy pb-4 mb-8">
+        <div class="flex justify-between items-start">
+            <div>
+                <h1 class="text-3xl font-bold text-navy">Insurance Policies & Certificates</h1>
+                <p class="text-lg text-gray-600 mt-2">SOVR Development Holdings, LLC</p>
+                <p class="text-sm text-gray-500">Due Diligence – Policy Details & Status</p>
+            </div>
+            <div class="text-right text-sm text-gray-500">
+                <p>Ref: INS-001</p>
+                <p>Date: April 7, 2025</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="mb-6">
+            <div class="bg-blue-50 border-l-4 border-navy p-4 mb-6">
+                <p class="text-sm text-blue-800">
+                    This index lists all insurance policies maintained by SOVR Development Holdings, LLC. Certificates of insurance are available for each active policy where applicable. This document serves as both a summary and tracking tool for insurance compliance.
+                </p>
+            </div>
+
+            <h2 class="text-2xl font-bold text-navy mb-4">Active & Pending Insurance Coverage</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 25%;">Policy Type</th>
+                        <th style="width: 20%;">Insurer</th>
+                        <th style="width: 10%;">Limit</th>
+                        <th style="width: 12%;">Expiry</th>
+                        <th style="width: 15%;">Status</th>
+                        <th style="width: 18%;">Certificate / Reference</th>
+                    </tr>
+                </thead>
+                <tbody class="text-sm">
+                    <tr>
+                        <td><strong>Commercial General Liability</strong></td>
+                        <td>Hiscox Insurance Company</td>
+                        <td class="amount">$2,000,000</td>
+                        <td>October 15, 2025</td>
+                        <td><span class="status-active">ACTIVE</span></td>
+                        <td><a href="./legal/Hiscox_CGL_Certificate.pdf" class="text-blue-600 hover:underline">[PDF Upload]</a></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cyber Risk & Data Breach</strong></td>
+                        <td>Lloyd's of London Syndicate</td>
+                        <td class="amount">$5,000,000</td>
+                        <td>May 31, 2026 (prospective)</td>
+                        <td><span class="status-pending">PENDING ISSUANCE</span></td>
+                        <td><em>Application in process – expected May 2025</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Directors & Officers (D&O)</strong></td>
+                        <td>AIG</td>
+                        <td class="amount">$1,000,000</td>
+                        <td>April 30, 2026 (prospective)</td>
+                        <td><span class="status-pending">PENDING FINALIZATION</span></td>
+                        <td><em>Underwriting in progress</em></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Professional Liability / E&O</strong></td>
+                        <td>TBD</td>
+                        <td class="amount">$1,000,000</td>
+                        <td>–</td>
+                        <td><span class="status-pending">TO BE SECURED</span></td>
+                        <td><em>Needs procurement post-closing</em></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded">
+                <h4 class="font-bold text-yellow-800 mb-2">Lender Requirements & Notes</h4>
+                <ul class="text-sm text-yellow-700 space-y-1 list-disc pl-5">
+                    <li><strong>D&O Insurance:</strong> Lender requires $1M minimum D&O coverage effective upon closing. Application in progress with AIG; target effective date April 15, 2025.</li>
+                    <li><strong>Cyber Insurance:</strong> Critical for compliance and risk management; must be in place before first drawdown. Coverage must include breach notification costs, regulatory defense, and business interruption.</li>
+                    <li><strong>Evidence of Coverage:</strong> Certificates of insurance naming the Lender as additional insured (primary & non-contributory) must be uploaded to the data room and maintained throughout the loan term.</li>
+                    <li><strong>Renewal Tracking:</strong> Insurance policies must be renewed annually; set calendar reminders for renewal dates 30 days prior to expiry.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mt-8">
+            <h2 class="text-2xl font-bold text-navy mb-4">Insurance Contact Information</h2>
+            <div class="grid grid-cols-2 gap-6 text-sm">
+                <div>
+                    <p><strong>Commercial Insurance Broker:</strong></p>
+                    <p>Name: [Broker Name]<br>
+                    Firm: [Brokerage Firm]<br>
+                    Phone: [Broker Phone]<br>
+                    Email: [Broker Email]</p>
+                </div>
+                <div>
+                    <p><strong>Risk Management Officer:</strong></p>
+                    <p>Name: [Internal Contact]<br>
+                    Title: [CFO / Operations Lead]<br>
+                    Phone: (661) 249-0812<br>
+                    Email: admin@sovr.credit</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-sm text-gray-600">
+        <p>SOVR Development Holdings, LLC | 3704 Loudon Road, [City], [State] [ZIP]</p>
+        <p>admin@sovr.credit | (661) 249-0812</p>
+        <p class="mt-2 text-xs">CONFIDENTIAL – FOR QUALIFIED INSTITUTIONAL LENDERS ONLY</p>
+    </footer>
+</body>
+</html>

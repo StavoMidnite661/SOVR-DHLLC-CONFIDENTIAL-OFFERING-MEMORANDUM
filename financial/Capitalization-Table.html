@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOVR Development Holdings, LLC - Capitalization Table</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: `#0A192F`,
+                        gold: `#B69530`,
+                        charcoal: `#333333`,
+                        red: `#dc2626`,
+                        green: `#16a34a`,
+                    },
+                    fontFamily: {
+                        serif: [`EB Garamond`, `serif`],
+                        sans: [`Montserrat`, `sans-serif`],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { padding: 2rem; max-width: 8.5in; margin: 0 auto; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+        th, td { padding: 0.75rem; text-align: left; border-bottom: 1px solid #e5e5e5; }
+        th { background: #f9fafb; font-weight: 600; color: #0A192F; }
+        .pledged-row { background-color: #fef3c7; }
+        .total-row { font-weight: 700; background: #f0f9ff; }
+        .percentage { font-family: 'JetBrains Mono', monospace; text-align: right; }
+        .units { font-family: 'JetBrains Mono', monospace; text-align: right; }
+        .badge { display: inline-block; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+        .badge-pledged { background: #fef3c7; color: #92400e; }
+        .badge-free { background: #dcfce7; color: #166534; }
+    </style>
+</head>
+<body class="bg-white text-black">
+    <header class="border-b-2 border-navy pb-4 mb-8">
+        <div class="flex justify-between items-start">
+            <div>
+                <h1 class="text-3xl font-bold text-navy">Capitalization Table</h1>
+                <p class="text-lg text-gray-600 mt-2">SOVR Development Holdings, LLC</p>
+                <p class="text-sm text-gray-500">As of April 7, 2025 – Post-Pledge of 400,000 Units</p>
+            </div>
+            <div class="text-right text-sm text-gray-500">
+                <p>Document Ref: CAP-001</p>
+                <p>Page 1 of 2</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="mb-6">
+            <div class="bg-blue-50 border-l-4 border-navy p-4 mb-6">
+                <p class="text-sm text-blue-800">
+                    <strong>Note:</strong> This capitalization table reflects the structure after the pledge of 400,000 Units to secure the $12,000,000 senior secured credit facility. The pledged units are held as treasury collateral and remain issued but are subject to a security interest in favor of the Lender.
+                </p>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 35%;">Member / Class</th>
+                        <th style="width: 20%;">Units Owned</th>
+                        <th style="width: 20%;">% Ownership</th>
+                        <th style="width: 25%;">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- GM Family Trust -->
+                    <tr>
+                        <td>
+                            <strong>GM Family Trust</strong><br>
+                            <span class="text-sm text-gray-600">Gustavo O. Maldonado, Trustee</span>
+                        </td>
+                        <td class="units">1,000,000</td>
+                        <td class="percentage">71.43%</td>
+                        <td><span class="badge badge-pledged">PLEDGED COLLATERAL</span></td>
+                    </tr>
+
+                    <!-- Treasury/Remaining -->
+                    <tr class="pledged-row">
+                        <td>
+                            <strong>Treasury/Remaining – Pledged</strong><br>
+                            <span class="text-sm text-gray-600">400,000 Units pledged to Lender (held as treasury collateral)</span>
+                        </td>
+                        <td class="units">400,000</td>
+                        <td class="percentage">28.57%</td>
+                        <td><span class="badge badge-pledged">PLEDGED COLLATERAL</span></td>
+                    </tr>
+
+                    <!-- Free Float - placeholder if there are other investors -->
+                    <tr>
+                        <td>
+                            <strong>Free Float / Other Holders</strong><br>
+                            <span class="text-sm text-gray-600">[If any additional members exist]</span>
+                        </td>
+                        <td class="units">0</td>
+                        <td class="percentage">0.00%</td>
+                        <td><span class="badge badge-free">N/A</span></td>
+                    </tr>
+                </tbody>
+                <tfoot class="total-row">
+                    <tr>
+                        <td><strong>TOTAL ISSUED & OUTSTANDING</strong></td>
+                        <td class="units"><strong>1,400,000</strong></td>
+                        <td class="percentage"><strong>100.00%</strong></td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <section class="mb-6">
+            <h2 class="text-xl font-bold text-navy mb-4">Notes & Assumptions</h2>
+            <div class="text-sm space-y-2">
+                <p><strong>1. Total Authorized Units:</strong> The Company's Operating Agreement authorizes a total of <strong>2,000,000 Units</strong>, of which <strong>1,400,000</strong> are issued and outstanding as of this date.</p>
+                <p><strong>2. Pledge Structure:</strong> The 400,000 pledged Units are held in treasury as collateral for the $12M credit facility. These units remain issued and retain voting rights but are subject to a first-priority security interest perfected via UCC-1 filing.</p>
+                <p><strong>3. Break-down of Pledged Units:</strong></p>
+                <ul class="pl-8 space-y-1">
+                    <li>• GM Family Trust: 1,000,000 Units (71.43% ownership, fully pledged)</li>
+                    <li>• Treasury Pledge: 400,000 Units (28.57% ownership, newly created from treasury for this transaction)</li>
+                </ul>
+                <p><strong>4. Capital Account Balances:</strong></p>
+                <table class="mt-2 mb-3 text-sm">
+                    <thead>
+                        <tr>
+                            <th>Member</th>
+                            <th class="text-right">Capital Account Balance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>GM Family Trust</td>
+                            <td class="text-right">$10,500,000</td>
+                        </tr>
+                        <tr>
+                            <td>Treasury (Pledged)</td>
+                            <td class="text-right">$4,200,000</td>
+                        </tr>
+                        <tr class="font-bold">
+                            <td><strong>Total Members' Equity</strong></td>
+                            <td class="text-right"><strong>$14,700,000</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-gray-600"><em>Note: Capital account balances are based on original capital contributions and retained earnings. Actual balances to be confirmed by audited financial statements.</em></p>
+                <p><strong>5. UCC-1 Filing Details:</strong></p>
+                <ul class="pl-8 space-y-1 text-sm">
+                    <li>• Filing Office: Wyoming Secretary of State</li>
+                    <li>• Collateral: 400,000 Units of SOVR Development Holdings, LLC</li>
+                    <li>• Debtor: GM Family Trust (Gustavo O. Maldonado, Trustee)</li>
+                    <li>• Secured Party: [Lender Name]</li>
+                    <li>• Filing Number: <strong>[TO BE POPULATED UPON FILING]</strong></li>
+                    <li>• Filing Date: <strong>[TO BE POPULATED UPON FILING]</strong></li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mb-6">
+            <h2 class="text-xl font-bold text-navy mb-4">Pre-Pledge Structure (For Comparison)</h2>
+            <table class="text-sm">
+                <thead>
+                    <tr>
+                        <th>Member / Class</th>
+                        <th class="text-right">Units Owned</th>
+                        <th class="text-right">% Ownership (Pre-Pledge)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GM Family Trust</td>
+                        <td class="text-right">1,000,000</td>
+                        <td class="text-right">100.00%</td>
+                    </tr>
+                    <tr class="bg-gray-50">
+                        <td><strong>Total Issued</strong></td>
+                        <td class="text-right"><strong>1,000,000</strong></td>
+                        <td class="text-right"><strong>100.00%</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+            <p class="text-sm text-gray-600 mt-2">
+                <strong>Note:</strong> To facilitate the pledge and maintain the Trust's 100% beneficial ownership while providing distinct collateral, the Company issued an additional 400,000 Units from treasury to the Trust specifically for pledge purposes. This structure preserves the Trust's economic interest while creating a separable collateral pool.
+            </p>
+        </section>
+
+        <section class="mt-8 pt-4 border-t border-gray-200">
+            <div class="text-sm">
+                <p><strong>Prepared By:</strong></p>
+                <p class="mt-2">____________________________</p>
+                <p>Gustavo O. Maldonado, Trustee</p>
+                <p>GM Family Trust</p>
+                <p>SOVR Development Holdings, LLC</p>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-sm text-gray-600">
+        <p>SOVR Development Holdings, LLC | 3704 Loudon Road, [City], [State] [ZIP]</p>
+        <p>admin@sovr.credit | (661) 249-0812</p>
+        <p class="mt-2 text-xs">CONFIDENTIAL – FOR QUALIFIED INSTITUTIONAL LENDERS ONLY</p>
+    </footer>
+</body>
+</html>

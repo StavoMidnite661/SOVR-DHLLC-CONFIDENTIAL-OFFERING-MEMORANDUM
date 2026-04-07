@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOVR Development Holdings, LLC - Material Contracts</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: `#0A192F`,
+                        gold: `#B69530`,
+                        charcoal: `#333333`,
+                    },
+                    fontFamily: {
+                        serif: [`EB Garamond`, `serif`],
+                        sans: [`Montserrat`, `sans-serif`],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { padding: 2rem; max-width: 8.5in; margin: 0 auto; }
+        .contract-card {
+            border: 1px solid #e5e5e5;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin-bottom: 1rem;
+            background: #fafafa;
+        }
+        .status-executed { background: #dcfce7; color: #166534; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+        .status-draft { background: #fef3c7; color: #92400e; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+        .status-pending { background: #fee2e2; color: #dc2626; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+        .status-active { background: #dbeafe; color: #1e40af; padding: 0.25rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
+        .badge { display: inline-block; }
+    </style>
+</head>
+<body class="bg-white text-black">
+    <header class="border-b-2 border-navy pb-4 mb-8">
+        <div class="flex justify-between items-start">
+            <div>
+                <h1 class="text-3xl font-bold text-navy">Material Contracts & Key Agreements</h1>
+                <p class="text-lg text-gray-600 mt-2">SOVR Development Holdings, LLC</p>
+                <p class="text-sm text-gray-500">Due Diligence – As of April 7, 2025</p>
+            </div>
+            <div class="text-right text-sm text-gray-500">
+                <p>Document Ref: MC-001</p>
+                <p>Page 1 of 2</p>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="mb-6">
+            <div class="bg-blue-50 border-l-4 border-navy p-4 mb-6">
+                <p class="text-sm text-blue-800">
+                    <strong>Purpose:</strong> This index lists all material contracts and agreements that are critical to SOVR Development Holdings' operations, financial performance, or strategic objectives. The contracts are essential for the lender's assessment of operational risk and contractual obligations.
+                </p>
+            </div>
+
+            <!-- Section 1: Customer & Partner Agreements -->
+            <h2 class="text-xl font-bold text-navy mb-4 border-b border-gray-200 pb-2">I. Customer & Partner Agreements</h2>
+            <div class="space-y-4 mb-6">
+                <div class="contract-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-charcoal">[Placeholder] Enterprise Customer Master Services Agreement</h3>
+                        <span class="badge status-draft">DRAFT</span>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-2">
+                        <strong>Counterparty:</strong> [Enterprise Customer Name]<br>
+                        <strong>Type:</strong> Master Services Agreement with SOW attachments<br>
+                        <strong>Term:</strong> 3 years (annual renewal)<br>
+                        <strong>Value:</strong> $1.2M ARR commitment<br>
+                        <strong>Status:</strong> Under negotiation – pending final signature
+                    </p>
+                    <p class="text-sm text-gray-600 italic">
+                        This agreement governs the provision of SOVR Unified Credit platform services to the customer, including hosting, support, and customization services.
+                    </p>
+                </div>
+
+                <div class="contract-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-charcoal">[Placeholder] Channel Partner Distribution Agreement</h3>
+                        <span class="badge status-draft">DRAFT</span>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-2">
+                        <strong>Counterparty:</strong> [Channel Partner Name]<br>
+                        <strong>Type:</strong> Reseller / OEM partnership<br>
+                        <strong>Term:</strong> 2 years (auto-renew)<br>
+                        <strong>Value:</strong> Revenue share, $500k minimum purchase commitment<br>
+                        <strong>Status:</strong> Term sheet executed, final agreement in review
+                    </p>
+                    <p class="text-sm text-gray-600 italic">
+                        Partnership agreement for distribution of SOVR Credit Bridge POS solution through partner's sales channel.
+                    </p>
+                </div>
+
+                <div class="contract-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-charcoal">Stripe Treasury Integration Agreement</h3>
+                        <span class="badge status-executed">EXECUTED</span>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-2">
+                        <strong>Counterparty:</strong> Stripe, Inc.<br>
+                        <strong>Type:</strong> API integration & services agreement<br>
+                        <strong>Term:</strong> 1 year (month-to-month thereafter)<br>
+                        <strong>Value:</strong> Usage-based fees, ~$50k/year estimated<br>
+                        <strong>Status:</strong> Active – fully executed
+                    </p>
+                    <p class="text-sm text-gray-600 italic">
+                        Agreement for integration of Stripe Treasury services into SOVR Unified Credit platform, enabling embedded banking capabilities.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 2: Vendor & Service Agreements -->
+            <h2 class="text-xl font-bold text-navy mb-4 border-b border-gray-200 pb-2">II. Vendor & Service Agreements</h2>
+            <div class="space-y-4 mb-6">
+                <div class="contract-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-charcoal">AWS Enterprise Agreement</h3>
+                        <span class="badge status-active">ACTIVE</span>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-2">
+                        <strong>Counterparty:</strong> Amazon Web Services, Inc.<br>
+                        <strong>Type:</strong> Cloud infrastructure services<br>
+                        <strong>Term:</strong> 3 years (committed spend)<br>
+                        <strong>Value:</strong> $250,000/year minimum commitment<br>
+                        <strong>Status:</strong> Active – executed 2024-01-15
+                    </p>
+                    <p class="text-sm text-gray-600 italic">
+                        Comprehensive cloud services agreement covering compute, storage, database, and CDN services for production and development environments.
+                    </p>
+                </div>
+
+                <div class="contract-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-charcoal">GitHub Enterprise Cloud Agreement</h3>
+                        <span class="badge status-active">ACTIVE</span>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-2">
+                        <strong>Counterparty:</strong> GitHub, Inc.<br>
+                        <strong>Type:</strong> Code hosting & collaboration platform<br>
+                        <strong>Term:</strong> 1 year (annual renewal)<br>
+                        <strong>Value:</strong> $21,000/year<br>
+                        <strong>Status:</strong> Active – enterprise plan
+                    </p>
+                </div>
+
+                <div class="contract-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-charcoal">Data Security & SOC 2 Audit Services</h3>
+                        <span class="badge status-pending">PENDING</span>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-2">
+                        <strong>Counterparty:</strong> [TBD – selecting CPA firm]<br>
+                        <strong>Type:</strong> SOC 2 Type II audit and compliance attestation<br>
+                        <strong>Term:</strong> One-time engagement + annual ongoing<br>
+                        <strong>Estimated Value:</strong> $80,000 – $120,000<br>
+                        <strong>Status:</strong> RFP in process – engagement to be finalized Q2 2025
+                    </p>
+                    <p class="text-sm text-gray-600 italic">
+                        Critical for security compliance and lender requirement for audited controls over data handling and system availability.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 3: Legal & Compliance -->
+            <h2 class="text-xl font-bold text-navy mb-4 border-b border-gray-200 pb-2">III. Legal & Governance Agreements</h2>
+            <div class="space-y-4 mb-6">
+                <div class="contract-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-charcoal">Operating Agreement of SOVR Development Holdings, LLC</h3>
+                        <span class="badge status-executed">EXECUTED</span>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-2">
+                        <strong>Parties:</strong> GM Family Trust (Sole Member)<br>
+                        <strong>Type:</strong> Wyoming LLC operating agreement<br>
+                        <strong>Date:</strong> March 15, 2024 (amended April 5, 2025)<br>
+                        <strong>Status:</strong> Active – fully executed, filed with Wyoming SOS
+                    </p>
+                </div>
+
+                <div class="contract-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-charcoal">GM Family Trust Declaration</h3>
+                        <span class="badge status-executed">EXECUTED</span>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-2">
+                        <strong>Trustee:</strong> Gustavo O. Maldonado<br>
+                        <strong>Type:</strong> Wyoming Statutory Trust<br>
+                        <strong>Date:</strong> February 1, 2024<br>
+                        <strong>Status:</strong> Active – Trust is sole member of SOVR DH, LLC
+                    </p>
+                </div>
+
+                <div class="contract-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-charcoal">Independent Contractor Agreements (Engineering Team)</h3>
+                        <span class="badge status-active">ACTIVE</span>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-2">
+                        <strong>Parties:</strong> 6 independent contractors (full-time equivalent)<br>
+                        <strong>Type:</strong> Service agreements with IP assignment<br>
+                        <strong>Term:</strong> Ongoing – monthly engagement<br>
+                        <strong>Status:</strong> Active – all agreements include work-for-hire and IP assignment clauses
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 4: Banking & Financial -->
+            <h2 class="text-xl font-bold text-navy mb-4 border-b border-gray-200 pb-2">IV. Banking & Financial Relationships</h2>
+            <div class="space-y-4 mb-6">
+                <div class="contract-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-charcoal">Business Banking Relationship (Mercury)</h3>
+                        <span class="badge status-active">ACTIVE</span>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-2">
+                        <strong>Bank:</strong> Mercury Financial, Inc.<br>
+                        <strong>Account Type:</strong> Business checking and sweep account<br>
+                        <strong>Current Balance:</strong> ~$47,000 (as of April 5, 2025)<br>
+                        <strong>Status:</strong> Active – no liens, no debt outstanding
+                    </p>
+                </div>
+
+                <div class="contract-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-charcoal">Stand-by Letter of Credit (Pending – $2.4M)</h3>
+                        <span class="badge status-pending">PENDING ISSUANCE</span>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-2">
+                        <strong>Issuing Bank:</strong> [TBD – under discussion]<br>
+                        <strong>Amount:</strong> $2,400,000 (20% of facility)<br>
+                        <strong>Beneficiary:</strong> [Lender Name]<br>
+                        <strong>Term:</strong> 1 year, auto-renew annually<br>
+                        <strong>Status:</strong> In process – to be issued upon closing
+                    </p>
+                    <p class="text-sm text-gray-600 italic">
+                        The stand-by LC provides additional credit support and enhances the collateral package. Will be uploaded upon issuance.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Section 5: Insurance -->
+            <h2 class="text-xl font-bold text-navy mb-4 border-b border-gray-200 pb-2">V. Insurance Coverage</h2>
+            <div class="space-y-4 mb-6">
+                <div class="contract-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-charcoal">Commercial General Liability</h3>
+                        <span class="badge status-active">ACTIVE</span>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-2">
+                        <strong>Insurer:</strong> Hiscox Insurance Company<br>
+                        <strong>Policy Limit:</strong> $2,000,000 general aggregate<br>
+                        <strong>Expiry:</strong> October 15, 2025<br>
+                        <strong>Status:</strong> Active – certificate available (see Insurance folder)
+                    </p>
+                </div>
+
+                <div class="contract-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-charcoal">Cyber Risk & Data Breach Insurance</h3>
+                        <span class="badge status-pending">PENDING</span>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-2">
+                        <strong>Status:</strong> Application in process with Lloyds of London syndicate<br>
+                        <strong>Target Coverage:</strong> $5M limit, including breach response and regulatory compliance costs<br>
+                        <strong>Expected Issue:</strong> May 15, 2025<br>
+                        <strong>Note:</strong> Critical for lender compliance; will be uploaded upon issuance
+                    </p>
+                </div>
+
+                <div class="contract-card">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg text-charcoal">Directors & Officers (D&O) Liability Insurance</h3>
+                        <span class="badge status-pending">PENDING</span>
+                    </div>
+                    <p class="text-sm text-gray-700 mb-2">
+                        <strong>Status:</strong> Pending finalization of policy ($1M limit)<br>
+                        <strong>Carrier:</strong> Underwritten by AIG<br>
+                        <strong>Expected Effective Date:</strong> April 15, 2025<br>
+                        <strong>Note:</strong> Required by lender for board resolution compliance
+                    </p>
+                </div>
+            </div>
+
+            <div class="bg-yellow-50 border-l-4 border-yellow-600 p-4 mt-6">
+                <h4 class="font-bold text-yellow-800 mb-2">Upcoming Contract Requirements</h4>
+                <ul class="text-sm text-yellow-700 space-y-1">
+                    <li>• <strong>UCC-1 Financing Statement:</strong> To be filed with Wyoming SOS upon pledge; receipt to be uploaded</li>
+                    <li>• <strong>Pledge Agreement:</strong> Final template being reviewed, signatures to be obtained</li>
+                    <li>• <strong>Security Agreement:</strong> To be executed in conjunction with pledge</li>
+                    <li>• <strong>Legal Opinions:</strong> Corporate and Security opinions to be delivered by counsel</li>
+                </ul>
+            </div>
+        </section>
+
+        <div class="page-break-before"></div>
+        <section class="mt-8">
+            <h2 class="text-xl font-bold text-navy mb-4">IV. Next Steps for Missing Contracts</h2>
+            <ol class="list-decimal pl-6 text-sm space-y-2">
+                <li><strong>Finalize outstanding vendor contracts:</strong> Complete SOC 2 audit agreement, lock in insurance coverage.</li>
+                <li><strong>Execute financing documents:</strong> Pledge Agreement, Security Agreement, UCC-1 filing.</li>
+                <li><strong>Obtain legal opinions:</strong> Engage Wyoming counsel to provide opinions on corporate authority and security perfection.</li>
+                <li><strong>Archive executed versions:</strong> Scan all signed originals and upload as PDFs to the appropriate folders in the data room.</li>
+                <li><strong>Maintain contract register:</strong> Track key dates (renewals, expirations) in a centralized tracking sheet.</li>
+            </ol>
+        </section>
+    </main>
+
+    <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-sm text-gray-600">
+        <p>SOVR Development Holdings, LLC | 3704 Loudon Road, [City], [State] [ZIP]</p>
+        <p>admin@sovr.credit | (661) 249-0812</p>
+        <p class="mt-2 text-xs">CONFIDENTIAL – FOR QUALIFIED INSTITUTIONAL LENDERS ONLY</p>
+    </footer>
+</body>
+</html>
