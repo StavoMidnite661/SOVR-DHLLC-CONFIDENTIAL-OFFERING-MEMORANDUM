@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IP Assignment Agreement – SOVR Development Holdings, LLC</title>
+    <title>Intellectual Property Assignment Agreement – SOVR</title>
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -28,8 +28,19 @@
         .section { margin-bottom: 1.5rem; }
         .section-heading { font-weight: 700; color: #0A192F; margin-bottom: 0.5rem; }
         .clause { margin-left: 1rem; margin-bottom: 0.75rem; }
+        .defined-term { font-weight: 600; color: #0A192F; }
         .signature-block { margin-top: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
         .sig-line { border-bottom: 1px solid #000; width: 250px; margin-top: 3rem; }
+        .exhibit { background: #f0f9ff; padding: 1.5rem; border-left: 4px solid #0A192F; margin: 1rem 0; border-radius: 4px; }
+        .highlight-box { background: #fffaf0; padding: 1rem; border-left: 4px solid #B69530; margin: 1rem 0; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.875rem; }
+        th, td { border: 1px solid #d1d5db; padding: 0.5rem; }
+        th { background: #f9fafb; font-weight: 600; color: #0A192F; }
+        .text-left { text-align: left !important; }
+        @media print {
+            body { font-size: 11pt; line-height: 1.4; }
+            .page-break { page-break-before: always; }
+        }
     </style>
 </head>
 <body class="bg-white text-black">
@@ -38,11 +49,11 @@
             <div>
                 <h1 class="text-3xl font-bold text-navy">Intellectual Property Assignment Agreement</h1>
                 <p class="text-lg text-gray-600 mt-2">SOVR Development Holdings, LLC</p>
-                <p class="text-sm text-gray-500">Template – For Contractor & Employee IP Assignments</p>
+                <p class="text-sm text-gray-500">Template – For Contractor & Employee IP Assignments (Ref: IP-ASSIGN-001)</p>
             </div>
             <div class="text-right text-sm text-gray-500">
-                <p>Ref: IP-ASSIGN-001</p>
                 <p>Date: [Execution Date]</p>
+                <p>Page 1 of 3</p>
             </div>
         </div>
     </header>
@@ -50,16 +61,19 @@
     <main>
         <section class="mb-6">
             <h2 class="text-2xl font-bold text-navy mb-4">PARTIES</h2>
-            <div class="space-y-4">
+            <div class="grid grid-cols-2 gap-8">
                 <div>
-                    <p><strong>Assignor:</strong> _______________________________</p>
+                    <p><strong>Assignor:</strong></p>
+                    <p>_________________________________</p>
                     <p class="text-sm text-gray-600">[Name of Individual Contractor / Employee]</p>
-                    <p>Address: _______________________________</p>
+                    <p>Address: _________________________</p>
                 </div>
                 <div>
-                    <p><strong>Assignee:</strong> SOVR Development Holdings, LLC, a Wyoming limited liability company</p>
-                    <p class="text-sm text-gray-600">3704 Loudon Road</p>
-                    <p class="text-sm text-gray-600">[City], [State] [ZIP]</p>
+                    <p><strong>Assignee:</strong></p>
+                    <p><strong>SOVR Development Holdings, LLC</strong></p>
+                    <p class="text-sm text-gray-600">Wyoming limited liability company</p>
+                    <p>3704 Loudon Road</p>
+                    <p>[City], [State] [ZIP]</p>
                     <p class="text-sm text-gray-600">Attention: Gustavo O. Maldonado, Trustee</p>
                 </div>
             </div>
@@ -67,15 +81,15 @@
 
         <section class="mb-6">
             <h2 class="text-2xl font-bold text-navy mb-4">RECITALS</h2>
-            <div class="text-sm leading-relaxed space-y-2">
+            <div class="text-sm leading-relaxed space-y-3">
                 <p class="clause">
-                    A. The Assignor has been engaged by the Assignee (the "Engagement") to perform services related to the development of proprietary software, technology, and intellectual property (collectively, the "Services").
+                    <strong>A.</strong> The Assignor has been engaged by the Assignee (the "<span class="defined-term">Engagement</span>") to perform services related to the development of proprietary software, technology, and intellectual property (collectively, the "<span class="defined-term">Services</span>").
                 </p>
                 <p class="clause">
-                    B. In the course of performing the Services, the Assignor has conceived, created, developed, or otherwise contributed to certain inventions, software code, designs, documentation, and other intellectual property (collectively, the "IP").
+                    <strong>B.</strong> In the course of performing the Services, the Assignor has conceived, created, developed, or otherwise contributed to certain inventions, software code, designs, documentation, and other intellectual property (collectively, the "<span class="defined-term">IP</span>").
                 </p>
                 <p class="clause">
-                    C. The parties desire to evidence that all right, title, and interest in and to the IP is the sole and exclusive property of the Assignee.
+                    <strong>C.</strong> The parties desire to evidence that all right, title, and interest in and to the IP is the sole and exclusive property of the Assignee.
                 </p>
             </div>
         </section>
@@ -89,9 +103,7 @@
                 </p>
 
                 <p><strong>2. Representations & Warranties</strong></p>
-                <p class="clause">
-                    The Assignor represents and warrants that:
-                </p>
+                <p class="clause">The Assignor represents and warrants that:</p>
                 <ul class="pl-8 space-y-1 text-sm">
                     <li>a. The Assignor has the full right and authority to enter into this Agreement;</li>
                     <li>b. The IP is original to the Assignor and does not infringe any third-party rights;</li>
@@ -126,57 +138,71 @@
             </div>
         </section>
 
-        <section class="mt-8">
+        <section class="mt-8 page-break-before">
             <h2 class="text-2xl font-bold text-navy mb-4">SIGNATURE PAGE</h2>
+            <p class="text-sm mb-6">The parties have executed this Intellectual Property Assignment Agreement as of the date first written above.</p>
             <div class="signature-block">
                 <div>
                     <p><strong>ASSIGNOR:</strong></p>
                     <div class="mt-8">
-                        _______________________________<br>
-                        [Name of Individual]
+                        <div class="sig-line"></div>
+                        <p class="mt-2">[Name of Individual]</p>
                     </div>
-                    <p class="text-sm text-gray-600 mt-2">Date: ________________</p>
+                    <p class="text-sm text-gray-600 mt-2">Date: _______________</p>
                 </div>
                 <div>
                     <p><strong>ASSIGNEE:</strong></p>
                     <div class="mt-8">
-                        _______________________________<br>
-                        Gustavo O. Maldonado, Trustee<br>
-                        GM Family Trust, Sole Member<br>
-                        SOVR Development Holdings, LLC
+                        <div class="sig-line"></div>
+                        <p class="mt-2">Gustavo O. Maldonado, Trustee</p>
+                        <p>GM Family Trust, Sole Member</p>
+                        <p>SOVR Development Holdings, LLC</p>
                     </div>
-                    <p class="text-sm text-gray-600 mt-2">Date: ________________</p>
+                    <p class="text-sm text-gray-600 mt-2">Date: _______________</p>
                 </div>
             </div>
         </section>
 
-        <section class="mt-8 pt-6 border-t border-gray-200">
-            <h3 class="font-bold text-navy mb-2">EXHIBIT A – DESCRIPTION OF ASSIGNED IP</h3>
-            <p class="text-sm text-gray-600 mb-2">
-                The following intellectual property, developed by the Assignor during the course of the Engagement, is hereby assigned:
-            </p>
-            <div class="pl-4 text-sm">
-                <p><strong>GitHub Repositories:</strong></p>
-                <ul class="pl-8 space-y-1 text-sm">
-                    <li>• SOVR-Oracle-Ledger (github.com/[org]/SOVR-Oracle-Ledger)</li>
-                    <li>• SOVR-Unified-Credit (github.com/[org]/SOVR-Unified-Credit)</li>
-                    <li>• SOVR-Credit-Bridge-POS (github.com/[org]/SOVR-Credit-Bridge-POS)</li>
-                    <li>• sovr_asset_quiz_generator.js</li>
-                    <li>• viral_sovr_name_generator.js</li>
+        <section class="mt-8 page-break-before">
+            <h2 class="text-2xl font-bold text-navy mb-4">EXHIBIT A – DESCRIPTION OF ASSIGNED IP</h2>
+            <div class="exhibit text-sm">
+                <p class="mb-3">The following intellectual property, developed by the Assignor during the course of the Engagement, is hereby assigned:</p>
+
+                <p class="font-bold mb-2">GitHub Repositories:</p>
+                <ul class="list-disc pl-6 space-y-1 mb-4">
+                    <li>SOVR-Oracle-Ledger (github.com/[org]/SOVR-Oracle-Ledger)</li>
+                    <li>SOVR-Unified-Credit (github.com/[org]/SOVR-Unified-Credit)</li>
+                    <li>SOVR-Credit-Bridge-POS (github.com/[org]/SOVR-Credit-Bridge-POS)</li>
+                    <li>sovr_asset_quiz_generator.js</li>
+                    <li>viral_sovr_name_generator.js</li>
                 </ul>
-                <p class="mt-2"><strong>Other IP Assets:</strong></p>
-                <ul class="pl-8 space-y-1 text-sm">
-                    <li>• All source code committed to the above repositories</li>
-                    <li>• All documentation, specifications, and designs related thereto</li>
-                    <li>• All inventions, algorithms, trade secrets, and know-how embodied in the software</li>
-                    <li>• All derivative works, improvements, and modifications</li>
+
+                <p class="font-bold mb-2">Other IP Assets:</p>
+                <ul class="list-disc pl-6 space-y-1 mb-4">
+                    <li>All source code committed to the above repositories</li>
+                    <li>All documentation, specifications, and designs related thereto</li>
+                    <li>All inventions, algorithms, trade secrets, and know-how embodied in the software</li>
+                    <li>All derivative works, improvements, and modifications</li>
                 </ul>
-            </div>
-            <div class="mt-4">
-                <p><strong>Work Period:</strong> From [Start Date] to present</p>
-                <p><strong>Project:</strong> SOVR Unified Credit Platform & Associated Products</p>
+
+                <div class="grid grid-cols-2 gap-4 mt-4">
+                    <div>
+                        <p><strong>Work Period:</strong></p>
+                        <p>From [Start Date] to present</p>
+                    </div>
+                    <div>
+                        <p><strong>Project:</strong></p>
+                        <p>SOVR Unified Credit Platform & Associated Products</p>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+
+    <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-sm text-gray-600">
+        <p>SOVR Development Holdings, LLC | 3704 Loudon Road, [City], [State] [ZIP]</p>
+        <p>admin@sovr.credit | (661) 249-0812</p>
+        <p class="mt-2 text-xs">CONFIDENTIAL – ATTORNEY-CLIENT PRIVILEGED – FOR INTERNAL USE ONLY</p>
+    </footer>
 </body>
 </html>
