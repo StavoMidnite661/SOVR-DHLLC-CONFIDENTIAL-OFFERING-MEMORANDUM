@@ -1,7 +1,7 @@
 <div align="center">
 
   <!-- HERO BANNER -->
-  <img src="https://via.placeholder.com/1200x300/0A0A0A/00ff9d?text=SOVR+EMPIRE+%7C+MECHANICAL+TRUTH" alt="SOVR Empire Banner" width="100%" style="border-radius: 12px; margin-bottom: 20px;">
+  <img src="https://via.placeholder.com/1200x400/0A0A0A/00ff9d?text=SOVR+EMPIRE+%7C+MECHANICAL+TRUTH" alt="SOVR Empire Banner" width="100%" style="border-radius: 12px; margin-bottom: 20px;">
 
   <h1>
     <span style="color: #00ff9d;">SOVR</span> EMPIRE
@@ -14,7 +14,7 @@
 
   <p>
     Bridging <strong>Private Common Law Sovereignty</strong> with <strong>Public Statutory Execution</strong><br>
-    through the <strong>VirtualCardBridge</strong> — turning on-chain collateral into real-world purchasing power with <strong>zero credit risk</strong>.
+    through the <strong>VirtualCardBridge</strong> — turning on-chain collateral into real-world purchasing power.
   </p>
 
   <div>
@@ -37,18 +37,34 @@
 
 ---
 
-### 🏛️ The Corporate Charter
+### 👑 Company Leadership
+
+**Gustavo Orona Maldonado, Trustee**  
+*Founder of SOVR Empire | Web3 Vault Architect | Trust Law Strategist*
+
+*   **Expertise:** Real-Time Payment Systems, Tokenized Credit Ecosystems, Common Law Trust Structures.
+*   **Vision:** Building the infrastructure for digital financial sovereignty and mechanical clearing.
+
+---
+
+### 🏛️ Corporate Charter & Legal Foundation
 
 The **SOVR Empire** operates through a dual-layered hierarchy to ensure maximum security and institutional interoperability:
 
-*   **Apex Authority:** **GM FAMILY TRUST** — A private, non-statutory, common law irrevocable trust. Holder of all Intellectual Property and Sovereign Assets.
-*   **Operating Wrapper:** **SOVR Development Holdings, LLC** — A Wyoming statutory entity (EIN 39-2332625). Interfaces with legacy banking rails, manages vendor integrations, and ensures regulatory compliance.
+*   **Apex Authority:** **GM FAMILY TRUST** (EIN: 33-647-2099) — A private, non-statutory, common law irrevocable trust. Holder of all Intellectual Property and Sovereign Assets.
+*   **Operating Wrapper:** **SOVR Development Holdings, LLC** — A Wyoming statutory entity (Manager-Managed). Interfaces with legacy banking rails and ensures regulatory compliance.
+
+| Identifier | Value |
+| :--- | :--- |
+| **State of Formation** | Wyoming |
+| **EIN** | 39-2332625 |
+| **D-U-N-S® Number** | 13-682-4504 |
+| **UID** | K752ULAXJV36 |
+| **Registered Agent** | Frontier Registered Agency Services LLC |
 
 ---
 
 ### 🛠️ The Sovereign Stack
-
-Technological pillars that enforce the **Mechanical Truth**:
 
 | Layer | Technology | Purpose |
 | :--- | :--- | :--- |
@@ -60,18 +76,39 @@ Technological pillars that enforce the **Mechanical Truth**:
 
 ---
 
-### 🚀 Ecosystem Command Center
+### 🚀 Business Purpose & Services
 
-Key repositories and initiatives currently in development:
+SOVR Development Holdings, LLC provides trust-based, real-time, and tokenized finance infrastructure:
 
-*   [**VAL Core**](https://github.com/StavoMidnite661/val-core) — The Sovereign Value Attestation Layer backend.
-*   [**Oracle Ledger**](https://github.com/StavoMidnite661/oracle-ledger) — Integration of TigerBeetle for real-time mechanical clearing.
-*   [**SOVR-PayNEW**](https://github.com/StavoMidnite661/sovr-paynew) — The public-facing interface for RWA tokenization and virtual card issuance.
-*   [**SOVR-ZAI**](https://github.com/StavoMidnite661/sovr-zai) — Sovereign card gateway integration.
+*   **Trust-Based Payment Settlement Systems** – Secure infrastructure leveraging trust structures for enhanced fiduciary controls.
+*   **QR Code Presentment Tools** – Frictionless initiation, validation, and confirmation of payments across channels.
+*   **AI-Powered Economic Empowerment** – Intelligent tools that automate insights and optimize cash flow.
+*   **Web Wallet & Dashboard Solutions** – Real-time portfolio visibility and transaction orchestration.
+*   **Tokenized Credit Ecosystems** – Web3-enabled infrastructure for issuance and servicing of tokenized obligations.
+*   **Real-Time Payment Systems** – Instant settlement designed for high-availability transaction throughput.
 
 ---
 
-### 📊 Vital Signs
+### 💰 Capitalization & Financing
+
+The Company maintains a robust capital structure aligned with growth and liquidity objectives:
+
+*   **Senior Secured Financing Facility:** **$12,000,000**
+    *   **Term Loan:** $10,000,000
+    *   **Revolving Credit:** $2,000,000
+*   **Collateral:** Pledged 400,000 membership interests (40% of total units).
+
+---
+
+### 📍 Contact & Operations
+
+*   **Operations Address:** 3704 Loudon Street, Bakersfield, California 93313
+*   **Registered Office:** 565 South F Street, Suite 300, Cheyenne, Wyoming 82001
+*   **Emails:** [admin@sovr.credit](mailto:admin@sovr.credit) | [SOVR.Empire@sovr.credit](mailto:SOVR.Empire@sovr.credit)
+
+---
+
+### 📊 Ecosystem Stats
 
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=StavoMidnite661&show_icons=true&theme=tokyonight&bg_color=0A0A0A&title_color=00ff9d&text_color=FFFFFF&icon_color=ffd700" alt="GitHub Stats" />

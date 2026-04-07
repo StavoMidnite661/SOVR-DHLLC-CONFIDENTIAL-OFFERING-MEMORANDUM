@@ -1,0 +1,516 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOVR-PSA-2024-001 | Robust Pledge &amp; Security Agreement</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: `#0A192F`,
+                        gold: `#B69530`,
+                        charcoal: `#333333`,
+                    },
+                    fontFamily: {
+                        serif: [`EB Garamond`, `serif`],
+                        sans: [`Montserrat`, `sans-serif`],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @media print {
+            @page {
+                size: auto;
+                margin: 20mm 25mm;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+                font-size: 10pt;
+                line-height: 1.4;
+                color: #000000;
+                background: white;
+                max-width: 216mm;
+                margin: 0 auto;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .page {
+                width: 100%;
+                max-width: 160mm !important;
+                min-height: 279mm !important;
+                margin: 0 auto !important;
+                padding: 0 !important;
+                box-sizing: border-box !important;
+                page-break-after: always !important;
+                overflow: visible !important;
+                position: relative;
+                background: white;
+            }
+            .page:last-child {
+                page-break-after: auto !important;
+            }
+            .no-print { display: none !important; }
+        }
+
+        body {
+            background-color: #f4f4f4;
+            color: #1a1a1a;
+            font-family: 'EB Garamond', serif;
+        }
+
+        .page {
+            background: white;
+            width: 210mm;
+            min-height: 297mm;
+            padding: 25mm;
+            margin: 20px auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 120px;
+            color: rgba(10, 25, 47, 0.03);
+            pointer-events: none;
+            z-index: 0;
+            white-space: nowrap;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .geometric-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 2px 2px, rgba(182, 149, 48, 0.05) 1px, transparent 0);
+            background-size: 40px 40px;
+            z-index: 0;
+        }
+
+        .content-layer {
+            position: relative;
+            z-index: 10;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .divider {
+            height: 2px;
+            background: linear-gradient(to right, transparent, #B69530, transparent);
+            margin: 20px 0;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            font-size: 11pt;
+        }
+
+        th {
+            background-color: #0A192F;
+            color: white;
+            text-align: left;
+            padding: 10px;
+            border: 1px solid #0A192F;
+        }
+
+        td {
+            padding: 10px;
+            border: 1px solid #e0e0e0;
+            vertical-align: top;
+        }
+
+        .callout-box {
+            border-left: 4px solid #B69530;
+            background: #f9f9f9;
+            padding: 15px;
+            margin: 15px 0;
+            page-break-inside: avoid;
+        }
+
+        .footer-info {
+            position: absolute;
+            bottom: 15mm;
+            left: 25mm;
+            right: 25mm;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 8pt;
+            display: flex;
+            justify-content: space-between;
+            color: #666;
+            border-top: 1px solid #eee;
+            padding-top: 5px;
+        }
+
+        .sig-line {
+            border-top: 1px solid black;
+            margin-top: 40px;
+            width: 250px;
+        }
+
+        .kuse-branding {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #0A192F;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .kuse-branding:hover {
+            color: #B69530;
+        }
+
+        .kuse-branding svg {
+            height: 1.2em;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PAGE 1: COVER & PARTIES -->
+    <div class="page">
+        <div class="geometric-bg"></div>
+        <div class="watermark">CONFIDENTIAL</div>
+        <div class="content-layer">
+            <div class="text-right text-navy font-sans font-bold text-sm">
+                DOCUMENT ID: SOVR-PSA-2024-001
+            </div>
+            
+            <div class="mt-20 text-center">
+                <h4 class="text-gold font-bold mb-2">Legal Whitepaper &amp; Security Instrument</h4>
+                <h1 class="text-4xl text-navy font-bold leading-tight">ROBUST PLEDGE / SECURITY AGREEMENT</h1>
+                <p class="text-xl mt-4 font-serif italic text-charcoal">Regarding the $12,000,000 Senior-Secured Credit Facility ("Financing")</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <section class="mt-10">
+                <h2 class="text-navy text-lg font-bold border-b-2 border-gold pb-1 mb-6">1. PARTIES</h2>
+                
+                <div class="space-y-6">
+                    <div class="callout-box">
+                        <strong class="font-sans text-navy">PLEDGOR:</strong><br>
+                        <p class="mt-2">
+                            <strong>SOVR Development Holdings, LLC</strong>, a Wyoming limited-liability company, acting through its sole member <strong>GM Family Trust – Gustavo O. Maldonado TTEE</strong> (the "Trust").<br>
+                            <span class="italic text-sm">Role: Borrower / Grantor of security interest.</span><br>
+                            Address: 2120 Carey Ave, Cheyenne, WY 82001
+                        </p>
+                    </div>
+
+                    <div class="callout-box">
+                        <strong class="font-sans text-navy">SECURED PARTY:</strong><br>
+                        <p class="mt-2">
+                            <strong>[LENDER NAME]</strong>, a [State] [Corporation/Bank/Trust/Entity].<br>
+                            <span class="italic text-sm">Role: Lender / Holder of security interest.</span><br>
+                            Address: [Lender's Address]
+                        </p>
+                    </div>
+
+                    <div class="callout-box">
+                        <strong class="font-sans text-navy">TRUSTEE:</strong><br>
+                        <p class="mt-2">
+                            <strong>Gustavo O. Maldonado</strong>, Trustee of the GM Family Trust.<br>
+                            <span class="italic text-sm">Role: Holds the pledged Membership Interests on behalf of the Trust.</span><br>
+                            Address: 3704 Loudon St, Bakersfield, CA 93313
+                        </p>
+                    </div>
+
+                    <div class="bg-navy text-white p-4 rounded mt-4 font-sans text-sm">
+                        <strong>OWNERSHIP NOTE:</strong> Pledgor is the sole member of the Company; Trust holds <strong>100%</strong> of the issued Membership Interests (1,000,000 Units).
+                    </div>
+                </div>
+            </section>
+
+            <div class="footer-info">
+                <span>SOVR-PSA-2024-001</span>
+                <span>Page 1 of 5</span>
+                <span>Confidential - Proprietary</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: RECITALS & DEFINITIONS -->
+    <div class="page">
+        <div class="geometric-bg"></div>
+        <div class="content-layer">
+            <section>
+                <h2 class="text-navy text-lg font-bold border-b-2 border-gold pb-1 mb-6">2. RECITALS</h2>
+                
+                <div class="space-y-4 text-justify">
+                    <p><strong>2.1 Financing Documents:</strong> Pledgor entered into (or will enter into) a Senior-Secured Credit Facility consisting of: (a) a $10,000,000 Term Loan (5-year maturity, quarterly amortisation) and (b) a $2,000,000 Revolving Credit Facility (3-year renewable term). Collectively referred to as "Loan Documents", as described in the Confidential Offering Memorandum dated October 26, 2024 and Board Resolutions (draft attached to data-room).</p>
+                    
+                    <p><strong>2.2 Security Package:</strong> First-priority security interest in <strong>four hundred thousand (400,000) Membership Interests</strong> (≈40% of total issued Units), including: (i) UCC-1 financing statement filed in Wyoming; (ii) Stand-by Letter of Credit (LC-_____); (iii) Legal Opinions (pending) confirming enforceability; and (iv) Trust Declaration (official) confirming Trust's ownership.</p>
+                    
+                    <p><strong>2.3 Corporate Authority:</strong> Board Resolutions (dated _____[Insert Date]_____) authorize: (i) Incurrence of $12,000,000 financing; (ii) Pledge of 400,000 Membership Interests as collateral; and (iii) Execution of Pledge Agreement, UCC-1 filing, Stand-by LC, and all ancillary documents.</p>
+                    
+                    <p><strong>2.4 Purpose:</strong> Proceeds are allocated per the Use-of-Proceeds Schedule: 45% Engineering &amp; Development; 20% Compliance &amp; Banking; 15% Security &amp; Auditing; and 20% Working Capital (as set out in Offering Memorandum).</p>
+                </div>
+            </section>
+
+            <section class="mt-10">
+                <h2 class="text-navy text-lg font-bold border-b-2 border-gold pb-1 mb-6">3. DEFINITIONS</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Term</th>
+                            <th>Full Definition Verbatim</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Collateral</strong></td>
+                            <td>Four hundred thousand (400,000) Membership Interests (the "Pledged Interests") together with any and all proceeds, proceeds of any sale, cash, securities, or other property derived from such interests, and any substitutions, replacements, or reconstitutions thereof.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Loan Documents</strong></td>
+                            <td>All agreements, promissory notes, security agreements, guarantees, amendments, and ancillary documents executed in connection with the $12MM senior-secured financing.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Event of Default</strong></td>
+                            <td>Any event of default defined in the Loan Documents, including but not limited to (i) non-payment of principal or interest, (ii) breach of any representation, warranty, or covenant in any Loan Document, (iii) the Pledgor's insolvency, (iv) a material adverse change, or (v) failure to maintain the security interest perfection.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>UCC-1 Filing</strong></td>
+                            <td>The financing statement(s) filed with the Wyoming Secretary of State to perfect the Secured Party's first-priority security interest in the Collateral.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Stand-by LC</strong></td>
+                            <td>The irrevocable Stand-by Letter of Credit (LC-_____) issued in favor of the Secured Party as secondary credit enhancement.</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Secured Obligations</strong></td>
+                            <td>The collective reference to the unpaid principal of and interest on the Loans and all other obligations and liabilities of the Pledgor to the Secured Party.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <div class="footer-info">
+                <span>SOVR-PSA-2024-001</span>
+                <span>Page 2 of 5</span>
+                <span>Confidential - Proprietary</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 3: GRANT, REPS & COVENANTS -->
+    <div class="page">
+        <div class="geometric-bg"></div>
+        <div class="content-layer">
+            <section>
+                <h2 class="text-navy text-lg font-bold border-b-2 border-gold pb-1 mb-4">4. GRANT OF SECURITY INTEREST</h2>
+                <div class="space-y-3">
+                    <p><strong>4.1 Pledge:</strong> Pledgor hereby pledges, assigns, and grants to the Secured Party a first-priority security interest in the Collateral to secure the prompt and complete payment and performance of the Secured Obligations.</p>
+                    <p><strong>4.2 Perfection:</strong> Pledgor shall execute and deliver all such instruments and documents (including UCC-1 financing statements) and take all such actions as the Secured Party may reasonably request to perfect and maintain the first-priority security interest.</p>
+                    <p><strong>4.3 Notice of Perfection:</strong> Pledgor shall provide the Secured Party with written evidence of the filing of the UCC-1 financing statement within five (5) business days of the Effective Date.</p>
+                </div>
+            </section>
+
+            <section class="mt-8">
+                <h2 class="text-navy text-lg font-bold border-b-2 border-gold pb-1 mb-4">5. REPRESENTATIONS &amp; WARRANTIES</h2>
+                <ol class="list-decimal pl-6 space-y-2">
+                    <li><strong>Ownership:</strong> Pledgor is the legal and beneficial owner of the Pledged Interests, free and clear of any lien, security interest, or encumbrance, except for the security interest created by this Agreement.</li>
+                    <li><strong>Authority:</strong> Pledgor has the full power, authority, and legal right to execute and deliver this Agreement and to pledge the Collateral.</li>
+                    <li><strong>Enforceability:</strong> This Agreement constitutes a legal, valid, and binding obligation of the Pledgor, enforceable in accordance with its terms.</li>
+                    <li><strong>No Conflict:</strong> The execution and delivery of this Agreement will not violate any law, regulation, or contractual obligation of the Pledgor.</li>
+                    <li><strong>Perfected Interest:</strong> Upon the filing of the UCC-1 financing statement, the Secured Party will have a valid and perfected first-priority security interest in the Collateral.</li>
+                </ol>
+            </section>
+
+            <section class="mt-8">
+                <h2 class="text-navy text-lg font-bold border-b-2 border-gold pb-1 mb-4">6. COVENANTS</h2>
+                <div class="space-y-4">
+                    <div>
+                        <h4 class="font-bold text-navy text-sm mb-2">6.1 Prohibited Actions</h4>
+                        <ul class="list-disc pl-6 space-y-1">
+                            <li><strong>a. No Additional Liens:</strong> Pledgor shall not create, incur, or permit to exist any lien or encumbrance on the Collateral other than the security interest created by this Agreement.</li>
+                            <li><strong>b. No Transfer:</strong> Pledgor shall not sell, assign, transfer, or otherwise dispose of any part of the Collateral without the prior written consent of the Secured Party.</li>
+                            <li><strong>c. No Material Change:</strong> Pledgor shall not permit any material change to the organizational documents of the Company that would adversely affect the Secured Party's interest.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-navy text-sm mb-2">6.2 Notification &amp; Reporting</h4>
+                        <ol class="list-decimal pl-6 space-y-1">
+                            <li>Pledgor shall promptly notify the Secured Party of any lien or claim made or asserted against the Collateral.</li>
+                            <li>Pledgor shall provide quarterly compliance certificates confirming the status of the Collateral.</li>
+                            <li>Pledgor shall provide annual audited financial statements of the Company.</li>
+                            <li>Pledgor shall notify the Secured Party of any Event of Default or potential Event of Default within two (2) business days.</li>
+                        </ol>
+                    </div>
+                </div>
+            </section>
+
+            <div class="footer-info">
+                <span>SOVR-PSA-2024-001</span>
+                <span>Page 3 of 5</span>
+                <span>Confidential - Proprietary</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 4: DEFAULT, REMEDIES, LAW & NOTICES -->
+    <div class="page">
+        <div class="geometric-bg"></div>
+        <div class="content-layer">
+            <section>
+                <h2 class="text-navy text-lg font-bold border-b-2 border-gold pb-1 mb-4">7. EVENTS OF DEFAULT</h2>
+                <ol class="list-decimal pl-6 space-y-2">
+                    <li>Failure by the Pledgor to pay any principal or interest on the Secured Obligations when due.</li>
+                    <li>Any representation or warranty made by the Pledgor herein or in any Loan Document proves to have been incorrect in any material respect when made.</li>
+                    <li>Breach of any covenant or agreement contained in this Agreement or the Loan Documents.</li>
+                    <li>The insolvency, bankruptcy, or dissolution of the Pledgor or the Company.</li>
+                    <li>A material adverse change in the business, operations, or financial condition of the Pledgor or the Company.</li>
+                </ol>
+            </section>
+
+            <section class="mt-8">
+                <h2 class="text-navy text-lg font-bold border-b-2 border-gold pb-1 mb-4">8. REMEDIES</h2>
+                <ol class="list-decimal pl-6 space-y-2">
+                    <li>The Secured Party may exercise all rights and remedies of a secured party under the Uniform Commercial Code (UCC).</li>
+                    <li>The Secured Party may sell, assign, or otherwise dispose of the Collateral at public or private sale.</li>
+                    <li>The Secured Party may transfer the Pledged Interests into its own name or the name of its nominee.</li>
+                    <li>The Secured Party may collect any distributions or proceeds from the Collateral and apply them to the Secured Obligations.</li>
+                    <li>The Secured Party may pursue any other remedy available at law or in equity.</li>
+                </ol>
+                <p class="mt-4 italic text-sm">Cumulative Remedies: The rights and remedies provided in this Agreement are cumulative and not exclusive of any rights or remedies provided by law or the Loan Documents.</p>
+            </section>
+
+            <section class="mt-8">
+                <h2 class="text-navy text-lg font-bold border-b-2 border-gold pb-1 mb-4">9. GOVERNING LAW &amp; JURISDICTION</h2>
+                <p class="text-justify">This Agreement and the rights and obligations of the parties hereunder shall be governed by, and construed and interpreted in accordance with, the laws of the State of Wyoming, without regard to its conflict of laws principles. Any legal action or proceeding with respect to this Agreement shall be brought in the courts of the State of Wyoming or of the United States of America for the District of Wyoming.</p>
+            </section>
+
+            <section class="mt-8">
+                <h2 class="text-navy text-lg font-bold border-b-2 border-gold pb-1 mb-4">10. NOTICES</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Party</th>
+                            <th>Address &amp; Contact Information</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Pledgor</strong></td>
+                            <td>2120 Carey Ave, Cheyenne, WY 82001<br>Email: [Pledgor Email]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Secured Party</strong></td>
+                            <td>[Lender's Address]<br>Email: [Lender Email]</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Trustee</strong></td>
+                            <td>3704 Loudon St, Bakersfield, CA 93313<br>Email: [Trustee Email]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <div class="footer-info">
+                <span>SOVR-PSA-2024-001</span>
+                <span>Page 4 of 5</span>
+                <span>Confidential - Proprietary</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE 5: MISC, EXECUTION, ATTACHMENTS -->
+    <div class="page">
+        <div class="geometric-bg"></div>
+        <div class="content-layer">
+            <section>
+                <h2 class="text-navy text-lg font-bold border-b-2 border-gold pb-1 mb-4">11. MISCELLANEOUS</h2>
+                <ol class="list-decimal pl-6 space-y-2">
+                    <li><strong>Amendment:</strong> No amendment or waiver of any provision of this Agreement shall be effective unless in writing and signed by both parties.</li>
+                    <li><strong>Assignment:</strong> This Agreement shall be binding upon and inure to the benefit of the parties and their respective successors and assigns.</li>
+                    <li><strong>Counterparts:</strong> This Agreement may be executed in counterparts, each of which shall be deemed an original and all of which together shall constitute one agreement.</li>
+                    <li><strong>Severability:</strong> If any provision of this Agreement is held to be invalid or unenforceable, the remaining provisions shall remain in full force and effect.</li>
+                    <li><strong>Integration:</strong> This Agreement and the Loan Documents constitute the entire agreement between the parties with respect to the subject matter hereof.</li>
+                    <li><strong>Tax Matters Partner:</strong> Pledgor shall remain responsible for all tax filings and liabilities related to the Pledged Interests unless the Collateral is foreclosed upon.</li>
+                </ol>
+            </section>
+
+            <section class="mt-8">
+                <h2 class="text-navy text-lg font-bold border-b-2 border-gold pb-1 mb-10">12. EXECUTION</h2>
+                
+                <div class="grid grid-cols-2 gap-10">
+                    <div>
+                        <h4 class="font-bold text-xs mb-4">FOR PLEDGOR:</h4>
+                        <div class="sig-line"></div>
+                        <p class="text-xs mt-1">By: Gustavo O. Maldonado</p>
+                        <p class="text-xs">Title: Trustee, GM Family Trust</p>
+                        
+                        <div class="sig-line mt-10"></div>
+                        <p class="text-xs mt-1">By: [Manager Name]</p>
+                        <p class="text-xs">Title: Manager, SOVR Development Holdings, LLC</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-xs mb-4">FOR SECURED PARTY:</h4>
+                        <div class="sig-line"></div>
+                        <p class="text-xs mt-1">By: [Authorized Signatory Name]</p>
+                        <p class="text-xs">Title: [Title]</p>
+                        <p class="text-xs">Date: ____________________</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="mt-8">
+                <h2 class="text-navy text-lg font-bold border-b-2 border-gold pb-1 mb-4">13. ATTACHMENTS</h2>
+                <ol class="list-decimal pl-6 text-sm grid grid-cols-2 gap-1">
+                    <li>Schedule A: Description of Membership Interests</li>
+                    <li>Exhibit B: UCC-1 Financing Statement Form</li>
+                    <li>Exhibit C: Stand-by Letter of Credit (Draft)</li>
+                    <li>Exhibit D: Form of Board Resolutions</li>
+                    <li>Exhibit E: Legal Opinion of Counsel</li>
+                    <li>Exhibit F: Use-of-Proceeds Schedule</li>
+                    <li>Exhibit G: Trust Declaration (Summary)</li>
+                </ol>
+                <p class="mt-4 text-xs italic">All digital copies and supplemental data are available in the secure Data-Room: [Data-Room Link Reference].</p>
+            </section>
+
+            <section class="mt-10 pt-4 border-t border-navy">
+                <div class="flex justify-between items-center">
+                    <div class="text-[9px] text-charcoal">
+                        <strong>PREPARED BY:</strong> SOVR Legal Affairs Division<br>
+                        <strong>PREPARED FOR:</strong> SOVR Development Holdings, LLC and [LENDER NAME]
+                    </div>
+                    <a href="https://kuse.ai" class="kuse-branding">
+                        <span>made with</span>
+                        <svg viewBox="0,0,160,44" xmlns="http://www.w3.org/2000/svg"><path d="m.01,20.65C-.43,8.25,9.3-2.03,22.04.34,34.78,2.72,43.29,8.32,43.29,22.9s-8.66,19.01-22.03,20.3C7.9,44.5.46,33.05.01,20.65z" fill="currentColor"></path><path fill-rule="evenodd" clip-rule="evenodd" d="m146.76,7.94c8.07,0,13.24,6.15,13.24,14.58v1.39h-20.75c.45,4.05,3.51,7.37,8.57,7.37,2.62,0,5.73-1.05,7.62-2.94l2.67,3.83c-2.67,2.55-6.62,3.88-10.9,3.88-8.07,0-14.08-5.6-14.08-14.08,0-7.76,5.67-14.02,13.63-14.02zm0,4.77c-5.01,0-7.29,3.83-7.57,7.1h15.13c-.11-3.16-2.28-7.1-7.57-7.1z" fill="currentColor"></path><path d="m86.64,24.49c0,4.15,2.39,6.84,6.84,6.84,4.4,0,6.84-2.69,6.84-6.84V8.55h5.37v16.33c0,6.7-4.06,11.14-12.21,11.14-8.21,0-12.21-4.5-12.21-11.09V8.55h5.37v15.94zm32.99-16.55c4.49,0,8.06,1.47,10.6,3.86l-2.59,3.81c-2.05-2-5.28-3.08-8.06-3.08-2.88,0-4.84,1.37-4.84,3.32,0,1.91,2.64,2.54,5.81,3.27,4.59,1.08,10.26,2.4,10.26,8.46,0,4.94-3.76,8.41-11.14,8.41-4.98,0-8.94-1.76-11.24-4.11l2.54-4.11c1.86,1.91,5.18,3.67,8.84,3.67,3.91,0,5.57-1.66,5.57-3.62,0-2.3-2.88-2.98-6.21-3.76-4.54-1.08-9.87-2.3-9.87-8.06,0-4.5,4.2-8.06,10.31-8.06zM60.79,20.82,71.44,8.55h6.5L66.46,21.26,78.82,35.44h-6.5l-9.28-11.1-2.25,2.49v8.6h-5.33V8.55h5.33v12.27z" fill="currentColor"></path></svg>
+                    </a>
+                </div>
+                <p class="text-center text-[8px] text-navy mt-4 font-bold tracking-widest">CONFIDENTIALITY: THIS DOCUMENT CONTAINS PROPRIETARY TRADE SECRETS AND PRIVILEGED FINANCIAL INFORMATION INTENDED SOLELY FOR THE PARTIES NAMED HEREOUT.</p>
+            </section>
+
+            <div class="footer-info">
+                <span>SOVR-PSA-2024-001</span>
+                <span>Page 5 of 5</span>
+                <span>Confidential - Proprietary</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.kuse.ai/sdk.prd.js"></script>
+
+</body></html>
