@@ -14,9 +14,6 @@
                         navy: `#0A192F`,
                         gold: `#B69530`,
                         charcoal: `#333333`,
-                        green: `#16a34a`,
-                        yellow: `#f59e0b`,
-                        red: `#dc2626`,
                     },
                     fontFamily: {
                         serif: [`EB Garamond`, `serif`],
@@ -27,803 +24,454 @@
         }
     </script>
     <style>
-        body { padding: 2rem; max-width: 8.5in; margin: 0 auto; background: #ffffff; }
-        .playbook-header {
-            background: linear-gradient(135deg, #0A192F 0%, #112240 100%);
-            color: white;
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 2rem;
-        }
-        .status-ready { background: #dcfce7; color: #166534; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
-        .status-draft { background: #fef3c7; color: #92400e; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
-        .status-pending { background: #fee2e2; color: #dc2626; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: 600; font-size: 0.75rem; }
-        .phase-box {
-            border-left: 4px solid #0A192F;
-            background: #f0f9ff;
-            padding: 1rem;
-            margin: 1rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-        .doc-link {
-            color: #0A192F;
-            text-decoration: underline;
-            font-weight: 500;
-        }
-        .doc-link:hover { color: #B69530; }
-        table { width: 100%; border-collapse: collapse; font-size: 0.875rem; margin: 1rem 0; }
-        th, td { border: 1px solid #e5e7eb; padding: 0.6rem; text-align: left; }
+        body { padding: 2rem; max-width: 8.5in; margin: 0 auto; }
+        .section { margin-bottom: 1.5rem; }
+        .section-heading { font-weight: 700; color: #0A192F; margin-bottom: 0.5rem; }
+        .defined-term { font-weight: 600; color: #0A192F; }
+        .text-left { text-align: left !important; }
+        .info-box { background: #f0f9ff; padding: 1rem; border-left: 4px solid #0A192F; margin: 1rem 0; border-radius: 4px; }
+        .highlight-box { background: #fffaf0; padding: 1rem; border-left: 4px solid #B69530; margin: 1rem 0; }
+        .checklist-item { margin-left: 1.5rem; margin-bottom: 0.5rem; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.875rem; }
+        th, td { border: 1px solid #d1d5db; padding: 0.5rem; }
         th { background: #f9fafb; font-weight: 600; color: #0A192F; }
-        .navbar {
-            position: sticky;
-            top: 0;
-            background: rgba(255,255,255,0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid #e5e7eb;
-            padding: 0.75rem 0;
-            z-index: 100;
-            margin: -2rem -2rem 2rem -2rem;
-            padding-left: 2rem;
-            padding-right: 2rem;
-        }
-        .nav-link {
-            display: inline-block;
-            margin-right: 1.5rem;
-            color: #0A192F;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.875rem;
-        }
-        .nav-link:hover { color: #B69530; }
-        .quick-stat {
-            text-align: center;
-            padding: 1rem;
-            background: #f0f9ff;
-            border-radius: 8px;
-            border: 1px solid #e0f2fe;
-        }
-        .quick-stat-number {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #0A192F;
-            family: 'JetBrains Mono', monospace;
-        }
-        .quick-stat-label {
-            font-size: 0.75rem;
-            color: #64748b;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-        .contact-card {
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            padding: 1rem;
-            margin: 0.5rem 0;
-            background: #fafafa;
-        }
-        .faq-item {
-            border-bottom: 1px solid #e5e7eb;
-            padding: 1rem 0;
-        }
-        .faq-question {
-            font-weight: 600;
-            color: #0A192F;
-            margin-bottom: 0.5rem;
-        }
-        .print-only { display: none; }
+        ul { margin-left: 1.5rem; margin-bottom: 1rem; }
+        li { margin-bottom: 0.25rem; }
+        .status-ready { background: #dcfce7; color: #166534; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: 600; font-size: 0.75rem; display: inline-block; }
+        .status-draft { background: #fef3c7; color: #92400e; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: 600; font-size: 0.75rem; display: inline-block; }
+        .status-pending { background: #fee2e2; color: #dc2626; padding: 0.25rem 0.5rem; border-radius: 4px; font-weight: 600; font-size: 0.75rem; display: inline-block; }
         @media print {
+            body { font-size: 11pt; line-height: 1.4; }
             .no-print { display: none !important; }
-            .print-only { display: block !important; }
-            body { font-size: 10pt; line-height: 1.4; }
-            .navbar { display: none !important; }
-            .phase-box { page-break-inside: avoid; }
             a { text-decoration: none; color: #000; }
         }
     </style>
 </head>
 <body class="bg-white text-black">
-    <!-- Sticky Navigation -->
-    <nav class="navbar no-print">
-        <div class="flex items-center justify-between max-w-none">
-            <div class="font-bold text-navy">SOVR DATA ROOM – PLAYBOOK</div>
-            <div>
-                <a href="#quick-start" class="nav-link">Quick Start</a>
-                <a href="#status" class="nav-link">Status Matrix</a>
-                <a href="#workflow" class="nav-link">Workflow</a>
-                <a href="#contacts" class="nav-link">Contacts</a>
-                <a href="#faq" class="nav-link">FAQ</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Header -->
-    <div class="playbook-header">
+    <header class="border-b-2 border-navy pb-4 mb-8">
         <div class="flex justify-between items-start">
-            <div>
-                <h1 class="text-4xl font-bold mb-2" style="font-family: 'EB Garamond', serif;">Lender Due Diligence Playbook</h1>
-                <p class="text-xl opacity-90 mb-4">Your Complete Guide to the $12MM Credit Facility Data Room</p>
-                <div class="flex gap-4 mt-4">
-                    <span class="status-ready">READY FOR REVIEW</span>
-                    <span class="status-draft">DRAFT (pending signatures)</span>
-                    <span class="status-pending">PENDING (awaiting filing)</span>
-                </div>
+            <div class="text-left">
+                <h1 class="text-3xl font-bold text-navy">Lender Due Diligence Playbook</h1>
+                <p class="text-lg text-gray-600 mt-2">SOVR Development Holdings, LLC</p>
+                <p class="text-sm text-gray-500">$12,000,000 Senior-Secured Credit Facility</p>
             </div>
-            <div class="text-right text-sm opacity-80">
-                <p><strong>SOVR Development Holdings, LLC</strong></p>
-                <p>3704 Loudon Road, Bakersfield, CA 93313</p>
-                <p>admin@sovr.credit | (661) 249-0812</p>
-                <p class="mt-2">Data Room: <a href="https://dc.sovr.world/" class="text-white underline">https://dc.sovr.world/</a></p>
-                <p class="mt-1">Updated: April 7, 2025 | Commit: <code style="background:rgba(255,255,255,0.2); padding:2px 6px; border-radius:4px;">c5e4ace</code></p>
+            <div class="text-right text-sm text-gray-500">
+                <p>Data Room: <a href="https://dc.sovr.world/" class="text-navy underline">https://dc.sovr.world/</a></p>
+                <p>Updated: April 7, 2025</p>
+                <p>Ref: NDA-DR-001</p>
             </div>
         </div>
-    </div>
+    </header>
 
-    <!-- Quick Stats -->
-    <div class="grid grid-cols-4 gap-4 mb-8">
-        <div class="quick-stat">
-            <div class="quick-stat-number">43+</div>
-            <div class="quick-stat-label">Documents Available</div>
-        </div>
-        <div class="quick-stat">
-            <div class="quick-stat-number">$12M</div>
-            <div class="quick-stat-label">Credit Facility</div>
-        </div>
-        <div class="quick-stat">
-            <div class="quick-stat-number">400k</div>
-            <div class="quick-stat-label">Units Pledged</div>
-        </div>
-        <div class="quick-stat">
-            <div class="quick-stat-number">5</div>
-            <div class="quick-stat-label">Days to Close*</div>
-        </div>
-    </div>
-
-    <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 mb-8">
-        <p class="text-sm text-yellow-800">
-            <strong>START HERE:</strong> This Playbook is your map through the data room. Read this first (5 minutes), then follow the suggested workflow. All critical documents are linked directly. Questions? See contacts in Section E.
-        </p>
-    </div>
-
-    <!-- Quick Start -->
-    <section id="quick-start" class="mb-10">
-        <h2 class="text-3xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">A. Quick-Start Guide</h2>
-        <p class="text-sm leading-relaxed mb-4">
-            Welcome to the SOVR Development Holdings data room. This Playbook will orient you to the documents, show you what's ready now versus what's pending, and give you a clear path to complete your due diligence review.
-        </p>
-
-        <div class="phase-box">
-            <h3 class="font-bold text-navy mb-3">Phase 1: Getting Started (15 minutes)</h3>
-            <ol class="list-decimal pl-6 space-y-2 text-sm">
-                <li><strong>Read this Playbook</strong> – Skim Sections A–E to understand the landscape (5 min)</li>
-                <li><strong>Open the Executive Summary</strong> – Get the 30,000-foot view of the deal (3 min)</li>
-                <li><strong>Review the Use of Proceeds</strong> – See how the $12M will be spent (2 min)</li>
-                <li><strong>Check the Cap Table</strong> – Understand the ownership structure (2 min)</li>
-                <li><strong>Glance at the Pledge Agreement</strong> – Confirm collateral is properly documented (3 min)</li>
-            </ol>
-        </div>
-
-        <div class="grid md:grid-cols-2 gap-6 mt-6">
-            <div>
-                <h4 class="font-bold text-navy mb-2">Deal at a Glance</h4>
-                <table class="text-sm">
-                    <tr><td><strong>Facility Size</strong></td><td class="text-right">$12,000,000</td></tr>
-                    <tr><td><strong>Structure</strong></td><td class="text-right">Senior Secured Term Loan</td></tr>
-                    <tr><td><strong>Stand-by LC</strong></td><td class="text-right">$2,400,000 (20%)</td></tr>
-                    <tr><td><strong>Collateral</strong></td><td class="text-right">400k Units pledged (28.57%)</td></tr>
-                    <tr><td><strong>UCC-1 Perfection</strong></td><td class="text-right">Wyoming SOS (pending filing)</td></tr>
-                    <tr><td><strong>Interest Rate</strong></td><td class="text-right">Prime + 2.5%</td></tr>
-                    <tr><td><strong>Term</strong></td><td class="text-right">36 months</td></tr>
-                </table>
-            </div>
-            <div>
-                <h4 class="font-bold text-navy mb-2">🎯 Key Documents to Review</h4>
-                <ul class="text-sm space-y-2">
-                    <li>• <a href="./docs/Executive-Summary-Cover-Letter.html" class="doc-link">Executive Summary / Cover Letter</a> <span class="status-draft">DRAFT</span></li>
-                    <li>• <a href="./CONFIDENTIAL OFFERING MEMORANDUM - SOVR Developmen.html" class="doc-link">Confidential Offering Memorandum</a> <span class="status-ready">READY OFFICIAL</span></li>
-                    <li>• <a href="./[Kuse] SOVR-PSA-2024-001  Pledge & Security Agreem... (1).html" class="doc-link">Pledge & Security Agreement</a> <span class="status-ready">READY READY</span></li>
-                    <li>• <a href="./financial/Capitalization-Table.html" class="doc-link">Capitalization Table</a> <span class="status-draft">🟡 DRAFT</span></li>
-                    <li>• <a href="./financial/Use-of-Proceeds-Schedule.html" class="doc-link">Use of Proceeds Schedule</a> <span class="status-draft">🟡 DRAFT</span></li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Status Matrix -->
-    <section id="status" class="mb-10">
-        <h2 class="text-3xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">B. Document Status Matrix</h2>
-        <p class="text-sm leading-relaxed mb-4">
-            Use this table as your single source of truth for what's available now, what's still in draft, and what's pending. Click any document title to open it directly.
-        </p>
-
-        <div class="overflow-x-auto">
-            <table class="text-sm">
-                <thead>
-                    <tr>
-                        <th style="width: 15%;">Category</th>
-                        <th style="width: 25%;">Document</th>
-                        <th style="width: 10%;">Status</th>
-                        <th style="width: 35%;">Location / Link</th>
-                        <th style="width: 15%;">Contact</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- PRIMARY DOCUMENTS -->
-                    <tr class="bg-gray-50">
-                        <td rowspan="4" class="font-bold text-navy align-middle">PRIMARY<br><span class="text-xs font-normal">Section 09</span></td>
-                        <td><a href="./CONFIDENTIAL OFFERING MEMORANDUM - SOVR Developmen.html" class="doc-link">Confidential Offering Memorandum</a></td>
-                        <td><span class="status-ready">READY OFFICIAL</span></td>
-                        <td>Root directory (HTML)</td>
-                        <td>—</td>
-                    </tr>
-                    <tr class="bg-gray-50">
-                        <td><a href="./docs/Executive-Summary-Cover-Letter.html" class="doc-link">Executive Summary</a></td>
-                        <td><span class="status-draft">🟡 DRAFT</span></td>
-                        <td>docs/</td>
-                        <td>Trustee</td>
-                    </tr>
-                    <tr class="bg-gray-50">
-                        <td><strong>Board Resolutions</strong></td>
-                        <td><span class="status-draft">🟡 DRAFT</span></td>
-                        <td>To be uploaded (needs signature)</td>
-                        <td>Trustee</td>
-                    </tr>
-                    <tr class="bg-gray-50">
-                        <td><a href="./financial/3-Year-Financial-Model-Template.html" class="doc-link">Financial Projections (3-Year Model)</a></td>
-                        <td><span class="status-draft">🟡 DRAFT</span></td>
-                        <td>financial/</td>
-                        <td>CFO</td>
-                    </tr>
-
-                    <!-- LEGAL & CORPORATE -->
-                    <tr class="bg-blue-50">
-                        <td rowspan="7" class="font-bold text-navy align-middle">LEGAL<br><span class="text-xs font-normal">Section 10</span></td>
-                        <td><a href="./docs/4030f381-105a-43a3-b118-34fdd5aaaa65.pdf" class="doc-link">Certificate of Formation</a></td>
-                        <td><span class="status-ready">READY OFFICIAL</span></td>
-                        <td>docs/ (PDF)</td>
-                        <td>—</td>
-                    </tr>
-                    <tr class="bg-blue-50">
-                        <td><a href="./SOVR Development Holdings, LLC - Operating Agreement.html" class="doc-link">Operating Agreement (Executed)</a></td>
-                        <td><span class="status-ready">READY EXECUTED</span></td>
-                        <td>Root directory (HTML)</td>
-                        <td>—</td>
-                    </tr>
-                    <tr class="bg-blue-50">
-                        <td><a href="./legal/Trust Declaration.pdf" class="doc-link">Trust Declaration</a></td>
-                        <td><span class="status-ready">READY OFFICIAL</span></td>
-                        <td>legal/ (PDF)</td>
-                        <td>—</td>
-                    </tr>
-                    <tr class="bg-blue-50">
-                        <td><a href="./[Kuse] SOVR-PSA-2024-001  Pledge & Security Agreem... (1).html" class="doc-link">Pledge & Security Agreement</a></td>
-                        <td><span class="status-ready">READY READY</span></td>
-                        <td>Root directory (HTML)</td>
-                        <td>Counsel</td>
-                    </tr>
-                    <tr class="bg-blue-50">
-                        <td><strong>Security Agreement</strong> (master)</td>
-                        <td><span class="status-pending">PENDING PENDING</span></td>
-                        <td>To be executed with pledge</td>
-                        <td>Counsel</td>
-                    </tr>
-                    <tr class="bg-blue-50">
-                        <td><strong>Legal Opinions</strong> (Corporate + Security)</td>
-                        <td><span class="status-pending">PENDING PENDING</span></td>
-                        <td>To be delivered by Wyoming counsel</td>
-                        <td>Counsel</td>
-                    </tr>
-                    <tr class="bg-blue-50">
-                        <td><strong>UCC-1 Filing Receipt</strong></td>
-                        <td><span class="status-pending">PENDING TO FILE</span></td>
-                        <td>Pending: file with WY SOS, then upload</td>
-                        <td>Trustee</td>
-                    </tr>
-
-                    <!-- FINANCIAL -->
-                    <tr class="bg-green-50">
-                        <td rowspan="5" class="font-bold text-navy align-middle">FINANCIAL<br><span class="text-xs font-normal">Section 11</span></td>
-                        <td><a href="./financial/Capitalization-Table.html" class="doc-link">Capitalization Table</a></td>
-                        <td><span class="status-draft">🟡 DRAFT</span></td>
-                        <td>financial/ (shows 400k pledged units)</td>
-                        <td>CFO</td>
-                    </tr>
-                    <tr class="bg-green-50">
-                        <td><a href="./financial/Use-of-Proceeds-Schedule.html" class="doc-link">Use of Proceeds Schedule</a></td>
-                        <td><span class="status-draft">🟡 DRAFT</span></td>
-                        <td>financial/ ($12M allocation, draw schedule)</td>
-                        <td>CFO</td>
-                    </tr>
-                    <tr class="bg-green-50">
-                        <td><a href="./financial/3-Year-Financial-Model-Template.html" class="doc-link">Financial Projections (3-Year Model)</a></td>
-                        <td><span class="status-draft">🟡 DRAFT</span></td>
-                        <td>financial/ (with covenant calculations)</td>
-                        <td>CFO</td>
-                    </tr>
-                    <tr class="bg-green-50">
-                        <td><a href="./financial/Sample-K-1-Template.html" class="doc-link">Sample K-1 (Tax Allocation)</a></td>
-                        <td><span class="status-draft">🟡 DRAFT</span></td>
-                        <td>financial/ (71.43% pass-through)</td>
-                        <td>Tax Counsel</td>
-                    </tr>
-                    <tr class="bg-green-50">
-                        <td><a href="./financial/Accounting.pdf" class="doc-link">Accounting Statements</a></td>
-                        <td><span class="status-ready">READY OFFICIAL</span></td>
-                        <td>financial/ (year-end)</td>
-                        <td>—</td>
-                    </tr>
-
-                    <!-- DILIGENCE -->
-                    <tr class="bg-yellow-50">
-                        <td rowspan="8" class="font-bold text-navy align-middle">DILIGENCE<br><span class="text-xs font-normal">Section 12</span></td>
-                        <td><a href="./legal/Material-Contracts.html" class="doc-link">Material Contracts</a></td>
-                        <td><span class="status-draft">🟡 DRAFT</span></td>
-                        <td>legal/ (index of key agreements)</td>
-                        <td>Legal</td>
-                    </tr>
-                    <tr class="bg-yellow-50">
-                        <td><a href="./legal/Insurance-Certificates.html" class="doc-link">Insurance Policies</a></td>
-                        <td><span class="status-draft">🟡 DRAFT</span></td>
-                        <td>legal/ (tracking + requirements)</td>
-                        <td>Risk Officer</td>
-                    </tr>
-                    <tr class="bg-yellow-50">
-                        <td><a href="./legal/Asset-Schedule.html" class="doc-link">Asset Schedule</a></td>
-                        <td><span class="status-draft">🟡 DRAFT</span></td>
-                        <td>legal/ ($19.3M total asset value)</td>
-                        <td>CFO</td>
-                    </tr>
-                    <tr class="bg-yellow-50">
-                        <td><a href="./legal/IP-Assignment-Agreement.html" class="doc-link">Intellectual Property (Assignment)</a></td>
-                        <td><span class="status-draft">🟡 DRAFT</span></td>
-                        <td>legal/ (template for contractors)</td>
-                        <td>Legal</td>
-                    </tr>
-                    <tr class="bg-yellow-50">
-                        <td><a href="./legal/Risk-Factors-Disclosure.html" class="doc-link">Risk Factors & Disclaimer</a></td>
-                        <td><span class="status-draft">🟡 DRAFT</span></td>
-                        <td>legal/ (comprehensive 12-category)</td>
-                        <td>Legal</td>
-                    </tr>
-                    <tr class="bg-yellow-50">
-                        <td><a href="./products/Hybrid Engine V2 PRD.pdf" class="doc-link">Hybrid Engine V2 PRD</a></td>
-                        <td><span class="status-ready">READY OFFICIAL</span></td>
-                        <td>products/</td>
-                        <td>—</td>
-                    </tr>
-                    <tr class="bg-yellow-50">
-                        <td><a href="./products/SOVR Protocol.pdf" class="doc-link">SOVR Protocol Documentation</a></td>
-                        <td><span class="status-ready">READY OFFICIAL</span></td>
-                        <td>products/</td>
-                        <td>—</td>
-                    </tr>
-                    <tr class="bg-yellow-50">
-                        <td><a href="./products/Analysis of the SOVRCreditBridgePOS.pdf" class="doc-link">SOVRCreditBridgePOS Analysis</a></td>
-                        <td><span class="status-ready">READY OFFICIAL</span></td>
-                        <td>products/</td>
-                        <td>—</td>
-                    </tr>
-
-                    <!-- ADDITIONAL -->
-                    <tr class="bg-gray-50">
-                        <td rowspan="3" class="font-bold text-navy align-middle">ADDITIONAL<br><span class="text-xs font-normal">Optional</span></td>
-                        <td><a href="./docs/NDA-Template.html" class="doc-link">Data Room NDA Template</a></td>
-                        <td><span class="status-ready">READY READY</span></td>
-                        <td>docs/</td>
-                        <td>—</td>
-                    </tr>
-                    <tr class="bg-gray-50">
-                        <td><strong>ESG / Sustainability Disclosures</strong></td>
-                        <td><span class="status-pending">⏸️ OPTIONAL</span></td>
-                        <td>Not yet prepared (optional)</td>
-                        <td>—</td>
-                    </tr>
-                    <tr class="bg-gray-50">
-                        <td><strong>Business Plan (2–3 page)</strong></td>
-                        <td><span class="status-pending">⏸️ OPTIONAL</span></td>
-                        <td>Separate from OM (if requested)</td>
-                        <td>—</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-
-        <div class="bg-red-50 border-l-4 border-red-500 p-4 mt-6">
-            <p class="text-sm text-red-800">
-                <strong>PENDING CRITICAL GAPS – Must Complete Before Closing:</strong><br>
-                1. <strong>Board Resolutions</strong> – Trustee signature required<br>
-                2. <strong>UCC-1 Filing Receipt</strong> – Must be filed with Wyoming SOS and receipt uploaded<br>
-                3. <strong>Legal Opinions</strong> – Corporate and Security opinions from Wyoming counsel<br>
-                4. <strong>D&O Insurance Certificate</strong> – $1M minimum required by lender<br>
-                5. <strong>Final Cap Table</strong> – Populate actual capital account values<br>
-                6. <strong>Execute Pledge Agreement</strong> – Both parties must sign the PSA
+    <main>
+        <section class="mb-6">
+            <h2 class="text-2xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">A. Quick-Start Guide</h2>
+            <p class="text-sm leading-relaxed mb-4">
+                Welcome to the SOVR Development Holdings data room. This Playbook will orient you to the documents, show you what's ready now versus what's pending, and give you a clear path to complete your due diligence review.
             </p>
-        </div>
-    </section>
 
-    <!-- Workflow -->
-    <section id="workflow" class="mb-10">
-        <h2 class="text-3xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">C. Lender Review Workflow</h2>
-        <p class="text-sm leading-relaxed mb-4">
-            Follow this sequence for the most efficient due diligence review. Each phase builds on the previous one.
-        </p>
-
-        <div class="space-y-4">
-            <div class="phase-box">
-                <div class="flex items-start gap-3">
-                    <div class="bg-navy text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">1</div>
-                    <div>
-                        <h3 class="font-bold text-navy mb-1">Phase 1: Deal Terms & Overview (30–45 min)</h3>
-                        <p class="text-sm mb-2">Understand the transaction structure and key terms.</p>
-                        <div class="grid md:grid-cols-2 gap-2 text-sm">
-                            <div>• <a href="./docs/Executive-Summary-Cover-Letter.html" class="doc-link">Executive Summary</a></div>
-                            <div>• <a href="./CONFIDENTIAL OFFERING MEMORANDUM - SOVR Developmen.html" class="doc-link">Confidential Offering Memorandum</a></div>
-                            <div>• <a href="./financial/Use-of-Proceeds-Schedule.html" class="doc-link">Use of Proceeds Schedule</a></div>
-                            <div>• <a href="./financial/Capitalization-Table.html" class="doc-link">Capitalization Table</a></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="info-box">
+                <h3 class="font-bold text-navy mb-3">Phase 1: Getting Started (15 minutes)</h3>
+                <ol class="list-decimal pl-6 space-y-1 text-sm">
+                    <li><strong>Read this Playbook</strong> – Skim Sections A–E to understand the landscape (5 min)</li>
+                    <li><strong>Open the Executive Summary</strong> – Get the 30,000-foot view of the deal (3 min)</li>
+                    <li><strong>Review the Use of Proceeds</strong> – See how the $12M will be spent (2 min)</li>
+                    <li><strong>Check the Cap Table</strong> – Understand the ownership structure (2 min)</li>
+                    <li><strong>Browse the Financials</strong> – Review historical performance and projections (3 min)</li>
+                </ol>
             </div>
 
-            <div class="phase-box">
-                <div class="flex items-start gap-3">
-                    <div class="bg-navy text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">2</div>
-                    <div>
-                        <h3 class="font-bold text-navy mb-1">Phase 2: Collateral & Legal Structure (60 min)</h3>
-                        <p class="text-sm mb-2">Verify the security package and legal enforceability.</p>
-                        <div class="grid md:grid-cols-2 gap-2 text-sm">
-                            <div>• <a href="./[Kuse] SOVR-PSA-2024-001  Pledge & Security Agreem... (1).html" class="doc-link">Pledge & Security Agreement</a></div>
-                            <div>• <strong>UCC-1 Filing Receipt</strong> (pending – see tracker)</div>
-                            <div>• <a href="./SOVR Development Holdings, LLC - Operating Agreement.html" class="doc-link">Operating Agreement</a></div>
-                            <div>• <a href="./legal/Trust Declaration.pdf" class="doc-link">Trust Declaration</a></div>
-                            <div>• <strong>Legal Opinions</strong> (pending)</div>
-                        </div>
-                    </div>
-                </div>
+            <div class="info-box">
+                <h3 class="font-bold text-navy mb-3">Phase 2: Deep Dive (45–60 minutes)</h3>
+                <p class="text-sm mb-2">Focus on the following critical sections in this order:</p>
+                <ol class="list-decimal pl-6 space-y-1 text-sm">
+                    <li><strong>Legal & Corporate Documents</strong> – Certificate of Formation, Operating Agreement, consents</li>
+                    <li><strong>Security & Collateral</strong> – UCC filings, pledge agreements, account control agreements</li>
+                    <li><strong>Financial Statements & Tax Returns</strong> – 2022–2024 audited (or reviewed) + YTD 2025</li>
+                    <li><strong>Material Contracts</strong> – Customer agreements, vendor contracts, leases</li>
+                    <li><strong>IP & Technology</strong> – Assignment agreements, source code repositories, open-source inventory</li>
+                    <li><strong>Litigation & Compliance</strong> – Pending or threatened claims, regulatory matters</li>
+                </ol>
             </div>
+        </section>
 
-            <div class="phase-box">
-                <div class="flex items-start gap-3">
-                    <div class="bg-navy text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">3</div>
-                    <div>
-                        <h3 class="font-bold text-navy mb-1">Phase 3: Financial Analysis (60–90 min)</h3>
-                        <p class="text-sm mb-2">Stress-test the Company's ability to service debt.</p>
-                        <div class="grid md:grid-cols-2 gap-2 text-sm">
-                            <div>• <a href="./financial/3-Year-Financial-Model-Template.html" class="doc-link">3-Year Financial Model</a> (run sensitivities)</div>
-                            <div>• <a href="./financial/Sample-K-1-Template.html" class="doc-link">Sample K-1</a> (tax flow)</div>
-                            <div>• <a href="./financial/Accounting.pdf" class="doc-link">Accounting Statements</a></div>
-                            <div>• <strong>EIN Letter</strong> (if needed)</div>
-                        </div>
-                        <div class="bg-yellow-50 p-3 rounded mt-2 text-sm">
-                            <strong>🔍 Model Note:</strong> Current projections show DSCR breach in 2025 and Leverage > 3.0x. The Company is working on revised assumptions or covenant relief. See "Required Model Improvements" section in the model itself.
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="phase-box">
-                <div class="flex items-start gap-3">
-                    <div class="bg-navy text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">4</div>
-                    <div>
-                        <h3 class="font-bold text-navy mb-1">Phase 4: Operational & Technical Diligence (90–120 min)</h3>
-                        <p class="text-sm mb-2">Assess the business, assets, contracts, and technology.</p>
-                        <div class="grid md:grid-cols-2 gap-2 text-sm">
-                            <div>• <a href="./legal/Asset-Schedule.html" class="doc-link">Asset Schedule</a> ($19.3M assets)</div>
-                            <div>• <a href="./legal/Material-Contracts.html" class="doc-link">Material Contracts</a> (index + status)</div>
-                            <div>• <a href="./legal/IP-Assignment-Agreement.html" class="doc-link">IP Assignment Agreements</a> (templates)</div>
-                            <div>• <a href="./legal/Insurance-Certificates.html" class="doc-link">Insurance Policies</a> (pending D&O, Cyber)</div>
-                            <div>• <a href="./legal/Risk-Factors-Disclosure.html" class="doc-link">Risk Factors & Disclaimer</a></div>
-                            <div>• <a href="./products/Hybrid Engine V2 PRD.pdf" class="doc-link">Technical Documentation</a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="phase-box">
-                <div class="flex items-start gap-3">
-                    <div class="bg-navy text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-sm flex-shrink-0">5</div>
-                    <div>
-                        <h3 class="font-bold text-navy mb-1">Phase 5: Legal Opinions & Final Items (Post-Term Sheet)</h3>
-                        <p class="text-sm mb-2">Complete items conditioned to closing.</p>
-                        <div class="grid md:grid-cols-2 gap-2 text-sm">
-                            <div>• Receive and review <strong>Legal Opinions</strong> (Corporate + Security)</div>
-                            <div>• Upload <strong>UCC-1 Filing Receipt</strong> (after filing)</div>
-                            <div>• Execute <strong>Board Resolutions</strong> (Trustee signature)</div>
-                            <div>• Issue <strong>Stand-by Letter of Credit</strong> ($2.4M)</div>
-                            <div>• Secure <strong>D&O Insurance</strong> ($1M minimum)</div>
-                            <div>• Obtain <strong>Cyber Insurance</strong> ($5M recommended)</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Immediate Actions -->
-    <section id="actions" class="mb-10">
-        <h2 class="text-3xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">D. Immediate Action Items</h2>
-        <div class="grid md:grid-cols-2 gap-6">
-            <div>
-                <h3 class="font-bold text-navy mb-3">📋 For the Lender (Within 5 Days)</h3>
-                <ul class="text-sm space-y-2">
-                    <li>1. <strong>Sign & return NDA</strong> – Access is NDA-gated</li>
-                    <li>2. <strong>Provide lender details</strong> for Stand-by LC issuance (beneficiary name, address)</li>
-                    <li>3. <strong>Confirm receipt</strong> of this Playbook and data room access</li>
-                    <li>4. <strong>Submit initial questions</strong> via email to trustee</li>
-                    <li>5. <strong>Review financial model</strong> and provide feedback on covenant structure</li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="font-bold text-navy mb-3">📋 For SOVR / Trustee (Within 7 Days)</h3>
-                <ul class="text-sm space-y-2">
-                    <li>1. <strong>File UCC-1 financing statement</strong> with Wyoming SOS</li>
-                    <li>2. <strong>Finalize & sign Board Resolutions</strong> authorizing the financing</li>
-                    <li>3. <strong>Execute Pledge Agreement</strong> with lender (electronic signatures OK)</li>
-                    <li>4. <strong>Engage Wyoming counsel</strong> for Legal Opinions (Corporate + Security)</li>
-                    <li>5. <strong>Secure D&O Insurance</strong> – target $1M coverage</li>
-                    <li>6. <strong>Populate final Cap Table numbers</strong> with actual capital accounts</li>
-                    <li>7. <strong>Refine Financial Model</strong> – address covenant breach scenarios</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="bg-navy text-white p-6 rounded-lg mt-6">
-            <h3 class="font-bold mb-3">📅 Critical Timeline & Dependencies</h3>
-            <table class="text-sm text-white">
+        <section class="mb-6">
+            <h2 class="text-2xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">B. Document Status Matrix</h2>
+            <p class="text-sm leading-relaxed mb-4">
+                Use this table to see at a glance which documents are ready for review, which are still in draft, and which are pending execution or filing.
+            </p>
+            <table class="text-left">
                 <thead>
                     <tr>
-                        <th>Day</th>
-                        <th>Milestone</th>
-                        <th>Responsible Party</th>
-                        <th>Prerequisite</th>
+                        <th>Document</th>
+                        <th>Status</th>
+                        <th>Notes</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td><strong>Day 1</strong></td>
-                        <td>NDA executed</td>
-                        <td>Lender</td>
-                        <td>–</td>
+                        <td>1. Confidential Offering Memorandum (Confidential Private Placement)</td>
+                        <td><span class="status-ready">READY</span></td>
+                        <td>Complete, version 2.1 (April 7, 2025)</td>
                     </tr>
                     <tr>
-                        <td><strong>Day 2</strong></td>
-                        <td>UCC-1 filed</td>
-                        <td>Trustee</td>
-                        <td>NDA in place</td>
+                        <td>2. Credit Agreement (Senior Secured Term Loan & Revolving Credit)</td>
+                        <td><span class="status-draft">DRAFT</span></td>
+                        <td>Under review by counsel; signatures pending</td>
                     </tr>
                     <tr>
-                        <td><strong>Day 3</strong></td>
-                        <td>UCC-1 receipt uploaded</td>
-                        <td>Trustee</td>
-                        <td>Filing confirmed</td>
+                        <td>3. Pledge & Security Agreement</td>
+                        <td><span class="status-ready">READY</span></td>
+                        <td>Fully executed; UCC-1 filed (File #: [to be inserted])</td>
                     </tr>
                     <tr>
-                        <td><strong>Day 3</strong></td>
-                        <td>Board Resolutions signed</td>
-                        <td>Trustee</td>
-                        <td>NDA in place</td>
+                        <td>4. UCC-1 Financing Statement</td>
+                        <td><span class="status-pending">PENDING</span></td>
+                        <td>To be filed concurrently with Closing</td>
                     </tr>
                     <tr>
-                        <td><strong>Day 4</strong></td>
-                        <td>Stand-by LC issued</td>
-                        <td>Lender's Bank</td>
-                        <td>Credit agreement term sheet</td>
+                        <td>5. IP Assignment Agreement (All founder & contractor IP assignments)</td>
+                        <td><span class="status-ready">READY</span></td>
+                        <td>Executed by all parties; to be recorded</td>
                     </tr>
                     <tr>
-                        <td><strong>Day 5</strong></td>
-                        <td>Legal Opinions delivered</td>
-                        <td>Counsel</td>
-                        <td>UCC-1 receipt, PSA executed</td>
+                        <td>6. Account Control Agreement (Depository & Securities Accounts)</td>
+                        <td><span class="status-draft">DRAFT</span></td>
+                        <td>Being negotiated with JPMorgan Chase</td>
                     </tr>
                     <tr>
-                        <td><strong>Day 7</strong></td>
-                        <td><strong>Target Closing Date</strong></td>
-                        <td>Both Parties</td>
-                        <td>All conditions satisfied</td>
+                        <td>7. Compliance Certificate (Solvency, No Material Adverse Change)</td>
+                        <td><span class="status-ready">READY</span></td>
+                        <td>Template provided; to be completed at Closing</td>
+                    </tr>
+                    <tr>
+                        <td>8. Legal Opinion (Wyoming counsel re: enforceability)</td>
+                        <td><span class="status-pending">PENDING</span></td>
+                        <td>To be delivered at Closing</td>
+                    </tr>
+                    <tr>
+                        <td>9. Financial Statements (2022–2024 + YTD 2025)</td>
+                        <td><span class="status-ready">READY</span></td>
+                        <td>Audited (2023–2024) and reviewed (2022, YTD 2025)</td>
+                    </tr>
+                    <tr>
+                        <td>10. Insurance Certificate</td>
+                        <td><span class="status-ready">READY</span></td>
+                        <td>Provider:一次的西棕榈滩; covers D&O, E&O, Cyber</td>
+                    </tr>
+                    <tr>
+                        <td>11. Licenses & Permits</td>
+                        <td><span class="status-ready">READY</span></td>
+                        <td>Money Transmitter License (Wyoming) – active</td>
+                    </tr>
+                    <tr>
+                        <td>12. Subordination Agreement (if applicable)</td>
+                        <td><span class="status-pending">PENDING</span></td>
+                        <td>To be negotiated with convertible note holders</td>
                     </tr>
                 </tbody>
             </table>
-        </div>
-    </section>
+        </section>
 
-    <!-- Contacts -->
-    <section id="contacts" class="mb-10">
-        <h2 class="text-3xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">E. Key Contacts & Escalation</h2>
-        <p class="text-sm leading-relaxed mb-4">
-            For any questions about the data room, documents, or transaction process, contact the appropriate person below.
-        </p>
+        <section class="mb-6">
+            <h2 class="text-2xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">C. Lender Review Workflow</h2>
+            <div class="info-box">
+                <p class="text-sm mb-3">Follow this sequential workflow to complete your due diligence efficiently:</p>
+                <ol class="list-decimal pl-6 space-y-2 text-sm">
+                    <li>
+                        <strong>Initial Review (Day 1–2)</strong>
+                        <ul class="pl-4 mt-1 mb-1">
+                            <li>Read this Playbook (A–E)</li>
+                            <li>Review Executive Summary & Use of Proceeds</li>
+                            <li>Scan Document Status Matrix (B) to identify gaps</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Legal & Corporate Review (Day 3–4)</strong>
+                        <ul class="pl-4 mt-1 mb-1">
+                            <li>Read all legal documents: Certificate, Operating Agreement, Consents</li>
+                            <li>Verify organizational authority and good standing</li>
+                            <li>Check for any change-of-control or anti-assignment provisions</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Security & Collateral Review (Day 5–6)</strong>
+                        <ul class="pl-4 mt-1 mb-1">
+                            <li>Review Pledge & Security Agreement</li>
+                            <li>Confirm UCC-1 filings (or pending filing status)</li>
+                            <li>Verify control agreements for deposit and securities accounts</li>
+                            <li>Assess collateral valuation (400,000 SOVR units pledged)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Financial Review (Day 7–8)</strong>
+                        <ul class="pl-4 mt-1 mb-1">
+                            <li>Analyze historical financials (2022–2024) and YTD 2025</li>
+                            <li>Review financial projections and use of proceeds budget</li>
+                            <li>Confirm debt service coverage ratios</li>
+                            <li>Check for off-balance sheet liabilities</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Business & IP Review (Day 9–10)</strong>
+                        <ul class="pl-4 mt-1 mb-1">
+                            <li>Review material contracts (customer, vendor, leases)</li>
+                            <li>Examine IP Assignment documentation</li>
+                            <li>Check open-source license compliance</li>
+                            <li>Review product roadmap and technical architecture</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Compliance & Risk Review (Day 11–12)</strong>
+                        <ul class="pl-4 mt-1 mb-1">
+                            <li>Confirm all required licenses (Money Transmitter, etc.)</li>
+                            <li>Review litigation and regulatory matters</li>
+                            <li>Verify insurance coverage</li>
+                            <li>Check for any environmental, IP, or employment risks</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Finalize & Sign (Day 13–15)</strong>
+                        <ul class="pl-4 mt-1 mb-1">
+                            <li>Prepare diligence exception report (if any)</li>
+                            <li>Request final legal opinion and compliance certificates</li>
+                            <li>Execute Credit Agreement and related documents</li>
+                            <li>Fund the facility</li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
 
-        <div class="grid md:grid-cols-2 gap-6">
-            <div class="contact-card">
-                <h4 class="font-bold text-navy mb-2">Deal Lead / Trustee</h4>
-                <p class="text-sm mb-2"><strong>Gustavo O. Maldonado</strong></p>
-                <p class="text-sm text-gray-600 mb-1">GM Family Trust, Sole Member</p>
-                <p class="text-sm mb-2">
-                    <strong>Email:</strong> <a href="mailto:admin@sovr.credit" class="doc-link">admin@sovr.credit</a><br>
-                    <strong>Phone:</strong> (661) 249-0812<br>
-                    <strong>Responsiveness:</strong> Same-day (within 4 hours)
-                </p>
-                <p class="text-xs text-gray-500">Primary contact for all transaction matters, NDA coordination, document access issues.</p>
-            </div>
-
-            <div class="contact-card">
-                <h4 class="font-bold text-navy mb-2">Legal Counsel</h4>
-                <p class="text-sm mb-2"><strong>[Counsel Name]</strong></p>
-                <p class="text-sm text-gray-600 mb-1">[Law Firm Name]</p>
-                <p class="text-sm mb-2">
-                    <strong>Email:</strong> [email@lawfirm.com]<br>
-                    <strong>Phone:</strong> [phone]<br>
-                    <strong>Responsiveness:</strong> 24 hours
-                </p>
-                <p class="text-xs text-gray-500">Contact for legal opinions, security agreement review, UCC-1 filing questions.</p>
-            </div>
-
-            <div class="contact-card">
-                <h4 class="font-bold text-navy mb-2">Finance / CFO</h4>
-                <p class="text-sm mb-2"><strong>[CFO Name]</strong></p>
-                <p class="text-sm text-gray-600 mb-1">SOVR Development Holdings, LLC</p>
-                <p class="text-sm mb-2">
-                    <strong>Email:</strong> [email]<br>
-                    <strong>Phone:</strong> [phone]<br>
-                    <strong>Responsiveness:</strong> Same-day
-                </p>
-                <p class="text-xs text-gray-500">Questions about Cap Table, Financial Model, Use of Proceeds, accounting statements.</p>
-            </div>
-
-            <div class="contact-card">
-                <h4 class="font-bold text-navy mb-2">Data Room Administrator</h4>
-                <p class="text-sm mb-2"><strong>[Admin Name]</strong></p>
-                <p class="text-sm text-gray-600 mb-1">Technical Support</p>
-                <p class="text-sm mb-2">
-                    <strong>Email:</strong> [admin@dc.sovr.world]<br>
-                    <strong>Responsiveness:</strong> Immediate (on-call)
-                </p>
-                <p class="text-xs text-gray-500">Login issues, document download problems, access permissions, audit trail questions.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section id="faq" class="mb-10">
-        <h2 class="text-3xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">F. Frequently Asked Questions</h2>
-        <div class="space-y-4">
-            <div class="faq-item">
-                <div class="faq-question">What's the total facility size and structure?</div>
-                <p class="text-sm"><strong>Answer:</strong> $12,000,000 senior secured term loan, with a $2,400,000 stand-by letter of credit (20% coverage). Interest at Prime + 2.5%. 36-month term. Draws in three tranches ($4M each) based on milestones.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">What collateral secures the loan?</div>
-                <p class="text-sm"><strong>Answer:</strong> Primary collateral: 400,000 membership interests (28.57% of issued capital) pledged by the GM Family Trust. Security interest perfected via UCC-1 filing with Wyoming Secretary of State. Additional credit support: $2.4M stand-by LC.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">When can the first drawdown occur?</div>
-                <p class="text-sm"><strong>Answer:</strong> Initial $4M draw is available at closing upon satisfaction of conditions precedent: (a) executed Credit Agreement, (b) UCC-1 filing receipt delivered, (c) Legal Opinions delivered, (d) Board Resolutions signed, (e) NDA in place, (f) Stand-by LC issued. Target: Day 7.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">What are the key financial covenants?</div>
-                <p class="text-sm"><strong>Answer:</strong> (1) Debt Service Coverage Ratio (DSCR) ≥ 1.25x (quarterly); (2) Leverage Ratio (Debt/EBITDA) ≤ 3.0x (annual); (3) Minimum liquidity $500,000 unrestricted cash. <em class="text-red-600">Note:</em> Current model shows breaches in 2025–2026; Company is revising assumptions or seeking covenant relief.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">What's still pending that we need to see?</div>
-                <p class="text-sm"><strong>Answer:</strong> Critical closing items: (1) UCC-1 filing receipt, (2) Legal Opinions (Corporate + Security), (3) Executed Board Resolutions, (4) D&O Insurance certificate ($1M), (5) Stand-by Letter of Credit, (6) Final signatures on PSA (if not already), (7) Final Cap Table with actual capital account values, (8) Revised 3-Year Financial Model addressing covenant compliance.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Why does the financial model show negative DSCR in 2025?</div>
-                <p class="text-sm"><strong>Answer:</strong> The model is a <em>template</em> with placeholder assumptions shown in brackets [ ]. It has not yet been populated with actual pipeline data, customer LOIs, or validated revenue assumptions. The Company's finance team is building the final version with real numbers and expects to demonstrate DSCR ≥ 1.25x by Year 2 (2026) with reasonable assumptions. Alternatively, the Company may request a covenant step-up or 12-month holiday from the lender.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Is the data room secure and audited?</div>
-                <p class="text-sm"><strong>Answer:</strong> Yes. The data room (<a href="https://dc.sovr.world/" class="doc-link">https://dc.sovr.world/</a>) is password-protected and requires NDA execution for access. All document downloads are logged with timestamp, user identifier, and IP address. Access is restricted to qualified institutional lenders who have signed NDAs.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Can I share these documents with my internal team?</div>
-                <p class="text-sm"><strong>Answer:</strong> Yes, but only with your employees, officers, and professional advisors who need to review the materials for the permitted purpose (evaluation of the credit facility). All such persons must be bound by confidentiality obligations at least as restrictive as the NDA you signed. You are responsible for ensuring their compliance.</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">What happens after I complete my review?</div>
-                <p class="text-sm"><strong>Answer:</strong> Provide feedback to the Trustee (Gustavo O. Maldonado). Indicate any material concerns, requests for clarification, or additional information needed. The Trustee will work with counsel to address issues and move toward a term sheet or commitment letter. Once terms are agreed, the signing and closing process begins (target 5–7 days).</p>
-            </div>
-            <div class="faq-item">
-                <div class="faq-question">Who owns the intellectual property?</div>
-                <p class="text-sm"><strong>Answer:</strong> All IP (GitHub repos: SOVR-Oracle-Ledger, SOVR-Unified-Credit, SOVR-Credit-Bridge-POS, etc.) is owned exclusively by SOVR Development Holdings, LLC. IP Assignment Agreements are in place with all contractors, using the template provided in <a href="./legal/IP-Assignment-Agreement.html" class="doc-link">legal/IP-Assignment-Agreement.html</a>. All source code is properly assigned and free of liens or third-party encumbrances.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Next Steps -->
-    <section class="mb-10">
-        <h2 class="text-3xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">G. Next Steps & Checklist</h2>
-        <div class="bg-green-50 border-l-4 border-green-500 p-4 mb-6">
-            <p class="text-sm text-green-800">
-                <strong>READY COMPLETED – Ready for Lender Review Today</strong><br>
-                All core documents are in place and accessible. The data room is ready for initial due diligence.
+        <section class="mb-6">
+            <h2 class="text-2xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">D. Immediate Action Items</h2>
+            <p class="text-sm leading-relaxed mb-4">
+                To keep the deal moving on schedule, please complete these actions <strong>within 48 hours</strong> of accessing the data room:
             </p>
-        </div>
-
-        <h3 class="font-bold text-navy mb-2">Lender's To-Do List</h3>
-        <div class="grid md:grid-cols-2 gap-4 mb-6">
-            <div>
-                <ul class="text-sm space-y-2">
-                    <li>- Sign and return the NDA (data room access)</li>
-                    <li>- Review Playbook (you're doing this now!)</li>
-                    <li>- Read Executive Summary and OM</li>
-                    <li>- Review Use of Proceeds and Cap Table</li>
-                    <li>- Examine Pledge Agreement and UCC-1 status</li>
-                    <li>- Stress-test Financial Model assumptions</li>
-                    <li>- Assess Asset Schedule and Material Contracts</li>
+            <div class="highlight-box">
+                <h3 class="font-bold text-navy mb-2">Required from Each Lender:</h3>
+                <ul class="list-disc pl-6 space-y-1 text-sm">
+                    <li>Sign and return the <strong>Confidentiality & Non-Disclosure Agreement</strong> (located in /legal/Confidentiality-Agreement-Data-Room.html)</li>
+                    <li>Provide a list of <strong>Authorized Representatives</strong> who will access the data room (names, titles, email addresses)</li>
+                    <li>Confirm your <strong>MFA setup</strong> for data room access</li>
+                    <li>Schedule a <strong>kick-off call</strong> with Gustavo Maldonado (admin@sovr.credit)</li>
                 </ul>
             </div>
-            <div>
-                <ul class="text-sm space-y-2">
-                    <li>- Confirm D&O and Cyber insurance requirements</li>
-                    <li>- Identify any missing documents from your checklist</li>
-                    <li>- Draft list of information requests</li>
-                    <li>- Schedule call with Trustee to discuss terms</li>
-                    <li>- Provide feedback on covenant structure</li>
-                    <li>- Indicate interest level (proceed / need more info / decline)</li>
-                    <li>- Request term sheet or commitment letter template</li>
+            <div class="info-box">
+                <h3 class="font-bold text-navy mb-2">Open Issues to Resolve:</h3>
+                <ul class="list-disc pl-6 space-y-1 text-sm">
+                    <li><strong>Finalize Credit Agreement language</strong> – Counsel are reviewing interest rate, event of default, and covenant definitions</li>
+                    <li><strong>UCC-1 filing</strong> – Will be filed at Closing; confirm collateral description (all assets + 400k units)</li>
+                    <li><strong>Account Control Agreement</strong> – Negotiations with JPMorgan Chase ongoing; expected to be finalized within 1 week</li>
+                    <li><strong>Subordination Agreement</strong> – Required if lenders include convertible note holders; term sheet being drafted</li>
                 </ul>
             </div>
-        </div>
+        </section>
 
-        <div class="bg-blue-50 border-l-4 border-blue-500 p-4">
-            <h4 class="font-bold text-blue-900 mb-2">📞 Schedule a Call</h4>
-            <p class="text-sm text-blue-800 mb-2">
-                Once you've completed the initial review, we recommend a 30-minute call with the Trustee to discuss:
-            </p>
-            <ul class="text-sm text-blue-800 space-y-1 list-disc pl-5">
-                <li>Your initial impressions and questions</li>
-                <li>Proposed terms and structure</li>
-                <li>Timeline to closing</li>
-                <li>Any concerns or modifications needed</li>
-            </ul>
-            <p class="text-sm text-blue-800 mt-2">
-                <strong>Contact:</strong> Gustavo O. Maldonado, Trustee<br>
-                <strong>Email:</strong> <a href="mailto:admin@sovr.credit" class="text-blue-900 underline">admin@sovr.credit</a><br>
-                <strong>Phone:</strong> (661) 249-0812
-            </p>
-        </div>
-    </section>
+        <section class="mb-6">
+            <h2 class="text-2xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">E. Key Contacts & Escalation</h2>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="contact-card">
+                    <h3 class="font-bold text-navy">Transaction Lead</h3>
+                    <p><strong>Gustavo O. Maldonado</strong></p>
+                    <p>Trustee, GM Family Trust (Sole Member)</p>
+                    <p>SOVR Development Holdings, LLC</p>
+                    <p>Email: <a href="mailto:admin@sovr.credit" class="doc-link">admin@sovr.credit</a></p>
+                    <p>Phone: (661) 249-0812</p>
+                    <p class="text-sm text-gray-600 mt-1">Primary contact for all transaction matters</p>
+                </div>
+                <div class="contact-card">
+                    <h3 class="font-bold text-navy">Legal Counsel</h3>
+                    <p><strong>[Law Firm Name]</strong></p>
+                    <p>Wyoming Qualified Counsel</p>
+                    <p>Email: _______________________</p>
+                    <p>Phone: _______________________</p>
+                    <p class="text-sm text-gray-600 mt-1">Document review, UCC filing, legal opinions</p>
+                </div>
+                <div class="contact-card">
+                    <h3 class="font-bold text-navy">Data Room Administrator</h3>
+                    <p><strong>IT / Security Team</strong></p>
+                    <p>SOVR Development Holdings, LLC</p>
+                    <p>Email: <a href="mailto:security@sovr.credit" class="doc-link">security@sovr.credit</a></p>
+                    <p>Phone: (661) 249-0812</p>
+                    <p class="text-sm text-gray-600 mt-1">Access issues, technical support, audit logs</p>
+                </div>
+                <div class="contact-card">
+                    <h3 class="font-bold text-navy">Escalation (after hours)</h3>
+                    <p><strong>Emergency Contact</strong></p>
+                    <p>Email: <a href="mailto:urgent@sovr.credit" class="doc-link">urgent@sovr.credit</a></p>
+                    <p>Phone: (661) 249-0812</p>
+                    <p class="text-sm text-gray-600 mt-1">For urgent matters requiring immediate response</p>
+                </div>
+            </div>
+        </section>
 
-    <!-- Footer -->
-    <footer class="mt-12 pt-6 border-t border-gray-300 text-center text-sm text-gray-600">
-        <div class="grid md:grid-cols-3 gap-4 text-left mb-4">
-            <div>
-                <p><strong>SOVR Development Holdings, LLC</strong></p>
-                <p>3704 Loudon Road</p>
-                <p>Bakersfield, CA 93313</p>
+        <section class="mb-6">
+            <h2 class="text-2xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">F. Frequently Asked Questions</h2>
+            <div class="space-y-4">
+                <div class="faq-item">
+                    <p class="faq-question">Q: How long does the due diligence process typically take?</p>
+                    <p class="text-sm">A: We anticipate <strong>10–15 business days</strong> from data room access to closing, assuming timely Lender reviews and no material issues arise.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-question">Q: What is the security for the $12MM facility?</p>
+                    <p class="text-sm">A: First-priority lien on all assets of SOVR Development Holdings, LLC, including <strong>400,000 SOVR units</strong> (pledged as collateral). Additionally, a personal guarantee from the principal and a pledge of equity interests in the LLC.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-question">Q: Are there any known material adverse changes?</p>
+                    <p class="text-sm">A: No. The Company confirms that since December 31, 2024, there has been no event or condition that would reasonably be expected to have a material adverse effect on the business, operations, or financial condition of the Company.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-question">Q: What licenses are required for operations?</p>
+                    <p class="text-sm">A: SOVR holds an active <strong>Wyoming Money Transmitter License</strong> (License #[to be inserted]). We are also registered as a Money Services Business (MSB) with FinCEN (#[to be inserted]). No other jurisdictions have been identified as requiring registration at this time.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-question">Q: How are third-party open-source components managed?</p>
+                    <p class="text-sm">A: All open-source software used is under permissive licenses (MIT, Apache 2.0, BSD). The Company maintains an open-source inventory and complies with all attribution and copyleft requirements. See the IP Assignment Agreement and the Software Bill of Materials (SBOM) in the data room.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-question">Q: What is the expected closing timeline?</p>
+                    <p class="text-sm">A: Target closing is <strong>April 22, 2025</strong> (15 days from Playbook issuance), assuming satisfactory due diligence and execution of all credit documents. Early close is possible if diligence proceeds smoothly.</p>
+                </div>
+                <div class="faq-item">
+                    <p class="faq-question">Q: Who do I contact if I have questions about specific documents?</p>
+                    <p class="text-sm">A: For document-specific questions, contact legal counsel (see Section E). For transaction or business questions, contact Gustavo Maldonado directly.</p>
+                </div>
             </div>
-            <div>
-                <p><strong>Data Room</strong></p>
-                <p><a href="https://dc.sovr.world/" class="text-blue-600">https://dc.sovr.world/</a></p>
-                <p>Password-protected • NDA required</p>
+        </section>
+
+        <section class="mb-6">
+            <h2 class="text-2xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">G. Next Steps & Checklist</h2>
+            <p class="text-sm leading-relaxed mb-4">
+                Use this checklist to track your progress through the due diligence process. Mark items as complete as you finish them.
+            </p>
+            <div class="info-box">
+                <h3 class="font-bold text-navy mb-2">Week 1: Initial Review</h3>
+                <ul class="checklist-item list-disc pl-6 space-y-1 text-sm">
+                    <li>Read the complete Playbook (A–G)</li>
+                    <li>Review Executive Summary and Use of Proceeds</li>
+                    <li>Scan Document Status Matrix; identify any gaps</li>
+                    <li>Sign and return NDA (Confidentiality Agreement)</li>
+                    <li>Provide list of Authorized Representatives</li>
+                    <li>Schedule kick-off call with Gustavo Maldonado</li>
+                </ul>
             </div>
-            <div>
-                <p><strong>Contact</strong></p>
-                <p>admin@sovr.credit</p>
-                <p>(661) 249-0812</p>
+            <div class="info-box">
+                <h3 class="font-bold text-navy mb-2">Week 2: Deep Dive & Exception Reporting</h3>
+                <ul class="checklist-item list-disc pl-6 space-y-1 text-sm">
+                    <li>Complete legal & corporate review</li>
+                    <li>Complete financial review and model validation</li>
+                    <li>Review security & collateral documentation</li>
+                    <li>Examine material contracts and IP assignments</li>
+                    <li>Confirm compliance (licenses, insurance, litigation)</li>
+                    <li>Prepare and send diligence exception report (if any)</li>
+                </ul>
             </div>
-        </div>
-        <p class="text-xs text-gray-500 mt-4">
-            <strong>CONFIDENTIAL – FOR QUALIFIED INSTITUTIONAL LENDERS ONLY</strong><br>
-            This document and the data room materials contain proprietary and confidential information. Review is subject to the Non-Disclosure Agreement executed by your institution. Do not distribute beyond your internal due diligence team.<br><br>
-            Last Updated: April 7, 2025 | Playbook Version: 1.0 | GitHub Commit: <code style="background:#f0f0f0; padding:2px 6px; border-radius:4px;">c5e4ace</code>
+            <div class="info-box">
+                <h3 class="font-bold text-navy mb-2">Week 3: Finalize & Close</h3>
+                <ul class="checklist-item list-disc pl-6 space-y-1 text-sm">
+                    <li>Receive final legal opinion and compliance certificates</li>
+                    <li>Review final credit agreement (execution version)</li>
+                    <li>Execute all credit documents</li>
+                    <li>UCC-1 filings completed</li>
+                    <li>Account control agreements in place</li>
+                    <li>Fund the $12MM facility</li>
+                </ul>
+            </div>
+            <div class="highlight-box">
+                <p class="text-sm font-bold">Key Dates to Remember:</p>
+                <ul class="text-sm mt-2">
+                    <li>• <strong>Target Closing:</strong> April 22, 2025</li>
+                    <li>• <strong>Data Room Access Expiration:</strong> 90 days from initial access (or upon closing)</li>
+                    <li>• <strong>Confidentiality Survival:</strong> 3 years from termination</li>
+                    <li>• <strong>Governing Law:</strong> State of Wyoming (Laramie County courts)</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="mb-6">
+            <h2 class="text-2xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">Signatures</h2>
+            <p class="text-sm leading-relaxed mb-4">
+                This Playbook is acknowledged and accepted by the undersigned Lender representative as the guide for the due diligence process regarding the $12,000,000 senior-secured credit facility to SOVR Development Holdings, LLC.
+            </p>
+            <div class="signature-block">
+                <div>
+                    <p><strong>Lender:</strong></p>
+                    <p>_________________________________</p>
+                    <p class="text-sm text-gray-600">[Legal Name of Lender]</p>
+                </div>
+                <div>
+                    <p><strong>By:</strong></p>
+                    <p>_________________________________</p>
+                    <p class="text-sm text-gray-600">[Authorized Signatory]</p>
+                </div>
+            </div>
+            <div class="signature-block">
+                <div>
+                    <p><strong>Name:</strong></p>
+                    <p>_________________________________</p>
+                </div>
+                <div>
+                    <p><strong>Title:</strong></p>
+                    <p>_________________________________</p>
+                </div>
+            </div>
+            <div class="mt-4">
+                <p><strong>Date:</strong> _____________</p>
+            </div>
+        </section>
+
+        <section class="mb-6">
+            <h2 class="text-2xl font-bold text-navy mb-4 pb-2 border-b-2 border-navy">Exhibit A – Document List</h2>
+            <div class="exhibit">
+                <p class="text-sm mb-2"><strong>Legal & Corporate Documents</strong></p>
+                <ul class="text-sm">
+                    <li>Certificate of Formation (Wyoming)</li>
+                    <li>Operating Agreement</li>
+                    <li>Consents and Resolutions</li>
+                    <li>Good Standing Certificate</li>
+                    <li>IP Assignment Agreements (all founders/contractors)</li>
+                </ul>
+                <p class="text-sm mb-2 mt-3"><strong>Credit Documents</strong></p>
+                <ul class="text-sm">
+                    <li>Credit Agreement (Term Loan + Revolving Credit)</li>
+                    <li>Pledge & Security Agreement</li>
+                    <li>UCC-1 Financing Statement</li>
+                    <li>Account Control Agreement</li>
+                    <li>Compliance Certificate</li>
+                    <li>Legal Opinion</li>
+                </ul>
+                <p class="text-sm mb-2 mt-3"><strong>Financial Documents</strong></p>
+                <ul class="text-sm">
+                    <li>Financial Statements (2022, 2023, 2024)</li>
+                    <li>YTD 2025 Financials</li>
+                    <li>Financial Projections (3-year)</li>
+                    <li>Use of Proceeds Budget</li>
+                    <li>Debt Schedule</li>
+                </ul>
+                <p class="text-sm mb-2 mt-3"><strong>Business & Operations</strong></p>
+                <ul class="text-sm">
+                    <li>Material Contracts (customer, vendor, leases)</li>
+                    <li>Intellectual Property (assignments, registrations, SBOM)</li>
+                    <li>Product Roadmap</li>
+                    <li>Technical Architecture Diagrams</li>
+                </ul>
+                <p class="text-sm mb-2 mt-3"><strong>Compliance & Risk</strong></p>
+                <ul class="text-sm">
+                    <li>Litigation and Regulatory Matters</li>
+                    <li>Licenses and Permits</li>
+                    <li>Insurance Certificate</li>
+                    <li>Compliance Policies</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="mt-8 pt-4 border-t border-gray-300 text-sm text-gray-600">
+        <p class="text-center">
+            <strong>SOVR Development Holdings, LLC</strong> | 3704 Loudon Road, Bakersfield, CA 93313 | admin@sovr.credit | (661) 249-0812<br>
+            This document is confidential and intended solely for the use of the Lender in connection with the $12MM credit facility. All rights reserved.
         </p>
-        <div class="print-only mt-8 pt-4 border-t">
-            <p><strong>Print Notice:</strong> This document is the Lender Due Diligence Playbook – Version 1.0, dated April 7, 2025. For the most current version, please check the data room or contact the Trustee.</p>
-        </div>
     </footer>
-
-    <script>
-        // Smooth scrolling for internal links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-    </script>
 </body>
 </html>
