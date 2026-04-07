@@ -26,7 +26,7 @@
     <style>
         body { padding: 2rem; max-width: 8.5in; margin: 0 auto; }
         table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.875rem; }
-        th, td { padding: 0.6rem; text-align: left; border-bottom: 1px solid #e5e5e5; border: 1px solid #d1d5db; }
+        th, td { border: 1px solid #d1d5db; padding: 0.5rem; }
         th { background: #f9fafb; font-weight: 600; color: #0A192F; text-align: center; }
         .text-center { text-align: center !important; }
         .text-right { text-align: right !important; }
@@ -34,6 +34,10 @@
         .section-header td { font-size: 1rem; padding: 0.75rem; }
         .sub-total { background: #fef3c7; font-weight: 600; }
         .grand-total { background: #bfdbfe; font-weight: 700; font-size: 1rem; }
+        @media print {
+            body { font-size: 10pt; line-height: 1.4; }
+            .page-break { page-break-before: always; }
+        }
     </style>
 </head>
 <body class="bg-white text-black">
@@ -53,8 +57,8 @@
 
     <main>
         <section class="mb-6">
-            <div class="bg-yellow-50 border-l-4 border-navy p-4 mb-6">
-                <p class="text-sm text-yellow-800">
+            <div class="bg-blue-50 border-l-4 border-navy p-4 mb-6">
+                <p class="text-sm text-blue-800">
                     <strong>Purpose:</strong> This asset schedule enumerates all tangible and intangible assets owned by SOVR Development Holdings, LLC that support its business operations or constitute collateral value. Values are presented at cost or fair market value where available.
                 </p>
             </div>
